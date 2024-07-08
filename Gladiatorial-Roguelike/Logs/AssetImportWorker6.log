@@ -1,0 +1,2297 @@
+Unity Editor version:    2021.3.35f1 (157b46ce122a)
+Branch:                  2021.3/staging
+Build type:              Release
+Batch mode:              YES
+macOS version:           Version 13.1 (Build 22C65)
+Darwin version:          22.2.0
+Architecture:            x86_64
+Running under Rosetta:   YES
+Available memory:        8192 MB
+Using pre-set license
+Pro License: YES
+
+COMMAND LINE ARGUMENTS:
+/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/MacOS/Unity
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker6
+-projectPath
+/Users/crazist/Documents/GitHub/Gladiatorial-Roguelike-Game/Gladiatorial-Roguelike
+-logFile
+Logs/AssetImportWorker6.log
+-srvPort
+57761
+Successfully changed project path to: /Users/crazist/Documents/GitHub/Gladiatorial-Roguelike-Game/Gladiatorial-Roguelike
+/Users/crazist/Documents/GitHub/Gladiatorial-Roguelike-Game/Gladiatorial-Roguelike
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [8712798912] Host "[IP] 192.0.0.2 [Port] 0 [Flags] 2 [Guid] 166547512 [EditorId] 166547512 [Version] 1048832 [Id] OSXEditor(0,MacBook-Air-Vlad.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [8712798912] Host "[IP] 192.0.0.2 [Port] 0 [Flags] 2 [Guid] 166547512 [EditorId] 166547512 [Version] 1048832 [Id] OSXEditor(0,MacBook-Air-Vlad.local) [Debug] 1 [PackageName] OSXEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with {0} workers.
+Refreshing native plugins compatible for Editor in 195.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.3.35f1 (157b46ce122a)
+[Subsystems] Discovering subsystems at path /Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path /Users/crazist/Documents/GitHub/Gladiatorial-Roguelike-Game/Gladiatorial-Roguelike/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+ preferred device: Apple M1 (high power)
+Metal devices available: 1
+0: Apple M1 (high power)
+Using device Apple M1 (high power)
+Initializing Metal device caps: Apple M1
+Initialize mono
+Mono path[0] = '/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/Managed'
+Mono path[1] = '/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/MonoBleedingEdge/lib/mono/unityjit-macos'
+Mono config path = '/Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56444
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.35f1/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: /Applications/Unity/Hub/Editor/2021.3.35f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003361 seconds.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 602 ms
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 196.34 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4.194 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4196ms)
+		BeginReloadAssembly (338ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (4ms)
+		EndReloadAssembly (3584ms)
+			LoadAssemblies (336ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (163ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (62ms)
+			SetupLoadedEditorAssemblies (3114ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (1656ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (196ms)
+				BeforeProcessingInitializeOnLoad (11ms)
+				ProcessInitializeOnLoadAttributes (886ms)
+				ProcessInitializeOnLoadMethodAttributes (361ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.014096 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 156.56 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  5.279 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5284ms)
+		BeginReloadAssembly (409ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (48ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (86ms)
+		EndReloadAssembly (4525ms)
+			LoadAssemblies (252ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (443ms)
+			ReleaseScriptCaches (7ms)
+			RebuildScriptCaches (105ms)
+			SetupLoadedEditorAssemblies (3311ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (92ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (157ms)
+				BeforeProcessingInitializeOnLoad (218ms)
+				ProcessInitializeOnLoadAttributes (1688ms)
+				ProcessInitializeOnLoadMethodAttributes (1152ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (31ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launching external process: /Applications/Unity/Hub/Editor/2021.3.35f1/Unity.app/Contents/Tools/UnityShaderCompiler
+Launched and connected shader compiler UnityShaderCompiler after 0.12 seconds
+Refreshing native plugins compatible for Editor in 1.26 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5867 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 47 unused Assets / (0.9 MB). Loaded Objects now: 6319.
+Memory consumption went from 222.5 MB to 221.6 MB.
+Total: 12.041750 ms (FindLiveObjects: 1.007250 ms CreateObjectMapping: 0.367084 ms MarkObjects: 9.774250 ms  DeleteObjects: 0.891042 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 394350.404706 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Resources/TestFromPrefabResource/Norf.prefab
+  artifactKey: Guid(a4833165ddddda347b80b96e1a704b4e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Resources/TestFromPrefabResource/Norf.prefab using Guid(a4833165ddddda347b80b96e1a704b4e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cdd8c22f7fe992cd52d4b3b631d72b2a') in 1.323541 seconds 
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000678 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Media/Sounds/laser2.wav
+  artifactKey: Guid(aa66f043685a31e4bb90d0b6128bc3e1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Media/Sounds/laser2.wav using Guid(aa66f043685a31e4bb90d0b6128bc3e1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '451f36c238b7f9159169950dc7eb8ee6') in 0.301279 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000118 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Misc/ControlsDisplay.cs
+  artifactKey: Guid(3bc2ba00bfd0f6044825d1848b10a7e0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Misc/ControlsDisplay.cs using Guid(3bc2ba00bfd0f6044825d1848b10a7e0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd0cbb18d1d2f0fc3e003ced9b814671d') in 0.292284 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001065 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Enemy/EnemyCommonSettings.cs
+  artifactKey: Guid(28bfa2b5275427041ae8782a2fa41625) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Enemy/EnemyCommonSettings.cs using Guid(28bfa2b5275427041ae8782a2fa41625) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd48381e445ec5a6911c8e18627a018b6') in 0.008337 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000099 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Media/Textures/Flame.psd
+  artifactKey: Guid(b260cbc8d9bc048bd8834c7a1b5aed36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Media/Textures/Flame.psd using Guid(b260cbc8d9bc048bd8834c7a1b5aed36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '55144c090803a959a30fd4f404bc664e') in 0.226275 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Enemy/EnemyRotationHandler.cs
+  artifactKey: Guid(55eb8b68455f215489114a3a9a6f976d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Enemy/EnemyRotationHandler.cs using Guid(55eb8b68455f215489114a3a9a6f976d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '48999f53cced51c9892ebaf6119ff14e') in 0.007015 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerGui.cs
+  artifactKey: Guid(301188284719932429bd73b2047b328d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerGui.cs using Guid(301188284719932429bd73b2047b328d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '15a1185081d532dfe7300c6eb0b626a9') in 0.004362 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Media/Materials/Enemy1.mat
+  artifactKey: Guid(50755dee91b8d2142a777c6b00ad6923) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Media/Materials/Enemy1.mat using Guid(50755dee91b8d2142a777c6b00ad6923) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd10792950c7f2c096ac7ebee28f5e4f4') in 0.111460 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Installers/GameInstaller.cs
+  artifactKey: Guid(e432172e250876f4ab278b0d24d58673) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Installers/GameInstaller.cs using Guid(e432172e250876f4ab278b0d24d58673) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4e0543a9dd3f922a7ad6561a017d06db') in 0.004831 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000109 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Util/FixtureUtil.cs
+  artifactKey: Guid(b78494b8959231d4a9fc937a39f28ce8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Util/FixtureUtil.cs using Guid(b78494b8959231d4a9fc937a39f28ce8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8bbe0c9eaaddcd80619f1746b44a7af0') in 0.004047 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Misc/GuiHandler.cs
+  artifactKey: Guid(79984cb687438fd469b84d7e916d0574) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Misc/GuiHandler.cs using Guid(79984cb687438fd469b84d7e916d0574) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4183aae987797fbc8bb1b7be48a31aa9') in 0.004200 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000072 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Enemy/EnemyRegistry.cs
+  artifactKey: Guid(401e2ff37163f8f428397277aba9b3a0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Enemy/EnemyRegistry.cs using Guid(401e2ff37163f8f428397277aba9b3a0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '32bbde6591f9bd5a769f53a2158ad5dd') in 0.004541 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000078 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Installers/GameSettingsInstaller.cs
+  artifactKey: Guid(ed9935f795c01cc498910bae6d24d10a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Installers/GameSettingsInstaller.cs using Guid(ed9935f795c01cc498910bae6d24d10a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2b4c8b0b9d74c1c5c72cccce9fbea861') in 0.004444 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000075 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Installers/PlayerInstaller.cs
+  artifactKey: Guid(ff1b44a433bb75344a686526fba7452b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Installers/PlayerInstaller.cs using Guid(ff1b44a433bb75344a686526fba7452b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1ab9a787b93e791b2ad06faed3c7b728') in 0.006792 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Resources/TestFromPrefab/Norf.prefab
+  artifactKey: Guid(3f9121b460e6fb541a5dfd7384d5c03a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Resources/TestFromPrefab/Norf.prefab using Guid(3f9121b460e6fb541a5dfd7384d5c03a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'beb3df3155c1518e9f0d93ef02b3cf88') in 0.011874 seconds 
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000080 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Misc/Bullet.cs
+  artifactKey: Guid(4bcfdc0e00dba5645b88ed3608c61161) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Misc/Bullet.cs using Guid(4bcfdc0e00dba5645b88ed3608c61161) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '684af74f3307b9cca34cbfd441c59e73') in 0.004913 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000097 seconds.
+  path: Assets/Plugins/Zenject/Source/Runtime/SceneContextRegistryAdderAndRemover.cs
+  artifactKey: Guid(b13656f05675c384181e749264e6bcf9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Runtime/SceneContextRegistryAdderAndRemover.cs using Guid(b13656f05675c384181e749264e6bcf9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '40cd6abd23c5b28639b0c1e42c4dfe37') in 0.006497 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000110 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conventions/TestConvention.cs
+  artifactKey: Guid(69363ffe277b0e84ea97667444992554) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conventions/TestConvention.cs using Guid(69363ffe277b0e84ea97667444992554) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7a8517fba1d57fa83a689ba61a7e5f1d') in 0.005621 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerMoveHandler.cs
+  artifactKey: Guid(d1291ab8856aa9e44a39831fce2c2f0c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerMoveHandler.cs using Guid(d1291ab8856aa9e44a39831fce2c2f0c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '5a368f5be28ebbd6e52b9e378ff2c1e1') in 0.006325 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsIdentifier.cs
+  artifactKey: Guid(a3c3d9696613b32448c9d67ce36945e8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsIdentifier.cs using Guid(a3c3d9696613b32448c9d67ce36945e8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'aa9940e99adc42e2e217735146d799c3') in 0.006175 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000157 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerInputState.cs
+  artifactKey: Guid(9f9f53db91ff64e40af5b30b70927e13) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerInputState.cs using Guid(9f9f53db91ff64e40af5b30b70927e13) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1d7701e42c88e6e652138fcf8274cf33') in 0.005393 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000115 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestDuplicateInjection.cs
+  artifactKey: Guid(68ac954686ff2e04699f2ceefd89a402) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestDuplicateInjection.cs using Guid(68ac954686ff2e04699f2ceefd89a402) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '6e4435b220f2e41b667b89e93d5e5a26') in 0.006782 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000070 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerShootHandler.cs
+  artifactKey: Guid(5a7938ea9f043d24fa235c0e0d2c0f39) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerShootHandler.cs using Guid(5a7938ea9f043d24fa235c0e0d2c0f39) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '35783ed11091b5ec973e6d50fa60bb57') in 0.005984 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000124 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromGetter.cs
+  artifactKey: Guid(1d62dc62d45050143ae156ca7f735abf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromGetter.cs using Guid(1d62dc62d45050143ae156ca7f735abf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '53f0eed486a66d6a1742bb9d3c3b02b2') in 0.005906 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000140 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestMultipleContractTypes3.cs
+  artifactKey: Guid(a3c5d33d617b5d74386818cd004d2f3d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestMultipleContractTypes3.cs using Guid(a3c5d33d617b5d74386818cd004d2f3d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'aa1f7d996c25474d5b1248db67485ef2') in 0.005365 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromSubContainerInstaller.cs
+  artifactKey: Guid(0d941aa49ba79854487ffabb59b0a24f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromSubContainerInstaller.cs using Guid(0d941aa49ba79854487ffabb59b0a24f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '00a5ef55415d0296b16d1a83e5ace2b3') in 0.005285 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000080 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromResolve.cs
+  artifactKey: Guid(0b37e8adbb14af84ba212744b2bd2804) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromResolve.cs using Guid(0b37e8adbb14af84ba212744b2bd2804) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '54d7a3ff5af6d30a5625a21338728b11') in 0.005313 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromMethod.cs
+  artifactKey: Guid(2f937d712d2be4042b394985b5b8f441) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromMethod.cs using Guid(2f937d712d2be4042b394985b5b8f441) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7ec13443fcf48669b86942337f155256') in 0.005336 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000096 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestNonGeneric.cs
+  artifactKey: Guid(304074b8e887c2945b28ba359d69b282) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestNonGeneric.cs using Guid(304074b8e887c2945b28ba359d69b282) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e8cfc5c5f4777b3bd96b8d4cfd50e907') in 0.005121 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestBindingInheritanceMethod.cs
+  artifactKey: Guid(645589d2772852246ac2ea1fd8ee4f92) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestBindingInheritanceMethod.cs using Guid(645589d2772852246ac2ea1fd8ee4f92) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd66f1da1a6287ff532235e83f90e44c1') in 0.007028 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000193 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromMethodMultipleUntyped.cs
+  artifactKey: Guid(c9c6a37cf443b134e91d0b7eb1c1532e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromMethodMultipleUntyped.cs using Guid(c9c6a37cf443b134e91d0b7eb1c1532e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '60e85e8683c42c085dd97bcc89083285') in 0.005653 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromSubContainerMethod.cs
+  artifactKey: Guid(0aca0ea3c3e68134886983eb884c26c0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromSubContainerMethod.cs using Guid(0aca0ea3c3e68134886983eb884c26c0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '77d5ad57868db031af4f90d8ca6a41d7') in 0.005890 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000095 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsBasic.cs
+  artifactKey: Guid(6cb63718e40b7bd429fc93d4542aaf01) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsBasic.cs using Guid(6cb63718e40b7bd429fc93d4542aaf01) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '87fdf21308f64c8afd4869921d8c4b99') in 0.005793 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000358 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromIFactory.cs
+  artifactKey: Guid(4dcea3c765b0e9149915042c669c1046) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromIFactory.cs using Guid(4dcea3c765b0e9149915042c669c1046) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'c45d266750d0fc5829c2e2f45fdb3ea0') in 0.007059 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000841 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestBaseClassPropertyInjection.cs
+  artifactKey: Guid(444583e94b8faf74c823354f8352eb23) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestBaseClassPropertyInjection.cs using Guid(444583e94b8faf74c823354f8352eb23) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2691cdafbc4e82ae73f9e0b914bd13a8') in 0.005906 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestMoveIntoDirectSubContainers.cs
+  artifactKey: Guid(7a57b8b648dfde647b2cc4de6e9ea944) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestMoveIntoDirectSubContainers.cs using Guid(7a57b8b648dfde647b2cc4de6e9ea944) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '989e5c02c0a17b191ca8c1bb10822890') in 0.005076 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestNonLazy.cs
+  artifactKey: Guid(bd8592ec897336d4fb55f476488dfb1c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestNonLazy.cs using Guid(bd8592ec897336d4fb55f476488dfb1c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8b1a48b19c0fbe5a094846af9bd5106f') in 0.004994 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000221 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestCircularDependencies.cs
+  artifactKey: Guid(d00c81151702f6b4fa1d0400acf83a51) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestCircularDependencies.cs using Guid(d00c81151702f6b4fa1d0400acf83a51) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '941d5ab789d11f5c5c6b9bb2eee16af1') in 0.007080 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000116 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromInstance.cs
+  artifactKey: Guid(7bf907a08d456614db4e71411381f66a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromInstance.cs using Guid(7bf907a08d456614db4e71411381f66a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4d11a918c59a4495725c1c6074dfbd2e') in 0.006885 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000118 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conventions/Foo.cs
+  artifactKey: Guid(df03d112f1cade745b9c6eb4344fc519) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conventions/Foo.cs using Guid(df03d112f1cade745b9c6eb4344fc519) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '6e531ce6b90f348960c54f571cce776e') in 0.006594 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000829 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestConstructorInjectionOptional.cs
+  artifactKey: Guid(ccdd61e6305aade43b64f0c488a7f126) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestConstructorInjectionOptional.cs using Guid(ccdd61e6305aade43b64f0c488a7f126) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '31134cbc789f31d3c66147218d1ad4db') in 0.005934 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestIfNotBound.cs
+  artifactKey: Guid(0fa385d656ffb584d8326240eb19c9f3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestIfNotBound.cs using Guid(0fa385d656ffb584d8326240eb19c9f3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '58baab841a8e0417ac1b9b280ada4cbe') in 0.004699 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsFieldName.cs
+  artifactKey: Guid(6eacf4d3f8215d54dadba7ba02a91fbf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsFieldName.cs using Guid(6eacf4d3f8215d54dadba7ba02a91fbf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a8e7ffed33631af1c388e844eda1cdaa') in 0.005157 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFrom.cs
+  artifactKey: Guid(6a67145dedecd9947bb94c542f6474ae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFrom.cs using Guid(6a67145dedecd9947bb94c542f6474ae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '5f2a4a2000ee3642cf4f2c5e50716b42') in 0.006050 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsTarget.cs
+  artifactKey: Guid(fa53be31526be634795d3b724199e7ea) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsTarget.cs using Guid(fa53be31526be634795d3b724199e7ea) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ff5a8870f0d0e68548e3c889d487da27') in 0.005809 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000147 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromSubContainerInstanceGetter.cs
+  artifactKey: Guid(933792039e2b04441933af16ce414f05) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Bindings/TestFromSubContainerInstanceGetter.cs using Guid(933792039e2b04441933af16ce414f05) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3a411537772fcbb323248d40817eada4') in 0.007388 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000096 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsParents.cs
+  artifactKey: Guid(12290b4e2fc99dd4197a95555c4b7742) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsParents.cs using Guid(12290b4e2fc99dd4197a95555c4b7742) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '458f874d595758f9a7d5c19d6711d4ae') in 0.005672 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000659 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/SignalExtensions.cs
+  artifactKey: Guid(ca6f0ad40fd1abc4a8fb5e8a50134aa4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/SignalExtensions.cs using Guid(ca6f0ad40fd1abc4a8fb5e8a50134aa4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '739e47231ccbe29c1c52746a64e83f05') in 0.005132 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000151 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestRebind.cs
+  artifactKey: Guid(389794c3c2d66a24f9146f9071f398aa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestRebind.cs using Guid(389794c3c2d66a24f9146f9071f398aa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '12a6f200dfac65d713b97090b0b1640a') in 0.004658 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000108 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerModel.cs
+  artifactKey: Guid(08563d6b38c31254692837726a00f677) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerModel.cs using Guid(08563d6b38c31254692837726a00f677) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a8fd4f15f6db392e003427fce4dab369') in 0.005042 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000107 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestAllInjectionTypes.cs
+  artifactKey: Guid(9fe16f0cbfec7754e85378cb23b97b89) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestAllInjectionTypes.cs using Guid(9fe16f0cbfec7754e85378cb23b97b89) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cc144560faa7c3b35d92ea24bde4db87') in 0.005500 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000088 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerHealthWatcher.cs
+  artifactKey: Guid(ff82b5e08504b89408eddc95e9dad280) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Player/PlayerHealthWatcher.cs using Guid(ff82b5e08504b89408eddc95e9dad280) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '6a41509763ff247730c351ea714379d1') in 0.004753 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/SignalCopyBinder.cs
+  artifactKey: Guid(604fe2d23cc79c7498be851b6970af1b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/SignalCopyBinder.cs using Guid(604fe2d23cc79c7498be851b6970af1b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'dd78699d284d9320e8a231cd818f89e2') in 0.005418 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000129 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conventions/TestConvention2.cs
+  artifactKey: Guid(37e019ec982c85046baf80bc37b38d11) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conventions/TestConvention2.cs using Guid(37e019ec982c85046baf80bc37b38d11) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'bf87aada74bd6d659ea715288892675f') in 0.005538 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000088 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestPostInjectParameters.cs
+  artifactKey: Guid(b2d41ccbf61026c45872ce060cd81b70) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestPostInjectParameters.cs using Guid(b2d41ccbf61026c45872ce060cd81b70) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e806a811fff83caec408ef5b97bf824b') in 0.010524 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000092 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestMemoryPoolCustomFactory.cs
+  artifactKey: Guid(8379f1a96bdcecb4e9cd40975f9c898d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestMemoryPoolCustomFactory.cs using Guid(8379f1a96bdcecb4e9cd40975f9c898d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '79e3abc9004b0629c8f750039f50e555') in 0.005692 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000095 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestInjectSources.cs
+  artifactKey: Guid(a991a1d50d39d334b846e0ad5cd511e7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestInjectSources.cs using Guid(a991a1d50d39d334b846e0ad5cd511e7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '40a5ff729a4c675b0f96b56de2ad6a1d') in 0.005696 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000096 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestAllocs.cs
+  artifactKey: Guid(6935919ae38269447a54f963952ce929) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestAllocs.cs using Guid(6935919ae38269447a54f963952ce929) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '95329ea799106c5528c3c5c66172cbe0') in 0.005446 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestTestOptional.cs
+  artifactKey: Guid(731e8a7c5222176449a38890b363d0b5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestTestOptional.cs using Guid(731e8a7c5222176449a38890b363d0b5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '308597e88d9e4a2843aa03406c746480') in 0.004828 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000080 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestLazy.cs
+  artifactKey: Guid(cd58ae826c869c849a16a72b99a4c984) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestLazy.cs using Guid(cd58ae826c869c849a16a72b99a4c984) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '88eb3ba32f406207530fdfc782b95d07') in 0.004925 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000165 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestFromPoolableMemoryPoolSix.cs
+  artifactKey: Guid(098b4e9c9d112bc42866f5cff81842c0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestFromPoolableMemoryPoolSix.cs using Guid(098b4e9c9d112bc42866f5cff81842c0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8785ee22fdbb1d8b6c5e2a43af154335') in 0.005752 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestFactoryMemoryPoolCustomInterface.cs
+  artifactKey: Guid(3cca63c83328cfd4693f06f559c762ec) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestFactoryMemoryPoolCustomInterface.cs using Guid(3cca63c83328cfd4693f06f559c762ec) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '368c19af21ad7297e1e0b767aa56a74e') in 0.006118 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000090 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestPoolableStaticMemoryPool.cs
+  artifactKey: Guid(f7ee5ff810de60d4ba6ac2e06aeb70ea) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestPoolableStaticMemoryPool.cs using Guid(f7ee5ff810de60d4ba6ac2e06aeb70ea) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd62fcd1bfedf1af8cd7769f8f8e90501') in 0.009693 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000075 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestDecoratorValidation.cs
+  artifactKey: Guid(4ea46e52a0fbff6478bff334331e6aaf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestDecoratorValidation.cs using Guid(4ea46e52a0fbff6478bff334331e6aaf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'b4c0f08c23f2d8f4933fa01839303707') in 0.013784 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001633 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestNullableValues.cs
+  artifactKey: Guid(9adcc99fb99e8954c84b0f32060eeead) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestNullableValues.cs using Guid(9adcc99fb99e8954c84b0f32060eeead) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f24c0b8bb0a85937b42af9fea1f7f886') in 0.013760 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestKeyedFactoryExample.cs
+  artifactKey: Guid(c2095fa27bc74d346a34ccfe39d21464) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestKeyedFactoryExample.cs using Guid(c2095fa27bc74d346a34ccfe39d21464) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'b02ac4723a7ccc26dabc77afa6bd0efd') in 0.013950 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000211 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestArrayPool.cs
+  artifactKey: Guid(33e25c55b70120c42a55e90dee543e4a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestArrayPool.cs using Guid(33e25c55b70120c42a55e90dee543e4a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8996a24c3e7e2c7897607239b2927503') in 0.008841 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000106 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestNestedContainer.cs
+  artifactKey: Guid(9feaeae29aa84c64fb1741b2195e54ba) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestNestedContainer.cs using Guid(9feaeae29aa84c64fb1741b2195e54ba) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8cd0bb260e64fb38d08ff93ff82fc058') in 0.005799 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.003779 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestFromPoolableMemoryPoolOne.cs
+  artifactKey: Guid(0290781678baa694491808cbbb4365b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestFromPoolableMemoryPoolOne.cs using Guid(0290781678baa694491808cbbb4365b0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '03ab6e343eaa01133db9493663a0d4c0') in 0.007683 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000392 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestResolveMany.cs
+  artifactKey: Guid(8adbb260feb50b248943eb2fb41681cc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestResolveMany.cs using Guid(8adbb260feb50b248943eb2fb41681cc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ff72301186567f18d9d5eb12638c148c') in 0.007582 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000097 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestParameters.cs
+  artifactKey: Guid(c571947a83e2460438d98aff825f6de2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestParameters.cs using Guid(c571947a83e2460438d98aff825f6de2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '6204594e4dba76fd9ecaeda9f32ca93b') in 0.008412 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000773 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestSubContainers.cs
+  artifactKey: Guid(bc27ceb0add4e284880a47f778bd5433) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestSubContainers.cs using Guid(bc27ceb0add4e284880a47f778bd5433) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a2202822e6b163bded50ed81183bf7b4') in 0.006197 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000149 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestPropertyInjection.cs
+  artifactKey: Guid(e73445afb1e143e4d83dccc220517a72) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestPropertyInjection.cs using Guid(e73445afb1e143e4d83dccc220517a72) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f3dd7fe864ba173970912a9d50056ccf') in 0.007389 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000144 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestUnbind.cs
+  artifactKey: Guid(7bc1066beaa29be488a974f611aadf7f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestUnbind.cs using Guid(7bc1066beaa29be488a974f611aadf7f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f9837b377ccbf55c826efa9aef2a27a8') in 0.008249 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000489 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestFacadeSubContainer.cs
+  artifactKey: Guid(84329a2f5907361459ac88fb29b3c102) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestFacadeSubContainer.cs using Guid(84329a2f5907361459ac88fb29b3c102) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7b358adc8abc146e6c98c77e981566b7') in 0.008597 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000156 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestFromPoolableMemoryPoolValidation.cs
+  artifactKey: Guid(327a53cf63cd4c04dbf831a038257783) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestFromPoolableMemoryPoolValidation.cs using Guid(327a53cf63cd4c04dbf831a038257783) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '9765cbe9e4a2cdef76b25f36c8a8503a') in 0.006502 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromNewScriptableObjectResource/Foo.cs
+  artifactKey: Guid(70da936d4db31fa4a9f79f7af7604209) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromNewScriptableObjectResource/Foo.cs using Guid(70da936d4db31fa4a9f79f7af7604209) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '5ea33ce39951e3a66b3cc8a7850df9df') in 0.007061 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000124 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Physics/Default.physicMaterial
+  artifactKey: Guid(19e1775e0162387408a846a5e92cc2c2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Physics/Default.physicMaterial using Guid(19e1775e0162387408a846a5e92cc2c2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '989877e7d0e4e03e01a39baac37bb081') in 0.121148 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000173 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/ConcreteBinders/ConcreteBinderNonGeneric.cs
+  artifactKey: Guid(b04935d23b1499e42a242d63a3fe248b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/ConcreteBinders/ConcreteBinderNonGeneric.cs using Guid(b04935d23b1499e42a242d63a3fe248b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'aa08ff5f2740cc09972165fc0c8dfbb1') in 0.006348 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/FromBinders/FromBinder.cs
+  artifactKey: Guid(1bfe8c7cab3320b4a818fbb97098fb11) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/FromBinders/FromBinder.cs using Guid(1bfe8c7cab3320b4a818fbb97098fb11) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ce3aca580a2c5d573e276a8ab1deff6f') in 0.005631 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.002397 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestValidationSettings.cs
+  artifactKey: Guid(9b700b061b5fac341a8668b2329c3c5e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestValidationSettings.cs using Guid(9b700b061b5fac341a8668b2329c3c5e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7d616f0d2895d94ff23c4b6291f4b113') in 0.005984 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000851 seconds.
+  path: Assets/Plugins/Zenject/Source/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToGameObjectComponentProviderBase.cs
+  artifactKey: Guid(d818f8110e5b31d4eb27001e5c5b3eb9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToGameObjectComponentProviderBase.cs using Guid(d818f8110e5b31d4eb27001e5c5b3eb9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cd1f88ddfed3b631bbbf447bcee7aa97') in 0.009249 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001714 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestTestUtil.cs
+  artifactKey: Guid(248d9a33864afc54ab7c4d1a664fe81e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestTestUtil.cs using Guid(248d9a33864afc54ab7c4d1a664fe81e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '6b254649b1b83139381c073144c04e95') in 0.005084 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000106 seconds.
+  path: Assets/Plugins/Zenject/Source/Factories/Pooling/Util/DictionaryPool.cs
+  artifactKey: Guid(031a0490d1684424e9e33b22106cb178) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Factories/Pooling/Util/DictionaryPool.cs using Guid(031a0490d1684424e9e33b22106cb178) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cb710fe4984fb5587141dc696aa2181e') in 0.004525 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/Resources/TestBindFactoryFive/Foo.prefab
+  artifactKey: Guid(5c07ac3e518881e48885b91850c2f13c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/Resources/TestBindFactoryFive/Foo.prefab using Guid(5c07ac3e518881e48885b91850c2f13c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a1a1bff6dba282b7290ca1984d61bf1c') in 0.007785 seconds 
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.000106 seconds.
+  path: Assets/Plugins/Zenject/Source/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToCurrentGameObjectComponentProvider.cs
+  artifactKey: Guid(3b0521d85aeb9ee479dcb29ef4d88547) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Providers/ComponentProviders/AddToGameObjectComponentProviders/AddToCurrentGameObjectComponentProvider.cs using Guid(3b0521d85aeb9ee479dcb29ef4d88547) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '62ab73d354ea5415fd2ca33ca8e29eb9') in 0.006187 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001552 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Conventions/ConventionSelectTypesBinder.cs
+  artifactKey: Guid(05d17b3e7f09bc44f8be86e01642ee8d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Conventions/ConventionSelectTypesBinder.cs using Guid(05d17b3e7f09bc44f8be86e01642ee8d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '5f0e6ebdece1344563f3c5fd22dc0a7f') in 0.008601 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestTaskUpdater.cs
+  artifactKey: Guid(191c7c5b01ead0f4283fa0656f3310c8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestTaskUpdater.cs using Guid(191c7c5b01ead0f4283fa0656f3310c8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'c9da4e9e3dcc02c1c43c5017abf0ef3b') in 0.012196 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000130 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/Resources/TestBindFactory/Bar.asset
+  artifactKey: Guid(c910fc8c1b89e63428292071be74fb96) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/Resources/TestBindFactory/Bar.asset using Guid(c910fc8c1b89e63428292071be74fb96) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ee73d585e4ebe2a42b34fb7483cdfb5b') in 0.105962 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000086 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestAnimationStateBehaviourInject/StateBehaviour1.cs
+  artifactKey: Guid(1f499d32999f20c43916ca767c8a2721) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestAnimationStateBehaviourInject/StateBehaviour1.cs using Guid(1f499d32999f20c43916ca767c8a2721) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1adecc7e1d1cfeca37e5b989f415af54') in 0.007287 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001132 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinderBase.cs
+  artifactKey: Guid(1cdc9466c4b6c7f4f81675e8f546672f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinderBase.cs using Guid(1cdc9466c4b6c7f4f81675e8f546672f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '92f19653556f96361cc1ca8214eb5c40') in 0.007799 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001037 seconds.
+  path: Assets/Plugins/Zenject/Source/Install/Contexts/Context.cs
+  artifactKey: Guid(be0cf56827265f44bbdeba09329d66ab) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Install/Contexts/Context.cs using Guid(be0cf56827265f44bbdeba09329d66ab) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a937206d1ab672a250ba49c233516f74') in 0.009940 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000122 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Resources/Installers/GameSettingsInstaller.asset
+  artifactKey: Guid(48da99ff693be7b4d89b133042973796) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Resources/Installers/GameSettingsInstaller.asset using Guid(48da99ff693be7b4d89b133042973796) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '943eefd42ba6060f8767ad8765003873') in 0.082325 seconds 
+Number of asset objects unloaded after import = 72
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Plugins/Zenject/Source/Providers/PrefabCreators/IPrefabInstantiator.cs
+  artifactKey: Guid(45b8fa051fd4fb84b94f6384e6dbe092) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Providers/PrefabCreators/IPrefabInstantiator.cs using Guid(45b8fa051fd4fb84b94f6384e6dbe092) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'efab15020c698093991e86ad82b923fc') in 0.005517 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.002331 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Finalizers/ScopableBindingFinalizer.cs
+  artifactKey: Guid(d2392181aaeca434cb15e2719d7567d6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Finalizers/ScopableBindingFinalizer.cs using Guid(d2392181aaeca434cb15e2719d7567d6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '826d99460819c053bf98e5c99e78bddd') in 0.008459 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000317 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Util/UnityExtensionMethods.cs
+  artifactKey: Guid(1018c66230d7f7b408485a0d8c28147d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Util/UnityExtensionMethods.cs using Guid(1018c66230d7f7b408485a0d8c28147d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '14a8a066bc7bac36b20ce66c46ad4a5b') in 0.009744 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.002410 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Installers/GameSignalsInstaller.cs
+  artifactKey: Guid(23aa26bc747410a40ac441fedb64f05d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Installers/GameSignalsInstaller.cs using Guid(23aa26bc747410a40ac441fedb64f05d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '72840b71973b3f34a78490c4bf0664b7') in 0.007469 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000209 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/IdScopeConcreteIdArgConditionCopyNonLazyBinder.cs
+  artifactKey: Guid(ba3894c2363faea4480796349be1c939) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/IdScopeConcreteIdArgConditionCopyNonLazyBinder.cs using Guid(ba3894c2363faea4480796349be1c939) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd0133038f1e56761f121bcf43d5f53d2') in 0.013099 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Factories/TestMemoryPools/TestMemoryPool1.cs
+  artifactKey: Guid(f50a5f22f2c3e034d9e90b4244a3e412) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Factories/TestMemoryPools/TestMemoryPool1.cs using Guid(f50a5f22f2c3e034d9e90b4244a3e412) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '543085273d162e77e0a3a5e2510b74c6') in 0.019912 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.013277 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromSiblingComponent/TestFromSiblingComponent.cs
+  artifactKey: Guid(eb7b9080f4910bd4bae9f726194b1c50) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromSiblingComponent/TestFromSiblingComponent.cs using Guid(eb7b9080f4910bd4bae9f726194b1c50) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '75a25da9a99b0d6547785c19a47804fa') in 0.007111 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromNewScriptableObjectResource/TestFromNewScriptableObjectResource.cs
+  artifactKey: Guid(524c1ea1726f5b24e99d297bf3bab1b3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromNewScriptableObjectResource/TestFromNewScriptableObjectResource.cs using Guid(524c1ea1726f5b24e99d297bf3bab1b3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '30816e806c5b07ee03d416c179135ef7') in 0.007766 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000562 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Textures/CampfireLeft.psd
+  artifactKey: Guid(a72df340b82eb4fd2afbb9dbe634f4bc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Textures/CampfireLeft.psd using Guid(a72df340b82eb4fd2afbb9dbe634f4bc) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '752f6a1fbc6000a7caed483a052ca7d8') in 0.031873 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000117 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Materials/Glow.mat
+  artifactKey: Guid(209ea2f17ebe64e85a177a9bbad10476) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Materials/Glow.mat using Guid(209ea2f17ebe64e85a177a9bbad10476) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '62758e08480f2813acdfb52019ed2388') in 0.022114 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000680 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/Resources/TestMonoInstallers/QuxInstaller.prefab
+  artifactKey: Guid(a2dee8dc5b292034aa05c835d3dfa23a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/Resources/TestMonoInstallers/QuxInstaller.prefab using Guid(a2dee8dc5b292034aa05c835d3dfa23a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1ec4e80f5e9c6e881cd5431d9b2815f0') in 0.029267 seconds 
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.000127 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Materials/FireA.mat
+  artifactKey: Guid(0babe53ca63bb49209164496ab5e4231) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Materials/FireA.mat using Guid(0babe53ca63bb49209164496ab5e4231) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'b7f4c502013b5ad4a47d5134c3d7ff94') in 0.015423 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.006665 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/Resources/TestBindFactoryOne/FooSubContainer.prefab
+  artifactKey: Guid(0465df6236950a740af6ead536450d8e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Factories/Resources/TestBindFactoryOne/FooSubContainer.prefab using Guid(0465df6236950a740af6ead536450d8e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'c408495a76c561da2e8be1220a64a43f') in 0.054460 seconds 
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.002242 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Materials/OilSmoke.mat
+  artifactKey: Guid(eb5315e2f77c540b6bf545720e84d3a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Materials/OilSmoke.mat using Guid(eb5315e2f77c540b6bf545720e84d3a5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'c84f709f775e247a2bed6aaf1713d957') in 0.019454 seconds 
+Number of asset objects unloaded after import = 2
+========================================================================
+Received Import Request.
+  Time since last request: 0.000141 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromPrefab/TestFromPrefab.cs
+  artifactKey: Guid(9a11ff4a9421f2949993c4dc34f50335) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromPrefab/TestFromPrefab.cs using Guid(9a11ff4a9421f2949993c4dc34f50335) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '97499e798834c18b7b602796d6099820') in 0.008046 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000659 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromComponentInChildren/TestFromComponentInChildren.cs
+  artifactKey: Guid(60e4db58b41116646b1675963b1c75a1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromComponentInChildren/TestFromComponentInChildren.cs using Guid(60e4db58b41116646b1675963b1c75a1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '26fd4a9e928045702761b38551983e43') in 0.007828 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000413 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromComponent/TestFromNewComponentOn.cs
+  artifactKey: Guid(4d448c0958b131e4487e3e814771e282) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromComponent/TestFromNewComponentOn.cs using Guid(4d448c0958b131e4487e3e814771e282) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '0f7e5275c0de4492121190c8ebee3e8e') in 0.008500 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000375 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Misc/TestMonoKernelDecoration/DelayedInitializeKernel.cs
+  artifactKey: Guid(983f0bc44f6541bfab062ceec72231d3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Misc/TestMonoKernelDecoration/DelayedInitializeKernel.cs using Guid(983f0bc44f6541bfab062ceec72231d3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '390c0392e09ef2d047ce09ea7255fd41') in 0.008489 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000095 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Textures/Background/Free_Shmup_Sprites_Starfield.png
+  artifactKey: Guid(76790d87a6ceac544a057439dbe4d6c3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Textures/Background/Free_Shmup_Sprites_Starfield.png using Guid(76790d87a6ceac544a057439dbe4d6c3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd08ef61563a473ce9b8eaba16ddd860e') in 0.157596 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000102 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Textures/fire.png
+  artifactKey: Guid(d1f484f58ddfa4341a6e72ce14adc083) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/Textures/fire.png using Guid(d1f484f58ddfa4341a6e72ce14adc083) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '63b1aaaebe368b1233491f87f4ea16ca') in 0.018795 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.005350 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/Bindings/TestFactoryFromGetter0.cs
+  artifactKey: Guid(02801e9ad7fdcd54990732b0e9ec2d0f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/Bindings/TestFactoryFromGetter0.cs using Guid(02801e9ad7fdcd54990732b0e9ec2d0f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1fdf4d6920559bd409fa801d1ca3cf13') in 0.008771 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000152 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder3.cs
+  artifactKey: Guid(be02341a689ce654ab7160ce4eb5ed0e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder3.cs using Guid(be02341a689ce654ab7160ce4eb5ed0e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ab236369d3061d4c057577e17af7ddfd') in 0.004930 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000482 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder10.cs
+  artifactKey: Guid(d835e30b6131d754e892d6f397e9921a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder10.cs using Guid(d835e30b6131d754e892d6f397e9921a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '074ce2f20abe7f52d8380d4d1ca76178') in 0.005046 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/BindSignal/SignalCallbackWithLookupWrapper.cs
+  artifactKey: Guid(2b11a635fa1263c4f9a9a0d70d7efcf2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/BindSignal/SignalCallbackWithLookupWrapper.cs using Guid(2b11a635fa1263c4f9a9a0d70d7efcf2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7371b17dc843bc95c09ef34c4ec90b1e') in 0.006317 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000966 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder6.cs
+  artifactKey: Guid(4c738f3e9159a7e4f8450de246530f96) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder6.cs using Guid(4c738f3e9159a7e4f8450de246530f96) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '941ba9e8d664e5bc4ea665fa595461b0') in 0.006854 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder6.cs
+  artifactKey: Guid(b79f4e548e208b1418f013d2fdb0e076) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder6.cs using Guid(b79f4e548e208b1418f013d2fdb0e076) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '490c0f4a4e01e683bf9cd3638816aeb2') in 0.006555 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder10.cs
+  artifactKey: Guid(3e0b2700788fac54698446fcfad2b705) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder10.cs using Guid(3e0b2700788fac54698446fcfad2b705) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '6a097df964d2fe4d18eedbf9f0dac4a4') in 0.005512 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.005081 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder4.cs
+  artifactKey: Guid(fee2c810a2ee8d2489a6a29177b48d82) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder4.cs using Guid(fee2c810a2ee8d2489a6a29177b48d82) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3cb9e278a7815935865795d3c8b5bb21') in 0.011846 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000935 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder10.cs
+  artifactKey: Guid(4cdcd151f6d139642b7a2a6968c6ebd8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceBinder/FactoryToChoiceBinder10.cs using Guid(4cdcd151f6d139642b7a2a6968c6ebd8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'df4afa6cbefa241abc581bc3d650caa5') in 0.008846 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000200 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/BindSignal/BindSignalIdToBinder.cs
+  artifactKey: Guid(ecce6d44c178e564c8937125741f3c8c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/Signals/Internal/Binders/BindSignal/BindSignalIdToBinder.cs using Guid(ecce6d44c178e564c8937125741f3c8c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'b0380a296eb5ce6d24acb92bb4d50277') in 0.005612 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000104 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/Bindings/TestFactoryFromSubContainerInstaller1.cs
+  artifactKey: Guid(0f5f5adb036584147968b4cf0e1b75a6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/Bindings/TestFactoryFromSubContainerInstaller1.cs using Guid(0f5f5adb036584147968b4cf0e1b75a6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a9fff9f34fb092d167192d8d6ca89e59') in 0.007856 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000331 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/Bindings/TestFactoryFrom1.cs
+  artifactKey: Guid(2aeb922683e72ac4f9fd3806715e65df) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/Bindings/TestFactoryFrom1.cs using Guid(2aeb922683e72ac4f9fd3806715e65df) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd73d1621ae852dda468f2be1f2757035') in 0.007434 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000135 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder5.cs
+  artifactKey: Guid(901200be3b8d1cc40876aa50a03103b8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder5.cs using Guid(901200be3b8d1cc40876aa50a03103b8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'b61a6e10e20db01d6e3e6557ac43a57c') in 0.004973 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000114 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder1.cs
+  artifactKey: Guid(a37e124df695f644e87579f08ea443f7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryArgumentsToChoiceBinder/FactoryArgumentsToChoiceBinder1.cs using Guid(a37e124df695f644e87579f08ea443f7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8f45242eb40898f97e422d58dcf81d9b') in 0.005211 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000143 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Enemy/States/EnemyStateAttack.cs
+  artifactKey: Guid(3d2bd141d86c3fb40a0a616c19e6de0c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Enemy/States/EnemyStateAttack.cs using Guid(3d2bd141d86c3fb40a0a616c19e6de0c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '9db8e6b78f4c79b31605e1d7e1df6118') in 0.013160 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000390 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Ship/States/ExplosionFactory.cs
+  artifactKey: Guid(aa6c7bf121e4f8343b05c7d09eb12ec6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Ship/States/ExplosionFactory.cs using Guid(aa6c7bf121e4f8343b05c7d09eb12ec6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'c3074f668aec2d8cdf7fc2a2f6c5e0e4') in 0.005745 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000091 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Ship/States/ShipStateMoving.cs
+  artifactKey: Guid(6519cef92721b644c9e0b46f2f92430a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Scripts/Ship/States/ShipStateMoving.cs using Guid(6519cef92721b644c9e0b46f2f92430a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e8446f77e6a36a6db6b2390fb40df295') in 0.007269 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001035 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestSceneContextEvents/TestSceneContextEvents.unity
+  artifactKey: Guid(6a6e139b8a4d4d544a3318c53b9ae3d6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/SceneTests/TestSceneContextEvents/TestSceneContextEvents.unity using Guid(6a6e139b8a4d4d544a3318c53b9ae3d6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8135e2088c97fc4743e8d12678b0d066') in 0.006415 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000094 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/TestFactory.cs
+  artifactKey: Guid(24764a4ebdf5bb044ad3cef3184d85b6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/TestFactory.cs using Guid(24764a4ebdf5bb044ad3cef3184d85b6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '455c0466f15d5886734d6b1f95c1bba2') in 0.006518 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000066 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestMemoryPool0.cs
+  artifactKey: Guid(325335e855a4c594480804dc3d0e8caa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/MemoryPool/TestMemoryPool0.cs using Guid(325335e855a4c594480804dc3d0e8caa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '04f8c56a0ef8a607ed3cae92d3edfcac') in 0.005451 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsTargetInstance.cs
+  artifactKey: Guid(0f79fbd0fa046ae429a33becfec16c75) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conditions/TestConditionsTargetInstance.cs using Guid(0f79fbd0fa046ae429a33becfec16c75) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '214fc9275b55eb1a19ea9ef07f1f0b04') in 0.007220 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000093 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Conventions/ConventionFilterTypesBinder.cs
+  artifactKey: Guid(fc3e9c89606ca52458403153ad0d9b3e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Conventions/ConventionFilterTypesBinder.cs using Guid(fc3e9c89606ca52458403153ad0d9b3e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '32681bd3f872f033c3cce2fd4f581a2a') in 0.006426 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000248 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromGameObject/TestFromGameObject.cs
+  artifactKey: Guid(e879b4e0ab309f247a1efc11a7a71bba) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestFromGameObject/TestFromGameObject.cs using Guid(e879b4e0ab309f247a1efc11a7a71bba) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f8799add1c2399a1b7468580f2f8a891') in 0.006107 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000139 seconds.
+  path: Assets/Plugins/Zenject/Source/Providers/SubContainerCreators/SubContainerCreatorByNewPrefabDynamicContext.cs
+  artifactKey: Guid(53f151c86cd3c4c46ada71b737004d36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Providers/SubContainerCreators/SubContainerCreatorByNewPrefabDynamicContext.cs using Guid(53f151c86cd3c4c46ada71b737004d36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '6d0838aea2ed98d05a63f100b0842e15') in 0.008887 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestDiContainerMethods/TestDiContainerMethods.cs
+  artifactKey: Guid(03827fc575424954ba63c60d88fdd289) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Tests/Bindings/TestDiContainerMethods/TestDiContainerMethods.cs using Guid(03827fc575424954ba63c60d88fdd289) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd1241293c9579b1af50f4bb6cfbcae5d') in 0.014262 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001843 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder2.cs
+  artifactKey: Guid(c109e2a5fd72a004e83beae958fa888a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder2.cs using Guid(c109e2a5fd72a004e83beae958fa888a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'fb384cb8fb8882a6d29cdb23c142bad0') in 0.014306 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001511 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestConstructorInjection.cs
+  artifactKey: Guid(6c6aad7bc2fa9c0428a8cc8b7670445d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Injection/TestConstructorInjection.cs using Guid(6c6aad7bc2fa9c0428a8cc8b7670445d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2255ce19926fd6861baa18e91aff7862') in 0.011490 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001820 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conventions/TestConventionNames.cs
+  artifactKey: Guid(a8a9ff36735244a47babe85319e21e38) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Conventions/TestConventionNames.cs using Guid(a8a9ff36735244a47babe85319e21e38) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cb24b9ed734d216816ce7a7bb5b25062') in 0.006974 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000083 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestMultipleContractTypes2.cs
+  artifactKey: Guid(b0c99e3d7ab1f7040b86e83fda23093b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/BindFeatures/TestMultipleContractTypes2.cs using Guid(b0c99e3d7ab1f7040b86e83fda23093b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3f7dd8ef2c625984d25c55998a54398d') in 0.005504 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000093 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestDecorators.cs
+  artifactKey: Guid(919290ef5f80b8c48832d7a91f8ab674) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Other/TestDecorators.cs using Guid(919290ef5f80b8c48832d7a91f8ab674) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8f75bf4157af2eadfaff54cc7080d091') in 0.004819 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/FromBinders/FromBinderNonGeneric.cs
+  artifactKey: Guid(e54c591a4175efc4688be675528600c1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/FromBinders/FromBinderNonGeneric.cs using Guid(e54c591a4175efc4688be675528600c1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd3dc6343a5be66312a65bf1ab1a2a27d') in 0.006196 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000092 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/Pooling/MemoryPoolInitialSizeBinder.cs
+  artifactKey: Guid(80ff9e6d501d30d4a82639f4ae453712) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/Pooling/MemoryPoolInitialSizeBinder.cs using Guid(80ff9e6d501d30d4a82639f4ae453712) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ae6eaf91637f44a6d184f5e7ad8acf7b') in 0.004902 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000342 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder0.cs
+  artifactKey: Guid(3c12d5eb6ac4cc8449986d020ef27e4f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder0.cs using Guid(3c12d5eb6ac4cc8449986d020ef27e4f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a1ee887099b604372f8652afcba99d2f') in 0.007012 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/SpaceShip/Textures/1K_TXTR+Spec.tif
+  artifactKey: Guid(d502334f478d23c4baaa4781df176eaf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/SpaceShip/Textures/1K_TXTR+Spec.tif using Guid(d502334f478d23c4baaa4781df176eaf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '076ee72529b038e9f8101d7735ad0b27') in 0.195155 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000112 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Resources/TestZenAutoInjecter/Bar.prefab
+  artifactKey: Guid(351a07e7d4f94924ca89ac897d494be2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Resources/TestZenAutoInjecter/Bar.prefab using Guid(351a07e7d4f94924ca89ac897d494be2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2ba9723b1abfa3d6f87ac4d497177a29') in 0.019590 seconds 
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000098 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/SpaceShip/Textures/1K_Spec.jpg
+  artifactKey: Guid(0ea2ae5c475a8224f9f6c107611afe7b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame1 (Beginner)/Media/Imported/SpaceShip/Textures/1K_Spec.jpg using Guid(0ea2ae5c475a8224f9f6c107611afe7b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8fc413dc0dfb1ca01e755cf3dca522fe') in 0.176498 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000133 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder5.cs
+  artifactKey: Guid(e562a021e16d4a2418f6c47de105c64e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder5.cs using Guid(e562a021e16d4a2418f6c47de105c64e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '492299d8acd92cd4fdb0f2f09cd44c8a') in 0.007721 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000812 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Resources/TestZenAutoInjecter/QuxSearch.prefab
+  artifactKey: Guid(de81b619565bbf8408b85c2016b9477d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Resources/TestZenAutoInjecter/QuxSearch.prefab using Guid(de81b619565bbf8408b85c2016b9477d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2c6f04460d11238d23a45609f0c76375') in 0.008640 seconds 
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Resources/TestZenAutoInjecter/GorpContext.prefab
+  artifactKey: Guid(008052b7c81e4394bbff32504e537741) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Resources/TestZenAutoInjecter/GorpContext.prefab using Guid(008052b7c81e4394bbff32504e537741) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '0ffe9304633c3d6e2e17237cb28e81a5') in 0.013414 seconds 
+Number of asset objects unloaded after import = 7
+========================================================================
+Received Import Request.
+  Time since last request: 0.000073 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder3.cs
+  artifactKey: Guid(fdb97e2862ca0a24e8f87c081ea05727) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder3.cs using Guid(fdb97e2862ca0a24e8f87c081ea05727) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '393d11c706c3aea9937d2075654b03d3') in 0.007516 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000420 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Resources/TestZenAutoInjecter/QuxScene.prefab
+  artifactKey: Guid(8b66e8c542fc27e40b65cba974860d22) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestZenAutoInjecter/Resources/TestZenAutoInjecter/QuxScene.prefab using Guid(8b66e8c542fc27e40b65cba974860d22) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8974d3611ff98ecd747c6a525b4c9680') in 0.008121 seconds 
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000107 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder1.cs
+  artifactKey: Guid(b119fe818c4bae143ab8f9a4f2a1b0fd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/SubContainerBinder/FactorySubContainerBinder1.cs using Guid(b119fe818c4bae143ab8f9a4f2a1b0fd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'af03f998af8889de7c26a87e0fac00ba') in 0.006799 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000298 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Misc/EnemySpawner.cs
+  artifactKey: Guid(1daabbbef5fff9a4b9a2c94659ecdf57) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/SampleGame2 (Advanced)/Scripts/Misc/EnemySpawner.cs using Guid(1daabbbef5fff9a4b9a2c94659ecdf57) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a29de837e63684f18d39a3f9ce209e78') in 0.007222 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/Bindings/TestFactoryFromInstance0.cs
+  artifactKey: Guid(a07aa9c58bcc5094f8e29f0d10303fb8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/UnitTests/Editor/Factories/Bindings/TestFactoryFromInstance0.cs using Guid(a07aa9c58bcc5094f8e29f0d10303fb8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cddaef0e7dbc505c15d17afedbc269fa') in 0.014378 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000226 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestAnimationStateBehaviourInject/AnimatorController.controller
+  artifactKey: Guid(37a3980aa64320943b24a1d48d62bf9d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Misc/TestAnimationStateBehaviourInject/AnimatorController.controller using Guid(37a3980aa64320943b24a1d48d62bf9d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '67cd0fbbed9396b1f650492fcb27bdd8') in 0.104113 seconds 
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Import Request.
+  Time since last request: 0.001130 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder0.cs
+  artifactKey: Guid(fd0f7feaafd2cc44da895162de285da7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryFromBinder/FactoryFromBinder0.cs using Guid(fd0f7feaafd2cc44da895162de285da7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7a506c4e0cee0bd274eca07741da19ff') in 0.005295 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000098 seconds.
+  path: Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder1.cs
+  artifactKey: Guid(a005e8d2a91ae2647927c047c663d046) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Binding/Binders/Factory/FactoryToChoiceIdBinder/FactoryToChoiceIdBinder1.cs using Guid(a005e8d2a91ae2647927c047c663d046) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'bd4edb772fb67cb88a617e6dcda4ad56') in 0.005868 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000077 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/Gorp.cs
+  artifactKey: Guid(e7443e55301b94c48944434e69fb7828) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Bindings/TestFromSubContainerPrefab/Gorp.cs using Guid(e7443e55301b94c48944434e69fb7828) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2834348073fda8d738310f473f288ba2') in 0.005534 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestInstallers/BarInstaller.cs
+  artifactKey: Guid(e3fd51e14e913e243bb9c3afbc514fd8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/TestInstallers/BarInstaller.cs using Guid(e3fd51e14e913e243bb9c3afbc514fd8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a2e616581bfed5b94b98d9bd01c11288') in 0.006119 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.001560 seconds.
+  path: Assets/Plugins/Zenject/Source/Util/ReflectionTypeInfo.cs
+  artifactKey: Guid(5490313f008f146458b6228165838735) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Util/ReflectionTypeInfo.cs using Guid(5490313f008f146458b6228165838735) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '533a02e0b0b4bd6f4b9632b1d9d002a0') in 0.006984 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.000446 seconds.
+  path: Assets/Plugins/Zenject/Source/Usage/link.xml
+  artifactKey: Guid(78cde942f7000eb41900aa4d3c9249d7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/Source/Usage/link.xml using Guid(78cde942f7000eb41900aa4d3c9249d7) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'c7f63028c8f2728dec944023e06ee6c0') in 1.649628 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003407 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.83 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  5.100 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5106ms)
+		BeginReloadAssembly (1000ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (133ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (416ms)
+		EndReloadAssembly (3780ms)
+			LoadAssemblies (418ms)
+			RebuildTransferFunctionScriptingTraits (1ms)
+			SetupTypeCache (477ms)
+			ReleaseScriptCaches (29ms)
+			RebuildScriptCaches (83ms)
+			SetupLoadedEditorAssemblies (2305ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (113ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (206ms)
+				ProcessInitializeOnLoadAttributes (1525ms)
+				ProcessInitializeOnLoadMethodAttributes (455ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 175 unused Assets / (0.7 MB). Loaded Objects now: 6322.
+Memory consumption went from 262.6 MB to 261.9 MB.
+Total: 6.261125 ms (FindLiveObjects: 0.897166 ms CreateObjectMapping: 0.304875 ms MarkObjects: 4.341167 ms  DeleteObjects: 0.713042 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 786.149105 seconds.
+  path: Assets/Data/DI/GameplayInstaller.cs
+  artifactKey: Guid(dcb79d9ffe4c24c1e8f3286712310ce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Data/DI/GameplayInstaller.cs using Guid(dcb79d9ffe4c24c1e8f3286712310ce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '99e8417ca42e40f8da32c767e7a2cc42') in 0.020814 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 221.384755 seconds.
+  path: Assets/Resources/Hud/Curtain.prefab
+  artifactKey: Guid(1cb149d37bb9a0340828827f2896bbf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/Hud/Curtain.prefab using Guid(1cb149d37bb9a0340828827f2896bbf4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1150c860ee77fa781eaef352fff79f92') in 0.330411 seconds 
+Number of asset objects unloaded after import = 24
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003162 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.02 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  5.009 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5014ms)
+		BeginReloadAssembly (943ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (106ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (320ms)
+		EndReloadAssembly (3748ms)
+			LoadAssemblies (526ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (504ms)
+			ReleaseScriptCaches (35ms)
+			RebuildScriptCaches (74ms)
+			SetupLoadedEditorAssemblies (2424ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (143ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (212ms)
+				ProcessInitializeOnLoadAttributes (1616ms)
+				ProcessInitializeOnLoadMethodAttributes (447ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.6 MB). Loaded Objects now: 6326.
+Memory consumption went from 262.3 MB to 261.7 MB.
+Total: 4.658583 ms (FindLiveObjects: 0.580291 ms CreateObjectMapping: 0.292500 ms MarkObjects: 3.376167 ms  DeleteObjects: 0.407750 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003985 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  5.137 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5144ms)
+		BeginReloadAssembly (598ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (87ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (169ms)
+		EndReloadAssembly (4241ms)
+			LoadAssemblies (415ms)
+			RebuildTransferFunctionScriptingTraits (2ms)
+			SetupTypeCache (627ms)
+			ReleaseScriptCaches (47ms)
+			RebuildScriptCaches (118ms)
+			SetupLoadedEditorAssemblies (2448ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (115ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (200ms)
+				ProcessInitializeOnLoadAttributes (1638ms)
+				ProcessInitializeOnLoadMethodAttributes (489ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.11 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.7 MB). Loaded Objects now: 6329.
+Memory consumption went from 262.4 MB to 261.7 MB.
+Total: 20.404208 ms (FindLiveObjects: 0.918834 ms CreateObjectMapping: 0.448542 ms MarkObjects: 17.591625 ms  DeleteObjects: 1.443625 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003309 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  4.632 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4638ms)
+		BeginReloadAssembly (531ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (63ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (163ms)
+		EndReloadAssembly (3828ms)
+			LoadAssemblies (328ms)
+			RebuildTransferFunctionScriptingTraits (2ms)
+			SetupTypeCache (467ms)
+			ReleaseScriptCaches (28ms)
+			RebuildScriptCaches (80ms)
+			SetupLoadedEditorAssemblies (2551ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (100ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (225ms)
+				ProcessInitializeOnLoadAttributes (1754ms)
+				ProcessInitializeOnLoadMethodAttributes (466ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.80 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.6 MB). Loaded Objects now: 6332.
+Memory consumption went from 262.4 MB to 261.7 MB.
+Total: 21.375500 ms (FindLiveObjects: 2.088000 ms CreateObjectMapping: 1.015458 ms MarkObjects: 17.639917 ms  DeleteObjects: 0.630875 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006529 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.27 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  5.028 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5031ms)
+		BeginReloadAssembly (914ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (92ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (344ms)
+		EndReloadAssembly (3768ms)
+			LoadAssemblies (584ms)
+			RebuildTransferFunctionScriptingTraits (2ms)
+			SetupTypeCache (496ms)
+			ReleaseScriptCaches (18ms)
+			RebuildScriptCaches (71ms)
+			SetupLoadedEditorAssemblies (2395ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (118ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (216ms)
+				ProcessInitializeOnLoadAttributes (1634ms)
+				ProcessInitializeOnLoadMethodAttributes (421ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (17ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.6 MB). Loaded Objects now: 6335.
+Memory consumption went from 262.4 MB to 261.7 MB.
+Total: 5.395917 ms (FindLiveObjects: 0.620333 ms CreateObjectMapping: 0.273625 ms MarkObjects: 3.931583 ms  DeleteObjects: 0.569292 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003443 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  5.125 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5129ms)
+		BeginReloadAssembly (652ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (79ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (173ms)
+		EndReloadAssembly (4130ms)
+			LoadAssemblies (367ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (450ms)
+			ReleaseScriptCaches (42ms)
+			RebuildScriptCaches (74ms)
+			SetupLoadedEditorAssemblies (2733ms)
+				LogAssemblyErrors (1ms)
+				InitializePlatformSupportModulesInManaged (152ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (319ms)
+				ProcessInitializeOnLoadAttributes (1771ms)
+				ProcessInitializeOnLoadMethodAttributes (483ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.06 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.6 MB). Loaded Objects now: 6338.
+Memory consumption went from 262.4 MB to 261.7 MB.
+Total: 6.543083 ms (FindLiveObjects: 0.588250 ms CreateObjectMapping: 0.294542 ms MarkObjects: 5.187708 ms  DeleteObjects: 0.469416 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004743 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.30 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  4.676 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4685ms)
+		BeginReloadAssembly (676ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (85ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (1ms)
+			CreateAndSetChildDomain (205ms)
+		EndReloadAssembly (3688ms)
+			LoadAssemblies (410ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (485ms)
+			ReleaseScriptCaches (41ms)
+			RebuildScriptCaches (79ms)
+			SetupLoadedEditorAssemblies (2423ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (110ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (211ms)
+				ProcessInitializeOnLoadAttributes (1673ms)
+				ProcessInitializeOnLoadMethodAttributes (423ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (14ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.04 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.6 MB). Loaded Objects now: 6341.
+Memory consumption went from 262.4 MB to 261.7 MB.
+Total: 14.666125 ms (FindLiveObjects: 0.585792 ms CreateObjectMapping: 2.114042 ms MarkObjects: 11.138708 ms  DeleteObjects: 0.825916 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003270 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 1.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  4.930 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4935ms)
+		BeginReloadAssembly (507ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (65ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (151ms)
+		EndReloadAssembly (4105ms)
+			LoadAssemblies (292ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (444ms)
+			ReleaseScriptCaches (30ms)
+			RebuildScriptCaches (76ms)
+			SetupLoadedEditorAssemblies (2927ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (105ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (213ms)
+				ProcessInitializeOnLoadAttributes (2098ms)
+				ProcessInitializeOnLoadMethodAttributes (506ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.6 MB). Loaded Objects now: 6344.
+Memory consumption went from 262.4 MB to 261.7 MB.
+Total: 6.595875 ms (FindLiveObjects: 0.946542 ms CreateObjectMapping: 0.421375 ms MarkObjects: 4.759542 ms  DeleteObjects: 0.466750 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 706.458998 seconds.
+  path: Assets/Data/DI/GameplayInstaller.cs
+  artifactKey: Guid(dcb79d9ffe4c24c1e8f3286712310ce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Data/DI/GameplayInstaller.cs using Guid(dcb79d9ffe4c24c1e8f3286712310ce1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2849cd37324b6c45fee2bee5938b2eee') in 0.249753 seconds 
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003466 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 4.92 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  6.402 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6412ms)
+		BeginReloadAssembly (1070ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (398ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (277ms)
+		EndReloadAssembly (5000ms)
+			LoadAssemblies (525ms)
+			RebuildTransferFunctionScriptingTraits (6ms)
+			SetupTypeCache (862ms)
+			ReleaseScriptCaches (62ms)
+			RebuildScriptCaches (202ms)
+			SetupLoadedEditorAssemblies (2645ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (225ms)
+				SetLoadedEditorAssemblies (3ms)
+				RefreshPlugins (5ms)
+				BeforeProcessingInitializeOnLoad (260ms)
+				ProcessInitializeOnLoadAttributes (1695ms)
+				ProcessInitializeOnLoadMethodAttributes (455ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (15ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.7 MB). Loaded Objects now: 6347.
+Memory consumption went from 262.4 MB to 261.8 MB.
+Total: 6.534708 ms (FindLiveObjects: 0.474167 ms CreateObjectMapping: 0.279708 ms MarkObjects: 5.045041 ms  DeleteObjects: 0.732500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003221 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 7.24 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  6.587 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6591ms)
+		BeginReloadAssembly (862ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (80ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (2ms)
+			CreateAndSetChildDomain (295ms)
+		EndReloadAssembly (5298ms)
+			LoadAssemblies (578ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (887ms)
+			ReleaseScriptCaches (92ms)
+			RebuildScriptCaches (159ms)
+			SetupLoadedEditorAssemblies (3040ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (149ms)
+				SetLoadedEditorAssemblies (7ms)
+				RefreshPlugins (7ms)
+				BeforeProcessingInitializeOnLoad (270ms)
+				ProcessInitializeOnLoadAttributes (1892ms)
+				ProcessInitializeOnLoadMethodAttributes (710ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (21ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.37 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.7 MB). Loaded Objects now: 6350.
+Memory consumption went from 262.4 MB to 261.8 MB.
+Total: 14.186000 ms (FindLiveObjects: 1.102208 ms CreateObjectMapping: 1.323375 ms MarkObjects: 11.109667 ms  DeleteObjects: 0.649542 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003341 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 6.66 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  5.101 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5104ms)
+		BeginReloadAssembly (705ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (66ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (1ms)
+			CreateAndSetChildDomain (232ms)
+		EndReloadAssembly (4067ms)
+			LoadAssemblies (505ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (549ms)
+			ReleaseScriptCaches (34ms)
+			RebuildScriptCaches (133ms)
+			SetupLoadedEditorAssemblies (2480ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (124ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (7ms)
+				BeforeProcessingInitializeOnLoad (248ms)
+				ProcessInitializeOnLoadAttributes (1636ms)
+				ProcessInitializeOnLoadMethodAttributes (461ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.96 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.7 MB). Loaded Objects now: 6353.
+Memory consumption went from 262.4 MB to 261.8 MB.
+Total: 5.117167 ms (FindLiveObjects: 0.493083 ms CreateObjectMapping: 0.268250 ms MarkObjects: 3.635292 ms  DeleteObjects: 0.718875 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006574 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 2.06 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  4.669 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4672ms)
+		BeginReloadAssembly (566ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (72ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (151ms)
+		EndReloadAssembly (3777ms)
+			LoadAssemblies (432ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (508ms)
+			ReleaseScriptCaches (33ms)
+			RebuildScriptCaches (88ms)
+			SetupLoadedEditorAssemblies (2414ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (119ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (205ms)
+				ProcessInitializeOnLoadAttributes (1646ms)
+				ProcessInitializeOnLoadMethodAttributes (437ms)
+				AfterProcessingInitializeOnLoad (2ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.09 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.6 MB). Loaded Objects now: 6356.
+Memory consumption went from 262.4 MB to 261.8 MB.
+Total: 14.740000 ms (FindLiveObjects: 1.906291 ms CreateObjectMapping: 0.342417 ms MarkObjects: 11.904375 ms  DeleteObjects: 0.583916 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.003887 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for OSXStandalone target not found
+Refreshing native plugins compatible for Editor in 5.22 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  5.465 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5468ms)
+		BeginReloadAssembly (603ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (75ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (172ms)
+		EndReloadAssembly (4498ms)
+			LoadAssemblies (347ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (526ms)
+			ReleaseScriptCaches (21ms)
+			RebuildScriptCaches (82ms)
+			SetupLoadedEditorAssemblies (3079ms)
+				LogAssemblyErrors (1ms)
+				InitializePlatformSupportModulesInManaged (181ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (5ms)
+				BeforeProcessingInitializeOnLoad (397ms)
+				ProcessInitializeOnLoadAttributes (2009ms)
+				ProcessInitializeOnLoadMethodAttributes (481ms)
+				AfterProcessingInitializeOnLoad (1ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (16ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.00 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5770 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 36 unused Assets / (0.6 MB). Loaded Objects now: 6359.
+Memory consumption went from 262.4 MB to 261.8 MB.
+Total: 9.998417 ms (FindLiveObjects: 0.572750 ms CreateObjectMapping: 0.997417 ms MarkObjects: 7.769542 ms  DeleteObjects: 0.656917 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:framework-osx-AVFoundation: e770b220cccbd017edd2c1fefb359320 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

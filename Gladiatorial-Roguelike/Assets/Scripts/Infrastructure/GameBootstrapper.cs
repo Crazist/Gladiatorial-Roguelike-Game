@@ -5,7 +5,6 @@ namespace Infrastructure
     public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
     {
         [SerializeField] private LoadingCurtain Curtain;
-        
         private Game _game;
 
         private void Awake()
