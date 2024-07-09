@@ -1,27 +1,22 @@
 using Infrastructure.Services;
 using UnityEngine;
-using Zenject;
 using Object = UnityEngine.Object;
 
 namespace Infrastructure
 {
-    public class LoadLevelState : IPayloadedState<string>
+    public class  LoadLevelState : IPayloadedState<string>
     {
         private const string Hud = "Hud/Hud";
 
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly LoadingCurtain _curtain;
-        
-        private  DeckService _decService;
+        private readonly DeckService _decService;
 
-        [Inject]
-        private void Inject(DeckService deckService)
+        public LoadLevelState(GameStateMachine stateMachine,DeckService deckService, SceneLoader sceneLoader,
+            LoadingCurtain curtain)
         {
             _decService = deckService;
-        }
-        public LoadLevelState(GameStateMachine stateMachine, SceneLoader sceneLoader, LoadingCurtain curtain)
-        {
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _curtain = curtain;

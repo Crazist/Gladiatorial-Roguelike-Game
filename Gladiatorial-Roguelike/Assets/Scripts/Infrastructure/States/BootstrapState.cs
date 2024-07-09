@@ -3,7 +3,8 @@ namespace Infrastructure
     public class BootstrapState : IState
     {
         private const string Initial = "InitialScene";
-        private readonly GameStateMachine _gameStateMachine;
+
+        private GameStateMachine _gameStateMachine;
         private SceneLoader _sceneLoader;
 
         public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
@@ -30,7 +31,6 @@ namespace Infrastructure
 
         public void Exit()
         {
-           
         }
     }
 }

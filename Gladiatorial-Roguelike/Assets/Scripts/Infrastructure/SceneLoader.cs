@@ -2,14 +2,16 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Zenject;
 
 namespace Infrastructure
 {
     public class SceneLoader
     {
-        private readonly ICoroutineRunner _coroutineRunner;
+        private ICoroutineRunner _coroutineRunner;
 
-        public SceneLoader(ICoroutineRunner coroutineRunner)
+        [Inject]
+        private void Inject(LoadingCurtain coroutineRunner)
         {
             _coroutineRunner = coroutineRunner;
         }
@@ -19,12 +21,12 @@ namespace Infrastructure
 
         private IEnumerator LoadScene(string nextScene, Action onLoaded = null)
         {
-            if(SceneManager.GetActiveScene().name == nextScene)
+            if (SceneManager.GetActiveScene().name == nextScene)
             {
                 onLoaded?.Invoke();
                 yield break;
             }
-            
+
             AsyncOperation waitNextScene = SceneManager.LoadSceneAsync(nextScene);
 
             while (!waitNextScene.isDone)

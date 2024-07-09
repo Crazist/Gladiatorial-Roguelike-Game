@@ -1,15 +1,19 @@
 using UnityEngine;
+using Zenject;
 
 namespace Infrastructure
 {
-    public class GameBootstrapper : MonoBehaviour, ICoroutineRunner
+    public class GameBootstrapper : MonoBehaviour
     {
-        [SerializeField] private LoadingCurtain Curtain;
         private Game _game;
+
+        [Inject]
+        private void Inject(Game game) => 
+            _game = game;
 
         private void Awake()
         {
-            _game = new Game(this, Curtain);
+            _game.StateMachine.InitStates();
             _game.StateMachine.Enter<BootstrapState>();
 
             DontDestroyOnLoad(this);

@@ -1,7 +1,8 @@
 using System.Collections;
+using Infrastructure;
 using UnityEngine;
 
-public class LoadingCurtain : MonoBehaviour
+public class LoadingCurtain : MonoBehaviour, ICoroutineRunner
 {
     public CanvasGroup Curtain;
 

@@ -1,20 +1,36 @@
 using System;
 using System.Collections.Generic;
+using Infrastructure.Services;
+using Unity.VisualScripting;
+using Zenject;
 
 namespace Infrastructure
 {
     public class GameStateMachine
     {
-        private readonly Dictionary<Type, IExitableState> _states;
+        private Dictionary<Type, IExitableState> _states;
+      
         private IExitableState _activeState;
+        private SceneLoader _sceneLoader;
+        private DeckService _deckService;
+        private LoadingCurtain _curtain;
 
-        public GameStateMachine(SceneLoader sceneLoader, LoadingCurtain curtain)
+        [Inject]
+        public void Inject(DeckService deckService, SceneLoader sceneLoader,
+            LoadingCurtain curtain)
         {
-            _states = new Dictionary<Type, IExitableState>()
+            _curtain = curtain;
+            _deckService = deckService;
+            _sceneLoader = sceneLoader;
+        }
+
+        public void InitStates()
+        {
+            _states = new Dictionary<Type, IExitableState>
             {
-                [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, curtain),
-                [typeof(GameLoopState)] = new GameLoopState(this)
+                { typeof(BootstrapState), new BootstrapState(this, _sceneLoader)},
+                { typeof(LoadLevelState), new LoadLevelState(this, _deckService, _sceneLoader, _curtain)},
+                { typeof(GameLoopState), new GameLoopState()}
             };
         }
         public void Enter<TState>() where TState : class, IState
