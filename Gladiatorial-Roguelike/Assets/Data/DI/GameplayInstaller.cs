@@ -1,3 +1,5 @@
+using Infrastructure;
+using Infrastructure.Services;
 using UnityEngine;
 using Zenject;
 
@@ -8,6 +10,8 @@ public class GameplayInstaller : ScriptableObjectInstaller<GameplayInstaller>
     {  
        // Container.BindInstance(_curtain).AsSingle();
        // Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(_curtain).AsSingle().NonLazy();
-       // Container.Bind<UserData>().AsSingle().NonLazy();
+        Container.Bind<Factory>().AsSingle().NonLazy();
+        Container.Bind<DeckService>().AsSingle().NonLazy();
+        Container.Bind<StaticDataService>().AsSingle().NonLazy();
     }
 }
