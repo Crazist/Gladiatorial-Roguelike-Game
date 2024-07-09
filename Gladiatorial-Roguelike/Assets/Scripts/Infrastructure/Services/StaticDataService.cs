@@ -1,21 +1,48 @@
+using System.Collections.Generic;
+using System.Linq;
+using Data;
 using Logic.Cards;
-using UnityEngine;
+using UI.Type;
+using Zenject;
 
 namespace Infrastructure.Services
 {
     public class StaticDataService
     {
-        public DeckData Deck;
-        
-        private const string deckResourcePath = "Data/Decks/RomanDeck";
+        private const string StaticDataDeckPath = "Data/Decks/RomanDeck";
+        private const string StaticDataWindowsPath = "Data/Decks/RomanDeck";
 
-        public StaticDataService()
+        private Dictionary<WindowId, WindowConfig> _windowConfigs;
+        
+        private DeckData _deck;
+        private AssetProvider _assetProvider;
+
+        [Inject]
+        private void Inject(AssetProvider assetProvider)
         {
-            LoadRomanDeck();
+            _assetProvider = assetProvider;
+
+            LoadResources();
         }
 
-        public DeckData ToRomanDeck() => Deck;
+        private void LoadResources()
+        {
+            LoadRomanDeck();
+            LoadWindowConfig();
+        }
 
-        private void LoadRomanDeck() => Deck = Resources.Load<DeckData>(deckResourcePath);
+        public DeckData ToRomanDeck() =>
+            _deck;
+
+        private void LoadRomanDeck() =>
+            _deck = _assetProvider.LoadAsset<DeckData>(StaticDataDeckPath);
+
+        private void LoadWindowConfig() =>
+            _windowConfigs = _assetProvider.LoadAsset<WindowStaticData>(StaticDataWindowsPath)
+                .Configs
+                .ToDictionary(x => x.WindowId, x => x);
+
+        public WindowConfig ForWindow(WindowId windowId) =>
+            _windowConfigs.GetValueOrDefault(windowId);
     }
 }
