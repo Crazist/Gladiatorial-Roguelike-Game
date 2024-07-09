@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Infrastructure.Services;
+using UI.Factory;
 using Zenject;
 
 namespace Infrastructure
@@ -13,11 +14,13 @@ namespace Infrastructure
         private SceneLoader _sceneLoader;
         private DeckService _deckService;
         private LoadingCurtain _curtain;
+        private UIFactory _uiFactory;
 
         [Inject]
         public void Inject(DeckService deckService, SceneLoader sceneLoader,
-            LoadingCurtain curtain)
+            LoadingCurtain curtain, UIFactory uiFactory)
         {
+            _uiFactory = uiFactory;
             _curtain = curtain;
             _deckService = deckService;
             _sceneLoader = sceneLoader;
@@ -28,7 +31,7 @@ namespace Infrastructure
             _states = new Dictionary<Type, IExitableState>
             {
                 { typeof(BootstrapState), new BootstrapState(this, _sceneLoader)},
-                { typeof(LoadLevelState), new LoadLevelState(this, _deckService, _sceneLoader, _curtain)},
+                { typeof(LoadLevelState), new LoadLevelState(this, _deckService, _sceneLoader, _curtain, _uiFactory)},
                 { typeof(GameLoopState), new GameLoopState()}
             };
         }

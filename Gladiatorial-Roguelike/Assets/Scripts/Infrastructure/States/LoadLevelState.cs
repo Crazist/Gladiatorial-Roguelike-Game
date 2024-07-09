@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using UI.Factory;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
@@ -6,16 +7,16 @@ namespace Infrastructure
 {
     public class  LoadLevelState : IPayloadedState<string>
     {
-        private const string Hud = "Hud/Hud";
-
         private readonly GameStateMachine _stateMachine;
         private readonly SceneLoader _sceneLoader;
         private readonly LoadingCurtain _curtain;
         private readonly DeckService _decService;
+        private readonly UIFactory _uiFactory;
 
         public LoadLevelState(GameStateMachine stateMachine,DeckService deckService, SceneLoader sceneLoader,
-            LoadingCurtain curtain)
+            LoadingCurtain curtain, UIFactory uiFactory)
         {
+            _uiFactory = uiFactory;
             _decService = deckService;
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
@@ -33,7 +34,9 @@ namespace Infrastructure
 
         private void OnLoaded()
         {
-            Instantiate(Hud);
+            _uiFactory.CreateUiRoot();
+            _uiFactory.CreateMenu();
+            
             _stateMachine.Enter<GameLoopState>();
         }
 

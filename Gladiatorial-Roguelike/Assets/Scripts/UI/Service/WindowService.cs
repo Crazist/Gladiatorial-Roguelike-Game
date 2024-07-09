@@ -1,4 +1,4 @@
-using Infrastructure;
+using UI.Factory;
 using UI.Type;
 using Zenject;
 
@@ -6,14 +6,12 @@ namespace UI.Service
 {
     public class WindowService
     {
-        private const string deckSelect = "DeckSelect";
-        
-        private SceneLoader _sceneLoader;
+        private UIFactory _uiFactory;
 
         [Inject]
-        private void Inject(SceneLoader sceneLoader)
+        private void Inject(UIFactory uiFactory)
         {
-            _sceneLoader = sceneLoader;
+            _uiFactory = uiFactory;
         }
 
         public void Open(WindowId id)
@@ -23,7 +21,7 @@ namespace UI.Service
                 case WindowId.Unknown:
                     break;
                 case WindowId.ChooseDeck:
-                    _sceneLoader.Load(deckSelect);
+                    _uiFactory.CreateChooseDeck();
                     break;
             }
         }

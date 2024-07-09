@@ -1,5 +1,6 @@
 using Infrastructure;
 using Infrastructure.Services;
+using UI.Factory;
 using UI.Service;
 using UnityEngine;
 using Zenject;
@@ -24,6 +25,8 @@ namespace Data.DI
             Container.Bind<StaticDataService>().AsSingle().NonLazy();
             Container.Bind<SceneLoader>().AsSingle().NonLazy();
             Container.Bind<WindowService>().AsSingle().NonLazy();
+            Container.Bind<UIFactory>().AsSingle().NonLazy();
+            Container.Bind<AssetProvider>().AsSingle().NonLazy();
         }
     }
 }

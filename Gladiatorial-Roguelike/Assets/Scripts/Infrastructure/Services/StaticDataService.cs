@@ -10,7 +10,7 @@ namespace Infrastructure.Services
     public class StaticDataService
     {
         private const string StaticDataDeckPath = "Data/Decks/RomanDeck";
-        private const string StaticDataWindowsPath = "Data/Decks/RomanDeck";
+        private const string StaticDataWindowsPath = "Data/Window/WindowStaticData";
 
         private Dictionary<WindowId, WindowConfig> _windowConfigs;
         

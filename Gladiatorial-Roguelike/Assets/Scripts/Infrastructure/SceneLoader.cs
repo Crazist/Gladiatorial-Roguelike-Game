@@ -11,7 +11,7 @@ namespace Infrastructure
         private ICoroutineRunner _coroutineRunner;
 
         [Inject]
-        private void Inject(LoadingCurtain coroutineRunner)
+        private void Inject(CoroutineCustomRunner coroutineRunner)
         {
             _coroutineRunner = coroutineRunner;
         }

@@ -13,6 +13,6 @@ namespace UI
         }
 
         protected virtual void OnAwake() =>
-            _closeBtn.onClick.AddListener(() => Destroy(gameObject));
+            _closeBtn?.onClick.AddListener(() => Destroy(gameObject));
     }
 }
