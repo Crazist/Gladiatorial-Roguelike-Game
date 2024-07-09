@@ -9,12 +9,12 @@ namespace Infrastructure.Services
 {
     public class StaticDataService
     {
-        private const string StaticDataDeckPath = "Data/Decks/RomanDeck";
+        private const string StaticDataDeckPath = "Data/Decks";
         private const string StaticDataWindowsPath = "Data/Window/WindowStaticData";
 
         private Dictionary<WindowId, WindowConfig> _windowConfigs;
-        
-        private DeckData _deck;
+        private Dictionary<DeckType, DeckData> _decks;
+
         private AssetProvider _assetProvider;
 
         [Inject]
@@ -27,22 +27,23 @@ namespace Infrastructure.Services
 
         private void LoadResources()
         {
-            LoadRomanDeck();
+            LoadDecks();
             LoadWindowConfig();
         }
 
-        public DeckData ToRomanDeck() =>
-            _deck;
+        public DeckData ForDeck(DeckType deckType) =>
+            _decks.GetValueOrDefault(deckType);
 
-        private void LoadRomanDeck() =>
-            _deck = _assetProvider.LoadAsset<DeckData>(StaticDataDeckPath);
+        public WindowConfig ForWindow(WindowId windowId) =>
+            _windowConfigs.GetValueOrDefault(windowId);
+
+        private void LoadDecks() =>
+            _decks = _assetProvider.LoadAllAssets<DeckData>(StaticDataDeckPath)
+                .ToDictionary(deckData => deckData.DeckType, x => x);
 
         private void LoadWindowConfig() =>
             _windowConfigs = _assetProvider.LoadAsset<WindowStaticData>(StaticDataWindowsPath)
                 .Configs
                 .ToDictionary(x => x.WindowId, x => x);
-
-        public WindowConfig ForWindow(WindowId windowId) =>
-            _windowConfigs.GetValueOrDefault(windowId);
     }
 }

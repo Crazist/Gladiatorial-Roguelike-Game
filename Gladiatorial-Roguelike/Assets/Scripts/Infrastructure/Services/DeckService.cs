@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Logic.Cards;
 using Logic.Enteties;
 using Zenject;
 
@@ -11,36 +12,22 @@ namespace Infrastructure.Services
         private Factory _deckFactory;
 
         [Inject]
-        public void Inject(Factory deckFactory)
-        {
+        public void Inject(Factory deckFactory) => 
             _deckFactory = deckFactory;
-          
+
+        public void InitializeDeck() => 
             _currentDeck = new List<Card>();
-        }
 
-        public void InitializeDeck()
-        {
-            _currentDeck = _deckFactory.CreateDeck();
-        }
+        public void AddCard(CardData cardData) => 
+            _currentDeck.Add(_deckFactory.CreateCard(cardData));
 
-        public List<Card> GetDeck()
-        {
-            return _currentDeck;
-        }
+        public List<Card> GetDeck() => 
+            _currentDeck;
 
-        public void AddCard(Card card)
-        {
-            _currentDeck.Add(card);
-        }
-
-        public void RemoveCard(Card card)
-        {
+        public void RemoveCard(Card card) => 
             _currentDeck.Remove(card);
-        }
 
-        public void ClearDeck()
-        {
+        public void ClearDeck() => 
             _currentDeck.Clear();
-        }
     }
 }

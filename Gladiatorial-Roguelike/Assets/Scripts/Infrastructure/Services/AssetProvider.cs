@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Infrastructure.Services
@@ -16,6 +17,18 @@ namespace Infrastructure.Services
 
             T instantiatedAsset = Object.Instantiate(asset);
             return instantiatedAsset;
+        }
+
+        public T[] LoadAllAssets<T>(string path) where T : Object
+        {
+            T[] assets = Resources.LoadAll<T>(path);
+            if (assets == null || assets.Length == 0)
+            {
+                Debug.LogError($"Assets at path {path} could not be loaded.");
+                return null;
+            }
+
+            return assets;
         }
 
         public T LoadAsset<T>(string path) where T : Object
