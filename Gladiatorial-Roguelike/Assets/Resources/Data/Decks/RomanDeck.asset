@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f03f4e1d5494c5c96dd0bb858d1821b, type: 3}
   m_Name: RomanDeck
   m_EditorClassIdentifier: 
+  DeckType: 0
+  CardBackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  CardFrontImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   Cards:
   - {fileID: 11400000, guid: f8d41442b4f104bda98fa4cb77ed69e2, type: 2}
