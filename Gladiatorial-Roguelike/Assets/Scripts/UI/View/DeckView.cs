@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using Infrastructure.Services.PersistentProgress;
 using UI.Service;
 using UI.Type;
 using UnityEngine;
@@ -10,17 +11,24 @@ namespace UI.View
     public class DeckView : MonoBehaviour
     {
         [SerializeField] private Image _deckImage;
+       
+        [SerializeField] private GameObject _lockerImage;
 
         [SerializeField] private Button _openDeckBtn;
+        
+        [SerializeField] private int _levelNeededToOpen;
         
         [SerializeField] private DeckType _type;
 
         private StaticDataService _staticData;
         private WindowService _windowService;
+        private PersistentProgressService _persistentProgressService;
 
         [Inject]
-        public void Inject(StaticDataService staticDataService, WindowService windowService)
+        public void Inject(StaticDataService staticDataService, WindowService windowService,
+            PersistentProgressService persistentProgressService)
         {
+            _persistentProgressService = persistentProgressService;
             _windowService = windowService;
             _staticData = staticDataService;
         }
@@ -32,9 +40,10 @@ namespace UI.View
             VisualizeDecks();
         }
 
-        private void VisualizeDecks() =>
-            _deckImage.sprite = _staticData.ForDeck(_type)?.CardBackImage
-                ? _staticData.ForDeck(_type).CardBackImage
-                : _deckImage.sprite;
+        private void VisualizeDecks()
+        {
+            _deckImage.sprite = _staticData.ForDeck(_type).CardBackImage;
+            _lockerImage.SetActive(_persistentProgressService.PlayerProgress.CurrentRun.Level < _levelNeededToOpen);
+        }
     }
 }

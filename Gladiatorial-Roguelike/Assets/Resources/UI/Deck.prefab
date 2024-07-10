@@ -130,7 +130,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deckImage: {fileID: 1651405939601363047}
+  _lockerImage: {fileID: 626950559326555775}
   _openDeckBtn: {fileID: 8159639420015875667}
+  _levelNeededToOpen: 8
   _type: 0
 --- !u!114 &3433006218990689512
 MonoBehaviour:

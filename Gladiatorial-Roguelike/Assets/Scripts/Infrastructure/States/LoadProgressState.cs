@@ -1,4 +1,5 @@
 using Infrastructure.Data;
+using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
 
 namespace Infrastructure
@@ -30,9 +31,18 @@ namespace Infrastructure
            
         }
 
-        private void LoadProgressOrInitNew()
+        private void LoadProgressOrInitNew() => 
+            _persistentProgressService.PlayerProgress = _saveLoadService.LoadProgress() ?? InitProgress();
+
+        private PlayerProgress InitProgress()
         {
-            _persistentProgressService.PlayerProgress = _saveLoadService.LoadProgress() ?? new PlayerProgress();
+            var progress = new PlayerProgress();
+
+            progress.DeckProgress.CurrentDeck = DeckType.None;
+            progress.CurrentRun.Exp = 0;
+            progress.CurrentRun.Level = 0;
+
+            return progress;
         }
     }
 }
