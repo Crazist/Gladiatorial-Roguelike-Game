@@ -21,7 +21,7 @@ namespace Infrastructure
 
         private void EnterLoadLevel()
         {
-            _gameStateMachine.Enter<LoadLevelState, string>("Main");
+            _gameStateMachine.Enter<LoadProgressState>();
         }
 
         private void RegisterServices()

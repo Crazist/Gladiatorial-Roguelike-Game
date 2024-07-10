@@ -1,5 +1,6 @@
 using Infrastructure;
 using Infrastructure.Services;
+using Infrastructure.Services.PersistentProgress;
 using UI.Factory;
 using UI.Service;
 using UnityEngine;
@@ -27,6 +28,8 @@ namespace Data.DI
             Container.Bind<WindowService>().AsSingle().NonLazy();
             Container.Bind<UIFactory>().AsSingle().NonLazy();
             Container.Bind<AssetProvider>().AsSingle().NonLazy();
+            Container.Bind<PersistentProgressService>().AsSingle().NonLazy();
+            Container.Bind<SaveLoadService>().AsSingle().NonLazy();
         }
     }
 }

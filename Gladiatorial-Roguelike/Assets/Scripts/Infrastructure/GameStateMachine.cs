@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Infrastructure.Services;
+using Infrastructure.Services.PersistentProgress;
 using UI.Factory;
 using Zenject;
 
@@ -15,11 +16,16 @@ namespace Infrastructure
         private DeckService _deckService;
         private LoadingCurtain _curtain;
         private UIFactory _uiFactory;
+        private PersistentProgressService _progressService;
+        private SaveLoadService _saveLoadService;
 
         [Inject]
         public void Inject(DeckService deckService, SceneLoader sceneLoader,
-            LoadingCurtain curtain, UIFactory uiFactory)
+            LoadingCurtain curtain, UIFactory uiFactory, PersistentProgressService progressService,
+            SaveLoadService saveLoadService)
         {
+            _saveLoadService = saveLoadService;
+            _progressService = progressService;
             _uiFactory = uiFactory;
             _curtain = curtain;
             _deckService = deckService;
@@ -31,6 +37,7 @@ namespace Infrastructure
             _states = new Dictionary<Type, IExitableState>
             {
                 { typeof(BootstrapState), new BootstrapState(this, _sceneLoader)},
+                { typeof(LoadProgressState), new LoadProgressState(this, _progressService, _saveLoadService)},
                 { typeof(LoadLevelState), new LoadLevelState(this, _deckService, _sceneLoader, _curtain, _uiFactory)},
                 { typeof(GameLoopState), new GameLoopState()}
             };
