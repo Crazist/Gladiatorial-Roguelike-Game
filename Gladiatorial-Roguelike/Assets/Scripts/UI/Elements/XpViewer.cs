@@ -9,7 +9,7 @@ public class XpViewer : MonoBehaviour
     [SerializeField] private TMP_Text _xpValueText;
     [SerializeField] private TMP_Text _playerLevel;
     
-    [SerializeField] private Image _levelProgressImage;
+    [SerializeField] private RectTransform _levelProgressImage;
 
     private PersistentProgressService _persistentProgressService;
     
@@ -54,8 +54,6 @@ public class XpViewer : MonoBehaviour
     private void UpdateXpProgress()
     {
         float normalizedValue = _persistentProgressService.PlayerProgress.CurrentRun.Exp / _maxXp;
-        Vector2 anchoredPosition = _levelProgressImage.rectTransform.anchoredPosition;
-        anchoredPosition.x = normalizedValue * _levelProgressImage.rectTransform.sizeDelta.x;
-        _levelProgressImage.rectTransform.anchoredPosition = anchoredPosition;
+        _levelProgressImage.localScale = new Vector3(normalizedValue, 1, 1);
     }
 }

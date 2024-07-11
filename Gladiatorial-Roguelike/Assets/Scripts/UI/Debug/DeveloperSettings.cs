@@ -40,7 +40,7 @@ public class DeveloperSettings : MonoBehaviour
         CurrentRun currentRun = _persistentProgressService.PlayerProgress.CurrentRun;
 
         _sliders[0].Initialize(currentRun.Exp, value 
-            => _persistentProgressService.PlayerProgress.CurrentRun.Exp = value);
+            => _persistentProgressService.PlayerProgress.CurrentRun.Exp = (int)value);
         
         _sliders[1].Initialize(currentRun.Level, value
             =>  _persistentProgressService.PlayerProgress.CurrentRun.Level = (int)value);

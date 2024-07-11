@@ -9,7 +9,7 @@ namespace Infrastructure.Data
         public event Action OnLevelChanged;
 
         private int _level;
-        private float _exp;
+        private int _exp;
 
         public int Level
         {
@@ -24,12 +24,12 @@ namespace Infrastructure.Data
             }
         }
 
-        public float Exp
+        public int Exp
         {
             get => _exp;
             set
             {
-                if (Math.Abs(_exp - value) > 0.01f)
+                if (_exp != value)
                 {
                     _exp = value;
                     OnExpChanged?.Invoke();
