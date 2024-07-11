@@ -4,6 +4,7 @@ namespace UI.Type
     {
         Unknown,
         ChooseDeck,
-        Menu
+        Menu,
+        DeckWindow,
     }
 }

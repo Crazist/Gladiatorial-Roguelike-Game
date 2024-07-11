@@ -1,5 +1,6 @@
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
+using UI.Factory;
 using UI.Service;
 using UI.Type;
 using UnityEngine;
@@ -23,11 +24,13 @@ namespace UI.View
         private StaticDataService _staticData;
         private WindowService _windowService;
         private PersistentProgressService _persistentProgressService;
+        private UIFactory _uiFactory;
 
         [Inject]
         public void Inject(StaticDataService staticDataService, WindowService windowService,
-            PersistentProgressService persistentProgressService)
+            PersistentProgressService persistentProgressService, UIFactory _uiFactory)
         {
+            _uiFactory = _uiFactory;
             _persistentProgressService = persistentProgressService;
             _windowService = windowService;
             _staticData = staticDataService;
@@ -35,10 +38,19 @@ namespace UI.View
 
         private void Start()
         {
-            _openDeckBtn.onClick.AddListener(() =>_windowService.Open(WindowId.Menu));
+            _openDeckBtn.onClick.AddListener(OnDeckClick);
             
             VisualizeDecks();
         }
+
+        private void OnDeckClick()
+        {
+            UpdateDeckWindowModel();
+            _windowService.Open(WindowId.DeckWindow);
+        }
+
+        private void UpdateDeckWindowModel() => 
+            _uiFactory.GetViewModel<DeckViewModel>(WindowId.DeckWindow).UpdateDeck(_type);
 
         private void VisualizeDecks()
         {

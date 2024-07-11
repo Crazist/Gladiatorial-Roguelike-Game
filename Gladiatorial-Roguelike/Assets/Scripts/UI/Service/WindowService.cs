@@ -1,5 +1,6 @@
 using UI.Factory;
 using UI.Type;
+using Unity.VisualScripting;
 using Zenject;
 
 namespace UI.Service
@@ -22,6 +23,9 @@ namespace UI.Service
                     break;
                 case WindowId.ChooseDeck:
                     _uiFactory.CreateChooseDeck();
+                    break;
+                case WindowId.DeckWindow:
+                    _uiFactory. CreateDeckWindow();
                     break;
             }
         }
