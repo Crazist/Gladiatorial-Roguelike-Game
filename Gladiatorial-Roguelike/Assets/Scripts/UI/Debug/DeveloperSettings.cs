@@ -1,59 +1,62 @@
+using System.Collections.Generic;
+using Infrastructure.Data;
 using Infrastructure.Services.PersistentProgress;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
 public class DeveloperSettings : MonoBehaviour
 {
-#if DEVELOPMENT_BUILD || UNITY_EDITOR
-    [SerializeField] private GameObject settingsPanel;
-    [SerializeField] private Button _invisibleButton;
-    [SerializeField] private Slider _xpSlider;
-    [SerializeField] private TMP_Text _xpValueText;
-    
-    private PersistentProgressService _persistentProgress;
+    [SerializeField] private List<SliderWithText> _sliders;
+    [SerializeField] private Button _openDebugPanelButton;
+    [SerializeField] private Button _clearPrefsButton;
+    [SerializeField] private GameObject _panel;
+
+    private PersistentProgressService _persistentProgressService;
 
     [Inject]
-    private void Inject(PersistentProgressService persistentProgress)
+    private void Inject(PersistentProgressService persistentProgressService)
     {
-        _persistentProgress = persistentProgress;
-        _persistentProgress.PlayerProgress.CurrentRun.OnExpChange += OnLevelChanged;
+        _persistentProgressService = persistentProgressService;
     }
 
     private void Start()
     {
-        settingsPanel.SetActive(false);
+        _clearPrefsButton.onClick.AddListener(ClearAllPlayerPrefs);
+        _openDebugPanelButton.onClick.AddListener(ToggleDebugPanel);
 
-        _invisibleButton.onClick.AddListener(ToggleSettingsPanel);
-
-        _xpSlider.onValueChanged.AddListener(OnXpSliderValueChanged);
-
-        _xpSlider.maxValue = 20;
-        _xpSlider.value = _persistentProgress.PlayerProgress.CurrentRun.Level;
-
-        UpdateXpValueText();
+        UpdateData();
     }
 
-    private void OnDestroy() => 
-        _persistentProgress.PlayerProgress.CurrentRun.OnExpChange -= OnLevelChanged;
-
-    private void ToggleSettingsPanel() =>
-        settingsPanel.SetActive(!settingsPanel.activeSelf);
-
-    private void OnXpSliderValueChanged(float value)
+    private void OnEnable()
     {
-        _persistentProgress.PlayerProgress.CurrentRun.Level = (int)value;
-        UpdateXpValueText();
+        UpdateData();
     }
 
-    private void OnLevelChanged(float newXp)
+    private void UpdateData()
     {
-        _xpSlider.value = newXp;
-        UpdateXpValueText();
+        if(_persistentProgressService == null) return;
+        
+        CurrentRun currentRun = _persistentProgressService.PlayerProgress.CurrentRun;
+
+        _sliders[0].Initialize(currentRun.Exp, value 
+            => _persistentProgressService.PlayerProgress.CurrentRun.Exp = value);
+        
+        _sliders[1].Initialize(currentRun.Level, value
+            =>  _persistentProgressService.PlayerProgress.CurrentRun.Level = (int)value);
+
+        _panel.SetActive(false);
     }
 
-    private void UpdateXpValueText() =>
-        _xpValueText.text = $"XP: {_xpSlider.value}";
-#endif
+    private void ToggleDebugPanel()
+    {
+        _panel.SetActive(!_panel.activeSelf);
+    }
+
+    private void ClearAllPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        _persistentProgressService.ClearProgress();
+        UpdateData();
+    }
 }

@@ -5,19 +5,22 @@ namespace Infrastructure.Data
     [Serializable]
     public class CurrentRun
     {
-        public Action<float> OnExpChange;
-        public Action<int> OnLevelChange;
-        
-        private float _exp;
+        public event Action OnExpChanged;
+        public event Action OnLevelChanged;
+
         private int _level;
+        private float _exp;
 
         public int Level
         {
             get => _level;
             set
             {
-                _level = value;
-                OnLevelChange?.Invoke(_level);
+                if (_level != value)
+                {
+                    _level = value;
+                    OnLevelChanged?.Invoke();
+                }
             }
         }
 
@@ -26,8 +29,11 @@ namespace Infrastructure.Data
             get => _exp;
             set
             {
-                _exp = value;
-                OnExpChange?.Invoke(_exp);
+                if (Math.Abs(_exp - value) > 0.01f)
+                {
+                    _exp = value;
+                    OnExpChanged?.Invoke();
+                }
             }
         }
     }
