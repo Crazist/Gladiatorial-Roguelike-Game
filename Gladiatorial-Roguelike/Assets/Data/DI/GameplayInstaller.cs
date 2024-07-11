@@ -1,6 +1,7 @@
 using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
+using UI.Elements;
 using UI.Factory;
 using UI.Model;
 using UI.Service;
@@ -13,11 +14,13 @@ namespace Data.DI
     public class GameplayInstaller : ScriptableObjectInstaller<GameplayInstaller>
     {
         [SerializeField] private LoadingCurtain _curtain;
+        [SerializeField] private CardPopup _cardPopup;
         [SerializeField] private CoroutineCustomRunner _coroutineCustomRunner;
 
         public override void InstallBindings()
         {
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(_curtain).AsSingle().NonLazy();
+            Container.Bind<CardPopup>().FromComponentInNewPrefab(_cardPopup).AsSingle().NonLazy();
             Container.Bind<CoroutineCustomRunner>().FromComponentInNewPrefab(_coroutineCustomRunner).AsSingle().NonLazy();
             
             Container.Bind<Game>().AsSingle().NonLazy();

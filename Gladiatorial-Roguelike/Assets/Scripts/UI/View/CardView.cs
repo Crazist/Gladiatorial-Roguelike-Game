@@ -1,5 +1,6 @@
 using System;
 using Logic.Cards;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -9,7 +10,7 @@ namespace UI.Elements
     public class CardView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] private Image _cardImage;
-        [SerializeField] private Text _cardHp;
+        [SerializeField] private TMP_Text _cardHp;
 
         private CardData _cardData;
 

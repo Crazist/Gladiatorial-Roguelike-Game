@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: GameplayInstaller
   m_EditorClassIdentifier: 
   _curtain: {fileID: 1236305942228037666, guid: 1cb149d37bb9a0340828827f2896bbf4, type: 3}
+  _cardPopup: {fileID: 4591887955252503365, guid: 7aeb038725dc4c14dbb2b4a62e1f5266, type: 3}
   _coroutineCustomRunner: {fileID: 5863357818706690931, guid: c53582cdf45ea8845a07c9873a30c201, type: 3}
