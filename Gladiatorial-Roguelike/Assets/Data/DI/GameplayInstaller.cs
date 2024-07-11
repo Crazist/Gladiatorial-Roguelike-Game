@@ -3,7 +3,6 @@ using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
 using UI.Elements;
 using UI.Factory;
-using UI.Model;
 using UI.Service;
 using UnityEngine;
 using Zenject;

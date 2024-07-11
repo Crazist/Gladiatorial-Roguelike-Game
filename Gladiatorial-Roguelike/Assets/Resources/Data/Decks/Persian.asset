@@ -15,4 +15,6 @@ MonoBehaviour:
   DeckType: 8
   CardBackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   CardFrontImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  Cards: []
+  Cards:
+  - {fileID: 11400000, guid: f5ee808c2fc4e4e2496e87d98b7c1716, type: 2}
+  - {fileID: 11400000, guid: 1ba88124d108b47ce89eab0c667de55b, type: 2}

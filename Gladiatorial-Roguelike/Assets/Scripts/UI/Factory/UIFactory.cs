@@ -10,6 +10,7 @@ namespace UI.Factory
     public class UIFactory
     {
         private const string UIRoot = "UI/UIRoot";
+        private const string DebugPanelPath = "UI/DebugPanel";
         
         private AssetProvider _assetProvider;
         private Transform _uiRoot;
@@ -25,6 +26,8 @@ namespace UI.Factory
 
         public void CreateUiRoot() => 
             _uiRoot = _assetProvider.InstantiateAsset<GameObject>(UIRoot).transform;
+        public void CreateDebugPanel() => 
+            Object.Instantiate(_assetProvider.LoadAsset<GameObject>(DebugPanelPath), _uiRoot);
 
         public void CreateMenu()
         {

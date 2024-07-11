@@ -13,6 +13,7 @@ namespace Logic.Cards
         public int Attack;
         public int Defense;
         public int Hp;
+        public int XP;
         
         public CardType CardType;
         public CardRarity CardRarity;

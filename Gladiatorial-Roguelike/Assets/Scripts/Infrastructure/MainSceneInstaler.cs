@@ -3,7 +3,10 @@ using Zenject;
 
 public class MainSceneInstaler : MonoInstaller
 {
- //   Container.Bind<BattlePassRewardSystem>().AsSingle().NonLazy();
-           
-  //  Container.BindInstance(_chestReward).AsSingle();
+    /*[SerializeField] private DeveloperSettings _developerSettings;
+
+    public override void InstallBindings()
+    {
+        Container.BindInstance(_developerSettings).AsSingle();
+    }*/
 }

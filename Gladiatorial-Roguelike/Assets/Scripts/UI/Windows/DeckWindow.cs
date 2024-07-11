@@ -14,6 +14,7 @@ namespace UI
         [SerializeField] private Transform _cardGroup;
 
         private DeckType _deckType;
+        
         private StaticDataService _staticDataService;
         private CardPopup _cardPopup;
 
