@@ -24,13 +24,13 @@ namespace UI.View
         private StaticDataService _staticData;
         private WindowService _windowService;
         private PersistentProgressService _persistentProgressService;
-        private UIFactory _uiFactory;
+        private DeckViewModel _deckViewModel;
 
         [Inject]
         public void Inject(StaticDataService staticDataService, WindowService windowService,
-            PersistentProgressService persistentProgressService, UIFactory _uiFactory)
+            PersistentProgressService persistentProgressService, DeckViewModel deckViewModel)
         {
-            _uiFactory = _uiFactory;
+            _deckViewModel = deckViewModel;
             _persistentProgressService = persistentProgressService;
             _windowService = windowService;
             _staticData = staticDataService;
@@ -50,7 +50,7 @@ namespace UI.View
         }
 
         private void UpdateDeckWindowModel() => 
-            _uiFactory.GetViewModel<DeckViewModel>(WindowId.DeckWindow).UpdateDeck(_type);
+            _deckViewModel.SetData(_type);
 
         private void VisualizeDecks()
         {

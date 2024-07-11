@@ -1,6 +1,4 @@
 using Infrastructure.Services;
-using UI.Factory;
-using UI.Type;
 using Zenject;
 
 namespace UI
@@ -10,7 +8,7 @@ namespace UI
         private DeckType DeckType;
 
         [Inject]
-        private void Inject(UIFactory uiFactory) => 
-            DeckType = uiFactory.GetViewModel<DeckViewModel>(WindowId.DeckWindow).SelectedDeck;
+        private void Inject(DeckViewModel deckViewModel) => 
+            DeckType = deckViewModel.SelectedDeck;
     }
 }

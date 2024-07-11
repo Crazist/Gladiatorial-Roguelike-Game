@@ -5,12 +5,12 @@ public class DeckViewModel : ViewModelBase
 {
     public DeckType SelectedDeck { get; private set; }
 
-    public DeckViewModel(DeckType selectedDeck)
+    public void SetData(DeckType selectedDeck)
     {
         SelectedDeck = selectedDeck;
     }
 
-    public void UpdateDeck(DeckType newDeck)
+    public void UpdateData(DeckType newDeck)
     {
         SelectedDeck = newDeck;
     }

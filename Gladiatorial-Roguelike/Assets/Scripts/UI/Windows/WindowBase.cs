@@ -16,10 +16,8 @@ namespace UI
             SubscribeUpdates();
         }
 
-        private void OnDestroy()
-        {
+        private void OnDestroy() => 
             CleanUp();
-        }
 
         protected virtual void OnAwake() =>
             _closeBtn?.onClick.AddListener(() => Destroy(gameObject));

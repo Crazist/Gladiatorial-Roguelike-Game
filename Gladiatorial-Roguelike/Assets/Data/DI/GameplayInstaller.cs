@@ -2,6 +2,7 @@ using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
 using UI.Factory;
+using UI.Model;
 using UI.Service;
 using UnityEngine;
 using Zenject;
@@ -30,6 +31,8 @@ namespace Data.DI
             Container.Bind<AssetProvider>().AsSingle().NonLazy();
             Container.Bind<PersistentProgressService>().AsSingle().NonLazy();
             Container.Bind<SaveLoadService>().AsSingle().NonLazy();
+          
+            Container.Bind<DeckViewModel>().AsSingle().NonLazy();
         }
     }
 }

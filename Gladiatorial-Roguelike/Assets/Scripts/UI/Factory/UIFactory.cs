@@ -11,8 +11,6 @@ namespace UI.Factory
     {
         private const string UIRoot = "UI/UIRoot";
         
-        private Dictionary<WindowId, ViewModelBase> _viewModels = new();
-        
         private AssetProvider _assetProvider;
         private Transform _uiRoot;
         private StaticDataService _staticDataService;
@@ -43,17 +41,6 @@ namespace UI.Factory
         {
             var config = _staticDataService.ForWindow(WindowId.DeckWindow);
             Object.Instantiate(config.Prefab, _uiRoot);
-            
-            _viewModels.Add(WindowId.DeckWindow, new DeckViewModel(DeckType.None));
-        }
-        public T GetViewModel<T>(WindowId id) where T : ViewModelBase
-        {
-            if (_viewModels.TryGetValue(id, out var viewModel))
-            {
-                return viewModel as T;
-            }
-
-            return null;
         }
     }
 }
