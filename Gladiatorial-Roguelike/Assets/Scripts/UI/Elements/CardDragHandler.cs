@@ -23,6 +23,8 @@ namespace UI.Elements
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            if(_canvas == null) return;
+            
             _startPosition = transform.localPosition;
 
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
