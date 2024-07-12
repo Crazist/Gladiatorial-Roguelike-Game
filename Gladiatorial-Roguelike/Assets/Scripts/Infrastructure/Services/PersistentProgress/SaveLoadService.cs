@@ -15,13 +15,8 @@ namespace Infrastructure
         private void Inject(PersistentProgressService persistentProgressService) =>
             _persistentProgressService = persistentProgressService;
 
-        public void SaveProgress()
-        {
-            _persistentProgressService.PlayerProgress.Profile.Level = 10;
-            string test = _persistentProgressService.PlayerProgress.ToJson();
+        public void SaveProgress() => 
             PlayerPrefs.SetString(ProgressKey, _persistentProgressService.PlayerProgress.ToJson());
-            _persistentProgressService.PlayerProgress.Profile.Level = 0;
-        }
 
         public PlayerProgress LoadProgress() =>
             _persistentProgressService.PlayerProgress =

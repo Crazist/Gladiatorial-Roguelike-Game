@@ -1,5 +1,6 @@
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
+using Logic.Cards;
 using UI.Factory;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -15,15 +16,13 @@ namespace Infrastructure
         private readonly UIFactory _uiFactory;
         private StaticDataService _staticDataService;
         private PermaDeckService _permaDeckService;
-        private SaveLoadService _saveLoadService;
-        private PersistentProgressService _persistentProgressService;
+        private Factory _factory;
 
         public LoadLevelState(GameStateMachine stateMachine,DeckService deckService, SceneLoader sceneLoader,
             LoadingCurtain curtain, UIFactory uiFactory, StaticDataService staticDataService, PermaDeckService permaDeckService
-            , SaveLoadService saveLoadService, PersistentProgressService persistentProgressService)
+            , Factory factory)
         {
-            _persistentProgressService = persistentProgressService;
-            _saveLoadService = saveLoadService;
+            _factory = factory;
             _permaDeckService = permaDeckService;
             _staticDataService = staticDataService;
             _uiFactory = uiFactory;
@@ -44,27 +43,11 @@ namespace Infrastructure
 
         private void CreateDeck()
         {
-            foreach (var card in _staticDataService.ForDeck(DeckType.RomanDeck).Cards)
-            {
-                _decService.AddCard(card);
-            }
+            if(_permaDeckService.GetAllCards().Count > 0) return;
 
-          var deck =  _decService.GetDeck();
-
-          foreach (var card in deck)
-          {
-              _permaDeckService.AddCardToDeck(card);
-          }
-          
-          _saveLoadService.SaveProgress();
-          
-          _permaDeckService.ClenUp();
-
-          _saveLoadService.LoadProgress();
-
-          var test = _permaDeckService.GetAllCards();
-          
-          var level = _persistentProgressService.PlayerProgress.Profile.Level;
+            DeckData deck =  _staticDataService.ForDeck(DeckType.RomanDeck);
+            
+            _permaDeckService.AddCardToDeck(_factory.CreateCard(deck.Cards[0]));
         }
         private void OnLoaded()
         {
