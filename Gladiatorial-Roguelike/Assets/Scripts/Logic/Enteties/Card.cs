@@ -17,8 +17,11 @@ namespace Logic.Enteties
         public CardType CardType;
         public CardRarity CardRarity;
 
+        public CardData CardData;
         public Card(CardData data)
         {
+            CardData = data;
+            
             Icon = data.Icon;
             CardName = data.CardName;
             Attack = data.Attack;
