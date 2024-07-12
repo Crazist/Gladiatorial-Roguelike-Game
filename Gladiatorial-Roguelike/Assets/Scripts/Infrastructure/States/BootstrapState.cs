@@ -1,3 +1,5 @@
+using Zenject;
+
 namespace Infrastructure
 {
     public class BootstrapState : IState
@@ -7,12 +9,12 @@ namespace Infrastructure
         private GameStateMachine _gameStateMachine;
         private SceneLoader _sceneLoader;
 
-        public BootstrapState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
+        [Inject]
+        private void Inject(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
         {
             _sceneLoader = sceneLoader;
             _gameStateMachine = gameStateMachine;
         }
-
         public void Enter()
         {
             RegisterServices();

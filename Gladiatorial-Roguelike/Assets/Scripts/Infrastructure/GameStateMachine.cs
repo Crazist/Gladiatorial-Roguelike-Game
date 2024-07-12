@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Infrastructure.Services;
-using Infrastructure.Services.PersistentProgress;
-using UI.Factory;
 using Zenject;
 
 namespace Infrastructure
@@ -10,45 +7,24 @@ namespace Infrastructure
     public class GameStateMachine
     {
         private Dictionary<Type, IExitableState> _states;
-      
+
+        private readonly DiContainer _diContainer;
+       
         private IExitableState _activeState;
-        private SceneLoader _sceneLoader;
-        private DeckService _deckService;
-        private LoadingCurtain _curtain;
-        private UIFactory _uiFactory;
-        private PersistentProgressService _progressService;
-        private SaveLoadService _saveLoadService;
-        private StaticDataService _staticDataService;
-        private PermaDeckService _permaDeckService;
-        private PersistentProgressService _persistentProgressService;
 
         [Inject]
-        public void Inject(DeckService deckService, SceneLoader sceneLoader,
-            LoadingCurtain curtain, UIFactory uiFactory, PersistentProgressService progressService,
-            SaveLoadService saveLoadService, StaticDataService staticDataService, PermaDeckService permaDeckService,
-            PersistentProgressService persistentProgressService)
+        public GameStateMachine(DiContainer diContainer)
         {
-            _persistentProgressService = persistentProgressService;
-            _permaDeckService = permaDeckService;
-            _staticDataService = staticDataService;
-            _saveLoadService = saveLoadService;
-            _progressService = progressService;
-            _uiFactory = uiFactory;
-            _curtain = curtain;
-            _deckService = deckService;
-            _sceneLoader = sceneLoader;
+            _diContainer = diContainer;
+            _states = new Dictionary<Type, IExitableState>();
         }
 
         public void InitStates()
         {
-            _states = new Dictionary<Type, IExitableState>
-            {
-                { typeof(BootstrapState), new BootstrapState(this, _sceneLoader)},
-                { typeof(LoadProgressState), new LoadProgressState(this, _progressService, _saveLoadService)},
-                { typeof(LoadLevelState), new LoadLevelState(this, _deckService, 
-                    _sceneLoader, _curtain, _uiFactory, _staticDataService, _permaDeckService, _saveLoadService, _persistentProgressService)},
-                { typeof(GameLoopState), new GameLoopState()}
-            };
+            _states[typeof(BootstrapState)] = _diContainer.Instantiate<BootstrapState>();
+            _states[typeof(LoadProgressState)] = _diContainer.Instantiate<LoadProgressState>();
+            _states[typeof(LoadLevelState)] = _diContainer.Instantiate<LoadLevelState>();
+            _states[typeof(GameLoopState)] = _diContainer.Instantiate<GameLoopState>();
         }
         public void Enter<TState>() where TState : class, IState
         {
