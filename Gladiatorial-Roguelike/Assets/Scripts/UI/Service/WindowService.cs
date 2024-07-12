@@ -30,6 +30,9 @@ namespace UI.Service
                 case WindowId.DeckWindow:
                     _uiFactory. CreateDeckWindow();
                     break;
+                case WindowId.PermaDeck:
+                    _uiFactory. CreatePermaDeckWindow();
+                    break;
             }
         }
     }

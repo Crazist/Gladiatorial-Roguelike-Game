@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using Infrastructure.Services;
-using UI.Model;
 using UI.Type;
 using UnityEngine;
 using Zenject;
@@ -11,6 +9,8 @@ namespace UI.Factory
     {
         private const string UIRoot = "UI/UIRoot";
         private const string DebugPanelPath = "UI/DebugPanel";
+
+        public  Canvas UI { get; set; }
         
         private AssetProvider _assetProvider;
         private Transform _uiRoot;
@@ -24,8 +24,12 @@ namespace UI.Factory
             _assetProvider = assetProvider;
         }
 
-        public void CreateUiRoot() => 
-            _uiRoot = _assetProvider.InstantiateAsset<GameObject>(UIRoot).transform;
+        public void CreateUiRoot()
+        { 
+          UI = _assetProvider.InstantiateAsset<Canvas>(UIRoot);
+          _uiRoot = UI.gameObject.transform;
+        } 
+            
         public void CreateDebugPanel() => 
             Object.Instantiate(_assetProvider.LoadAsset<GameObject>(DebugPanelPath), _uiRoot);
 
@@ -43,6 +47,11 @@ namespace UI.Factory
         public void CreateDeckWindow()
         {
             var config = _staticDataService.ForWindow(WindowId.DeckWindow);
+            Object.Instantiate(config.Prefab, _uiRoot);
+        }
+        public void CreatePermaDeckWindow()
+        {
+            var config = _staticDataService.ForWindow(WindowId.PermaDeck);
             Object.Instantiate(config.Prefab, _uiRoot);
         }
     }

@@ -6,5 +6,6 @@ namespace UI.Type
         ChooseDeck,
         Menu,
         DeckWindow,
+        PermaDeck,
     }
 }
