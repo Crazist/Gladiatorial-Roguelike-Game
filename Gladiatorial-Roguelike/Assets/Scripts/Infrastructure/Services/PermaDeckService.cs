@@ -18,5 +18,6 @@ namespace Infrastructure.Services
         public void RemoveCardFromDeck(Card card) => _cards.Remove(card);
        
         public List<Card> GetAllCards() => _cards;
+        public void ClenUp() => _cards.Clear();
     }
 }

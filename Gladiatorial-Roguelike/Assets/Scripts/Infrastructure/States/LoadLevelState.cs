@@ -13,10 +13,15 @@ namespace Infrastructure
         private readonly DeckService _decService;
         private readonly UIFactory _uiFactory;
         private StaticDataService _staticDataService;
+        private PermaDeckService _permaDeckService;
+        private SaveLoadService _saveLoadService;
 
         public LoadLevelState(GameStateMachine stateMachine,DeckService deckService, SceneLoader sceneLoader,
-            LoadingCurtain curtain, UIFactory uiFactory, StaticDataService staticDataService)
+            LoadingCurtain curtain, UIFactory uiFactory, StaticDataService staticDataService, PermaDeckService permaDeckService
+            , SaveLoadService saveLoadService)
         {
+            _saveLoadService = saveLoadService;
+            _permaDeckService = permaDeckService;
             _staticDataService = staticDataService;
             _uiFactory = uiFactory;
             _decService = deckService;
@@ -42,6 +47,19 @@ namespace Infrastructure
             }
 
           var deck =  _decService.GetDeck();
+
+          foreach (var card in deck)
+          {
+              _permaDeckService.AddCardToDeck(card);
+          }
+          
+          _saveLoadService.SaveProgress();
+          
+          _permaDeckService.ClenUp();
+
+          _saveLoadService.LoadProgress();
+
+          var test = _permaDeckService.GetAllCards();
         }
         private void OnLoaded()
         {
