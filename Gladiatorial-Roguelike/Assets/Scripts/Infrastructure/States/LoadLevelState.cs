@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using Infrastructure.Services.PersistentProgress;
 using UI.Factory;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -15,11 +16,13 @@ namespace Infrastructure
         private StaticDataService _staticDataService;
         private PermaDeckService _permaDeckService;
         private SaveLoadService _saveLoadService;
+        private PersistentProgressService _persistentProgressService;
 
         public LoadLevelState(GameStateMachine stateMachine,DeckService deckService, SceneLoader sceneLoader,
             LoadingCurtain curtain, UIFactory uiFactory, StaticDataService staticDataService, PermaDeckService permaDeckService
-            , SaveLoadService saveLoadService)
+            , SaveLoadService saveLoadService, PersistentProgressService persistentProgressService)
         {
+            _persistentProgressService = persistentProgressService;
             _saveLoadService = saveLoadService;
             _permaDeckService = permaDeckService;
             _staticDataService = staticDataService;
@@ -60,6 +63,8 @@ namespace Infrastructure
           _saveLoadService.LoadProgress();
 
           var test = _permaDeckService.GetAllCards();
+          
+          var level = _persistentProgressService.PlayerProgress.Profile.Level;
         }
         private void OnLoaded()
         {

@@ -7,6 +7,6 @@ namespace Infrastructure.Data
     [Serializable]
     public class PermaDeck
     {
-        public List<Card> Cards;
+        public List<Card> Cards = new();
     }
 }

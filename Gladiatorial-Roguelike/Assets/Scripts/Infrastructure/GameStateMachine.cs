@@ -20,12 +20,15 @@ namespace Infrastructure
         private SaveLoadService _saveLoadService;
         private StaticDataService _staticDataService;
         private PermaDeckService _permaDeckService;
+        private PersistentProgressService _persistentProgressService;
 
         [Inject]
         public void Inject(DeckService deckService, SceneLoader sceneLoader,
             LoadingCurtain curtain, UIFactory uiFactory, PersistentProgressService progressService,
-            SaveLoadService saveLoadService, StaticDataService staticDataService, PermaDeckService permaDeckService)
+            SaveLoadService saveLoadService, StaticDataService staticDataService, PermaDeckService permaDeckService,
+            PersistentProgressService persistentProgressService)
         {
+            _persistentProgressService = persistentProgressService;
             _permaDeckService = permaDeckService;
             _staticDataService = staticDataService;
             _saveLoadService = saveLoadService;
@@ -43,7 +46,7 @@ namespace Infrastructure
                 { typeof(BootstrapState), new BootstrapState(this, _sceneLoader)},
                 { typeof(LoadProgressState), new LoadProgressState(this, _progressService, _saveLoadService)},
                 { typeof(LoadLevelState), new LoadLevelState(this, _deckService, 
-                    _sceneLoader, _curtain, _uiFactory, _staticDataService, _permaDeckService, _saveLoadService)},
+                    _sceneLoader, _curtain, _uiFactory, _staticDataService, _permaDeckService, _saveLoadService, _persistentProgressService)},
                 { typeof(GameLoopState), new GameLoopState()}
             };
         }

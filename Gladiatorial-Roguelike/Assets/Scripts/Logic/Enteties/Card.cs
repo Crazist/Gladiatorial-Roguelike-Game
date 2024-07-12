@@ -1,13 +1,12 @@
+using System;
 using Logic.Cards;
 using Logic.Types;
-using UnityEngine;
 
 namespace Logic.Enteties
 {
+    [Serializable]
     public class Card
     {
-        public Sprite Icon;
-       
         public string CardName;
       
         public int Attack;
@@ -22,7 +21,6 @@ namespace Logic.Enteties
         {
             CardData = data;
             
-            Icon = data.Icon;
             CardName = data.CardName;
             Attack = data.Attack;
             Defense = data.Defense;

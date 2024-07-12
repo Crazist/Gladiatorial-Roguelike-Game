@@ -7,17 +7,17 @@ namespace Infrastructure.Services
 {
     public class PermaDeckService
     {
-        private List<Card> _cards = new List<Card>();
+        private PersistentProgressService _persistentProgress;
 
         [Inject]
-        private void Inject(PersistentProgressService persistentProgress) =>
-            _cards = persistentProgress.PlayerProgress.Profile.PermaDeck.Cards;
+        private void Inject(PersistentProgressService persistentProgress) => 
+            _persistentProgress = persistentProgress;
 
-        public void AddCardToDeck(Card card) => _cards.Add(card);
+        public void AddCardToDeck(Card card) => _persistentProgress.PlayerProgress.Profile.PermaDeck.Cards.Add(card);
 
-        public void RemoveCardFromDeck(Card card) => _cards.Remove(card);
+        public void RemoveCardFromDeck(Card card) => _persistentProgress.PlayerProgress.Profile.PermaDeck.Cards.Remove(card);
        
-        public List<Card> GetAllCards() => _cards;
-        public void ClenUp() => _cards.Clear();
+        public List<Card> GetAllCards() => _persistentProgress.PlayerProgress.Profile.PermaDeck.Cards;
+        public void ClenUp() => _persistentProgress.PlayerProgress.Profile.PermaDeck.Cards.Clear();
     }
 }

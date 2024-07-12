@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Infrastructure.Data
 {
@@ -6,11 +7,11 @@ namespace Infrastructure.Data
     public class Profile
     {
         public PermaDeck PermaDeck;
-        public event Action OnExpChanged;
-        public event Action OnLevelChanged;
+        [field: NonSerialized] public event Action OnExpChanged;
+        [field: NonSerialized] public event Action OnLevelChanged;
 
-        private int _level;
-        private int _exp;
+        [SerializeField] private int _level;
+        [SerializeField] private int _exp;
 
         public int Level
         {
