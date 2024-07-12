@@ -21,6 +21,9 @@ namespace UI.Service
             {
                 case WindowId.Unknown:
                     break;
+                case WindowId.Menu:
+                    _uiFactory.CreateMenu();
+                    break;
                 case WindowId.ChooseDeck:
                     _uiFactory.CreateChooseDeck();
                     break;

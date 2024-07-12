@@ -37,13 +37,13 @@ public class DeveloperSettings : MonoBehaviour
     {
         if(_persistentProgressService == null) return;
         
-        CurrentRun currentRun = _persistentProgressService.PlayerProgress.CurrentRun;
+        Profile Profile = _persistentProgressService.PlayerProgress.Profile;
 
-        _sliders[0].Initialize(currentRun.Exp, value 
-            => _persistentProgressService.PlayerProgress.CurrentRun.Exp = (int)value);
+        _sliders[0].Initialize(Profile.Exp, value 
+            => _persistentProgressService.PlayerProgress.Profile.Exp = (int)value);
         
-        _sliders[1].Initialize(currentRun.Level, value
-            =>  _persistentProgressService.PlayerProgress.CurrentRun.Level = (int)value);
+        _sliders[1].Initialize(Profile.Level, value
+            =>  _persistentProgressService.PlayerProgress.Profile.Level = (int)value);
 
         _panel.SetActive(false);
     }

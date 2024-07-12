@@ -3,7 +3,7 @@ using System;
 namespace Infrastructure.Data
 {
     [Serializable]
-    public class CurrentRun
+    public class Profile
     {
         public event Action OnExpChanged;
         public event Action OnLevelChanged;

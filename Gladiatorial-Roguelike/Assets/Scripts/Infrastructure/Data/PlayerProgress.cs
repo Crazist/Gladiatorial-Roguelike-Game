@@ -6,12 +6,12 @@ namespace Infrastructure.Data
     public class PlayerProgress
     {
         public DeckProgress DeckProgress;
-        public CurrentRun CurrentRun;
+        public Profile Profile;
 
         public PlayerProgress()
         {
             DeckProgress = new DeckProgress();
-            CurrentRun = new CurrentRun();
+            Profile = new Profile();
         }
     }
 }

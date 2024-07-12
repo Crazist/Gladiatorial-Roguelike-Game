@@ -20,8 +20,8 @@ public class XpViewer : MonoBehaviour
     {
         _persistentProgressService = persistentProgressService;
         
-        _persistentProgressService.PlayerProgress.CurrentRun.OnExpChanged += OnExpChanged;
-        _persistentProgressService.PlayerProgress.CurrentRun.OnLevelChanged += UpdateLevelValueText;
+        _persistentProgressService.PlayerProgress.Profile.OnExpChanged += OnExpChanged;
+        _persistentProgressService.PlayerProgress.Profile.OnLevelChanged += UpdateLevelValueText;
     }
 
     private void Start()
@@ -33,8 +33,8 @@ public class XpViewer : MonoBehaviour
 
     private void OnDestroy()
     {
-        _persistentProgressService.PlayerProgress.CurrentRun.OnExpChanged -= OnExpChanged;
-        _persistentProgressService.PlayerProgress.CurrentRun.OnLevelChanged -= UpdateLevelValueText;
+        _persistentProgressService.PlayerProgress.Profile.OnExpChanged -= OnExpChanged;
+        _persistentProgressService.PlayerProgress.Profile.OnLevelChanged -= UpdateLevelValueText;
     }
 
     private void OnExpChanged()
@@ -45,15 +45,15 @@ public class XpViewer : MonoBehaviour
 
     private void UpdateXpValueText()
     {
-        _xpValueText.text = $"XP: {_persistentProgressService.PlayerProgress.CurrentRun.Exp} / {_maxXp}";
+        _xpValueText.text = $"XP: {_persistentProgressService.PlayerProgress.Profile.Exp} / {_maxXp}";
     }
     private void UpdateLevelValueText()
     {
-        _playerLevel.text = $"Player Level: {_persistentProgressService.PlayerProgress.CurrentRun.Level}";
+        _playerLevel.text = $"Player Level: {_persistentProgressService.PlayerProgress.Profile.Level}";
     }
     private void UpdateXpProgress()
     {
-        float normalizedValue = _persistentProgressService.PlayerProgress.CurrentRun.Exp / _maxXp;
+        float normalizedValue = _persistentProgressService.PlayerProgress.Profile.Exp / _maxXp;
         _levelProgressImage.localScale = new Vector3(normalizedValue, 1, 1);
     }
 }

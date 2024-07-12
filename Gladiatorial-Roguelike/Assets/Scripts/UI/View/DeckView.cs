@@ -55,7 +55,7 @@ namespace UI.View
         private void VisualizeDecks()
         {
             _deckImage.sprite = _staticData.ForDeck(_type).CardBackImage;
-            _lockerImage.SetActive(_persistentProgressService.PlayerProgress.CurrentRun.Level < _levelNeededToOpen);
+            _lockerImage.SetActive(_persistentProgressService.PlayerProgress.Profile.Level < _levelNeededToOpen);
         }
     }
 }
