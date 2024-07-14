@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using Infrastructure.Services.CardsServices;
 using Logic.Cards;
 using UI.Elements;
 using UnityEngine;
@@ -16,12 +17,13 @@ namespace UI
         private DeckType _deckType;
         
         private StaticDataService _staticDataService;
-        private CardPopup _cardPopup;
+        private CardPopupService _cardPopupService;
 
         [Inject]
-        private void Inject(DeckViewModel deckViewModel, StaticDataService staticDataService, CardPopup cardPopup)
+        private void Inject(DeckViewModel deckViewModel, StaticDataService staticDataService,
+            CardPopupService cardPopupService)
         {
-            _cardPopup = cardPopup;
+            _cardPopupService = cardPopupService;
             _staticDataService = staticDataService;
             _deckType = deckViewModel.SelectedDeck;
 
@@ -40,17 +42,10 @@ namespace UI
             foreach (var cardData in cards)
             {
                 CardView cardComponent = Instantiate(_cardPrefab, _cardGroup);
-                cardComponent.Initialize(cardData);
-
-                cardComponent.OnCardHoverEnter += HandleCardHoverEnter;
-                cardComponent.OnCardHoverExit += HandleCardHoverExit;
+                cardComponent.Initialize(cardData, false);
+                
+                _cardPopupService.SubscribeToCard(cardComponent);
             }
         }
-
-        private void HandleCardHoverEnter(CardView cardView) =>
-            _cardPopup.Show(cardView.transform.position + new Vector3(100, 0, 0), cardView.GetCardData());
-
-        private void HandleCardHoverExit(CardView cardView) =>
-            _cardPopup.Hide();
-    }
+}
 }

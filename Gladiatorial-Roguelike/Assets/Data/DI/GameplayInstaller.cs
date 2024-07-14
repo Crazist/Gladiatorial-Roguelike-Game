@@ -1,9 +1,11 @@
 using Infrastructure;
 using Infrastructure.Services;
+using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
 using UI.Elements;
 using UI.Factory;
 using UI.Service;
+using UI.Services;
 using UnityEngine;
 using Zenject;
 
@@ -34,6 +36,9 @@ namespace Data.DI
             Container.Bind<PersistentProgressService>().AsSingle().NonLazy();
             Container.Bind<SaveLoadService>().AsSingle().NonLazy();
             Container.Bind<PermaDeckService>().AsSingle().NonLazy();
+            Container.Bind<CardSellService>().AsSingle().NonLazy();
+            Container.Bind<CardDragService>().AsSingle().NonLazy();
+            Container.Bind<CardPopupService>().AsSingle().NonLazy();
           
             Container.Bind<DeckViewModel>().AsSingle().NonLazy();
         }
