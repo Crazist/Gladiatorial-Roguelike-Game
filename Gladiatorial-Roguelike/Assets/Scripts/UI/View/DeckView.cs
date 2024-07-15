@@ -49,8 +49,11 @@ namespace UI.View
             _windowService.Open(WindowId.DeckWindow);
         }
 
-        private void UpdateDeckWindowModel() => 
-            _deckViewModel.SetData(_type);
+        private void UpdateDeckWindowModel()
+        {
+            _deckViewModel.SetType(_type);
+            _deckViewModel.SetContinueBtn(true);
+        }
 
         private void VisualizeDecks()
         {

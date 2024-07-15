@@ -3,6 +3,7 @@ using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
 using UI.Elements;
+using UI.Model;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -21,18 +22,22 @@ namespace UI
         private StaticDataService _staticDataService;
         private CardPopupService _cardPopupService;
         private PersistentProgressService _persistentProgressService;
+        private PermaDeckModel _permaDeckModel;
 
         [Inject]
         private void Inject(DeckViewModel deckViewModel, StaticDataService staticDataService,
-            CardPopupService cardPopupService, PersistentProgressService persistentProgressService)
+            CardPopupService cardPopupService, PersistentProgressService persistentProgressService, PermaDeckModel permaDeckModel)
         {
+            _permaDeckModel = permaDeckModel;
             _persistentProgressService = persistentProgressService;
             _cardPopupService = cardPopupService;
             _staticDataService = staticDataService;
+           
             _deckType = deckViewModel.SelectedDeck;
 
             InitializeDeck();
             BtnRegister();
+            SetupContinueBtn(deckViewModel.HasContinueBtn);
         }
 
         private void InitializeDeck()
@@ -45,6 +50,9 @@ namespace UI
         private void BtnRegister() => 
             _continueBtn.onClick.AddListener(SetCurrentDeck);
 
+        private void SetupContinueBtn(bool hasContinueBtn) => 
+            _continueBtn.gameObject.SetActive(hasContinueBtn);
+
         private void SpawnCards(CardData[] cards)
         {
             foreach (var cardData in cards)
@@ -56,7 +64,10 @@ namespace UI
             }
         }
 
-        private void SetCurrentDeck() => 
+        private void SetCurrentDeck()
+        {
             _persistentProgressService.PlayerProgress.DeckProgress.CurrentDeck = _deckType;
+            _permaDeckModel.SetHasContinueBtn(true);
+        }
     }
 }

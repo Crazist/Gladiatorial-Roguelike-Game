@@ -4,6 +4,7 @@ using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
 using UI.Elements;
 using UI.Factory;
+using UI.Model;
 using UI.Service;
 using UI.Services;
 using UnityEngine;
@@ -23,9 +24,10 @@ namespace Data.DI
         public override void InstallBindings()
         {
             UIBinds();
+            RegisterModels();
 
             Container.Bind<CoroutineCustomRunner>().FromComponentInNewPrefab(_coroutineCustomRunner).AsSingle().NonLazy();
-            
+
             Container.Bind<Game>().AsSingle().NonLazy();
             Container.Bind<GameStateMachine>().AsSingle().NonLazy();
             Container.Bind<Factory>().AsSingle().NonLazy();
@@ -42,8 +44,6 @@ namespace Data.DI
             Container.Bind<CardDragService>().AsSingle().NonLazy();
             Container.Bind<CardPopupService>().AsSingle().NonLazy();
             Container.Bind<EnemyService>().AsSingle().NonLazy();
-          
-            Container.Bind<DeckViewModel>().AsSingle().NonLazy();
         }
 
         private void UIBinds()
@@ -56,6 +56,12 @@ namespace Data.DI
                 .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
             Container.Bind<ConfirmationPopup>().FromComponentInNewPrefab(_confirmPopup)
                 .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
+        }
+
+        private void RegisterModels()
+        {
+            Container.Bind<DeckViewModel>().AsSingle().NonLazy();
+            Container.Bind<PermaDeckModel>().AsSingle().NonLazy();
         }
     }
 }

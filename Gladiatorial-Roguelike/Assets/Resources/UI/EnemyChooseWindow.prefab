@@ -547,6 +547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _closeBtn: {fileID: 0}
+  _playersDeck: {fileID: 4187490405158727422}
   _playersDeckImage: {fileID: 4187490405158727421}
 --- !u!114 &4094432532544094181
 MonoBehaviour:
