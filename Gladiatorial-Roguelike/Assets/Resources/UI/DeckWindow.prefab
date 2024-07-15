@@ -355,6 +355,7 @@ MonoBehaviour:
   _deckImage: {fileID: 4630777134292382729}
   _cardPrefab: {fileID: 4046859139883548514, guid: 7202012f18fd52343a46aad63aa19176, type: 3}
   _cardGroup: {fileID: 4630777134628177215}
+  _continueBtn: {fileID: 4630777133101932927}
 --- !u!114 &6190217439511378731
 MonoBehaviour:
   m_ObjectHideFlags: 0
