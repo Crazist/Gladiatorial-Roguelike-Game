@@ -1,3 +1,4 @@
+using System;
 using Logic.Cards;
 using TMPro;
 using UnityEngine;
@@ -21,10 +22,11 @@ namespace UI.Elements
             gameObject.SetActive(true);
         }
 
-        public void Hide()
-        {
+        private void Start() =>
+            Hide();
+
+        public void Hide() => 
             gameObject.SetActive(false);
-        }
 
         private void UpdateData(CardData cardData)
         {
@@ -35,9 +37,7 @@ namespace UI.Elements
             _cardType.text = $"{cardData.CardType}";
         }
 
-        private void SetPosition(Vector3 position)
-        {
+        private void SetPosition(Vector3 position) => 
             _popUp.transform.position = position;
-        }
     }
 }

@@ -14,14 +14,16 @@ namespace Data.DI
     [CreateAssetMenu(fileName = "GameplayInstaller", menuName = "Installers/GameplayInstaller")]
     public class GameplayInstaller : ScriptableObjectInstaller<GameplayInstaller>
     {
+        [SerializeField] private GameObject _canvasPrefab;
         [SerializeField] private LoadingCurtain _curtain;
         [SerializeField] private CardPopup _cardPopup;
         [SerializeField] private CoroutineCustomRunner _coroutineCustomRunner;
+        [SerializeField] private ConfirmationPopup _confirmPopup;
 
         public override void InstallBindings()
         {
-            Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(_curtain).AsSingle().NonLazy();
-            Container.Bind<CardPopup>().FromComponentInNewPrefab(_cardPopup).AsSingle().NonLazy();
+            UIBinds();
+
             Container.Bind<CoroutineCustomRunner>().FromComponentInNewPrefab(_coroutineCustomRunner).AsSingle().NonLazy();
             
             Container.Bind<Game>().AsSingle().NonLazy();
@@ -41,6 +43,18 @@ namespace Data.DI
             Container.Bind<CardPopupService>().AsSingle().NonLazy();
           
             Container.Bind<DeckViewModel>().AsSingle().NonLazy();
+        }
+
+        private void UIBinds()
+        {
+            var canvasInstance = Container.InstantiatePrefabForComponent<Canvas>(_canvasPrefab);
+
+            Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(_curtain)
+                .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
+            Container.Bind<CardPopup>().FromComponentInNewPrefab(_cardPopup)
+                .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
+            Container.Bind<ConfirmationPopup>().FromComponentInNewPrefab(_confirmPopup)
+                .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
         }
     }
 }

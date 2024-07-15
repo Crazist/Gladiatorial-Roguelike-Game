@@ -78,7 +78,8 @@ namespace UI.Services
         {
             if (IsInSellArea(eventData))
             {
-                _cardSellService.SellCard(_currentCardView);
+                var currentCardViewCopy = _currentCardView;
+                _cardSellService.SellCard(currentCardViewCopy, () => ResetPosition(currentCardViewCopy));
             }
             else
             {

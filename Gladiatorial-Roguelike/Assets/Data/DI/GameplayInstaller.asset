@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcb79d9ffe4c24c1e8f3286712310ce1, type: 3}
   m_Name: GameplayInstaller
   m_EditorClassIdentifier: 
+  _canvasPrefab: {fileID: 2077362937211301744, guid: 991cff341f816824c88803df8d177654, type: 3}
   _curtain: {fileID: 1236305942228037666, guid: 1cb149d37bb9a0340828827f2896bbf4, type: 3}
   _cardPopup: {fileID: 3537380825291651982, guid: 1042df4aa32df4a69a0210ca9c3e81d9, type: 3}
   _coroutineCustomRunner: {fileID: 5863357818706690931, guid: c53582cdf45ea8845a07c9873a30c201, type: 3}
+  _confirmPopup: {fileID: 2664946873368251005, guid: 046e581447f64e042b2c39dca82eccf9, type: 3}
