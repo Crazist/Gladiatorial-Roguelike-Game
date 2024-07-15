@@ -6,9 +6,16 @@ namespace Infrastructure.Services.PersistentProgress
     {
         public PlayerProgress PlayerProgress;
 
-        public void ClearProgress()
+        public PlayerProgress InitProgress()
         {
-            PlayerProgress = new PlayerProgress();
+            PlayerProgress playerProgress = new PlayerProgress();
+
+            playerProgress.CurrentRun.Level = 1;
+            
+            return playerProgress;
         }
+
+        public void ClearProgress() => 
+            PlayerProgress = InitProgress();
     }
 }

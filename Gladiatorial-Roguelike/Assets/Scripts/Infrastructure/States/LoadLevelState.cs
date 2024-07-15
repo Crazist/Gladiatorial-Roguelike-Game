@@ -15,20 +15,11 @@ namespace Infrastructure
         private LoadingCurtain _curtain;
         private DeckService _decService;
         private UIFactory _uiFactory;
-        private StaticDataService _staticDataService;
-        private PermaDeckService _permaDeckService;
-        private Factory _factory;
-        private EnemyService _enemyService;
-       
+
         [Inject]
         private void Inject(GameStateMachine stateMachine, DeckService deckService, SceneLoader sceneLoader,
-            LoadingCurtain curtain, UIFactory uiFactory, StaticDataService staticDataService,
-            PermaDeckService permaDeckService, Factory factory, EnemyService enemyService)
+            LoadingCurtain curtain, UIFactory uiFactory)
         {
-            _enemyService = enemyService;
-            _factory = factory;
-            _permaDeckService = permaDeckService;
-            _staticDataService = staticDataService;
             _uiFactory = uiFactory;
             _decService = deckService;
             _stateMachine = stateMachine;
@@ -43,34 +34,16 @@ namespace Infrastructure
             _sceneLoader.Load(sceneName, OnLoaded);
         }
 
-        public void Exit() => _curtain.Hide();
-
-        private void CreateDeck()
-        {
-            if (_permaDeckService.GetAllCards().Count > 0) return;
-
-            DeckData deck = _staticDataService.ForDeck(DeckType.RomanDeck);
-
-            _permaDeckService.AddCardToDeck(_factory.CreateCard(deck.Cards[0]));
-        }
+        public void Exit() => 
+            _curtain.Hide();
 
         private void OnLoaded()
         {
             _uiFactory.CreateUiRoot();
             _uiFactory.CreateMenu();
             _uiFactory.CreateDebugPanel();
-           
-            CreateDeck();
 
-            _enemyService.InitEnemyDecks();
-            
             _stateMachine.Enter<GameLoopState>();
-        }
-
-        private static GameObject Instantiate(string path)
-        {
-            GameObject prefab = Resources.Load<GameObject>(path);
-            return Object.Instantiate(prefab);
         }
     }
 }

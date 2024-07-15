@@ -9,10 +9,10 @@ namespace Infrastructure
     public class LoadProgressState : IState
     {
         private const string payload = "Main";
-        
-        private  GameStateMachine _gameStateMachine;
-        private  PersistentProgressService _persistentProgressService;
-        private  SaveLoadService _saveLoadService;
+
+        private GameStateMachine _gameStateMachine;
+        private PersistentProgressService _persistentProgressService;
+        private SaveLoadService _saveLoadService;
 
         [Inject]
         private void Inject(GameStateMachine gameStateMachine, PersistentProgressService persistentProgressService,
@@ -22,7 +22,7 @@ namespace Infrastructure
             _saveLoadService = saveLoadService;
             _persistentProgressService = persistentProgressService;
         }
-       
+
         public void Enter()
         {
             LoadProgressOrInitNew();
@@ -31,13 +31,10 @@ namespace Infrastructure
 
         public void Exit()
         {
-           
         }
 
-        private void LoadProgressOrInitNew() => 
-            _persistentProgressService.PlayerProgress = _saveLoadService.LoadProgress() ?? InitProgress();
-
-        private PlayerProgress InitProgress() => 
-            new();
+        private void LoadProgressOrInitNew() =>
+            _persistentProgressService.PlayerProgress = _saveLoadService.LoadProgress() ??
+                                                        _persistentProgressService.InitProgress();
     }
 }
