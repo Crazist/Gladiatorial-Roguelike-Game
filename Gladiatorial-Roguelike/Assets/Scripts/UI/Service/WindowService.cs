@@ -33,7 +33,7 @@ namespace UI.Service
                     _uiFactory. CreatePermaDeckWindow();
                     break;
                 case WindowId.EnemyChoose:
-                    _uiFactory. CreateenemyChooseWindow();
+                    _uiFactory. CreateEnemyChooseWindow();
                     break;
             }
         }

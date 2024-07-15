@@ -298,7 +298,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1607296222013797719}
   - component: {fileID: 1908972665385701627}
-  - component: {fileID: 5489777684264978905}
   m_Layer: 5
   m_Name: XpViewer
   m_TagString: Untagged
@@ -344,19 +343,6 @@ MonoBehaviour:
   _xpValueText: {fileID: 5898499854449482404}
   _playerLevel: {fileID: 1220900671144978086}
   _levelProgressImage: {fileID: 8006987742016297677}
---- !u!114 &5489777684264978905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4024026460451572176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _containerSource: 1
 --- !u!1 &4476838160797662714
 GameObject:
   m_ObjectHideFlags: 0

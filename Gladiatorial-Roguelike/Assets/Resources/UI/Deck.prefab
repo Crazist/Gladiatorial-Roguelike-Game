@@ -86,7 +86,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1651405938837902443}
   - component: {fileID: 3788396379472195403}
-  - component: {fileID: 3433006218990689512}
   m_Layer: 5
   m_Name: Deck
   m_TagString: Untagged
@@ -134,19 +133,6 @@ MonoBehaviour:
   _openDeckBtn: {fileID: 8159639420015875667}
   _levelNeededToOpen: 8
   _type: 0
---- !u!114 &3433006218990689512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651405938837902442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717a02054ef2699498e6bd4234fd7995, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _containerSource: 1
 --- !u!1 &1651405939601363049
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,7 +54,7 @@ namespace UI.Factory
             var config = _staticDataService.ForWindow(WindowId.PermaDeck);
             Object.Instantiate(config.Prefab, _uiRoot);
         }
-        public void CreateenemyChooseWindow()
+        public void CreateEnemyChooseWindow()
         {
             var config = _staticDataService.ForWindow(WindowId.EnemyChoose);
             Object.Instantiate(config.Prefab, _uiRoot);

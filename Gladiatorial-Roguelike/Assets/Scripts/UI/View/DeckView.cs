@@ -1,6 +1,5 @@
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
-using UI.Factory;
 using UI.Service;
 using UI.Type;
 using UnityEngine;
