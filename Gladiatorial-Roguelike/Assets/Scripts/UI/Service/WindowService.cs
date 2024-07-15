@@ -33,6 +33,9 @@ namespace UI.Service
                 case WindowId.PermaDeck:
                     _uiFactory. CreatePermaDeckWindow();
                     break;
+                case WindowId.EnemyChoose:
+                    _uiFactory. CreateenemyChooseWindow();
+                    break;
             }
         }
     }

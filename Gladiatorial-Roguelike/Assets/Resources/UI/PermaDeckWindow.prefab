@@ -378,7 +378,7 @@ MonoBehaviour:
   _cardsParent: {fileID: 2694754855836048875}
   _cardPrefab: {fileID: 4046859139883548514, guid: 7202012f18fd52343a46aad63aa19176, type: 3}
   _sellArea: {fileID: 451747029798453865}
-  _cardPopup: {fileID: 0}
+  _continueBtn: {fileID: 451747030157255467}
 --- !u!114 &6629068711913151178
 MonoBehaviour:
   m_ObjectHideFlags: 0
