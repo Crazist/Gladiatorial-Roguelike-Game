@@ -5,7 +5,6 @@ using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
 using Logic.Enteties;
 using UI.Elements;
-using UnityEngine;
 using Zenject;
 
 namespace UI.Services
@@ -30,7 +29,7 @@ namespace UI.Services
             CardData cardData = cardView.GetCardData();
             string cardName = cardData.CardName;
 
-            List<Card> cards = _persistentProgressService.PlayerProgress.Profile.PermaDeck.Cards;
+            List<Card> cards = _persistentProgressService.PlayerProgress.DeckProgress.PermaDeck.Cards;
             
             Card cardToRemove = cards.FirstOrDefault(card => card.CardName == cardName);
 

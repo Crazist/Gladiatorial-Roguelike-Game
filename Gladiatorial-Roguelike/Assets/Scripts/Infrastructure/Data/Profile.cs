@@ -6,7 +6,6 @@ namespace Infrastructure.Data
     [Serializable]
     public class Profile
     {
-        public PermaDeck PermaDeck;
         [field: NonSerialized] public event Action OnExpChanged;
         [field: NonSerialized] public event Action OnLevelChanged;
 
@@ -37,11 +36,6 @@ namespace Infrastructure.Data
                     OnExpChanged?.Invoke();
                 }
             }
-        }
-
-        public Profile()
-        {
-            PermaDeck = new PermaDeck();
         }
     }
 }

@@ -36,7 +36,7 @@ namespace UI
 
         private void CreateCards()
         {
-            List<Card> cards = _persistentProgressService.PlayerProgress.Profile.PermaDeck.Cards;
+            List<Card> cards = _persistentProgressService.PlayerProgress.DeckProgress.PermaDeck.Cards;
             
             foreach (Card card in cards)
             {
