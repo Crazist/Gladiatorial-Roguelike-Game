@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Logic.Cards
 {
-    [CreateAssetMenu(fileName = "NewCard", menuName = "Gladiatorial-Roguelike/Card/Create New Card")]
+    [CreateAssetMenu(fileName = "FractionDeck", menuName = "Gladiatorial-Roguelike/Deck/Create New FractionDeck")]
     public class FractionDeckData : ScriptableObject
     {
         public DeckType DeckType;

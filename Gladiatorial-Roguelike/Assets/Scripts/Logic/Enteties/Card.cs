@@ -15,7 +15,8 @@ namespace Logic.Enteties
         
         public CardType CardType;
         public CardRarity CardRarity;
-
+        public CardCategory Category;
+        
         public CardData CardData;
         public Card(CardData data)
         {
@@ -27,6 +28,7 @@ namespace Logic.Enteties
             Hp = data.Hp;
             CardType = data.CardType;
             CardRarity = data.CardRarity;
+            Category = data.Category;
         }
     }
 }

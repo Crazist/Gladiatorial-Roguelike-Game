@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d587e18a4cb24f4286f58eac362d1889, type: 3}
+  m_Name: RomanDeck
+  m_EditorClassIdentifier: 
+  DeckType: 1
+  Cards:
+  - {fileID: 11400000, guid: f5ee808c2fc4e4e2496e87d98b7c1716, type: 2}
+  - {fileID: 11400000, guid: 88554c12e81c1465bb941ef9ebd9a554, type: 2}
+  - {fileID: 11400000, guid: c95ab749d68a7498f980e1906ec78662, type: 2}
+  - {fileID: 11400000, guid: 1ba88124d108b47ce89eab0c667de55b, type: 2}
+  - {fileID: 11400000, guid: e5d7c73a30f734256b761ef0a1a9571f, type: 2}
+  - {fileID: 11400000, guid: 4067778b1f04943f48dfb9cde1460a4b, type: 2}
+  - {fileID: 11400000, guid: f8d41442b4f104bda98fa4cb77ed69e2, type: 2}

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Infrastructure.Interface;
 using Infrastructure.Services;
 using Logic.Cards;
@@ -19,7 +20,10 @@ namespace Infrastructure
             _staticDataService = staticDataService;
 
         public Card CreateCard(CardData cardData) => 
-            new(cardData);
+            new Card(cardData);
+
+        public List<Card> CreateCards(IEnumerable<CardData> cardDataList) => 
+            cardDataList.Select(cardData => new Card(cardData)).ToList();
 
         private void Register(ISavedProgressReader progressReader)
         {

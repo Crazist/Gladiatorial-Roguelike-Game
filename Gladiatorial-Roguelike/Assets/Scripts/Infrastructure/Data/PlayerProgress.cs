@@ -7,9 +7,10 @@ namespace Infrastructure.Data
     {
         public DeckProgress DeckProgress;
         public Profile Profile;
-
+        public EnemyProgress EnemyProgress;
         public PlayerProgress()
         {
+            EnemyProgress = new EnemyProgress();
             DeckProgress = new DeckProgress();
             Profile = new Profile();
         }

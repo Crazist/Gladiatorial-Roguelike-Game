@@ -37,15 +37,7 @@ namespace Infrastructure
         private void LoadProgressOrInitNew() => 
             _persistentProgressService.PlayerProgress = _saveLoadService.LoadProgress() ?? InitProgress();
 
-        private PlayerProgress InitProgress()
-        {
-            var progress = new PlayerProgress();
-
-            progress.DeckProgress.CurrentDeck = DeckType.None;
-            progress.Profile.Exp = 0;
-            progress.Profile.Level = 0;
-
-            return progress;
-        }
+        private PlayerProgress InitProgress() => 
+            new();
     }
 }

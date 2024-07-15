@@ -17,5 +17,6 @@ namespace Logic.Cards
         
         public CardType CardType;
         public CardRarity CardRarity;
+        public CardCategory Category;
     }
 }

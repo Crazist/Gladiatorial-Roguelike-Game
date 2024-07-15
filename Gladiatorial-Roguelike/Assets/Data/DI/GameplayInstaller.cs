@@ -41,6 +41,7 @@ namespace Data.DI
             Container.Bind<CardSellService>().AsSingle().NonLazy();
             Container.Bind<CardDragService>().AsSingle().NonLazy();
             Container.Bind<CardPopupService>().AsSingle().NonLazy();
+            Container.Bind<EnemyService>().AsSingle().NonLazy();
           
             Container.Bind<DeckViewModel>().AsSingle().NonLazy();
         }

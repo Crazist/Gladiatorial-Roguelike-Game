@@ -5,6 +5,10 @@ namespace Logic.Types
         Swordsman,
         Spearman,
         Archer,
-        Animal
+        Animal,
+        Healing,
+        Buff ,
+        Upgrade,
+        Recruit,
     }
 }

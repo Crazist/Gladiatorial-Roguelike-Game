@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
 using UI.Factory;
 using UnityEngine;
@@ -17,13 +18,16 @@ namespace Infrastructure
         private StaticDataService _staticDataService;
         private PermaDeckService _permaDeckService;
         private Factory _factory;
+        private EnemyService _enemyService;
+        private SaveLoadService _saveLoadService;
 
         [Inject]
         private void Inject(GameStateMachine stateMachine, DeckService deckService, SceneLoader sceneLoader,
             LoadingCurtain curtain, UIFactory uiFactory, StaticDataService staticDataService,
-            PermaDeckService permaDeckService
-            , Factory factory)
+            PermaDeckService permaDeckService, Factory factory, EnemyService enemyService, SaveLoadService saveLoadService)
         {
+            _saveLoadService = saveLoadService;
+            _enemyService = enemyService;
             _factory = factory;
             _permaDeckService = permaDeckService;
             _staticDataService = staticDataService;
@@ -57,8 +61,11 @@ namespace Infrastructure
             _uiFactory.CreateUiRoot();
             _uiFactory.CreateMenu();
             _uiFactory.CreateDebugPanel();
+           
             CreateDeck();
 
+            _enemyService.InitEnemyDecks();
+            _saveLoadService.SaveProgress();
             _stateMachine.Enter<GameLoopState>();
         }
 
