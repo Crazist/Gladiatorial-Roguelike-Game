@@ -1,3 +1,4 @@
+using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
@@ -23,11 +24,14 @@ namespace UI
         private CardPopupService _cardPopupService;
         private PersistentProgressService _persistentProgressService;
         private PermaDeckModel _permaDeckModel;
+        private SaveLoadService _saveLoadService;
 
         [Inject]
         private void Inject(DeckViewModel deckViewModel, StaticDataService staticDataService,
-            CardPopupService cardPopupService, PersistentProgressService persistentProgressService, PermaDeckModel permaDeckModel)
+            CardPopupService cardPopupService, PersistentProgressService persistentProgressService, 
+            PermaDeckModel permaDeckModel, SaveLoadService saveLoadService)
         {
+            _saveLoadService = saveLoadService;
             _permaDeckModel = permaDeckModel;
             _persistentProgressService = persistentProgressService;
             _cardPopupService = cardPopupService;
@@ -68,6 +72,8 @@ namespace UI
         {
             _persistentProgressService.PlayerProgress.DeckProgress.CurrentDeck = _deckType;
             _permaDeckModel.SetHasContinueBtn(true);
+            
+            _saveLoadService.SaveProgress();
         }
     }
 }

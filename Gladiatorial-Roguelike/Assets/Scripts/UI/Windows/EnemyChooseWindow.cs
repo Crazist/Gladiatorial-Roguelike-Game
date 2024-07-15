@@ -1,5 +1,7 @@
+using Infrastructure.Data;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,8 +12,9 @@ namespace UI
     {
         [SerializeField] private Button _playersDeck;
         [SerializeField] private Image _playersDeckImage;
+        [SerializeField] private TMP_Text _enemyName;
         
-        private PersistentProgressService _persistentProgressService;
+        private PlayerProgress _playerProgress;
         private StaticDataService _staticDataService;
         private DeckViewModel _deckViewModel;
 
@@ -21,11 +24,15 @@ namespace UI
         {
             _deckViewModel = deckViewModel; 
             _staticDataService = staticDataService;
-            _persistentProgressService = persistentProgressService;
+            _playerProgress = persistentProgressService.PlayerProgress;
             
             SetPlayerDeckImage();
             RegisterBtn();
+            SetEnemyname();
         }
+
+        private void SetEnemyname() => 
+            _enemyName.text = "Level " + _playerProgress.CurrentRun.Level + ": " + _playerProgress.EnemyProgress.EnemyDeckType;
 
         private void RegisterBtn() => 
             _playersDeck.onClick.AddListener(OpenDeckWindow);
@@ -36,6 +43,6 @@ namespace UI
             _playersDeckImage.sprite = LoadImage();
 
         private Sprite LoadImage() => 
-            _staticDataService.ForDeck(_persistentProgressService.PlayerProgress.DeckProgress.CurrentDeck).CardBackImage;
+            _staticDataService.ForDeck(_playerProgress.DeckProgress.CurrentDeck).CardBackImage;
     }
 }

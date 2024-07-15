@@ -19,14 +19,12 @@ namespace Infrastructure
         private PermaDeckService _permaDeckService;
         private Factory _factory;
         private EnemyService _enemyService;
-        private SaveLoadService _saveLoadService;
-
+       
         [Inject]
         private void Inject(GameStateMachine stateMachine, DeckService deckService, SceneLoader sceneLoader,
             LoadingCurtain curtain, UIFactory uiFactory, StaticDataService staticDataService,
-            PermaDeckService permaDeckService, Factory factory, EnemyService enemyService, SaveLoadService saveLoadService)
+            PermaDeckService permaDeckService, Factory factory, EnemyService enemyService)
         {
-            _saveLoadService = saveLoadService;
             _enemyService = enemyService;
             _factory = factory;
             _permaDeckService = permaDeckService;
@@ -65,7 +63,7 @@ namespace Infrastructure
             CreateDeck();
 
             _enemyService.InitEnemyDecks();
-            _saveLoadService.SaveProgress();
+            
             _stateMachine.Enter<GameLoopState>();
         }
 
