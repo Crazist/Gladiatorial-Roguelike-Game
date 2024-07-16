@@ -1,6 +1,7 @@
 using Infrastructure;
 using Infrastructure.Data;
 using Infrastructure.Services;
+using TMPro;
 using UI.Elements;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,14 +15,15 @@ namespace UI.View
         [SerializeField] private Button _playBtn;
         [SerializeField] private GameObject _holderBtnsAndText;
         [SerializeField] private Image _deckImage;
+        [SerializeField] private TMP_Text _stateText;
 
         private StaticDataService _staticDataService;
         private DeckPopup _deckPopup;
         private EnemyDeck _enemyDeck;
-      
-        private DeckType _enemyDeckType;
         private SaveLoadService _saveLoadService;
         private GameStateMachine _gameStateMachine;
+        
+        private DeckType _enemyDeckType;
 
         public void Init(StaticDataService staticDataService, EnemyDeck enemyDeck, DeckPopup deckPopup, SaveLoadService saveLoadService,
             GameStateMachine gameStateMachine, DeckType enemyDeckType)
@@ -37,6 +39,7 @@ namespace UI.View
             SetImage();
             DisableBtnsAndText();
             RegisterHoverHandler();
+            SetStateText();
         }
 
         private void RegisterBtns()
@@ -56,17 +59,25 @@ namespace UI.View
 
         private void UpdateBtnAndSave()
         {
-            _enemyDeck.IsSkipped = true;
-            DisableBtnsAndText();
+            _enemyDeck.IsSkipped = EnemyDeckState.Skipped;
             _saveLoadService.SaveProgress();
+            
+            DisableBtnsAndText();
+            SetStateText();
         }
+
+        private void SetStateText() => 
+            _stateText.text = _enemyDeck.IsSkipped.ToString();
 
         private void SetImage() =>
              _deckImage.sprite = _staticDataService
                 .ForDeck(_enemyDeckType).CardBackImage;
 
-        private void DisableBtnsAndText() => 
-            _holderBtnsAndText.gameObject.SetActive(!_enemyDeck.IsSkipped);
+        private void DisableBtnsAndText()
+        {
+            _stateText.gameObject.SetActive(_enemyDeck.IsSkipped != EnemyDeckState.None);
+            _holderBtnsAndText.gameObject.SetActive(_enemyDeck.IsSkipped == EnemyDeckState.None);
+        }
 
         private void ShowPopup(Vector3 position) =>
             _deckPopup.Show(position + new Vector3(100, 0, 0), _enemyDeck.Cards);

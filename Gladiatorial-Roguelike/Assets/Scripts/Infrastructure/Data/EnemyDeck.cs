@@ -9,12 +9,11 @@ namespace Infrastructure.Data
     {
         public List<Card> Cards;
         public Reward Reward;
-        public bool IsSkipped;
-
+        public EnemyDeckState IsSkipped;
         public EnemyDeck()
         {
             Cards = new List<Card>();
-            IsSkipped = false;
+            IsSkipped = EnemyDeckState.None;
         }
     }
 }
