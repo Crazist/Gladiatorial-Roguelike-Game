@@ -76,7 +76,9 @@ namespace UI.View
         private void DisableBtnsAndText()
         {
             _stateText.gameObject.SetActive(_enemyDeck.IsSkipped != EnemyDeckState.None);
-            _holderBtnsAndText.gameObject.SetActive(_enemyDeck.IsSkipped == EnemyDeckState.None);
+            _holderBtnsAndText.gameObject.SetActive(_enemyDeck.DeckComplexity != DeckComplexity.Hard && 
+                                                    _enemyDeck.IsSkipped == EnemyDeckState.None);
+            _playBtn.gameObject.SetActive(_enemyDeck.IsSkipped == EnemyDeckState.None);
         }
 
         private void ShowPopup(Vector3 position) =>

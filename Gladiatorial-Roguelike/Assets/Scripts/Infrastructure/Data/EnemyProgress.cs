@@ -14,9 +14,9 @@ namespace Infrastructure.Data
 
         public EnemyProgress()
         {
-            EasyDeck = new EnemyDeck();
-            IntermediateDeck = new EnemyDeck();
-            HardDeck = new EnemyDeck();
+            EasyDeck = new EnemyDeck(DeckComplexity.Easy);
+            IntermediateDeck = new EnemyDeck(DeckComplexity.Intermediate);
+            HardDeck = new EnemyDeck(DeckComplexity.Hard);
         }
     }
 }

@@ -10,10 +10,12 @@ namespace Infrastructure.Data
         public List<Card> Cards;
         public Reward Reward;
         public EnemyDeckState IsSkipped;
-        public EnemyDeck()
+        public DeckComplexity DeckComplexity;
+        public EnemyDeck(DeckComplexity deckComplexity)
         {
             Cards = new List<Card>();
             IsSkipped = EnemyDeckState.None;
+            DeckComplexity = deckComplexity;
         }
     }
 }
