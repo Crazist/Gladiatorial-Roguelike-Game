@@ -81,8 +81,11 @@ namespace UI.View
             _playBtn.gameObject.SetActive(_enemyDeck.IsSkipped == EnemyDeckState.None);
         }
 
-        private void ShowPopup(Vector3 position) =>
+        private void ShowPopup(Vector3 position)
+        {
+            if(_enemyDeck.IsSkipped == EnemyDeckState.None)
             _deckPopup.Show(position + new Vector3(100, 0, 0), _enemyDeck.Cards);
+        }
 
         private void HidePopup(Vector3 position) =>
             _deckPopup.Hide();
