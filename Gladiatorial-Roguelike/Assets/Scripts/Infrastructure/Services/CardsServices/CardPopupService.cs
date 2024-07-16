@@ -8,9 +8,9 @@ namespace Infrastructure.Services.CardsServices
     public class CardPopupService
     {
         private CardPopup _cardPopup;
-        
-        private bool _isDragging = false;
         private CardDragService _cardDragService;
+
+        private bool _isDragging = false;
 
         [Inject]
         private void Inject(CardPopup cardPopup, CardDragService cardDragService)

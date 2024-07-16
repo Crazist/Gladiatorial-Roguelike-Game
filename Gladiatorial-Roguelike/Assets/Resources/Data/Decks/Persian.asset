@@ -16,5 +16,11 @@ MonoBehaviour:
   CardBackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   CardFrontImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   Cards:
-  - {fileID: 11400000, guid: f5ee808c2fc4e4e2496e87d98b7c1716, type: 2}
-  - {fileID: 11400000, guid: 1ba88124d108b47ce89eab0c667de55b, type: 2}
+  - {fileID: 11400000, guid: 49c8cb5b2d1fd49cfb5ea4f06300d0a5, type: 2}
+  - {fileID: 11400000, guid: 16d4a44e7d6104b208d81a71b3ae5780, type: 2}
+  - {fileID: 11400000, guid: cb26036aefbef4d1cae6a8ed534e5445, type: 2}
+  - {fileID: 11400000, guid: 61b18f041cacb440c9708661298c5335, type: 2}
+  - {fileID: 11400000, guid: ad7157c56714941d1bcce68d0f8d1b32, type: 2}
+  - {fileID: 11400000, guid: fcf13db436ca84355ae973358c66381c, type: 2}
+  - {fileID: 11400000, guid: 186409bf713714822b8f726bcb8d8f50, type: 2}
+  - {fileID: 11400000, guid: ad0e87d74ee5b474d881f0912e92857b, type: 2}

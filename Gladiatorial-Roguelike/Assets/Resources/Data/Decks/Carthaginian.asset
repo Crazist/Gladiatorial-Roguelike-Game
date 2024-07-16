@@ -13,7 +13,12 @@ MonoBehaviour:
   m_Name: Carthaginian
   m_EditorClassIdentifier: 
   DeckType: 3
-  CardBackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  CardBackImage: {fileID: 21300000, guid: 0b27ca381cf0ad84696858147055956d, type: 3}
   CardFrontImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   Cards:
-  - {fileID: 11400000, guid: f8d41442b4f104bda98fa4cb77ed69e2, type: 2}
+  - {fileID: 11400000, guid: cb26036aefbef4d1cae6a8ed534e5445, type: 2}
+  - {fileID: 11400000, guid: 61b18f041cacb440c9708661298c5335, type: 2}
+  - {fileID: 11400000, guid: ad7157c56714941d1bcce68d0f8d1b32, type: 2}
+  - {fileID: 11400000, guid: fcf13db436ca84355ae973358c66381c, type: 2}
+  - {fileID: 11400000, guid: 186409bf713714822b8f726bcb8d8f50, type: 2}
+  - {fileID: 11400000, guid: ad0e87d74ee5b474d881f0912e92857b, type: 2}

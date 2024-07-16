@@ -14,10 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DeckType: 8
   Cards:
-  - {fileID: 11400000, guid: f5ee808c2fc4e4e2496e87d98b7c1716, type: 2}
-  - {fileID: 11400000, guid: 88554c12e81c1465bb941ef9ebd9a554, type: 2}
-  - {fileID: 11400000, guid: c95ab749d68a7498f980e1906ec78662, type: 2}
-  - {fileID: 11400000, guid: 1ba88124d108b47ce89eab0c667de55b, type: 2}
-  - {fileID: 11400000, guid: e5d7c73a30f734256b761ef0a1a9571f, type: 2}
-  - {fileID: 11400000, guid: 4067778b1f04943f48dfb9cde1460a4b, type: 2}
-  - {fileID: 11400000, guid: f8d41442b4f104bda98fa4cb77ed69e2, type: 2}
+  - {fileID: 11400000, guid: ad7157c56714941d1bcce68d0f8d1b32, type: 2}
+  - {fileID: 11400000, guid: fcf13db436ca84355ae973358c66381c, type: 2}
+  - {fileID: 11400000, guid: 186409bf713714822b8f726bcb8d8f50, type: 2}
+  - {fileID: 11400000, guid: ad0e87d74ee5b474d881f0912e92857b, type: 2}

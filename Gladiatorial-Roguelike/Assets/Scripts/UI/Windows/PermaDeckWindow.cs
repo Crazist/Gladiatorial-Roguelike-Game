@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Infrastructure.Services.PersistentProgress;
-using Logic.Enteties;
 using UI.Elements;
 using Infrastructure.Services.CardsServices;
+using Logic.Entities;
 using UI.Model;
 using UI.Services;
 using UnityEngine;

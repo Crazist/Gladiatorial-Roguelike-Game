@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Logic.Cards;
-using Logic.Enteties;
+using Logic.Entities;
 using Zenject;
 
 namespace Infrastructure.Services
