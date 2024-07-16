@@ -36,8 +36,8 @@ namespace UI
             _persistentProgressService = persistentProgressService;
             _cardPopupService = cardPopupService;
             _staticDataService = staticDataService;
-           
-            _deckType = deckViewModel.SelectedDeck;
+
+            SetDeckType(deckViewModel);
 
             InitializeDeck();
             BtnRegister();
@@ -66,6 +66,14 @@ namespace UI
 
                 _cardPopupService.SubscribeToCard(cardComponent);
             }
+        }
+
+        private void SetDeckType(DeckViewModel deckViewModel)
+        {
+            var deckType = _persistentProgressService.PlayerProgress.DeckProgress.CurrentDeck;
+
+            _deckType = deckViewModel.SelectedDeck == DeckType.None &&
+                        deckType != DeckType.None ? deckType : deckViewModel.SelectedDeck;
         }
 
         private void SetCurrentDeck()
