@@ -15,11 +15,13 @@ namespace Infrastructure
         private LoadingCurtain _curtain;
         private DeckService _decService;
         private UIFactory _uiFactory;
+        private EnemyService _enemyService;
 
         [Inject]
         private void Inject(GameStateMachine stateMachine, DeckService deckService, SceneLoader sceneLoader,
-            LoadingCurtain curtain, UIFactory uiFactory)
+            LoadingCurtain curtain, UIFactory uiFactory, EnemyService enemyService)
         {
+            _enemyService = enemyService;
             _uiFactory = uiFactory;
             _decService = deckService;
             _stateMachine = stateMachine;
@@ -31,6 +33,8 @@ namespace Infrastructure
         {
             _curtain.Show();
             _decService.InitializeDeck();
+            _enemyService.InitEnemyDecks();
+            
             _sceneLoader.Load(sceneName, OnLoaded);
         }
 

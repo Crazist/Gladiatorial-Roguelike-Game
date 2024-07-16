@@ -20,6 +20,7 @@ namespace Data.DI
         [SerializeField] private CardPopup _cardPopup;
         [SerializeField] private CoroutineCustomRunner _coroutineCustomRunner;
         [SerializeField] private ConfirmationPopup _confirmPopup;
+        [SerializeField] private DeckPopup _deckPopup;
 
         public override void InstallBindings()
         {
@@ -55,6 +56,8 @@ namespace Data.DI
             Container.Bind<CardPopup>().FromComponentInNewPrefab(_cardPopup)
                 .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
             Container.Bind<ConfirmationPopup>().FromComponentInNewPrefab(_confirmPopup)
+                .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
+            Container.Bind<DeckPopup>().FromComponentInNewPrefab(_deckPopup)
                 .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
         }
 

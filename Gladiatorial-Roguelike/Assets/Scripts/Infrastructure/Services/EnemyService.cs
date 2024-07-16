@@ -27,6 +27,8 @@ namespace Infrastructure.Services
 
         public void InitEnemyDecks()
         {
+            _fractionConfig = null;
+            
             LoadAndSelectRandomConfig();
             
             _persistentProgress.PlayerProgress.EnemyProgress.EasyDeck = CreateDeck(5, 3);

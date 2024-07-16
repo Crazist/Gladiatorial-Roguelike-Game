@@ -2,7 +2,9 @@ using System.Collections.Generic;
 using Infrastructure.Data;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
+using Logic.Types;
 using TMPro;
+using UI.Elements;
 using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,50 +15,52 @@ namespace UI
     public class EnemyChooseWindow : WindowBase
     {
         [SerializeField] private List<EnemyDeckView> _enemyDecks;
-        
+
         [SerializeField] private Button _playersDeck;
         [SerializeField] private Image _playersDeckImage;
         [SerializeField] private TMP_Text _enemyName;
-        
+
         private PlayerProgress _playerProgress;
         private StaticDataService _staticDataService;
         private DeckViewModel _deckViewModel;
+        private DeckPopup _deckPopup;
 
         [Inject]
         private void Inject(PersistentProgressService persistentProgressService, StaticDataService staticDataService,
-            DeckViewModel deckViewModel)
+            DeckViewModel deckViewModel, DeckPopup deckPopup)
         {
-            _deckViewModel = deckViewModel; 
+            _deckPopup = deckPopup;
+            _deckViewModel = deckViewModel;
             _staticDataService = staticDataService;
             _playerProgress = persistentProgressService.PlayerProgress;
-            
+
             SetPlayerDeckImage();
             RegisterBtn();
             SetEnemyname();
-            InitEnemyDeck();
+            InitEnemyDecks();
         }
 
-        private void SetEnemyname() => 
-            _enemyName.text = "Level " + _playerProgress.CurrentRun.Level + ": " + _playerProgress.EnemyProgress.EnemyDeckType;
+        private void SetEnemyname() =>
+            _enemyName.text = "Level " + _playerProgress.CurrentRun.Level + ": " +
+                              _playerProgress.EnemyProgress.EnemyDeckType;
 
-        private void RegisterBtn() => 
+        private void RegisterBtn() =>
             _playersDeck.onClick.AddListener(OpenDeckWindow);
 
         private void OpenDeckWindow() =>
             _deckViewModel.SetContinueBtn(false);
 
-        private void SetPlayerDeckImage() => 
+        private void SetPlayerDeckImage() =>
             _playersDeckImage.sprite = LoadImage();
 
-        private Sprite LoadImage() => 
+        private Sprite LoadImage() =>
             _staticDataService.ForDeck(_playerProgress.DeckProgress.CurrentDeck).CardBackImage;
 
-        private void InitEnemyDeck()
+        private void InitEnemyDecks()
         {
-            foreach (var deck in _enemyDecks)
-            {
-                deck.Init(_staticDataService, _playerProgress);
-            }
+            _enemyDecks[0].Init(_staticDataService, _playerProgress, _deckPopup, DifficultyLevel.Easy);
+            _enemyDecks[1].Init(_staticDataService, _playerProgress, _deckPopup, DifficultyLevel.Intermediate);
+            _enemyDecks[2].Init(_staticDataService, _playerProgress, _deckPopup, DifficultyLevel.Hard);
         }
     }
 }
