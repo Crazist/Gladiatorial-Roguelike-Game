@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Infrastructure;
 using Infrastructure.Data;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
@@ -24,11 +25,16 @@ namespace UI
         private StaticDataService _staticDataService;
         private DeckViewModel _deckViewModel;
         private DeckPopup _deckPopup;
+        private SaveLoadService _saveLoadService;
+        private GameStateMachine _gameStateMachine;
 
         [Inject]
         private void Inject(PersistentProgressService persistentProgressService, StaticDataService staticDataService,
-            DeckViewModel deckViewModel, DeckPopup deckPopup)
+            DeckViewModel deckViewModel, DeckPopup deckPopup, SaveLoadService saveLoadService,
+            GameStateMachine gameStateMachine)
         {
+            _gameStateMachine = gameStateMachine;
+            _saveLoadService = saveLoadService;
             _deckPopup = deckPopup;
             _deckViewModel = deckViewModel;
             _staticDataService = staticDataService;
@@ -58,9 +64,12 @@ namespace UI
 
         private void InitEnemyDecks()
         {
-            _enemyDecks[0].Init(_staticDataService, _playerProgress, _deckPopup, DifficultyLevel.Easy);
-            _enemyDecks[1].Init(_staticDataService, _playerProgress, _deckPopup, DifficultyLevel.Intermediate);
-            _enemyDecks[2].Init(_staticDataService, _playerProgress, _deckPopup, DifficultyLevel.Hard);
+            _enemyDecks[0].Init(_staticDataService, _playerProgress.EnemyProgress.EasyDeck, _deckPopup,
+                _saveLoadService, _gameStateMachine, _playerProgress.EnemyProgress.EnemyDeckType);
+            _enemyDecks[1].Init(_staticDataService, _playerProgress.EnemyProgress.IntermediateDeck, _deckPopup,
+                _saveLoadService, _gameStateMachine, _playerProgress.EnemyProgress.EnemyDeckType);
+            _enemyDecks[2].Init(_staticDataService, _playerProgress.EnemyProgress.HardDeck, _deckPopup,
+                _saveLoadService, _gameStateMachine, _playerProgress.EnemyProgress.EnemyDeckType);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Infrastructure.Services.PersistentProgress
             PlayerProgress playerProgress = new PlayerProgress();
 
             playerProgress.CurrentRun.Level = 1;
-            
+           
             return playerProgress;
         }
 

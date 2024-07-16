@@ -1,17 +1,22 @@
 using System;
-using System.Collections.Generic;
 using Infrastructure.Services;
-using Logic.Entities;
 
 namespace Infrastructure.Data
 {
     [Serializable]
     public class EnemyProgress
     {
-        public List<Card> EasyDeck;
-        public List<Card> IntermediateDeck;
-        public List<Card> HardDeck;
+        public EnemyDeck EasyDeck;
+        public EnemyDeck IntermediateDeck;
+        public EnemyDeck HardDeck;
 
         public DeckType EnemyDeckType;
+
+        public EnemyProgress()
+        {
+            EasyDeck = new EnemyDeck();
+            IntermediateDeck = new EnemyDeck();
+            HardDeck = new EnemyDeck();
+        }
     }
 }

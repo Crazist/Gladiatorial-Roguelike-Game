@@ -28,21 +28,21 @@ namespace Infrastructure.Services
         public void InitEnemyDecks()
         {
             _fractionConfig = null;
-            
+
             LoadAndSelectRandomConfig();
-            
-            _persistentProgress.PlayerProgress.EnemyProgress.EasyDeck = CreateDeck(5, 3);
-            _persistentProgress.PlayerProgress.EnemyProgress.IntermediateDeck = CreateDeck(6, 4);
-            _persistentProgress.PlayerProgress.EnemyProgress.HardDeck = CreateDeck(8, 5);
+
+            _persistentProgress.PlayerProgress.EnemyProgress.EasyDeck.Cards = CreateDeck(5, 3);
+            _persistentProgress.PlayerProgress.EnemyProgress.IntermediateDeck.Cards = CreateDeck(6, 4);
+            _persistentProgress.PlayerProgress.EnemyProgress.HardDeck.Cards = CreateDeck(8, 5);
         }
 
         private void LoadAndSelectRandomConfig()
         {
-            FractionDeckData[] configs  = _assetProvider.LoadAllAssets<FractionDeckData>(DataFractionsPath);
-            
+            FractionDeckData[] configs = _assetProvider.LoadAllAssets<FractionDeckData>(DataFractionsPath);
+
             if (LoadEnemyConfigIfExist(configs)) return;
 
-             _fractionConfig = configs[UnityEngine.Random.Range(0, configs.Length)];
+            _fractionConfig = configs[UnityEngine.Random.Range(0, configs.Length)];
             _persistentProgress.PlayerProgress.EnemyProgress.EnemyDeckType = _fractionConfig.DeckType;
         }
 

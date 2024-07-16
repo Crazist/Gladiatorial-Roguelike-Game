@@ -47,7 +47,7 @@ namespace Infrastructure
             _uiFactory.CreateMenu();
             _uiFactory.CreateDebugPanel();
 
-            _stateMachine.Enter<GameLoopState>();
+            _stateMachine.Enter<MenuState>();
         }
     }
 }

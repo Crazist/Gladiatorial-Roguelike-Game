@@ -24,6 +24,7 @@ namespace Infrastructure
             _states[typeof(BootstrapState)] = _diContainer.Instantiate<BootstrapState>();
             _states[typeof(LoadProgressState)] = _diContainer.Instantiate<LoadProgressState>();
             _states[typeof(LoadLevelState)] = _diContainer.Instantiate<LoadLevelState>();
+            _states[typeof(MenuState)] = _diContainer.Instantiate<MenuState>();
             _states[typeof(GameLoopState)] = _diContainer.Instantiate<GameLoopState>();
         }
         public void Enter<TState>() where TState : class, IState

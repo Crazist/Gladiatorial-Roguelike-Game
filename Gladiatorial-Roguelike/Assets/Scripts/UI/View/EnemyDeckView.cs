@@ -1,64 +1,77 @@
-using System;
-using System.Collections.Generic;
+using Infrastructure;
 using Infrastructure.Data;
 using Infrastructure.Services;
-using Logic.Entities;
-using Logic.Types;
 using UI.Elements;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI.View
 {
-    public class EnemyDeckView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class EnemyDeckView : MonoBehaviour
     {
+        [SerializeField] private DeckHoverHandler _deckHoverHandler;
+        [SerializeField] private Button _skipBtn;
+        [SerializeField] private Button _playBtn;
+        [SerializeField] private GameObject _holderBtnsAndText;
         [SerializeField] private Image _deckImage;
 
-        private List<Card> _deck;
-
         private StaticDataService _staticDataService;
-        private PlayerProgress _playerProgress;
         private DeckPopup _deckPopup;
+        private EnemyDeck _enemyDeck;
+      
+        private DeckType _enemyDeckType;
+        private SaveLoadService _saveLoadService;
+        private GameStateMachine _gameStateMachine;
 
-        private DifficultyLevel _level;
-
-        public void Init(StaticDataService staticDataService, PlayerProgress playerProgress, DeckPopup deckPopup,
-            DifficultyLevel level)
+        public void Init(StaticDataService staticDataService, EnemyDeck enemyDeck, DeckPopup deckPopup, SaveLoadService saveLoadService,
+            GameStateMachine gameStateMachine, DeckType enemyDeckType)
         {
+            _gameStateMachine = gameStateMachine;
+            _saveLoadService = saveLoadService;
+            _enemyDeckType = enemyDeckType;
+            _enemyDeck = enemyDeck;
             _deckPopup = deckPopup;
-            _playerProgress = playerProgress;
             _staticDataService = staticDataService;
-            _level = level;
 
+            RegisterBtns();
             SetImage();
-            GetDeck();
+            DisableBtnsAndText();
+            RegisterHoverHandler();
+        }
+
+        private void RegisterBtns()
+        {
+            _skipBtn.onClick.AddListener(UpdateBtnAndSave);
+            _playBtn.onClick.AddListener(StartGame);
+        }
+
+        private void RegisterHoverHandler()
+        {
+            _deckHoverHandler.OnHoverEnter += ShowPopup;
+            _deckHoverHandler.OnHoverExit += HidePopup;
+        }
+
+        private void StartGame() => 
+            _gameStateMachine.Enter<GameLoopState>();
+
+        private void UpdateBtnAndSave()
+        {
+            _enemyDeck.IsSkipped = true;
+            DisableBtnsAndText();
+            _saveLoadService.SaveProgress();
         }
 
         private void SetImage() =>
              _deckImage.sprite = _staticDataService
-                .ForDeck(_playerProgress.EnemyProgress.EnemyDeckType).CardBackImage;
+                .ForDeck(_enemyDeckType).CardBackImage;
 
-        private void GetDeck()
-        {
-            switch (_level)
-            {
-                case DifficultyLevel.Easy:
-                    _deck = _playerProgress.EnemyProgress.EasyDeck;
-                    break;
-                case DifficultyLevel.Intermediate:
-                    _deck = _playerProgress.EnemyProgress.IntermediateDeck;
-                    break;
-                case DifficultyLevel.Hard:
-                    _deck = _playerProgress.EnemyProgress.HardDeck;
-                    break;
-            }
-        }
+        private void DisableBtnsAndText() => 
+            _holderBtnsAndText.gameObject.SetActive(!_enemyDeck.IsSkipped);
 
-        public void OnPointerEnter(PointerEventData eventData) =>
-            _deckPopup.Show(transform.position + new Vector3(100, 0, 0), _deck);
+        private void ShowPopup(Vector3 position) =>
+            _deckPopup.Show(position + new Vector3(100, 0, 0), _enemyDeck.Cards);
 
-        public void OnPointerExit(PointerEventData eventData) =>
+        private void HidePopup(Vector3 position) =>
             _deckPopup.Hide();
     }
 }
