@@ -8,5 +8,6 @@ namespace UI.Type
         DeckWindow,
         PermaDeck,
         EnemyChoose,
+        TableWindow,
     }
 }

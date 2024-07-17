@@ -4,29 +4,31 @@ using Zenject;
 
 namespace Infrastructure
 {
-    public class GameStateMachine
+    public class BattleStateMachine
     {
         private Dictionary<Type, IExitableState> _states;
-
-        private readonly DiContainer _diContainer;
-       
+        
+        private DiContainer _diContainer;
+        
         private IExitableState _activeState;
 
         [Inject]
-        public GameStateMachine(DiContainer diContainer)
+        private void Inject(DiContainer diContainer)
         {
             _diContainer = diContainer;
             _states = new Dictionary<Type, IExitableState>();
+
+            InitStates();
         }
 
-        public void InitStates()
+        private void InitStates()
         {
-            _states[typeof(BootstrapState)] = _diContainer.Instantiate<BootstrapState>();
-            _states[typeof(LoadProgressState)] = _diContainer.Instantiate<LoadProgressState>();
-            _states[typeof(LoadLevelState)] = _diContainer.Instantiate<LoadLevelState>();
-            _states[typeof(MenuState)] = _diContainer.Instantiate<MenuState>();
-            _states[typeof(GameLoopState)] = _diContainer.Instantiate<GameLoopState>();
+            _states[typeof(BattleStartState)] = _diContainer.Instantiate<BattleStartState>();
+            _states[typeof(PlayerTurnState)] = _diContainer.Instantiate<PlayerTurnState>();
+            _states[typeof(EnemyTurnState)] = _diContainer.Instantiate<EnemyTurnState>();
+            _states[typeof(BattleEndState)] = _diContainer.Instantiate<BattleEndState>();
         }
+
         public void Enter<TState>() where TState : class, IState
         {
             IState state = ChangeState<TState>();
@@ -42,15 +44,12 @@ namespace Infrastructure
         private TState ChangeState<TState>() where TState : class, IExitableState
         {
             _activeState?.Exit();
-            
             TState state = GetState<TState>();
             _activeState = state;
-            
             return state;
         }
 
         private TState GetState<TState>() where TState : class, IExitableState =>
-             _states[typeof(TState)] as TState;
-        
+            _states[typeof(TState)] as TState;
     }
 }

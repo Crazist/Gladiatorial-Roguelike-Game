@@ -2,6 +2,7 @@ using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
+using Infrastructure.StateMachines;
 using Services;
 using UI.Elements;
 using UI.Factory;
@@ -32,6 +33,7 @@ namespace Data.DI
 
             Container.Bind<Game>().AsSingle().NonLazy();
             Container.Bind<GameStateMachine>().AsSingle().NonLazy();
+            Container.Bind<BattleStateMachine>().AsSingle().NonLazy();
             Container.Bind<Factory>().AsSingle().NonLazy();
             Container.Bind<DeckService>().AsSingle().NonLazy();
             Container.Bind<StaticDataService>().AsSingle().NonLazy();
@@ -47,6 +49,8 @@ namespace Data.DI
             Container.Bind<CardPopupService>().AsSingle().NonLazy();
             Container.Bind<EnemyService>().AsSingle().NonLazy();
             Container.Bind<CardSortingService>().AsSingle().NonLazy();
+            Container.Bind<CardService>().AsSingle().NonLazy();
+            Container.Bind<TableService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()

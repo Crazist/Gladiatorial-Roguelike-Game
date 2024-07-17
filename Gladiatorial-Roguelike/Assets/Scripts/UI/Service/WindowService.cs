@@ -35,6 +35,9 @@ namespace UI.Service
                 case WindowId.EnemyChoose:
                     _uiFactory. CreateEnemyChooseWindow();
                     break;
+                case WindowId.TableWindow:
+                    _uiFactory. CreateTableWindow();
+                    break;
             }
         }
     }
