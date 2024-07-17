@@ -2,6 +2,7 @@ using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
+using Services;
 using UI.Elements;
 using UI.Factory;
 using UI.Model;
@@ -45,6 +46,7 @@ namespace Data.DI
             Container.Bind<CardDragService>().AsSingle().NonLazy();
             Container.Bind<CardPopupService>().AsSingle().NonLazy();
             Container.Bind<EnemyService>().AsSingle().NonLazy();
+            Container.Bind<CardSortingService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()

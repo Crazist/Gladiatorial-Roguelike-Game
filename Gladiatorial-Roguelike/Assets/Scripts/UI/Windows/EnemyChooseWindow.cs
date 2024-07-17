@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Types;
+using Services;
 using TMPro;
 using UI.Elements;
 using UI.View;
@@ -27,12 +28,14 @@ namespace UI
         private DeckPopup _deckPopup;
         private SaveLoadService _saveLoadService;
         private GameStateMachine _gameStateMachine;
+        private CardSortingService _cardSortingService;
 
         [Inject]
         private void Inject(PersistentProgressService persistentProgressService, StaticDataService staticDataService,
             DeckViewModel deckViewModel, DeckPopup deckPopup, SaveLoadService saveLoadService,
-            GameStateMachine gameStateMachine)
+            GameStateMachine gameStateMachine, CardSortingService cardSortingService)
         {
+            _cardSortingService = cardSortingService;
             _gameStateMachine = gameStateMachine;
             _saveLoadService = saveLoadService;
             _deckPopup = deckPopup;
@@ -65,11 +68,11 @@ namespace UI
         private void InitEnemyDecks()
         {
             _enemyDecks[0].Init(_staticDataService, _playerProgress.EnemyProgress.EasyDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _playerProgress.EnemyProgress.EnemyDeckType);
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress.EnemyDeckType);
             _enemyDecks[1].Init(_staticDataService, _playerProgress.EnemyProgress.IntermediateDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _playerProgress.EnemyProgress.EnemyDeckType);
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress.EnemyDeckType);
             _enemyDecks[2].Init(_staticDataService, _playerProgress.EnemyProgress.HardDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _playerProgress.EnemyProgress.EnemyDeckType);
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress.EnemyDeckType);
         }
     }
 }

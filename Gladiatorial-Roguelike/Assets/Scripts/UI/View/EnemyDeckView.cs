@@ -1,6 +1,9 @@
+using System.Collections.Generic;
 using Infrastructure;
 using Infrastructure.Data;
 using Infrastructure.Services;
+using Logic.Entities;
+using Services;
 using TMPro;
 using UI.Elements;
 using UnityEngine;
@@ -17,6 +20,8 @@ namespace UI.View
         [SerializeField] private Image _deckImage;
         [SerializeField] private TMP_Text _stateText;
 
+        private List<Card> _sortedCards;
+        
         private StaticDataService _staticDataService;
         private DeckPopup _deckPopup;
         private EnemyDeck _enemyDeck;
@@ -26,7 +31,7 @@ namespace UI.View
         private DeckType _enemyDeckType;
 
         public void Init(StaticDataService staticDataService, EnemyDeck enemyDeck, DeckPopup deckPopup, SaveLoadService saveLoadService,
-            GameStateMachine gameStateMachine, DeckType enemyDeckType)
+            GameStateMachine gameStateMachine, CardSortingService cardSortingService, DeckType enemyDeckType)
         {
             _gameStateMachine = gameStateMachine;
             _saveLoadService = saveLoadService;
@@ -34,6 +39,8 @@ namespace UI.View
             _enemyDeck = enemyDeck;
             _deckPopup = deckPopup;
             _staticDataService = staticDataService;
+
+            _sortedCards = cardSortingService.GroupAndSortCards(enemyDeck.Cards);
 
             RegisterBtns();
             SetImage();
@@ -84,7 +91,7 @@ namespace UI.View
         private void ShowPopup(Vector3 position)
         {
             if(_enemyDeck.IsSkipped == EnemyDeckState.None)
-            _deckPopup.Show(position + new Vector3(100, 0, 0), _enemyDeck.Cards);
+            _deckPopup.Show(position + new Vector3(100, 0, 0), _sortedCards);
         }
 
         private void HidePopup(Vector3 position) =>

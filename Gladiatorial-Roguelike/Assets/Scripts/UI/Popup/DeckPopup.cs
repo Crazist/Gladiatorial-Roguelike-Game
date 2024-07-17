@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using Logic.Entities;
 using UnityEngine;
+using Logic.Entities;
 
 namespace UI.Elements
 {
@@ -21,7 +21,7 @@ namespace UI.Elements
             gameObject.SetActive(true);
         }
 
-        public void Hide() => 
+        public void Hide() =>
             gameObject.SetActive(false);
 
         private void SetPosition(Vector3 position) =>
@@ -29,10 +29,8 @@ namespace UI.Elements
 
         private void UpdateCardList(List<Card> cards)
         {
-            List<Card> sortedCards = SortCards(cards);
-
             int index = 0;
-            foreach (var card in sortedCards)
+            foreach (var card in cards)
             {
                 CardTextPrefab cardTextObject = GetOrCreateTextObject(index);
                 cardTextObject.SetCardData($"{card.CardRarity} {card.CardName}");
@@ -63,21 +61,6 @@ namespace UI.Elements
             {
                 _textObjects[i].gameObject.SetActive(false);
             }
-        }
-
-        private List<Card> SortCards(List<Card> cards)
-        {
-            cards.Sort((x, y) =>
-            {
-                int result = x.CardType.CompareTo(y.CardType);
-                if (result == 0)
-                {
-                    result = y.CardRarity.CompareTo(x.CardRarity);
-                }
-                return result;
-            });
-
-            return cards;
         }
     }
 }
