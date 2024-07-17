@@ -28,11 +28,19 @@ namespace Infrastructure
             }
         }
 
-        private Card CreateUnitCard(UnitCardData cardData) =>
-            new UnitCard(cardData);
+        private Card CreateUnitCard(UnitCardData cardData)
+        {
+            Card card = new UnitCard();
+            card.InitCard(cardData);
+            return card;
+        }
 
-        private Card CreateSpecialCard(SpecialCardData cardData) =>
-            new SpecialCard(cardData);
+        private Card CreateSpecialCard(SpecialCardData cardData)
+        {
+            Card card = new SpecialCard();
+            card.InitCard(cardData);;
+            return card;
+        }
 
         private void Register(ISavedProgressReader progressReader)
         {

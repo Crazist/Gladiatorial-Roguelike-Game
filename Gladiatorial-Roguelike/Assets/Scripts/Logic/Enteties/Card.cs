@@ -1,16 +1,15 @@
 using Logic.Cards;
+using Newtonsoft.Json;
 
 namespace Logic.Entities
 {
+    [JsonObject(MemberSerialization.OptIn)]
+    [JsonConverter(typeof(CardConverter))]
     public abstract class Card
     {
-        public CardData CardData { get; }
+        [JsonProperty] public CardData CardData { get; set; }
 
-        protected Card(CardData cardData)
-        {
-            CardData = cardData;
-        }
-
+        public abstract void InitCard(CardData cardData);
         public abstract void InitializeView(DynamicCardView dynamicCardView);
     }
 }

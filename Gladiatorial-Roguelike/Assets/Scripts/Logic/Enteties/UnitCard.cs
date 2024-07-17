@@ -1,23 +1,32 @@
 using Logic.Cards;
+using Newtonsoft.Json;
 
 namespace Logic.Entities
 {
     public class UnitCard : Card
     {
-        public int Attack;
-        public int Defense;
-        public int Hp;
-        public int XP;
+        [JsonProperty]
+        public int Attack { get; set; }
+        [JsonProperty]
+        public int Defense { get; set; }
+        [JsonProperty]
+        public int Hp { get; set; }
+        [JsonProperty]
+        public int XP { get; set; }
 
-        public UnitCard(UnitCardData data) : base(data)
+        public override void InitCard(CardData cardData)
         {
-            Attack = data.Attack;
-            Defense = data.Defense;
-            Hp = data.Hp;
-            XP = data.XP;
+            if (cardData is UnitCardData unitCardData)
+            {
+                CardData = unitCardData;
+                Attack = unitCardData.Attack;
+                Defense = unitCardData.Defense;
+                Hp = unitCardData.Hp;
+                XP = unitCardData.XP;
+            }
         }
 
-        public override void InitializeView(DynamicCardView dynamicCardView) => 
+        public override void InitializeView(DynamicCardView dynamicCardView) =>
             dynamicCardView.Initialize(this);
     }
 }

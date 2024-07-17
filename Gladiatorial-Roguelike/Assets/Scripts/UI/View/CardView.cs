@@ -19,6 +19,7 @@ namespace UI.Elements
         {
             _cardData = card.CardData;
             _cardDragHandler.Init(this, isDraggable);
+            card.InitializeView(_dynamicCard);
         }
         
         public CardData GetCardData() =>

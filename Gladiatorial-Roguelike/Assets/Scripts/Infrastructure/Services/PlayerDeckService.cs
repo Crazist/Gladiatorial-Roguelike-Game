@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
 using Logic.Entities;
 using Zenject;
@@ -10,13 +11,20 @@ namespace Infrastructure.Services
         private List<Card> _currentDeck;
         
         private Factory _deckFactory;
+        private PersistentProgressService _persistentProgress;
 
         [Inject]
-        public void Inject(Factory deckFactory) => 
+        public void Inject(Factory deckFactory, PersistentProgressService persistentProgress)
+        {
+            _persistentProgress = persistentProgress;
             _deckFactory = deckFactory;
+        }
 
-        public void CreateDeck(CardData[] deck) => 
+        public void CreateDeck(CardData[] deck)
+        {
             _currentDeck = _deckFactory.CreateCards(deck);
+            _persistentProgress.PlayerProgress.DeckProgress.PlayerDeck = _currentDeck;
+        }
 
         public void LoadDeck(List<Card> deck) => 
             _currentDeck = deck;
