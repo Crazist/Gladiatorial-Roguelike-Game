@@ -33,7 +33,7 @@ namespace UI.Elements
             foreach (var card in cards)
             {
                 CardTextPrefab cardTextObject = GetOrCreateTextObject(index);
-                cardTextObject.SetCardData($"{card.CardRarity} {card.CardName}");
+                cardTextObject.SetCardData(card.CardRarity, card.CardName);
                 index++;
             }
 
