@@ -7,15 +7,18 @@ namespace Services
 {
     public class CardSortingService
     {
-        public List<Card> GroupAndSortCards(List<Card> cards)
+        public Dictionary<Card, int> GroupAndSortCards(List<Card> cards)
         {
             var groupedCards = cards
-                .GroupBy(card => new { card.CardType, card.CardRarity, card.CardName })
-                .SelectMany(group => group)
-                .OrderBy(card => GetRarityOrder(card.CardRarity))
-                .ThenBy(card => card.CardType)
-                .ThenBy(card => card.CardName)
-                .ToList();
+                .GroupBy(card => new { card.CardRarity, card.CardName })
+                .Select(group => new
+                {
+                    Card = group.First(),
+                    Count = group.Count()
+                })
+                .OrderBy(card => GetRarityOrder(card.Card.CardRarity))
+                .ThenBy(card => card.Card.CardName)
+                .ToDictionary(card => card.Card, card => card.Count);
 
             return groupedCards;
         }

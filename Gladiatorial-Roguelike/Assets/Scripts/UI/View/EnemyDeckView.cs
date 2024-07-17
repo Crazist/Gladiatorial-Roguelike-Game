@@ -20,7 +20,7 @@ namespace UI.View
         [SerializeField] private Image _deckImage;
         [SerializeField] private TMP_Text _stateText;
 
-        private List<Card> _sortedCards;
+        private Dictionary<Card, int> _sortedCardsWithCount;
         
         private StaticDataService _staticDataService;
         private DeckPopup _deckPopup;
@@ -40,7 +40,7 @@ namespace UI.View
             _deckPopup = deckPopup;
             _staticDataService = staticDataService;
 
-            _sortedCards = cardSortingService.GroupAndSortCards(enemyDeck.Cards);
+            _sortedCardsWithCount = cardSortingService.GroupAndSortCards(enemyDeck.Cards);
 
             RegisterBtns();
             SetImage();
@@ -91,7 +91,7 @@ namespace UI.View
         private void ShowPopup(Vector3 position)
         {
             if(_enemyDeck.IsSkipped == EnemyDeckState.None)
-            _deckPopup.Show(position + new Vector3(100, 0, 0), _sortedCards);
+            _deckPopup.Show(position + new Vector3(100, 0, 0), _sortedCardsWithCount);
         }
 
         private void HidePopup(Vector3 position) =>

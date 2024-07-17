@@ -6,7 +6,7 @@ namespace UI.Elements
 {
     public class DeckPopup : MonoBehaviour
     {
-        [SerializeField] private CardTextPrefab _cardTextPrefab;
+        [SerializeField] private CardTextPrefab _cardTextDisplayPrefab;
         [SerializeField] private Transform _contentArea;
 
         private readonly List<CardTextPrefab> _textObjects = new List<CardTextPrefab>();
@@ -14,10 +14,10 @@ namespace UI.Elements
         private void Start() =>
             gameObject.SetActive(false);
 
-        public void Show(Vector3 position, List<Card> cards)
+        public void Show(Vector3 position, Dictionary<Card, int> sortedCardData)
         {
             SetPosition(position);
-            UpdateCardList(cards);
+            UpdateCardList(sortedCardData);
             gameObject.SetActive(true);
         }
 
@@ -27,13 +27,13 @@ namespace UI.Elements
         private void SetPosition(Vector3 position) =>
             _contentArea.transform.position = position;
 
-        private void UpdateCardList(List<Card> cards)
+        private void UpdateCardList(Dictionary<Card, int> sortedCardData)
         {
             int index = 0;
-            foreach (var card in cards)
+            foreach (var cardData in sortedCardData)
             {
                 CardTextPrefab cardTextObject = GetOrCreateTextObject(index);
-                cardTextObject.SetCardData(card.CardRarity, card.CardName);
+                cardTextObject.SetCardData(cardData.Key.CardRarity, $"{cardData.Key.CardName} x{cardData.Value}");
                 index++;
             }
 
@@ -49,7 +49,7 @@ namespace UI.Elements
             }
             else
             {
-                CardTextPrefab newTextObject = Instantiate(_cardTextPrefab, _contentArea);
+                CardTextPrefab newTextObject = Instantiate(_cardTextDisplayPrefab, _contentArea);
                 _textObjects.Add(newTextObject);
                 return newTextObject;
             }
