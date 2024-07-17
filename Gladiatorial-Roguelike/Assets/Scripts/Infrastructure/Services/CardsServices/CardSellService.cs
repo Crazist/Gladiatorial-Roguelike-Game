@@ -31,7 +31,7 @@ namespace UI.Services
 
             List<Card> cards = _persistentProgressService.PlayerProgress.DeckProgress.PermaDeck.Cards;
             
-            Card cardToRemove = cards.FirstOrDefault(card => card.CardName == cardName);
+            Card cardToRemove = cards.FirstOrDefault(card => card.CardData.CardName == cardName);
 
             if (cardToRemove != null)
             {

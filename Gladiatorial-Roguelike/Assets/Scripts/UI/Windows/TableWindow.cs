@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using Infrastructure.Services;
-using Logic.Cards;
 using UI.Elements;
 using UnityEngine;
 using Zenject;
@@ -31,7 +29,7 @@ namespace UI.Windows
             foreach (var card in _tableService.GetPlayerHand())
             {
                 var cardView = Instantiate(_cardPrefab, _playerHandArea);
-                cardView.Initialize(card.CardData, true);
+                cardView.Initialize(card, true);
             }
         }
 
@@ -40,7 +38,7 @@ namespace UI.Windows
             foreach (var card in _tableService.GetEnemyHand())
             {
                 var cardView = Instantiate(_cardPrefab, _enemyHandArea);
-                cardView.Initialize(card.CardData, false);
+                cardView.Initialize(card, false);
             }
         }
     }

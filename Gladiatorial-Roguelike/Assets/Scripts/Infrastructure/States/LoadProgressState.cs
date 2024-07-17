@@ -14,11 +14,13 @@ namespace Infrastructure
         private GameStateMachine _gameStateMachine;
         private PersistentProgressService _persistentProgressService;
         private SaveLoadService _saveLoadService;
+        private PlayerDeckService _playerDeckService;
 
         [Inject]
         private void Inject(GameStateMachine gameStateMachine, PersistentProgressService persistentProgressService,
-            SaveLoadService saveLoadService)
+            SaveLoadService saveLoadService, PlayerDeckService playerDeckService)
         {
+            _playerDeckService = playerDeckService;
             _gameStateMachine = gameStateMachine;
             _saveLoadService = saveLoadService;
             _persistentProgressService = persistentProgressService;
@@ -27,6 +29,7 @@ namespace Infrastructure
         public void Enter()
         {
             LoadProgressOrInitNew();
+            _playerDeckService.LoadDeck(_persistentProgressService.PlayerProgress.DeckProgress.PlayerDeck);
             _gameStateMachine.Enter<LoadLevelState, string>(payload);
         }
 

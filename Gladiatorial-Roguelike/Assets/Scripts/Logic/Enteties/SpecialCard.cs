@@ -1,10 +1,7 @@
-using System;
 using Logic.Cards;
-using Logic.Types;
 
 namespace Logic.Entities
 {
-    [Serializable]
     public class SpecialCard : Card
     {
         public string SpecialEffect;
@@ -15,5 +12,8 @@ namespace Logic.Entities
             SpecialEffect = data.SpecialEffect;
             EffectValue = data.EffectValue;
         }
+
+        public override void InitializeView(DynamicCardView dynamicCardView) => 
+            dynamicCardView.Initialize(this);
     }
 }

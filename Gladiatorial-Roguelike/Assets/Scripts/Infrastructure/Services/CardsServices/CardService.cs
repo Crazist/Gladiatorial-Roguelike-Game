@@ -14,18 +14,18 @@ namespace Infrastructure.Services
         private List<Card> _shuffledEnemyDeck;
        
         private PersistentProgressService _persistentProgressService;
-        private DeckService _deckService;
+        private PlayerDeckService _playerDeckService;
 
         [Inject]
-        private void Inject(PersistentProgressService persistentProgressService, DeckService deckService)
+        private void Inject(PersistentProgressService persistentProgressService, PlayerDeckService playerDeckService)
         {
-            _deckService = deckService;
+            _playerDeckService = playerDeckService;
             _persistentProgressService = persistentProgressService;
         }
 
         public void ShuffleDecks()
         {
-            _shuffledPlayerDeck = new List<Card>(_deckService.GetDeck());
+            _shuffledPlayerDeck = new List<Card>(_playerDeckService.GetDeck());
             ShuffleDeck(_shuffledPlayerDeck);
 
             var enemyDeck = GetEnemyDeck();

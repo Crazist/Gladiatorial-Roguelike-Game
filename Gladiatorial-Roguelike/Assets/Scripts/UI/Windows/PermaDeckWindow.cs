@@ -54,7 +54,7 @@ namespace UI
             foreach (Card card in cards)
             {
                 CardView cardView = Instantiate(_cardPrefab, _cardsParent);
-                cardView.Initialize(card.CardData, true);
+                cardView.Initialize(card, true);
 
                 _cardPopupService.SubscribeToCard(cardView);
             }

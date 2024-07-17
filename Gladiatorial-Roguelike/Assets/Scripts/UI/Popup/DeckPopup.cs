@@ -33,7 +33,7 @@ namespace UI.Elements
             foreach (var cardData in sortedCardData)
             {
                 CardTextPrefab cardTextObject = GetOrCreateTextObject(index);
-                cardTextObject.SetCardData(cardData.Key.CardRarity, $"{cardData.Key.CardName} x{cardData.Value}");
+                cardTextObject.SetCardData(cardData.Key.CardData.CardRarity, $"{cardData.Key.CardData.CardName} x{cardData.Value}");
                 index++;
             }
 

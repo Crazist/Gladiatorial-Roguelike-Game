@@ -5,7 +5,7 @@ using Zenject;
 
 namespace Infrastructure.Services
 {
-    public class DeckService
+    public class PlayerDeckService
     {
         private List<Card> _currentDeck;
         
@@ -15,8 +15,11 @@ namespace Infrastructure.Services
         public void Inject(Factory deckFactory) => 
             _deckFactory = deckFactory;
 
-        public void InitializeDeck() => 
-            _currentDeck = new List<Card>();
+        public void CreateDeck(CardData[] deck) => 
+            _currentDeck = _deckFactory.CreateCards(deck);
+
+        public void LoadDeck(List<Card> deck) => 
+            _currentDeck = deck;
 
         public void AddCard(CardData cardData) => 
             _currentDeck.Add(_deckFactory.CreateCard(cardData));

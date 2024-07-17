@@ -69,11 +69,11 @@ namespace UI
         private void InitEnemyDecks()
         {
             _enemyDecks[0].Init(_staticDataService, _playerProgress.EnemyProgress.EasyDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress.EnemyDeckType);
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress);
             _enemyDecks[1].Init(_staticDataService, _playerProgress.EnemyProgress.IntermediateDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress.EnemyDeckType);
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress);
             _enemyDecks[2].Init(_staticDataService, _playerProgress.EnemyProgress.HardDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress.EnemyDeckType);
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress);
         }
     }
 }

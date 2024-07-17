@@ -35,7 +35,7 @@ namespace Data.DI
             Container.Bind<GameStateMachine>().AsSingle().NonLazy();
             Container.Bind<BattleStateMachine>().AsSingle().NonLazy();
             Container.Bind<Factory>().AsSingle().NonLazy();
-            Container.Bind<DeckService>().AsSingle().NonLazy();
+            Container.Bind<PlayerDeckService>().AsSingle().NonLazy();
             Container.Bind<StaticDataService>().AsSingle().NonLazy();
             Container.Bind<SceneLoader>().AsSingle().NonLazy();
             Container.Bind<WindowService>().AsSingle().NonLazy();

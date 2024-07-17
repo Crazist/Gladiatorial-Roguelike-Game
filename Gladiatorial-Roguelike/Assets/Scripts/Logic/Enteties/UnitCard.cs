@@ -1,9 +1,7 @@
-using System;
 using Logic.Cards;
 
 namespace Logic.Entities
 {
-    [Serializable]
     public class UnitCard : Card
     {
         public int Attack;
@@ -18,5 +16,8 @@ namespace Logic.Entities
             Hp = data.Hp;
             XP = data.XP;
         }
+
+        public override void InitializeView(DynamicCardView dynamicCardView) => 
+            dynamicCardView.Initialize(this);
     }
 }

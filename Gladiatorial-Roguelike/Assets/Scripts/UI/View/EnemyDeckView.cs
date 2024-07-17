@@ -30,13 +30,15 @@ namespace UI.View
         private GameStateMachine _gameStateMachine;
         
         private DeckType _enemyDeckType;
+        private EnemyProgress _enemyProgress;
 
         public void Init(StaticDataService staticDataService, EnemyDeck enemyDeck, DeckPopup deckPopup, SaveLoadService saveLoadService,
-            GameStateMachine gameStateMachine, CardSortingService cardSortingService, DeckType enemyDeckType)
+            GameStateMachine gameStateMachine, CardSortingService cardSortingService, EnemyProgress enemyProgress)
         {
+            _enemyProgress = enemyProgress;
             _gameStateMachine = gameStateMachine;
             _saveLoadService = saveLoadService;
-            _enemyDeckType = enemyDeckType;
+            _enemyDeckType = enemyProgress.EnemyDeckType;
             _enemyDeck = enemyDeck;
             _deckPopup = deckPopup;
             _staticDataService = staticDataService;
@@ -62,8 +64,11 @@ namespace UI.View
             _deckHoverHandler.OnHoverExit += HidePopup;
         }
 
-        private void StartGame() => 
+        private void StartGame()
+        {
+            _enemyProgress.ChoosenDeck = _enemyDeck.DeckComplexity;
             _gameStateMachine.Enter<GameLoopState>();
+        }
 
         private void UpdateBtnAndSave()
         {

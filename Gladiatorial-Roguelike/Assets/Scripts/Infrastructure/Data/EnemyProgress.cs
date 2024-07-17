@@ -11,7 +11,7 @@ namespace Infrastructure.Data
         public EnemyDeck HardDeck;
 
         public DeckType EnemyDeckType;
-        public DeckComplexity ChoosenDeck = DeckComplexity.Easy;
+        public DeckComplexity ChoosenDeck;
         public EnemyProgress()
         {
             EasyDeck = new EnemyDeck(DeckComplexity.Easy);
