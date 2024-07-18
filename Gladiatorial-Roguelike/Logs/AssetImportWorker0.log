@@ -4114,3 +4114,139 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 5915.232847 seconds.
+  path: Assets/Resources/UI/Card_View.prefab
+  artifactKey: Guid(7202012f18fd52343a46aad63aa19176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/Card_View.prefab using Guid(7202012f18fd52343a46aad63aa19176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b089729373e08dc891f82962a87ef1a') in 0.508590 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007645 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Refreshing native plugins compatible for Editor in 1.17 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Completed reload, in  1.919 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1920ms)
+		BeginReloadAssembly (240ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (87ms)
+		EndReloadAssembly (1571ms)
+			LoadAssemblies (149ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (378ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (936ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (33ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (114ms)
+				ProcessInitializeOnLoadAttributes (668ms)
+				ProcessInitializeOnLoadMethodAttributes (116ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.14 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5851 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 38 unused Assets / (0.7 MB). Loaded Objects now: 6598.
+Memory consumption went from 221.3 MB to 220.6 MB.
+Total: 4.985300 ms (FindLiveObjects: 0.825200 ms CreateObjectMapping: 0.309600 ms MarkObjects: 3.193100 ms  DeleteObjects: 0.656000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:CustomObjectIndexerAttribute: 6b0e35c9178b02a6363f3721b7b8e397 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 7.063867 seconds.
+  path: Assets/Resources/UI/Card_View.prefab
+  artifactKey: Guid(7202012f18fd52343a46aad63aa19176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/Card_View.prefab using Guid(7202012f18fd52343a46aad63aa19176) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '056f31950bb57564234565e9189f3123') in 0.101316 seconds 
+Number of asset objects unloaded after import = 22
+========================================================================
+Received Import Request.
+  Time since last request: 18.295662 seconds.
+  path: Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/Resources/TestScriptableObjectInstallers/BarInstaller.asset
+  artifactKey: Guid(2de8710dcfa13404897fe61a0772cb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Plugins/Zenject/OptionalExtras/IntegrationTests/Installers/Resources/TestScriptableObjectInstallers/BarInstaller.asset using Guid(2de8710dcfa13404897fe61a0772cb01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb651b1229470cd5727af1561080594a') in 0.017015 seconds 
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1.180044 seconds.
+  path: Assets/Resources/UI/Table_Window.prefab
+  artifactKey: Guid(64e2dbbf401214570bc83135f501a2d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/Table_Window.prefab using Guid(64e2dbbf401214570bc83135f501a2d9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed785ab09a2e70a6c5081d220e4b4e25') in 0.034960 seconds 
+Number of asset objects unloaded after import = 43
+========================================================================
+Received Import Request.
+  Time since last request: 16.827237 seconds.
+  path: Assets/Resources/UI/ChooseDeck_Window.prefab
+  artifactKey: Guid(e931a0c6f5493fb458f1bd0ca68fdbdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/ChooseDeck_Window.prefab using Guid(e931a0c6f5493fb458f1bd0ca68fdbdd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d78f745de46ab53d7cd3248e884d06f') in 0.058026 seconds 
+Number of asset objects unloaded after import = 211
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Resources/UI/PermaDeckWindow.prefab
+  artifactKey: Guid(e21c0fec92a723849a5154a3939a9014) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/PermaDeckWindow.prefab using Guid(e21c0fec92a723849a5154a3939a9014) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '26f1f06eac8bc154af385e2402bcc0a9') in 0.037274 seconds 
+Number of asset objects unloaded after import = 53
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Resources/UI/Enemy_Deck.prefab
+  artifactKey: Guid(0f4ae0696a07c254b917adc55d99b509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/Enemy_Deck.prefab using Guid(0f4ae0696a07c254b917adc55d99b509) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '81b957590a9f63f1e1242ca0c78c5f0b') in 0.039980 seconds 
+Number of asset objects unloaded after import = 50
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Resources/UI/EnemyChooseWindow.prefab
+  artifactKey: Guid(9e55a69726a91b540bddae6216877959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/EnemyChooseWindow.prefab using Guid(9e55a69726a91b540bddae6216877959) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '979cb51fbd2ed1899b96ea80417f23cb') in 0.040372 seconds 
+Number of asset objects unloaded after import = 161
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Resources/UI/Menu_Window.prefab
+  artifactKey: Guid(e1bf2428f61de4b8cbae004ce20c67ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/Menu_Window.prefab using Guid(e1bf2428f61de4b8cbae004ce20c67ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '02ce4fe8de869805c8e7025a86b4af19') in 0.039235 seconds 
+Number of asset objects unloaded after import = 142
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
