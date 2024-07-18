@@ -17,6 +17,7 @@ MonoBehaviour:
   CardType: 0
   CardRarity: 0
   Category: 1
+  DeckType: 7
   Attack: 2
   Defense: 3
   Hp: 5

@@ -11,6 +11,7 @@ namespace UI.Elements
         [SerializeField] private DynamicCardView _dynamicCard;
         [SerializeField] private CardDragHandler _cardDragHandler;
         [SerializeField] private RectTransform _rectTransform;
+        [SerializeField] private CardDisplay _cardDisplay;
         public event Action<CardView> OnCardHoverEnter;
         public event Action<CardView> OnCardHoverExit;
 
@@ -20,21 +21,27 @@ namespace UI.Elements
         {
             _card = card;
             _cardDragHandler.Init(this, isDraggable);
+          
             card.InitializeView(_dynamicCard);
+            _cardDisplay.Initialize(card);
         }
         
         public Card GetCard() =>
             _card;
         public RectTransform GetRectTransform() => 
             _rectTransform;
-        public DynamicCardView GetDynamicCardView() =>
-            _dynamicCard;
+        public CardDisplay GetCardDisplay() =>
+            _cardDisplay;
         public CardDragHandler GetCardDragHandler() =>
             _cardDragHandler;
-        public void OnPointerEnter(PointerEventData eventData) =>
-            OnCardHoverEnter?.Invoke(this);
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if(_cardDisplay.IsFaceUp()) OnCardHoverEnter?.Invoke(this);
+        }
 
-        public void OnPointerExit(PointerEventData eventData) =>
-            OnCardHoverExit?.Invoke(this);
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if(_cardDisplay.IsFaceUp()) OnCardHoverExit?.Invoke(this);
+        }
     }
 }

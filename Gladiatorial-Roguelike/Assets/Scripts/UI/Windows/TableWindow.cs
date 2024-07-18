@@ -67,6 +67,7 @@ namespace UI.Windows
             {
                 var cardView = Instantiate(_cardPrefab, _enemyHandArea);
                 cardView.Initialize(card, false);
+                cardView.GetCardDisplay().FlipCard();
                 _cardPopup.SubscribeToCard(cardView);
             }
         }

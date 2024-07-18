@@ -17,5 +17,6 @@ MonoBehaviour:
   CardType: 4
   CardRarity: 1
   Category: 2
-  SpecialEffect: Heal card on deck
+  DeckType: 7
   EffectValue: 5
+  SpecialEffect: Heal card on deck

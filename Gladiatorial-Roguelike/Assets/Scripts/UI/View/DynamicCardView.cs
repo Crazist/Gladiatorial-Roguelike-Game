@@ -1,6 +1,6 @@
 using Logic.Entities;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class DynamicCardView : MonoBehaviour
 {
@@ -14,4 +14,7 @@ public class DynamicCardView : MonoBehaviour
 
     public void Initialize(SpecialCard specialCard) => 
         _hp.gameObject.SetActive(false);
+
+    public void HideStats(bool hide) => 
+        _hp.gameObject.SetActive(!hide);
 }
