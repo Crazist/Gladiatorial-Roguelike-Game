@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
 using UI.Elements;
 using UnityEngine;
@@ -19,11 +20,13 @@ namespace UI.Windows
         private TableService _tableService;
         private StaticDataService _staticDataService;
         private PersistentProgressService _persistentProgressService;
+        private CardPopupService _cardPopup;
 
         [Inject]
         private void Inject(CardService cardService, TableService tableService, StaticDataService staticDataService,
-            PersistentProgressService persistentProgressService)
+            PersistentProgressService persistentProgressService, CardPopupService cardPopup)
         {
+            _cardPopup = cardPopup;
             _persistentProgressService = persistentProgressService;
             _staticDataService = staticDataService;
             _tableService = tableService;
@@ -47,7 +50,8 @@ namespace UI.Windows
             foreach (var card in _tableService.GetPlayerHand())
             {
                 var cardView = Instantiate(_cardPrefab, _playerHandArea);
-                cardView.Initialize(card, true);
+                cardView.Initialize(card, false);
+                _cardPopup.SubscribeToCard(cardView);
             }
         }
 
@@ -57,6 +61,7 @@ namespace UI.Windows
             {
                 var cardView = Instantiate(_cardPrefab, _enemyHandArea);
                 cardView.Initialize(card, false);
+                _cardPopup.SubscribeToCard(cardView);
             }
         }
     }
