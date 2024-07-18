@@ -13,10 +13,8 @@ namespace Infrastructure.Services
         private void Inject(PersistentProgressService persistentProgress) => 
             _persistentProgress = persistentProgress;
 
-        public void AddCardToDeck(Card card)
-        {
+        public void AddCardToDeck(Card card) => 
             _persistentProgress.PlayerProgress.PermaDeck.Cards.Add(card);
-        }
 
         public void RemoveCardFromDeck(Card card) => 
             _persistentProgress.PlayerProgress.PermaDeck.Cards.Remove(card);

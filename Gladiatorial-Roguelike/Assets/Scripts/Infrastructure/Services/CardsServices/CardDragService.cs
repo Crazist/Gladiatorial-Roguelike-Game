@@ -55,6 +55,15 @@ namespace UI.Services
             OnCardBeginDrag?.Invoke();
         }
 
+        private void InitializeDrag(PointerEventData eventData)
+        {
+            _startPosition = _currentCardView.transform.localPosition;
+
+            var localPoint = LocalPoint(eventData);
+
+            _offset = _startPosition - (Vector3)localPoint;
+        }
+
         public void HandleDrag(PointerEventData eventData)
         {
             if (IsDrag) 
@@ -65,19 +74,19 @@ namespace UI.Services
         {
             if (!isDraggable || !IsDrag) return;
 
-            EndDrag(eventData);
+            foreach (var dropArea in _dropAreas)
+            {
+                if (dropArea.IsInDropArea(eventData))
+                {
+                    dropArea.HandleDrop(_currentCardView, this);
+                    return;
+                }
+            }
+
+            ResetPosition(_currentCardView);
             OnCardEndDrag?.Invoke();
 
             ResetDrag();
-        }
-
-        private void InitializeDrag(PointerEventData eventData)
-        {
-            _startPosition = _currentCardView.transform.localPosition;
-
-            var localPoint = LocalPoint(eventData);
-
-            _offset = _startPosition - (Vector3)localPoint;
         }
 
         private void PerformDrag(PointerEventData eventData)
@@ -85,20 +94,6 @@ namespace UI.Services
             var localPoint = LocalPoint(eventData);
 
             _currentCardView.transform.localPosition = localPoint + _offset;
-        }
-
-        private void EndDrag(PointerEventData eventData)
-        {
-            foreach (var dropArea in _dropAreas)
-            {
-                if (dropArea.IsInDropArea(eventData))
-                {
-                    dropArea.HandleDrop(_currentCardView);
-                    return;
-                }
-            }
-
-            ResetPosition(_currentCardView);
         }
 
         private Vector2 LocalPoint(PointerEventData eventData)

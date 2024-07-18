@@ -13,8 +13,6 @@ public class SellArea : CardDropArea
         _cardSellService = cardSellService;
     }
 
-    public override void HandleDrop(CardView cardView)
-    {
-        _cardSellService.SellCard(cardView, () => cardView.transform.localPosition = Vector3.zero);
-    }
+    public override void HandleDrop(CardView cardView, CardDragService cardDragService) => 
+        _cardSellService.SellCard(cardView, () => cardDragService.ResetPosition(cardView));
 }

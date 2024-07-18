@@ -1,9 +1,9 @@
 using Infrastructure.Services;
 using UI.Elements;
-using UnityEngine;
+using UI.Services;
 using Zenject;
 
-public class TableArea : CardDropArea
+public class CardTableArea : CardDropArea
 {
     private TableService _tableService;
 
@@ -13,9 +13,10 @@ public class TableArea : CardDropArea
         _tableService = tableService;
     }
 
-    public override void HandleDrop(CardView cardView)
+    public override void HandleDrop(CardView cardView, CardDragService cardDragService)
     {
-        //_tableService.AddCardToTable(cardView.GetCardData());
-        cardView.transform.localPosition = Vector3.zero;
+        // Add the card to the table and reset its position appropriately.
+       // _tableService.PlaceCardOnTable(cardView);
+        cardDragService.ResetPosition(cardView);
     }
 }
