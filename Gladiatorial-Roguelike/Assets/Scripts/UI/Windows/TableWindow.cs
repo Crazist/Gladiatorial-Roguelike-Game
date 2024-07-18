@@ -5,27 +5,32 @@ using UI.Elements;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using System.Collections.Generic;
+using UI.Services;
 
 namespace UI.Windows
 {
-    public class TableWindow: WindowBase
+    public class TableWindow : WindowBase
     {
         [SerializeField] private Image _playerDeck;
         [SerializeField] private Image _enemyDeck;
         [SerializeField] private Transform _playerHandArea;
         [SerializeField] private Transform _enemyHandArea;
         [SerializeField] private CardView _cardPrefab;
+        [SerializeField] private List<CardDropArea> _dropAreas;
 
         private CardService _cardService;
         private TableService _tableService;
         private StaticDataService _staticDataService;
         private PersistentProgressService _persistentProgressService;
         private CardPopupService _cardPopup;
+        private CardDragService _cardDragService;
 
         [Inject]
         private void Inject(CardService cardService, TableService tableService, StaticDataService staticDataService,
-            PersistentProgressService persistentProgressService, CardPopupService cardPopup)
+            PersistentProgressService persistentProgressService, CardPopupService cardPopup, CardDragService cardDragService)
         {
+            _cardDragService = cardDragService;
             _cardPopup = cardPopup;
             _persistentProgressService = persistentProgressService;
             _staticDataService = staticDataService;
@@ -35,6 +40,7 @@ namespace UI.Windows
             InitializePlayerHand();
             InitializeEnemyHand();
             SetDeckImages();
+            InitializeDropAreas();
         }
 
         private void SetDeckImages()
@@ -50,7 +56,7 @@ namespace UI.Windows
             foreach (var card in _tableService.GetPlayerHand())
             {
                 var cardView = Instantiate(_cardPrefab, _playerHandArea);
-                cardView.Initialize(card, false);
+                cardView.Initialize(card, true);
                 _cardPopup.SubscribeToCard(cardView);
             }
         }
@@ -62,6 +68,14 @@ namespace UI.Windows
                 var cardView = Instantiate(_cardPrefab, _enemyHandArea);
                 cardView.Initialize(card, false);
                 _cardPopup.SubscribeToCard(cardView);
+            }
+        }
+
+        private void InitializeDropAreas()
+        {
+            foreach (var dropArea in _dropAreas)
+            {
+                _cardDragService.AddDropArea(dropArea);
             }
         }
     }
