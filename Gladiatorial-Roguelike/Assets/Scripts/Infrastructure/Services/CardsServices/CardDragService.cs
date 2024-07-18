@@ -55,6 +55,9 @@ namespace UI.Services
             OnCardBeginDrag?.Invoke();
         }
 
+        public void ResetPosition(CardView cardView) =>
+            cardView.transform.localPosition = _startPosition;
+
         private void InitializeDrag(PointerEventData eventData)
         {
             _startPosition = _currentCardView.transform.localPosition;
@@ -111,8 +114,5 @@ namespace UI.Services
             IsDrag = false;
             _currentCardView = null;
         }
-
-        public void ResetPosition(CardView cardView) =>
-            cardView.transform.localPosition = _startPosition;
     }
 }

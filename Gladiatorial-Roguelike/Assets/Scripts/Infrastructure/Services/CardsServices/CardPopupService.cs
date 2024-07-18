@@ -39,7 +39,7 @@ namespace Infrastructure.Services.CardsServices
         private void HandleCardHoverEnter(CardView cardView)
         {
             if (!_isDragging)
-                _cardPopup.Show(cardView.transform.position + new Vector3(100, 0, 0), cardView.GetCardData());
+                _cardPopup.Show(cardView.transform.position + new Vector3(100, 0, 0), cardView.GetCard().CardData);
         }
 
         private void HandleCardHoverExit(CardView cardView)

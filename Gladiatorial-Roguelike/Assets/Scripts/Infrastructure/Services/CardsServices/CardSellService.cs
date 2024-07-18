@@ -26,7 +26,7 @@ namespace UI.Services
 
         private void ConfirmSellCard(CardView cardView)
         {
-            CardData cardData = cardView.GetCardData();
+            CardData cardData = cardView.GetCard().CardData;
             string cardName = cardData.CardName;
 
             List<Card> cards = _persistentProgressService.PlayerProgress.PermaDeck.Cards;

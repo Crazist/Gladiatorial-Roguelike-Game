@@ -16,7 +16,7 @@ public class CardTableArea : CardDropArea
     public override void HandleDrop(CardView cardView, CardDragService cardDragService)
     {
         // Add the card to the table and reset its position appropriately.
-       // _tableService.PlaceCardOnTable(cardView);
+        _tableService.AddCardToPlayerTable(cardView);
         cardDragService.ResetPosition(cardView);
     }
 }

@@ -13,17 +13,17 @@ namespace UI.Elements
         public event Action<CardView> OnCardHoverEnter;
         public event Action<CardView> OnCardHoverExit;
 
-        private CardData _cardData;
+        private Card _card;
 
         public void Initialize(Card card, bool isDraggable)
         {
-            _cardData = card.CardData;
+            _card = card;
             _cardDragHandler.Init(this, isDraggable);
             card.InitializeView(_dynamicCard);
         }
         
-        public CardData GetCardData() =>
-            _cardData;
+        public Card GetCard() =>
+            _card;
         public DynamicCardView GetDynamicCardView() =>
             _dynamicCard;
         public void OnPointerEnter(PointerEventData eventData) =>
