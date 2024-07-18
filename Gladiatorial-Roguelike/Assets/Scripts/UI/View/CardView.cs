@@ -10,6 +10,7 @@ namespace UI.Elements
     {
         [SerializeField] private DynamicCardView _dynamicCard;
         [SerializeField] private CardDragHandler _cardDragHandler;
+        [SerializeField] private RectTransform _rectTransform;
         public event Action<CardView> OnCardHoverEnter;
         public event Action<CardView> OnCardHoverExit;
 
@@ -24,6 +25,8 @@ namespace UI.Elements
         
         public Card GetCard() =>
             _card;
+        public RectTransform GetRectTransform() => 
+            _rectTransform;
         public DynamicCardView GetDynamicCardView() =>
             _dynamicCard;
         public void OnPointerEnter(PointerEventData eventData) =>

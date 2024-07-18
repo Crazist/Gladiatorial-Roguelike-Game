@@ -230,6 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dynamicCard: {fileID: 3679697144227851785}
   _cardDragHandler: {fileID: 6796072662831628196}
+  _rectTransform: {fileID: 8178388434033548434}
 --- !u!114 &6796072662831628196
 MonoBehaviour:
   m_ObjectHideFlags: 0

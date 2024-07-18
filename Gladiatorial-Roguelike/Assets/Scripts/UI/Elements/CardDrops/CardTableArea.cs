@@ -19,8 +19,6 @@ public class CardTableArea : CardDropArea
         _tableService.AddCardToPlayerTable(cardView.GetCard());
 
         CenterCardInDropArea(cardView);
-
-        cardDragService.ResetPosition(cardView);
     }
 
     private void CenterCardInDropArea(CardView cardView)

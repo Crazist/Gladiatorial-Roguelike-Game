@@ -31,7 +31,7 @@ RectTransform:
   - {fileID: 4776928251559255492}
   - {fileID: 3007736654030661018}
   m_Father: {fileID: 1258171618201776897}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -69,7 +69,7 @@ RectTransform:
   - {fileID: 9098371034560787299}
   - {fileID: 8959946049360482934}
   m_Father: {fileID: 1258171618201776897}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.2}
   m_AnchorMax: {x: 0.8, y: 0.8}
@@ -197,7 +197,7 @@ RectTransform:
   - {fileID: 3571282115305181066}
   - {fileID: 3146438898997953506}
   m_Father: {fileID: 1258171618201776897}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 1, y: 1}
@@ -1149,9 +1149,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8762659962821400273}
+  - {fileID: 5645515636897899152}
   - {fileID: 7408457867444534644}
   - {fileID: 287508295856157523}
-  - {fileID: 5645515636897899152}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1175,8 +1175,8 @@ MonoBehaviour:
   _closeBtn: {fileID: 0}
   _playerDeck: {fileID: 8093594166254682992}
   _enemyDeck: {fileID: 4252008177832665081}
-  _playerHandArea: {fileID: 3571282115305181066}
-  _enemyHandArea: {fileID: 3007736654030661018}
+  _playerHandArea: {fileID: 3007736654030661018}
+  _enemyHandArea: {fileID: 3571282115305181066}
   _cardPrefab: {fileID: 4046859139883548514, guid: 7202012f18fd52343a46aad63aa19176, type: 3}
   _dropAreas:
   - {fileID: 8694040840375393885}
