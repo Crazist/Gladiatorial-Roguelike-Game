@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public abstract class CardDropArea : MonoBehaviour
 {
-    [SerializeField] private RectTransform _rectTransform;
+    [SerializeField] protected RectTransform _rectTransform;
 
     public abstract void HandleDrop(CardView cardView, CardDragService cardDragService);
 

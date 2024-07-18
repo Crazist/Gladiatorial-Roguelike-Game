@@ -1,6 +1,7 @@
 using Infrastructure.Services;
 using UI.Elements;
 using UI.Services;
+using UnityEngine;
 using Zenject;
 
 public class CardTableArea : CardDropArea
@@ -15,8 +16,17 @@ public class CardTableArea : CardDropArea
 
     public override void HandleDrop(CardView cardView, CardDragService cardDragService)
     {
-        // Add the card to the table and reset its position appropriately.
-        _tableService.AddCardToPlayerTable(cardView);
+        _tableService.AddCardToPlayerTable(cardView.GetCard());
+
+        CenterCardInDropArea(cardView);
+
         cardDragService.ResetPosition(cardView);
+    }
+
+    private void CenterCardInDropArea(CardView cardView)
+    {
+        RectTransform cardRectTransform = cardView.GetComponent<RectTransform>();
+
+        cardRectTransform.anchoredPosition = _rectTransform.anchoredPosition;
     }
 }
