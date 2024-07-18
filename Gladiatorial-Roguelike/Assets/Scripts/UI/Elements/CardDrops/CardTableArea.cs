@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using Logic.Types;
 using UI.Elements;
 using UI.Services;
 using UnityEngine;
@@ -16,6 +17,8 @@ public class CardTableArea : CardDropArea
 
     public override void HandleDrop(CardView cardView, CardDragService cardDragService)
     {
+        if(cardView.GetCard().CardData.Category == CardCategory.Special) return;
+        
         _tableService.AddCardToPlayerTable(cardView.GetCard());
         cardView.GetCardDragHandler().ChangeDraggable(false);
         CenterCardInDropArea(cardView);

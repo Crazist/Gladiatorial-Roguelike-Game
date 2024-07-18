@@ -51,6 +51,7 @@ namespace Data.DI
             Container.Bind<CardSortingService>().AsSingle().NonLazy();
             Container.Bind<CardService>().AsSingle().NonLazy();
             Container.Bind<TableService>().AsSingle().NonLazy();
+            Container.Bind<CardBuffService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()
