@@ -5,10 +5,8 @@ namespace Logic.Entities
 {
     public class SpecialCard : Card
     {
-        [JsonProperty]
-        public string SpecialEffect { get; set; }
-        [JsonProperty]
-        public int EffectValue { get; set; }
+        [JsonProperty] public string SpecialEffect { get; set; }
+        [JsonProperty] public int EffectValue { get; set; }
 
         public override void InitCard(CardData cardData)
         {

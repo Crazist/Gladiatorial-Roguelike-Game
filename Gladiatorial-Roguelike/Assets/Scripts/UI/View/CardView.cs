@@ -33,6 +33,12 @@ namespace UI.Elements
             _cardDisplay.Initialize(card);
         }
 
+        public void UpdateView()
+        {
+            _card.InitializeView(_dynamicCard);
+            _cardDisplay.Initialize(_card);
+        }
+
         public Card GetCard() =>
             _card;
 

@@ -1,5 +1,6 @@
 using Infrastructure;
 using Infrastructure.Services;
+using Infrastructure.Services.BuffsService;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.StateMachines;
@@ -52,6 +53,7 @@ namespace Data.DI
             Container.Bind<CardService>().AsSingle().NonLazy();
             Container.Bind<TableService>().AsSingle().NonLazy();
             Container.Bind<CardBuffService>().AsSingle().NonLazy();
+            Container.Bind<BuffService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()
