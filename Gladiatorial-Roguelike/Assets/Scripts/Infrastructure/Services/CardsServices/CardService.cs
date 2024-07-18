@@ -63,7 +63,7 @@ namespace Infrastructure.Services
 
         private List<Card> GetEnemyDeck()
         {
-            var enemyProgress = _persistentProgressService.PlayerProgress.EnemyProgress;
+            var enemyProgress = _persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress;
             return enemyProgress.ChoosenDeck switch
             {
                 DeckComplexity.Easy => enemyProgress.EasyDeck.Cards,

@@ -9,10 +9,6 @@ namespace Infrastructure.Data
     public class DeckProgress
     {
         public List<Card> PlayerDeck;
-        public PermaDeck PermaDeck;
         public DeckType CurrentDeck;
-
-        public DeckProgress() => 
-            PermaDeck = new PermaDeck();
     }
 }

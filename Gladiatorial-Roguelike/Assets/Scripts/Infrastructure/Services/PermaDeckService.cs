@@ -13,11 +13,17 @@ namespace Infrastructure.Services
         private void Inject(PersistentProgressService persistentProgress) => 
             _persistentProgress = persistentProgress;
 
-        public void AddCardToDeck(Card card) => _persistentProgress.PlayerProgress.DeckProgress.PermaDeck.Cards.Add(card);
+        public void AddCardToDeck(Card card)
+        {
+            _persistentProgress.PlayerProgress.PermaDeck.Cards.Add(card);
+        }
 
-        public void RemoveCardFromDeck(Card card) => _persistentProgress.PlayerProgress.DeckProgress.PermaDeck.Cards.Remove(card);
+        public void RemoveCardFromDeck(Card card) => 
+            _persistentProgress.PlayerProgress.PermaDeck.Cards.Remove(card);
        
-        public List<Card> GetAllCards() => _persistentProgress.PlayerProgress.DeckProgress.PermaDeck.Cards;
-        public void ClenUp() => _persistentProgress.PlayerProgress.DeckProgress.PermaDeck.Cards.Clear();
+        public List<Card> GetAllCards() => 
+            _persistentProgress.PlayerProgress.PermaDeck.Cards;
+        public void ClenUp() => 
+            _persistentProgress.PlayerProgress.PermaDeck.Cards.Clear();
     }
 }

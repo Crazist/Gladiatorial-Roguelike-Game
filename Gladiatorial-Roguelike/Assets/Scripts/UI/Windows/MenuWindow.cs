@@ -28,7 +28,7 @@ namespace UI
 
         private void RefreshPersistentData()
         {
-            _persistentProgress.ClearProgress();
+            _persistentProgress.PlayerProgress.ClearProgress();
             _enemyService.InitEnemyDecks();
         }
     }

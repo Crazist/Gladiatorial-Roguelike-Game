@@ -29,7 +29,7 @@ namespace Infrastructure
         public void Enter()
         {
             LoadProgressOrInitNew();
-            _playerDeckService.LoadDeck(_persistentProgressService.PlayerProgress.DeckProgress.PlayerDeck);
+            _playerDeckService.LoadDeck(_persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck);
             _gameStateMachine.Enter<LoadLevelState, string>(payload);
         }
 

@@ -40,9 +40,9 @@ namespace UI.Windows
         private void SetDeckImages()
         {
             _playerDeck.sprite = _staticDataService
-                .ForDeck(_persistentProgressService.PlayerProgress.DeckProgress.CurrentDeck).CardBackImage;
+                .ForDeck(_persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck).CardBackImage;
             _enemyDeck.sprite = _staticDataService
-                .ForDeck(_persistentProgressService.PlayerProgress.EnemyProgress.EnemyDeckType).CardBackImage;
+                .ForDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType).CardBackImage;
         }
 
         public void InitializePlayerHand()

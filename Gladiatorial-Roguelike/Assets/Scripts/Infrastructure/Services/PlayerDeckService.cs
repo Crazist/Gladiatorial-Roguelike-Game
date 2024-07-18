@@ -23,7 +23,7 @@ namespace Infrastructure.Services
         public void CreateDeck(CardData[] deck)
         {
             _currentDeck = _deckFactory.CreateCards(deck);
-            _persistentProgress.PlayerProgress.DeckProgress.PlayerDeck = _currentDeck;
+            _persistentProgress.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck = _currentDeck;
         }
 
         public void LoadDeck(List<Card> deck) => 

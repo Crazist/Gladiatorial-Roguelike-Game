@@ -5,16 +5,16 @@ namespace Infrastructure.Data
     [Serializable]
     public class PlayerProgress
     {
-        public DeckProgress DeckProgress;
         public Profile Profile;
-        public EnemyProgress EnemyProgress;
         public CurrentRun CurrentRun;
+        public PermaDeck PermaDeck;
         public PlayerProgress()
         {
-            CurrentRun = new CurrentRun();
-            EnemyProgress = new EnemyProgress();
-            DeckProgress = new DeckProgress();
+            CurrentRun = new CurrentRun(); 
             Profile = new Profile();
+            PermaDeck = new PermaDeck();
         }
+        public void ClearProgress() => 
+            CurrentRun = new CurrentRun();
     }
 }

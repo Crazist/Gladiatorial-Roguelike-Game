@@ -31,9 +31,9 @@ namespace Infrastructure.Services
 
             LoadAndSelectRandomConfig();
 
-            _persistentProgress.PlayerProgress.EnemyProgress.EasyDeck.Cards = CreateDeck(5, 3);
-            _persistentProgress.PlayerProgress.EnemyProgress.IntermediateDeck.Cards = CreateDeck(6, 4);
-            _persistentProgress.PlayerProgress.EnemyProgress.HardDeck.Cards = CreateDeck(8, 5);
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.Cards = CreateDeck(5, 3);
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.IntermediateDeck.Cards = CreateDeck(6, 4);
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.HardDeck.Cards = CreateDeck(8, 5);
         }
 
         private void LoadAndSelectRandomConfig()
@@ -43,16 +43,16 @@ namespace Infrastructure.Services
             if (LoadEnemyConfigIfExist(configs)) return;
 
             _fractionConfig = configs[UnityEngine.Random.Range(0, configs.Length)];
-            _persistentProgress.PlayerProgress.EnemyProgress.EnemyDeckType = _fractionConfig.DeckType;
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType = _fractionConfig.DeckType;
         }
 
         private bool LoadEnemyConfigIfExist(FractionDeckData[] configs)
         {
-            if (_persistentProgress.PlayerProgress.EnemyProgress.EnemyDeckType != DeckType.None)
+            if (_persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType != DeckType.None)
             {
                 _fractionConfig = configs
                     .FirstOrDefault(config =>
-                        config.DeckType == _persistentProgress.PlayerProgress.EnemyProgress.EnemyDeckType);
+                        config.DeckType == _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType);
             }
 
             return _fractionConfig != null;

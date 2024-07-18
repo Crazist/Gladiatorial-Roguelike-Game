@@ -29,7 +29,7 @@ namespace UI.Services
             CardData cardData = cardView.GetCardData();
             string cardName = cardData.CardName;
 
-            List<Card> cards = _persistentProgressService.PlayerProgress.DeckProgress.PermaDeck.Cards;
+            List<Card> cards = _persistentProgressService.PlayerProgress.PermaDeck.Cards;
             
             Card cardToRemove = cards.FirstOrDefault(card => card.CardData.CardName == cardName);
 

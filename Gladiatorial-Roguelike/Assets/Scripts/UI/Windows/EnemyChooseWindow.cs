@@ -51,8 +51,8 @@ namespace UI
         }
 
         private void SetEnemyname() =>
-            _enemyName.text = "Level " + _playerProgress.CurrentRun.Level + ": " +
-                              _playerProgress.EnemyProgress.EnemyDeckType;
+            _enemyName.text = "Level " + _playerProgress.CurrentRun.EnemyLevel + ": " +
+                              _playerProgress.CurrentRun.EnemyProgress.EnemyDeckType;
 
         private void RegisterBtn() =>
             _playersDeck.onClick.AddListener(OpenDeckWindow);
@@ -64,16 +64,16 @@ namespace UI
             _playersDeckImage.sprite = LoadImage();
 
         private Sprite LoadImage() =>
-            _staticDataService.ForDeck(_playerProgress.DeckProgress.CurrentDeck).CardBackImage;
+            _staticDataService.ForDeck(_playerProgress.CurrentRun.DeckProgress.CurrentDeck).CardBackImage;
 
         private void InitEnemyDecks()
         {
-            _enemyDecks[0].Init(_staticDataService, _playerProgress.EnemyProgress.EasyDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress);
-            _enemyDecks[1].Init(_staticDataService, _playerProgress.EnemyProgress.IntermediateDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress);
-            _enemyDecks[2].Init(_staticDataService, _playerProgress.EnemyProgress.HardDeck, _deckPopup,
-                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.EnemyProgress);
+            _enemyDecks[0].Init(_staticDataService, _playerProgress.CurrentRun.EnemyProgress.EasyDeck, _deckPopup,
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.CurrentRun.EnemyProgress);
+            _enemyDecks[1].Init(_staticDataService, _playerProgress.CurrentRun.EnemyProgress.IntermediateDeck, _deckPopup,
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.CurrentRun.EnemyProgress);
+            _enemyDecks[2].Init(_staticDataService, _playerProgress.CurrentRun.EnemyProgress.HardDeck, _deckPopup,
+                _saveLoadService, _gameStateMachine, _cardSortingService, _playerProgress.CurrentRun.EnemyProgress);
         }
     }
 }

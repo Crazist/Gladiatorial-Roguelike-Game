@@ -55,8 +55,9 @@ public class DeveloperSettings : MonoBehaviour
 
     private void ClearAllPlayerPrefs()
     {
-        PlayerPrefs.DeleteAll();
-        _persistentProgressService.ClearProgress();
+        //PlayerPrefs.DeleteAll();
+       // _persistentProgressService.ClearProgress();
+        
         UpdateData();
     }
 }

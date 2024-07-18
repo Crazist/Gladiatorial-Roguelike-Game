@@ -57,7 +57,7 @@ namespace UI
 
         private void SetDeckType(DeckViewModel deckViewModel)
         {
-            var currentDeckType = _persistentProgressService.PlayerProgress.DeckProgress.CurrentDeck;
+            var currentDeckType = _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck;
 
             _deckType = deckViewModel.SelectedDeck == DeckType.None && currentDeckType != DeckType.None
                 ? currentDeckType
@@ -79,12 +79,12 @@ namespace UI
         private bool IsDeckSelectedInProgress(DeckViewModel deckViewModel)
         {
             return deckViewModel.SelectedDeck == DeckType.None &&
-                   _persistentProgressService.PlayerProgress.DeckProgress.CurrentDeck != DeckType.None;
+                   _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck != DeckType.None;
         }
 
         private void LoadDeckFromProgress()
         {
-            var cards = _persistentProgressService.PlayerProgress.DeckProgress.PlayerDeck;
+            var cards = _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck;
             SpawnCards(cards);
         }
 
@@ -113,7 +113,7 @@ namespace UI
 
         private void SetCurrentDeck()
         {
-            _persistentProgressService.PlayerProgress.DeckProgress.CurrentDeck = _deckType;
+            _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck = _deckType;
             _playerDeckService.CreateDeck(_staticDataService.ForDeck(_deckType).Cards);
             _permaDeckModel.SetHasContinueBtn(true);
             _saveLoadService.SaveProgress();

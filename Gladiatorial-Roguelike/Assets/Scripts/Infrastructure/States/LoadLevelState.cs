@@ -14,17 +14,19 @@ namespace Infrastructure
         private GameStateMachine _stateMachine;
         private SceneLoader _sceneLoader;
         private LoadingCurtain _curtain;
-        private PlayerDeckService _decService;
         private UIFactory _uiFactory;
         private EnemyService _enemyService;
+        private PermaDeckService _permaDeckService;
+        private PersistentProgressService _persistentProgressService;
 
         [Inject]
         private void Inject(GameStateMachine stateMachine, PlayerDeckService playerDeckService, SceneLoader sceneLoader,
-            LoadingCurtain curtain, UIFactory uiFactory, EnemyService enemyService)
+            LoadingCurtain curtain, UIFactory uiFactory, EnemyService enemyService, PermaDeckService permaDeckService, PersistentProgressService persistentProgressService)
         {
+            _persistentProgressService = persistentProgressService;
+            _permaDeckService = permaDeckService;
             _enemyService = enemyService;
             _uiFactory = uiFactory;
-            _decService = playerDeckService;
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
             _curtain = curtain;
@@ -34,7 +36,8 @@ namespace Infrastructure
         {
             _curtain.Show();
             _enemyService.InitEnemyDecks();
-            
+            _permaDeckService.AddCardToDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.Cards[0]);
+            _permaDeckService.AddCardToDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.Cards[1]);
             _sceneLoader.Load(sceneName, OnLoaded);
         }
 

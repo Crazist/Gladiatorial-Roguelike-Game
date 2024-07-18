@@ -2,6 +2,7 @@ using UI.Elements;
 using UI.Factory;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using UnityEngine.EventSystems;
 using Zenject;
 
@@ -14,22 +15,34 @@ namespace UI.Services
         public Action OnCardEndDrag { get; set; }
 
         private UIFactory _uiFactory;
-        private RectTransform _sellArea; 
-        private CardSellService _cardSellService;
+        private List<CardDropArea> _dropAreas;
         private CardView _currentCardView;
        
         private Vector3 _startPosition;
         private Vector2 _offset;
 
         [Inject]
-        private void Inject(CardSellService cardSellService, UIFactory uiFactory)
+        private void Inject(UIFactory uiFactory)
         {
-            _cardSellService = cardSellService;
             _uiFactory = uiFactory;
+            _dropAreas = new List<CardDropArea>();
         }
 
-        public void SetSellArea(RectTransform sellArea) =>
-            _sellArea = sellArea;
+        public void AddDropArea(CardDropArea dropArea)
+        {
+            if (!_dropAreas.Contains(dropArea))
+            {
+                _dropAreas.Add(dropArea);
+            }
+        }
+
+        public void RemoveDropArea(CardDropArea dropArea)
+        {
+            if (_dropAreas.Contains(dropArea))
+            {
+                _dropAreas.Remove(dropArea);
+            }
+        }
 
         public void HandleBeginDrag(CardView cardView, PointerEventData eventData, bool isDraggable)
         {
@@ -76,21 +89,16 @@ namespace UI.Services
 
         private void EndDrag(PointerEventData eventData)
         {
-            if (IsInSellArea(eventData))
+            foreach (var dropArea in _dropAreas)
             {
-                var currentCardViewCopy = _currentCardView;
-                _cardSellService.SellCard(currentCardViewCopy, () => ResetPosition(currentCardViewCopy));
+                if (dropArea.IsInDropArea(eventData))
+                {
+                    dropArea.HandleDrop(_currentCardView);
+                    return;
+                }
             }
-            else
-            {
-                ResetPosition(_currentCardView);
-            }
-        }
 
-        private bool IsInSellArea(PointerEventData eventData)
-        {
-            return RectTransformUtility.RectangleContainsScreenPoint(_sellArea, eventData.position,
-                eventData.pressEventCamera);
+            ResetPosition(_currentCardView);
         }
 
         private Vector2 LocalPoint(PointerEventData eventData)

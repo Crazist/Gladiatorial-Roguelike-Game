@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 451747029798453865}
   - component: {fileID: 451747029798453871}
   - component: {fileID: 451747029798453864}
+  - component: {fileID: 7544462617687268819}
   m_Layer: 5
   m_Name: SellArea
   m_TagString: Untagged
@@ -197,6 +198,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7544462617687268819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 451747029798453866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a64288c9d8b4114bd095a89a27eba4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &451747030157255461
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +405,7 @@ MonoBehaviour:
   _closeBtn: {fileID: 451747029759968906}
   _cardsParent: {fileID: 2694754855836048875}
   _cardPrefab: {fileID: 4046859139883548514, guid: 7202012f18fd52343a46aad63aa19176, type: 3}
-  _sellArea: {fileID: 451747029798453865}
+  _sellArea: {fileID: 7544462617687268819}
   _continueBtn: {fileID: 451747030157255467}
 --- !u!114 &6629068711913151178
 MonoBehaviour:

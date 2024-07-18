@@ -15,11 +15,12 @@ namespace UI
     {
         [SerializeField] private Transform _cardsParent;
         [SerializeField] private CardView _cardPrefab;
-        [SerializeField] private RectTransform _sellArea;
+        [SerializeField] private CardDropArea _sellArea;
         [SerializeField] private Button _continueBtn;
 
         private PersistentProgressService _persistentProgressService;
         private CardPopupService _cardPopupService;
+        private CardDragService _cardDragService;
 
         private bool _hasContinueBtn;
 
@@ -29,10 +30,11 @@ namespace UI
         {
             _persistentProgressService = persistentProgressService;
             _cardPopupService = cardPopupService;
+            _cardDragService = cardDragService;
 
             _hasContinueBtn = permaDeckModel.HasContinueBtn;
 
-            SetSellArea(cardDragService);
+            SetDropAreas();
         }
 
         private void Start()
@@ -44,12 +46,12 @@ namespace UI
         private void ActivateContinueBtn() =>
             _continueBtn.gameObject.SetActive(_hasContinueBtn);
 
-        private void SetSellArea(CardDragService cardDragService) =>
-            cardDragService.SetSellArea(_sellArea);
+        private void SetDropAreas() => 
+            _cardDragService.AddDropArea(_sellArea);
 
         private void CreateCards()
         {
-            List<Card> cards = _persistentProgressService.PlayerProgress.DeckProgress.PermaDeck.Cards;
+            List<Card> cards = _persistentProgressService.PlayerProgress.PermaDeck.Cards;
 
             foreach (Card card in cards)
             {
