@@ -29,6 +29,8 @@ namespace UI.Elements
             _rectTransform;
         public DynamicCardView GetDynamicCardView() =>
             _dynamicCard;
+        public CardDragHandler GetCardDragHandler() =>
+            _cardDragHandler;
         public void OnPointerEnter(PointerEventData eventData) =>
             OnCardHoverEnter?.Invoke(this);
 

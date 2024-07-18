@@ -1,4 +1,5 @@
 using Logic.Cards;
+using Logic.Entities;
 using TMPro;
 using UnityEngine;
 
@@ -17,10 +18,10 @@ namespace UI.Elements
         [SerializeField] private CanvasGroup _unitGroup;
         [SerializeField] private CanvasGroup _specialGroup;
 
-        public void Show(Vector3 position, CardData cardData)
+        public void Show(Vector3 position, Card card)
         {
             SetPosition(position);
-            UpdateData(cardData);
+            UpdateData(card.CardData);
           
             gameObject.SetActive(true);
         }

@@ -22,6 +22,9 @@ namespace UI.Elements
             _cardView = cardView;
         }
 
+        public void ChangeDraggable(bool isDraggable) => 
+            _isDraggable = isDraggable;
+
         public void OnBeginDrag(PointerEventData eventData) => 
             _cardDragService.HandleBeginDrag(_cardView, eventData, _isDraggable);
 
@@ -29,6 +32,6 @@ namespace UI.Elements
             _cardDragService.HandleEndDrag(eventData, _isDraggable);
 
         public void OnDrag(PointerEventData eventData) => 
-            _cardDragService.HandleDrag(eventData);
+            _cardDragService.HandleDrag(eventData, _isDraggable);
     }
 }

@@ -17,14 +17,21 @@ public class CardTableArea : CardDropArea
     public override void HandleDrop(CardView cardView, CardDragService cardDragService)
     {
         _tableService.AddCardToPlayerTable(cardView.GetCard());
-
+        cardView.GetCardDragHandler().ChangeDraggable(false);
         CenterCardInDropArea(cardView);
     }
 
     private void CenterCardInDropArea(CardView cardView)
     {
-        RectTransform cardRectTransform = cardView.GetComponent<RectTransform>();
+        RectTransform cardRectTransform = cardView.GetRectTransform();
 
-        cardRectTransform.anchoredPosition = _rectTransform.anchoredPosition;
+        cardRectTransform.SetParent(_rectTransform, false);
+
+        cardRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        cardRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+
+        cardRectTransform.anchoredPosition = Vector2.zero;
+
+        cardRectTransform.sizeDelta = new Vector2(50, 70);
     }
 }

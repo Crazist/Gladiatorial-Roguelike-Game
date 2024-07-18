@@ -67,28 +67,43 @@ namespace UI.Services
             _offset = _startPosition - (Vector3)localPoint;
         }
 
-        public void HandleDrag(PointerEventData eventData)
+        public void HandleDrag(PointerEventData eventData, bool isDraggable)
         {
-            if (IsDrag) 
+            if (IsDrag && isDraggable) 
                 PerformDrag(eventData);
         }
 
         public void HandleEndDrag(PointerEventData eventData, bool isDraggable)
         {
-            if (!isDraggable || !IsDrag) return;
+            if (!isDraggable || !IsDrag)
+            {
+                ResetDrag();
+                return;
+            }
 
             foreach (var dropArea in _dropAreas)
             {
                 if (dropArea.IsInDropArea(eventData))
                 {
-                    dropArea.HandleDrop(_currentCardView, this);
+                    HandleSuccessfulDrop(dropArea);
                     return;
                 }
             }
 
+            HandleUnsuccessfulDrop();
+        }
+
+        private void HandleSuccessfulDrop(CardDropArea dropArea)
+        {
+            dropArea.HandleDrop(_currentCardView, this);
+            OnCardEndDrag?.Invoke();
+            ResetDrag();
+        }
+
+        private void HandleUnsuccessfulDrop()
+        {
             ResetPosition(_currentCardView);
             OnCardEndDrag?.Invoke();
-
             ResetDrag();
         }
 
