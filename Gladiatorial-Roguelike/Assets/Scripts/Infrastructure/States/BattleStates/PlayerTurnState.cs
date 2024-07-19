@@ -1,4 +1,6 @@
 using System;
+using Infrastructure.Services.BattleService;
+using Infrastructure.StateMachines;
 using Zenject;
 
 namespace Infrastructure
@@ -6,12 +8,11 @@ namespace Infrastructure
     public class PlayerTurnState : IState
     {
         private BattleStateMachine _battleStateMachine;
+        private TurnService _turnService;
 
         [Inject]
-        private void Inject(BattleStateMachine battleStateMachine)
-        {
+        private void Inject(BattleStateMachine battleStateMachine) => 
             _battleStateMachine = battleStateMachine;
-        }
 
         public void Enter()
         {
@@ -25,7 +26,7 @@ namespace Infrastructure
 
         private void PlayerTurn()
         {
-            _battleStateMachine.Enter<EnemyTurnState>();
+        //    _battleStateMachine.Enter<EnemyTurnState>();
         }
     }
 }

@@ -1,8 +1,8 @@
-using Logic.Cards;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 using Infrastructure.Services;
+using Infrastructure.Services.BattleService;
 using Logic.Entities;
 using Zenject;
 
@@ -20,10 +20,14 @@ namespace UI.Elements
 
         private Card _card;
         private TableService _tableService;
+        private TurnService _turnService;
 
         [Inject]
-        private void Inject(TableService tableService) =>
+        private void Inject(TableService tableService, TurnService turnService)
+        {
             _tableService = tableService;
+            _turnService = turnService;
+        }
 
         public void Initialize(Card card, bool isDraggable)
         {
@@ -31,6 +35,9 @@ namespace UI.Elements
             _cardDragHandler.Init(this, isDraggable);
             card.InitializeView(_dynamicCard);
             _cardDisplay.Initialize(card);
+
+            _turnService.OnPlayerTurnStart += EnableInteraction;
+            _turnService.OnEnemyTurnStart += DisableInteraction;
         }
 
         public void UpdateView()
@@ -39,20 +46,17 @@ namespace UI.Elements
             _cardDisplay.Initialize(_card);
         }
 
-        public Card GetCard() =>
-            _card;
+        private void OnDestroy()
+        {
+            _turnService.OnPlayerTurnStart -= EnableInteraction;
+            _turnService.OnEnemyTurnStart -= DisableInteraction;
+        }
 
-        public RectTransform GetRectTransform() =>
-            _rectTransform;
-
-        public CardDisplay GetCardDisplay() =>
-            _cardDisplay;
-
-        public CardDragHandler GetCardDragHandler() =>
-            _cardDragHandler;
-
-        public void ChangeRaycasts(bool on) => 
-            _canvasGroup.blocksRaycasts = on;
+        public Card GetCard() => _card;
+        public RectTransform GetRectTransform() => _rectTransform;
+        public CardDisplay GetCardDisplay() => _cardDisplay;
+        public CardDragHandler GetCardDragHandler() => _cardDragHandler;
+        public void ChangeRaycasts(bool on) => _canvasGroup.blocksRaycasts = on;
 
         public void OnPointerEnter(PointerEventData eventData)
         {
@@ -71,5 +75,8 @@ namespace UI.Elements
                 _tableService.SetHoveredCard(null);
             }
         }
+
+        private void EnableInteraction() => ChangeRaycasts(true);
+        private void DisableInteraction() => ChangeRaycasts(false);
     }
 }

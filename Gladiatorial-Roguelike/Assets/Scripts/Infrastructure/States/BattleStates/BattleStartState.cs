@@ -1,5 +1,7 @@
 using System;
 using Infrastructure.Services;
+using Infrastructure.Services.BattleService;
+using Infrastructure.StateMachines;
 using UI.Service;
 using UI.Type;
 using Zenject;
@@ -12,10 +14,11 @@ namespace Infrastructure
         private CardService _cardService;
         private TableService _tableService;
         private WindowService _windowService;
+        private TurnService _turnService;
 
         [Inject]
         private void Inject(BattleStateMachine battleStateMachine, CardService cardService, TableService tableService
-        , WindowService windowService)
+        ,WindowService windowService)
         {
             _windowService = windowService;
             _tableService = tableService;
