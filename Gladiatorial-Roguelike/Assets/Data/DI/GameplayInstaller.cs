@@ -56,6 +56,7 @@ namespace Data.DI
             Container.Bind<CardBuffService>().AsSingle().NonLazy();
             Container.Bind<BuffService>().AsSingle().NonLazy();
             Container.Bind<TurnService>().AsSingle().NonLazy();
+            Container.Bind<AIService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()

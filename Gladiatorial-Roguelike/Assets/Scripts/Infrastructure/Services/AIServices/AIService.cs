@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Infrastructure.StateMachines;
 using Logic.Entities;
-using UI.Elements;
+using Logic.Types;
 using UnityEngine;
 using Zenject;
 
@@ -10,10 +10,12 @@ namespace Infrastructure.Services
 {
     public class AIService
     {
+        private List<EnemyCardDropArea> _enemyDropAreas;
+        
         private BattleStateMachine _battleStateMachine;
         private TableService _tableService;
         private CoroutineCustomRunner _coroutineRunner;
-        private List<EnemyCardDropArea> _enemyDropAreas;
+        private System.Random _random;
 
         [Inject]
         public void Inject(BattleStateMachine battleStateMachine, TableService tableService, CoroutineCustomRunner coroutineRunner)
@@ -21,6 +23,7 @@ namespace Infrastructure.Services
             _battleStateMachine = battleStateMachine;
             _tableService = tableService;
             _coroutineRunner = coroutineRunner;
+            _random = new System.Random();
         }
 
         public void Initialize(List<EnemyCardDropArea> enemyDropAreas)
@@ -48,18 +51,38 @@ namespace Infrastructure.Services
         private void PlayEnemyCards()
         {
             var enemyHand = _tableService.GetEnemyHand();
-            int availableZones = _enemyDropAreas.Count;
+            var cardsToPlay = new List<Card>();
 
-            for (int i = 0; i < availableZones && i < enemyHand.Count; i++)
+            foreach (var cardToPlay in enemyHand)
             {
-                var cardToPlay = enemyHand[i];
+                if (cardToPlay.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.5) // 50% шанс выложить карту
+                {
+                    var availableDropArea = GetAvailableDropArea();
+                    if (availableDropArea != null)
+                    {
+                        cardsToPlay.Add(cardToPlay);
+                        PlaceCardInDropArea(cardToPlay, availableDropArea);
+                    }
+                }
+            }
+
+            foreach (var cardToPlay in cardsToPlay)
+            {
                 _tableService.RemoveCardFromEnemyHand(cardToPlay);
                 _tableService.AddCardToEnemyTable(cardToPlay);
-
-                // Выбираем случайную зону для размещения карты
-                var randomDropArea = _enemyDropAreas[Random.Range(0, _enemyDropAreas.Count)];
-                PlaceCardInDropArea(cardToPlay, randomDropArea);
             }
+        }
+
+        private EnemyCardDropArea GetAvailableDropArea()
+        {
+            foreach (var dropArea in _enemyDropAreas)
+            {
+                if (!dropArea.IsOccupied())
+                {
+                    return dropArea;
+                }
+            }
+            return null;
         }
 
         private void PlaceCardInDropArea(Card cardToPlay, EnemyCardDropArea dropArea)
@@ -69,6 +92,7 @@ namespace Infrastructure.Services
             if (cardView != null)
             {
                 cardView.ChangeRaycasts(false);
+                cardView.GetCardDisplay().FlipCard();
                 dropArea.HandleDrop(cardView, null);
             }
         }

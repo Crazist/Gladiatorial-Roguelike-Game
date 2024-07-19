@@ -85,9 +85,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6352765674191281375}
-  - component: {fileID: 5074323374834301920}
   - component: {fileID: 7799572752522911460}
   - component: {fileID: 3130376356627366016}
+  - component: {fileID: 8321381534557566438}
   m_Layer: 5
   m_Name: Card_Zone
   m_TagString: Untagged
@@ -115,19 +115,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5074323374834301920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1181697284992714009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d95b9cf74f4b91ac3e827b9b85677e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 6352765674191281375}
 --- !u!222 &7799572752522911460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -166,6 +153,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8321381534557566438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181697284992714009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ae15369e1e4874b433d5cf42ac2211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 6352765674191281375}
 --- !u!1 &1513817227244336057
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,9 +523,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7950388333963485389}
-  - component: {fileID: 7170373721622292278}
   - component: {fileID: 2100847696550638968}
   - component: {fileID: 1814376275203514271}
+  - component: {fileID: 8671508695098396491}
   m_Layer: 5
   m_Name: Card_Zone (4)
   m_TagString: Untagged
@@ -553,19 +553,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7170373721622292278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2381075937895761395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d95b9cf74f4b91ac3e827b9b85677e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 7950388333963485389}
 --- !u!222 &2100847696550638968
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -604,6 +591,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8671508695098396491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2381075937895761395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ae15369e1e4874b433d5cf42ac2211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 7950388333963485389}
 --- !u!1 &2582428192268844978
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,9 +779,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1293561939740047810}
-  - component: {fileID: 8899434490479783054}
   - component: {fileID: 2209735897369002153}
   - component: {fileID: 4092760969801088929}
+  - component: {fileID: 6152402840846534638}
   m_Layer: 5
   m_Name: Card_Zone (3)
   m_TagString: Untagged
@@ -809,19 +809,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8899434490479783054
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4123463441098698749}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d95b9cf74f4b91ac3e827b9b85677e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 1293561939740047810}
 --- !u!222 &2209735897369002153
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -860,6 +847,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6152402840846534638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4123463441098698749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ae15369e1e4874b433d5cf42ac2211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 1293561939740047810}
 --- !u!1 &4292988681996254771
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,9 +869,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4172614800074305121}
-  - component: {fileID: 4310665828703500244}
   - component: {fileID: 36094233616173460}
   - component: {fileID: 729906242388231323}
+  - component: {fileID: 2410935795275952088}
   m_Layer: 5
   m_Name: Card_Zone (2)
   m_TagString: Untagged
@@ -899,19 +899,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4310665828703500244
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4292988681996254771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d95b9cf74f4b91ac3e827b9b85677e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 4172614800074305121}
 --- !u!222 &36094233616173460
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -950,6 +937,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2410935795275952088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4292988681996254771}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ae15369e1e4874b433d5cf42ac2211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 4172614800074305121}
 --- !u!1 &5423746159550647237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1173,17 +1173,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _closeBtn: {fileID: 0}
-  _playerDeck: {fileID: 8093594166254682992}
-  _enemyDeck: {fileID: 4252008177832665081}
-  _playerHandArea: {fileID: 3007736654030661018}
-  _enemyHandArea: {fileID: 3571282115305181066}
-  _cardPrefab: {fileID: 4046859139883548514, guid: 7202012f18fd52343a46aad63aa19176, type: 3}
-  _dropAreas:
+  _playerDropAreas:
   - {fileID: 8694040840375393885}
   - {fileID: 954442598578516965}
   - {fileID: 3451326400946221195}
   - {fileID: 6710092458585775111}
   - {fileID: 6967847984769647956}
+  _enemyDropAreas:
+  - {fileID: 8321381534557566438}
+  - {fileID: 1308372049991170091}
+  - {fileID: 2410935795275952088}
+  - {fileID: 6152402840846534638}
+  - {fileID: 8671508695098396491}
+  _playerDeck: {fileID: 8093594166254682992}
+  _enemyDeck: {fileID: 4252008177832665081}
+  _playerHandArea: {fileID: 3007736654030661018}
+  _enemyHandArea: {fileID: 3571282115305181066}
+  _cardPrefab: {fileID: 4046859139883548514, guid: 7202012f18fd52343a46aad63aa19176, type: 3}
 --- !u!114 &487688539381789985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1528,9 +1534,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7155291390309233970}
-  - component: {fileID: 110064655403850166}
   - component: {fileID: 683055875713246411}
   - component: {fileID: 623426393214550539}
+  - component: {fileID: 1308372049991170091}
   m_Layer: 5
   m_Name: Card_Zone (1)
   m_TagString: Untagged
@@ -1558,19 +1564,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &110064655403850166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9187963638235366293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d95b9cf74f4b91ac3e827b9b85677e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rectTransform: {fileID: 7155291390309233970}
 --- !u!222 &683055875713246411
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1609,3 +1602,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1308372049991170091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187963638235366293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72ae15369e1e4874b433d5cf42ac2211, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rectTransform: {fileID: 7155291390309233970}

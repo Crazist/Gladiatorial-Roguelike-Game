@@ -63,6 +63,7 @@ namespace UI.Windows
                 var cardView = Instantiate(_cardPrefab, _playerHandArea);
                 cardView.Initialize(card, true);
                 _cardPopup.SubscribeToCard(cardView);
+                _tableService.AddCardViewToPlayer(cardView);
             }
         }
 
@@ -74,6 +75,7 @@ namespace UI.Windows
                 cardView.Initialize(card, false);
                 cardView.GetCardDisplay().FlipCard();
                 _cardPopup.SubscribeToCard(cardView);
+                _tableService.AddCardViewToEnemy(cardView);
             }
         }
 

@@ -1,5 +1,4 @@
 using Infrastructure.Services;
-using Logic.Types;
 using UI.Elements;
 using UI.Services;
 using UnityEngine;
@@ -7,6 +6,7 @@ using Zenject;
 
 public class EnemyCardDropArea : CardDropArea
 {
+    private CardView _occupiedCard;
     private TableService _tableService;
 
     [Inject]
@@ -15,16 +15,23 @@ public class EnemyCardDropArea : CardDropArea
 
     public override void HandleDrop(CardView cardView, CardDragService cardDragService)
     {
-        if (cardView.GetCard().CardData.Category == CardCategory.Special) return;
-
+        if (_occupiedCard != null) return;
+        
+        _occupiedCard = cardView;
         _tableService.AddCardToEnemyTable(cardView.GetCard());
-        cardView.GetCardDragHandler().ChangeDraggable(false);
         CenterCardInDropArea(cardView);
     }
+
+    public bool IsOccupied() => 
+        _occupiedCard != null;
+
+    public void ClearZone() => 
+        _occupiedCard = null;
 
     private void CenterCardInDropArea(CardView cardView)
     {
         RectTransform cardRectTransform = cardView.GetRectTransform();
+        
         cardRectTransform.SetParent(_rectTransform, false);
         cardRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
         cardRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
