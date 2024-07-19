@@ -21,6 +21,7 @@ namespace Infrastructure
 
         public void Exit()
         {
+            // ОЧИСТИТЬ ВСЕ СЕРВИСЫ БИТВЫ!!!
             // Очистка состояния
         }
 

@@ -1,41 +1,45 @@
+using System.Collections.Generic;
 using Infrastructure.Services;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
 using UI.Elements;
+using UI.Services;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
-using System.Collections.Generic;
-using UI.Services;
 
 namespace UI.Windows
 {
     public class TableWindow : WindowBase
     {
+        [SerializeField] private List<CardDropArea> _playerDropAreas;
+        [SerializeField] private List<EnemyCardDropArea> _enemyDropAreas;
+
         [SerializeField] private Image _playerDeck;
         [SerializeField] private Image _enemyDeck;
         [SerializeField] private Transform _playerHandArea;
         [SerializeField] private Transform _enemyHandArea;
         [SerializeField] private CardView _cardPrefab;
-        [SerializeField] private List<CardDropArea> _dropAreas;
 
-        private CardService _cardService;
         private TableService _tableService;
         private StaticDataService _staticDataService;
         private PersistentProgressService _persistentProgressService;
         private CardPopupService _cardPopup;
         private CardDragService _cardDragService;
+        private AIService _aiService;
 
         [Inject]
-        private void Inject(CardService cardService, TableService tableService, StaticDataService staticDataService,
-            PersistentProgressService persistentProgressService, CardPopupService cardPopup, CardDragService cardDragService)
+        private void Inject(TableService tableService, StaticDataService staticDataService,
+            PersistentProgressService persistentProgressService, CardPopupService cardPopup,
+            CardDragService cardDragService,
+            AIService aiService)
         {
             _cardDragService = cardDragService;
             _cardPopup = cardPopup;
             _persistentProgressService = persistentProgressService;
             _staticDataService = staticDataService;
             _tableService = tableService;
-            _cardService = cardService;
+            _aiService = aiService;
 
             InitializePlayerHand();
             InitializeEnemyHand();
@@ -48,7 +52,8 @@ namespace UI.Windows
             _playerDeck.sprite = _staticDataService
                 .ForDeck(_persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck).CardBackImage;
             _enemyDeck.sprite = _staticDataService
-                .ForDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType).CardBackImage;
+                .ForDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType)
+                .CardBackImage;
         }
 
         public void InitializePlayerHand()
@@ -74,10 +79,12 @@ namespace UI.Windows
 
         private void InitializeDropAreas()
         {
-            foreach (var dropArea in _dropAreas)
+            foreach (var dropArea in _playerDropAreas)
             {
                 _cardDragService.AddDropArea(dropArea);
             }
+
+            _aiService.Initialize(_enemyDropAreas);
         }
     }
 }

@@ -77,7 +77,6 @@ namespace Infrastructure.Services.CardsServices
         {
             _tableService.RemoveCardFromPlayerHand(buffCardView.GetCard());
             Object.Destroy(buffCardView.gameObject);
-            buffCardView.ChangeRaycasts(true);
             resetPos?.Invoke();
         }
     }
