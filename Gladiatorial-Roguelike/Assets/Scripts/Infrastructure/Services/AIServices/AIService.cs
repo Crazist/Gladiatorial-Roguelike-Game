@@ -53,6 +53,7 @@ namespace Infrastructure.Services
                 if (cardToPlay.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.5)
                 {
                     var availableDropArea = GetAvailableDropArea();
+                    
                     if (availableDropArea != null)
                     {
                         cardsToPlay.Add(cardToPlay);
@@ -61,11 +62,33 @@ namespace Infrastructure.Services
                 }
             }
 
-            foreach (var cardToPlay in cardsToPlay)
+            if (cardsToPlay.Count == 0)
             {
-                _tableService.RemoveCardFromEnemyHand(cardToPlay);
-                _tableService.AddCardToEnemyTable(cardToPlay);
+                var cardToPlay = TryPlayAtLeastOneCard();
+                if (cardToPlay != null)
+                {
+                    var availableDropArea = GetAvailableDropArea();
+                    if (availableDropArea != null)
+                    {
+                        _tableService.RemoveCardFromEnemyHand(cardToPlay);
+                        _tableService.AddCardToEnemyTable(cardToPlay);
+                        yield return PlaceCardInDropAreaWithDelay(cardToPlay, availableDropArea);
+                    }
+                }
             }
+        }
+
+        private Card TryPlayAtLeastOneCard()
+        {
+            var enemyHand = _tableService.GetEnemyHand();
+            foreach (var cardToPlay in enemyHand)
+            {
+                if (cardToPlay.CardData.Category == CardCategory.Unit)
+                {
+                    return cardToPlay;
+                }
+            }
+            return null;
         }
 
         private IEnumerator PlaceCardInDropAreaWithDelay(Card cardToPlay, EnemyCardDropArea dropArea)
