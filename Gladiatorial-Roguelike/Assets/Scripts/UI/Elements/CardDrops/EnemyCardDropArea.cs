@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using DG.Tweening;
 using Infrastructure.Services;
 using UI.Elements;
 using UI.Services;
@@ -10,16 +13,18 @@ public class EnemyCardDropArea : CardDropArea
     private TableService _tableService;
 
     [Inject]
-    private void Inject(TableService tableService) => 
+    private void Inject(TableService tableService)
+    {
         _tableService = tableService;
+    }
 
     public override void HandleDrop(CardView cardView, CardDragService cardDragService)
     {
         if (_occupiedCard != null) return;
-        
+
         _occupiedCard = cardView;
         _tableService.AddCardToEnemyTable(cardView.GetCard());
-        CenterCardInDropArea(cardView);
+        MoveCardToDropArea(cardView);
     }
 
     public bool IsOccupied() => 
@@ -28,14 +33,29 @@ public class EnemyCardDropArea : CardDropArea
     public void ClearZone() => 
         _occupiedCard = null;
 
-    private void CenterCardInDropArea(CardView cardView)
+    private void MoveCardToDropArea(CardView cardView)
     {
         RectTransform cardRectTransform = cardView.GetRectTransform();
         
-        cardRectTransform.SetParent(_rectTransform, false);
-        cardRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
-        cardRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
-        cardRectTransform.anchoredPosition = Vector2.zero;
-        cardRectTransform.sizeDelta = new Vector2(50, 70);
+        // Сохраняем мировую позицию карты
+        Vector3 worldPosition = cardRectTransform.position;
+
+        // Перемещаем карту в корневой Canvas, сохраняя мировую позицию
+        cardRectTransform.SetParent(_rectTransform.root, false);
+        cardRectTransform.position = worldPosition;
+
+        // Анимируем перемещение карты к новой позиции
+        cardRectTransform.DOMove(_rectTransform.position, 0.5f).OnComplete(() =>
+        {
+            // После завершения анимации перемещаем карту в новый LayoutGroup
+            cardRectTransform.SetParent(_rectTransform, false);
+            cardRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+            cardRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+            cardRectTransform.anchoredPosition = Vector2.zero;
+            cardRectTransform.sizeDelta = new Vector2(50, 70);
+
+            // Устанавливаем статус занятости зоны
+            _occupiedCard = cardView;
+        });
     }
 }
