@@ -26,25 +26,20 @@ namespace Infrastructure.Services
             _random = new System.Random();
         }
 
-        public void Initialize(List<EnemyCardDropArea> enemyDropAreas)
-        {
+        public void Initialize(List<EnemyCardDropArea> enemyDropAreas) => 
             _enemyDropAreas = enemyDropAreas;
-        }
 
-        public void ExecuteEnemyTurn()
-        {
+        public void ExecuteEnemyTurn() => 
             _coroutineRunner.StartCoroutine(ExecuteTurnRoutine());
-        }
 
         private IEnumerator ExecuteTurnRoutine()
         {
-            yield return new WaitForSeconds(1); // задержка для имитации принятия решения
+            yield return new WaitForSeconds(1);
 
             PlayEnemyCards();
 
-            yield return new WaitForSeconds(1); // задержка для имитации времени на выполнение действий
+            yield return new WaitForSeconds(1);
 
-            // Завершение хода врага и передача хода игроку
             _battleStateMachine.Enter<PlayerTurnState>();
         }
 
@@ -55,7 +50,7 @@ namespace Infrastructure.Services
 
             foreach (var cardToPlay in enemyHand)
             {
-                if (cardToPlay.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.5) // 50% шанс выложить карту
+                if (cardToPlay.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.5)
                 {
                     var availableDropArea = GetAvailableDropArea();
                     if (availableDropArea != null)
