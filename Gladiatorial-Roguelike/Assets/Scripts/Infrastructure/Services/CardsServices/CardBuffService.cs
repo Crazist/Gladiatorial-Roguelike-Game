@@ -1,12 +1,11 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Infrastructure.Services.BuffsService;
 using Logic.Entities;
 using Logic.Types;
 using UI.Elements;
-using UnityEngine;
 using Zenject;
-using Object = UnityEngine.Object;
 
 namespace Infrastructure.Services.CardsServices
 {
@@ -14,13 +13,13 @@ namespace Infrastructure.Services.CardsServices
     {
         private TableService _tableService;
         private CoroutineCustomRunner _coroutineCustomRunner;
-        private BuffService _buffService;
+        private BuffProcessingService _buffProcessingService;
 
         [Inject]
         public void Inject(TableService tableService, CoroutineCustomRunner coroutineCustomRunner,
-            BuffService buffService)
+            BuffProcessingService buffProcessingService)
         {
-            _buffService = buffService;
+            _buffProcessingService = buffProcessingService;
             _coroutineCustomRunner = coroutineCustomRunner;
             _tableService = tableService;
         }
@@ -42,59 +41,31 @@ namespace Infrastructure.Services.CardsServices
             yield return null;
 
             CardView targetCardView = GetHoveredCardView();
-            if (targetCardView == null || targetCardView.GetCard().CardData.Category != CardCategory.Unit)
+            CardType buffCardType = buffCardView.GetCard().CardData.CardType;
+
+            if (!IsValidBuffTarget(targetCardView, buffCardType))
             {
                 buffCardView.ChangeRaycasts(true);
                 resetPos?.Invoke();
                 yield break;
             }
 
-            ProcessBuff(buffCardView, targetCardView, resetPos);
+            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos);
         }
 
         private IEnumerator ApplyAIBuffCoroutine(CardView buffCardView, CardView targetCardView, Action resetPos)
         {
             yield return null;
 
-            ProcessBuff(buffCardView, targetCardView, resetPos);
+            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos);
         }
 
-        private void ProcessBuff(CardView buffCardView, CardView targetCardView, Action resetPos)
+        private bool IsValidBuffTarget(CardView targetCardView, CardType buffCardType)
         {
-            var targetCard = targetCardView.GetCard();
-            var buffCard = buffCardView.GetCard();
-
-            switch (buffCard.CardData.CardType)
-            {
-                case CardType.Healing:
-                    ApplyHealingBuff(targetCard as UnitCard, buffCard as SpecialCard);
-                    break;
-                case CardType.Buff:
-                    ApplyStatBuff(targetCard as UnitCard, buffCard as SpecialCard);
-                    break;
-            }
-
-            targetCardView.UpdateView();
-            CompleteBuff(buffCardView, resetPos);
-        }
-
-        private void ApplyHealingBuff(UnitCard unitCard, SpecialCard specialCard)
-        {
-            if (unitCard == null || specialCard == null) return;
-            //  _buffService.Heal(unitCard, specialCard.SpecialEffectValue);
-        }
-
-        private void ApplyStatBuff(UnitCard unitCard, SpecialCard specialCard)
-        {
-            if (unitCard == null || specialCard == null) return;
-            _buffService.Buff(unitCard, specialCard);
-        }
-
-        private void CompleteBuff(CardView buffCardView, Action resetPos)
-        {
-            _tableService.RemoveCardFromPlayerHand(buffCardView.GetCard());
-            Object.Destroy(buffCardView.gameObject);
-            resetPos?.Invoke();
+            if (targetCardView == null) return false;
+            
+            List<Card> table = buffCardType == CardType.Recruit ? _tableService.GetEnemyTable() : _tableService.GetPlayerTable();
+            return table.Contains(targetCardView.GetCard());
         }
 
         private CardView GetHoveredCardView() => _tableService.GetHoveredCard();

@@ -59,6 +59,7 @@ namespace Data.DI
             Container.Bind<TurnService>().AsSingle().NonLazy();
             Container.Bind<AIService>().AsSingle().NonLazy();
             Container.Bind<AIBuffService>().AsSingle().NonLazy();
+            Container.Bind<BuffProcessingService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()
