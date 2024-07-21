@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Persian
   m_EditorClassIdentifier: 
   DeckType: 8
-  CardBackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  CardBackImage: {fileID: 21300000, guid: 8d74d3149d5c69041a2c984a61f5a505, type: 3}
   CardFrontImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   Cards:
   - {fileID: 11400000, guid: 49c8cb5b2d1fd49cfb5ea4f06300d0a5, type: 2}
