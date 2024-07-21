@@ -75,7 +75,7 @@ namespace UI.Windows
                 cardView.Initialize(card, false);
                 cardView.GetCardDisplay().SetFaceDown();
                 _cardPopup.SubscribeToCard(cardView);
-                _tableService.AddCardViewToEnemy(cardView);
+                _tableService.AddCardViewToEnemyHand(cardView);
             }
         }
 

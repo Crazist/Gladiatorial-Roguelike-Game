@@ -48,11 +48,11 @@ namespace Infrastructure.Services
         }
 
         public void AddCardViewToPlayer(CardView cardView) => _playerCardViews.Add(cardView);
-        public void AddCardViewToEnemy(CardView cardView) => _enemyCardViews.Add(cardView);
+        public void AddCardViewToEnemyHand(CardView cardView) => _enemyCardViews.Add(cardView);
         public void RemoveCardViewFromPlayer(CardView cardView) => _playerCardViews.Remove(cardView);
-        public void RemoveCardViewFromEnemy(CardView cardView) => _enemyCardViews.Remove(cardView);
+        public void RemoveCardViewFromEnemyHand(CardView cardView) => _enemyCardViews.Remove(cardView);
         public List<CardView> GetPlayerCardViews() => _playerCardViews;
-        public List<CardView> GetEnemyCardViews() => _enemyCardViews;
+        public List<CardView> GetEnemyHandCardViews() => _enemyCardViews;
         public void RemoveCardFromPlayerHand(Card card) => _playerHand.Remove(card);
         public void RemoveCardFromEnemyHand(Card card) => _enemyHand.Remove(card);
         public void AddCardToPlayerTable(Card card) => _playerTable.Add(card);

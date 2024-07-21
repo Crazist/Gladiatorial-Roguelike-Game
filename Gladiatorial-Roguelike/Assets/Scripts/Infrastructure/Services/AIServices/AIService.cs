@@ -11,36 +11,25 @@ namespace Infrastructure.Services
     public class AIService
     {
         private List<EnemyCardDropArea> _enemyDropAreas;
-        
-        private BattleStateMachine _battleStateMachine;
+
         private TableService _tableService;
-        private CoroutineCustomRunner _coroutineRunner;
         private System.Random _random;
 
         [Inject]
-        public void Inject(BattleStateMachine battleStateMachine, TableService tableService, CoroutineCustomRunner coroutineRunner)
+        public void Inject(TableService tableService)
         {
-            _battleStateMachine = battleStateMachine;
             _tableService = tableService;
-            _coroutineRunner = coroutineRunner;
             _random = new System.Random();
         }
 
-        public void Initialize(List<EnemyCardDropArea> enemyDropAreas) => 
+        public void Initialize(List<EnemyCardDropArea> enemyDropAreas) =>
             _enemyDropAreas = enemyDropAreas;
 
-        public void ExecuteEnemyTurn() => 
-            _coroutineRunner.StartCoroutine(ExecuteTurnRoutine());
-
-        private IEnumerator ExecuteTurnRoutine()
+        public IEnumerator ExecuteEnemyTurnRoutine()
         {
             yield return new WaitForSeconds(1);
-
             yield return PlayEnemyCardsWithDelay();
-
             yield return new WaitForSeconds(1);
-
-            _battleStateMachine.Enter<PlayerTurnState>();
         }
 
         private IEnumerator PlayEnemyCardsWithDelay()
@@ -53,7 +42,7 @@ namespace Infrastructure.Services
                 if (cardToPlay.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.5)
                 {
                     var availableDropArea = GetAvailableDropArea();
-                    
+
                     if (availableDropArea != null)
                     {
                         cardsToPlay.Add(cardToPlay);
@@ -88,19 +77,20 @@ namespace Infrastructure.Services
                     return cardToPlay;
                 }
             }
+
             return null;
         }
 
         private IEnumerator PlaceCardInDropAreaWithDelay(Card cardToPlay, EnemyCardDropArea dropArea)
         {
-            var enemyCardViews = _tableService.GetEnemyCardViews();
+            var enemyCardViews = _tableService.GetEnemyHandCardViews();
             var cardView = enemyCardViews.Find(cv => cv.GetCard() == cardToPlay);
             if (cardView != null)
             {
                 cardView.ChangeRaycasts(false);
                 cardView.GetCardDisplay().FlipCard();
                 dropArea.HandleDrop(cardView, null);
-               
+
                 yield return new WaitForSeconds(1);
             }
         }
@@ -114,6 +104,7 @@ namespace Infrastructure.Services
                     return dropArea;
                 }
             }
+
             return null;
         }
     }

@@ -4,6 +4,7 @@ using Infrastructure.Services.BuffsService;
 using Logic.Entities;
 using Logic.Types;
 using UI.Elements;
+using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
 
@@ -16,7 +17,8 @@ namespace Infrastructure.Services.CardsServices
         private BuffService _buffService;
 
         [Inject]
-        public void Inject(TableService tableService, CoroutineCustomRunner coroutineCustomRunner, BuffService buffService)
+        public void Inject(TableService tableService, CoroutineCustomRunner coroutineCustomRunner,
+            BuffService buffService)
         {
             _buffService = buffService;
             _coroutineCustomRunner = coroutineCustomRunner;
@@ -29,47 +31,62 @@ namespace Infrastructure.Services.CardsServices
             _coroutineCustomRunner.StartCoroutine(ApplyBuffCoroutine(buffCardView, resetPos));
         }
 
+        public void ApplyBuffForAi(CardView buffCardView, CardView unitCardView)
+        {
+            buffCardView.ChangeRaycasts(false);
+            _coroutineCustomRunner.StartCoroutine(ApplyAIBuffCoroutine(buffCardView, unitCardView, null));
+        }
+
         private IEnumerator ApplyBuffCoroutine(CardView buffCardView, Action resetPos)
         {
             yield return null;
 
-            var hoveredCardView = _tableService.GetHoveredCard();
-
-            if (hoveredCardView == null || hoveredCardView.GetCard().CardData.Category != CardCategory.Unit)
+            CardView targetCardView = GetHoveredCardView();
+            if (targetCardView == null || targetCardView.GetCard().CardData.Category != CardCategory.Unit)
             {
                 buffCardView.ChangeRaycasts(true);
-                resetPos.Invoke();
+                resetPos?.Invoke();
                 yield break;
             }
 
-            ProcessBuff(buffCardView, hoveredCardView, resetPos);
+            ProcessBuff(buffCardView, targetCardView, resetPos);
         }
 
-        private void ProcessBuff(CardView buffCardView, CardView hoveredCardView, Action resetPos)
+        private IEnumerator ApplyAIBuffCoroutine(CardView buffCardView, CardView targetCardView, Action resetPos)
         {
-            var targetCard = hoveredCardView.GetCard();
-            
-            UnitCard unitCard = targetCard as UnitCard;
-            SpecialCard specialCard = buffCardView.GetCard() as SpecialCard;
+            yield return null;
 
-            switch (buffCardView.GetCard().CardData.CardType)
+            ProcessBuff(buffCardView, targetCardView, resetPos);
+        }
+
+        private void ProcessBuff(CardView buffCardView, CardView targetCardView, Action resetPos)
+        {
+            var targetCard = targetCardView.GetCard();
+            var buffCard = buffCardView.GetCard();
+
+            switch (buffCard.CardData.CardType)
             {
                 case CardType.Healing:
-                  //  ApplyHealingBuff(unitCard, specialCard);
+                    ApplyHealingBuff(targetCard as UnitCard, buffCard as SpecialCard);
                     break;
                 case CardType.Buff:
-                    ApplyStatBuff(unitCard, specialCard);
+                    ApplyStatBuff(targetCard as UnitCard, buffCard as SpecialCard);
                     break;
             }
 
-            hoveredCardView.UpdateView();
+            targetCardView.UpdateView();
             CompleteBuff(buffCardView, resetPos);
+        }
+
+        private void ApplyHealingBuff(UnitCard unitCard, SpecialCard specialCard)
+        {
+            if (unitCard == null || specialCard == null) return;
+            //  _buffService.Heal(unitCard, specialCard.SpecialEffectValue);
         }
 
         private void ApplyStatBuff(UnitCard unitCard, SpecialCard specialCard)
         {
             if (unitCard == null || specialCard == null) return;
-
             _buffService.Buff(unitCard, specialCard);
         }
 
@@ -79,5 +96,7 @@ namespace Infrastructure.Services.CardsServices
             Object.Destroy(buffCardView.gameObject);
             resetPos?.Invoke();
         }
+
+        private CardView GetHoveredCardView() => _tableService.GetHoveredCard();
     }
 }

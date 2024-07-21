@@ -37,24 +37,19 @@ public class EnemyCardDropArea : CardDropArea
     {
         RectTransform cardRectTransform = cardView.GetRectTransform();
         
-        // Сохраняем мировую позицию карты
         Vector3 worldPosition = cardRectTransform.position;
 
-        // Перемещаем карту в корневой Canvas, сохраняя мировую позицию
         cardRectTransform.SetParent(_rectTransform.root, false);
         cardRectTransform.position = worldPosition;
 
-        // Анимируем перемещение карты к новой позиции
         cardRectTransform.DOMove(_rectTransform.position, 0.5f).OnComplete(() =>
         {
-            // После завершения анимации перемещаем карту в новый LayoutGroup
             cardRectTransform.SetParent(_rectTransform, false);
             cardRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
             cardRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
             cardRectTransform.anchoredPosition = Vector2.zero;
             cardRectTransform.sizeDelta = new Vector2(50, 70);
 
-            // Устанавливаем статус занятости зоны
             _occupiedCard = cardView;
         });
     }
