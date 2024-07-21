@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f03f4e1d5494c5c96dd0bb858d1821b, type: 3}
-  m_Name: Britannic
+  m_Name: Britannia
   m_EditorClassIdentifier: 
   DeckType: 2
-  CardBackImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  CardBackImage: {fileID: 21300000, guid: 782156b49e9d4324a8d40f2c70f7c49f, type: 3}
   CardFrontImage: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   Cards:
   - {fileID: 11400000, guid: 39b2e0c98296345a198ef1071e10948e, type: 2}

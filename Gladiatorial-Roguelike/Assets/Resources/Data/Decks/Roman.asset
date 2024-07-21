@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Roman
   m_EditorClassIdentifier: 
   DeckType: 1
-  CardBackImage: {fileID: 21300000, guid: 27e31aa2f1230ea44b9c1ddbee50afeb, type: 3}
+  CardBackImage: {fileID: 21300000, guid: d7de1fab09cfbeb4aa78563bb14168a3, type: 3}
   CardFrontImage: {fileID: 21300000, guid: 0b27ca381cf0ad84696858147055956d, type: 3}
   Cards:
   - {fileID: 11400000, guid: 39b2e0c98296345a198ef1071e10948e, type: 2}
