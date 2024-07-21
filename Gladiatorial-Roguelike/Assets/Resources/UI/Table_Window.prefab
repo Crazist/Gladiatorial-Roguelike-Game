@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 3146438898997953506}
   - component: {fileID: 8923109607316705632}
   - component: {fileID: 4252008177832665081}
+  - component: {fileID: 2468757175232758642}
   m_Layer: 5
   m_Name: Deck_Image
   m_TagString: Untagged
@@ -436,6 +437,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2468757175232758642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2080306304159481836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2180909810782209382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1280,6 +1296,7 @@ GameObject:
   - component: {fileID: 4776928251559255492}
   - component: {fileID: 1616828932000345812}
   - component: {fileID: 8093594166254682992}
+  - component: {fileID: 5172305528570489637}
   m_Layer: 5
   m_Name: Deck_Image
   m_TagString: Untagged
@@ -1345,6 +1362,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5172305528570489637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6917852249239788903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfabb0440166ab443bba8876756fdfa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &7172934879655768879
 GameObject:
   m_ObjectHideFlags: 0

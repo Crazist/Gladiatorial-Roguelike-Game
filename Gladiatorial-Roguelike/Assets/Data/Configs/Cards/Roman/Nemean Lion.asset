@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 915b9fc7b816490a812f7f9bb3f356a1, type: 3}
-  m_Name: Roman Sword 2
+  m_Name: Nemean Lion
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: 27e31aa2f1230ea44b9c1ddbee50afeb, type: 3}
-  CardName: Roman Sword
-  CardType: 0
+  Icon: {fileID: 21300000, guid: 2ec3e90419b8a9e489f44e36d1f93140, type: 3}
+  CardName: Nemean Lion
+  CardType: 3
   CardRarity: 0
   Category: 1
-  DeckType: 8
-  Attack: 2
-  Defense: 3
+  DeckType: 1
+  Attack: 8
+  Defense: 4
   Hp: 5
   XP: 0
