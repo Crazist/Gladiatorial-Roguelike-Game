@@ -1,38 +1,45 @@
 using Infrastructure.Services;
 using Logic.Types;
-using UI.Elements;
 using UI.Services;
 using UnityEngine;
 using Zenject;
 
-public class CardTableArea : CardDropArea
+namespace UI.Elements.CardDrops
 {
-    private TableService _tableService;
-
-    [Inject]
-    private void Inject(TableService tableService) => 
-        _tableService = tableService;
-
-    public override void HandleDrop(CardView cardView, CardDragService cardDragService)
+    public class CardTableArea : CardDropArea
     {
-        if(cardView.GetCard().CardData.Category == CardCategory.Special) return;
+        private TableService _tableService;
+
+        [Inject]
+        private void Inject(TableService tableService) => 
+            _tableService = tableService;
+
+        public override void HandleDrop(CardView cardView, CardDragService cardDragService)
+        {
+            if(cardView.GetCard().CardData.Category == CardCategory.Special) return;
         
-        _tableService.GetPlayerTableViews().Add(cardView);
-        cardView.GetCardDragHandler().ChangeDraggable(false);
-        CenterCardInDropArea(cardView);
-    }
+            _tableService.GetPlayerTableViews().Add(cardView);
+            _tableService.GetPlayerHandViews().Remove(cardView);
+            
+            OccupiedCard = cardView;
+        
+            cardView.GetCardDragHandler().ChangeDraggable(false);
+            
+            CenterCardInDropArea(cardView);
+        }
 
-    private void CenterCardInDropArea(CardView cardView)
-    {
-        RectTransform cardRectTransform = cardView.GetRectTransform();
+        private void CenterCardInDropArea(CardView cardView)
+        {
+            RectTransform cardRectTransform = cardView.GetRectTransform();
 
-        cardRectTransform.SetParent(_rectTransform, false);
+            cardRectTransform.SetParent(_rectTransform, false);
 
-        cardRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
-        cardRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+            cardRectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+            cardRectTransform.anchorMax = new Vector2(0.5f, 0.5f);
 
-        cardRectTransform.anchoredPosition = Vector2.zero;
+            cardRectTransform.anchoredPosition = Vector2.zero;
 
-        cardRectTransform.sizeDelta = new Vector2(50, 70);
+            cardRectTransform.sizeDelta = new Vector2(50, 70);
+        }
     }
 }

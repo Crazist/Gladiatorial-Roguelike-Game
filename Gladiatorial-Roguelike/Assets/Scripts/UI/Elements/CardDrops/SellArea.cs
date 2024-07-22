@@ -1,6 +1,6 @@
 using UI.Elements;
+using UI.Elements.CardDrops;
 using UI.Services;
-using UnityEngine;
 using Zenject;
 
 public class SellArea : CardDropArea

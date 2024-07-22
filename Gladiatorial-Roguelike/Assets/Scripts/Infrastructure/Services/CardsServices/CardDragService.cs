@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Infrastructure.Services;
 using Infrastructure.Services.CardsServices;
 using Logic.Types;
+using UI.Elements.CardDrops;
 using UnityEngine.EventSystems;
 using Zenject;
 
@@ -94,7 +95,7 @@ namespace UI.Services
 
             foreach (var dropArea in _dropAreas)
             {
-                if (dropArea.IsInDropArea(eventData))
+                if (dropArea.IsInDropArea(eventData) && !dropArea.IsOccupied())
                 {
                     HandleSuccessfulDrop(dropArea);
                     return;

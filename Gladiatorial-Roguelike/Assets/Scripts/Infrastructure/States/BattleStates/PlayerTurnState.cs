@@ -1,4 +1,3 @@
-using System;
 using Infrastructure.Services.BattleService;
 using Infrastructure.StateMachines;
 using UI.Factory;

@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using Infrastructure.StateMachines;
 using Logic.Entities;
 using Logic.Types;
 using UI.Elements;
+using UI.Elements.CardDrops;
 using UnityEngine;
 using Zenject;
 
-namespace Infrastructure.Services
+namespace Infrastructure.Services.AIServices
 {
     public class AIService
     {

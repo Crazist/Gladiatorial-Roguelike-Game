@@ -1,14 +1,19 @@
-using UI.Elements;
 using UI.Services;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class CardDropArea : MonoBehaviour
+namespace UI.Elements.CardDrops
 {
-    [SerializeField] protected RectTransform _rectTransform;
+    public abstract class CardDropArea : MonoBehaviour
+    {
+        [SerializeField] protected RectTransform _rectTransform;
+        
+        protected CardView OccupiedCard;
+        public abstract void HandleDrop(CardView cardView, CardDragService cardDragService);
 
-    public abstract void HandleDrop(CardView cardView, CardDragService cardDragService);
-
-    public bool IsInDropArea(PointerEventData eventData) => 
-        RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, eventData.position, eventData.pressEventCamera);
+        public bool IsInDropArea(PointerEventData eventData) => 
+            RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, eventData.position, eventData.pressEventCamera);
+        public bool IsOccupied() => 
+            OccupiedCard != null;
+    }
 }
