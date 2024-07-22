@@ -42,7 +42,7 @@ namespace Infrastructure.Services
             {
                 Card card = cardToPlay.GetCard();
 
-                if (card.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.5)
+                if (card.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.85f)
                 {
                     var availableDropArea = GetAvailableDropArea();
 

@@ -46,16 +46,14 @@ namespace UI.Elements
             _cardDisplay.Initialize(_card);
         }
 
-        private void OnDestroy()
-        {
-            _turnService.OnPlayerTurnStart -= EnableInteraction;
-            _turnService.OnEnemyTurnStart -= DisableInteraction;
-        }
-
         public Card GetCard() => _card;
+
         public RectTransform GetRectTransform() => _rectTransform;
+
         public CardDisplay GetCardDisplay() => _cardDisplay;
+
         public CardDragHandler GetCardDragHandler() => _cardDragHandler;
+
         public void ChangeRaycasts(bool on) => _canvasGroup.blocksRaycasts = on;
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -74,6 +72,12 @@ namespace UI.Elements
                 OnCardHoverExit?.Invoke(this);
                 _tableService.SetHoveredCard(null);
             }
+        }
+
+        private void OnDestroy()
+        {
+            _turnService.OnPlayerTurnStart -= EnableInteraction;
+            _turnService.OnEnemyTurnStart -= DisableInteraction;
         }
 
         private void EnableInteraction() => ChangeRaycasts(true);

@@ -35,10 +35,13 @@ namespace Infrastructure.Services.AIServices
             yield return new WaitForSeconds(1);
 
             var enemyHand = _tableService.GetEnemyHandViews();
-            var targetCardView = GetRandomUnitCardOnTable(enemyHand);
+            var tableViews = _tableService.GetEnemyTableViews();
+            
+            var targetCardView = GetRandomUnitCardOnTable(tableViews);
 
             if (targetCardView == null)
                 yield break;
+
 
             var buffCards = new List<CardView>();
 
