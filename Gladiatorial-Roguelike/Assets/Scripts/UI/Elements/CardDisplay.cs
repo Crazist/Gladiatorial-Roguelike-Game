@@ -15,8 +15,8 @@ namespace UI.Elements
 
         private StaticDataService _staticDataService;
         private CardData _cardData;
-        private bool _isFaceUp = true;
         private Tween _flipTween;
+        private bool _isFaceUp = true;
 
         [Inject]
         private void Inject(StaticDataService staticDataService) =>
@@ -26,15 +26,6 @@ namespace UI.Elements
         {
             _cardData = card.CardData;
             UpdateCardDisplay();
-
-            if (card is UnitCard unitCard)
-            {
-                _dynamicCardView.Initialize(unitCard);
-            }
-            else if (card is SpecialCard specialCard)
-            {
-                _dynamicCardView.Initialize(specialCard);
-            }
         }
 
         public void FlipCard()

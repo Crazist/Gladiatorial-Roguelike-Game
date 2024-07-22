@@ -7,10 +7,13 @@ namespace Logic.Entities
     {
         [JsonProperty]
         public int Attack { get; set; }
+
         [JsonProperty]
         public int Defense { get; set; }
+
         [JsonProperty]
         public int Hp { get; set; }
+
         [JsonProperty]
         public int XP { get; set; }
 
