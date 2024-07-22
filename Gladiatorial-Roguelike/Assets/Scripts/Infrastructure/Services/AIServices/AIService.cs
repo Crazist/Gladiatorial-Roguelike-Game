@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Infrastructure.StateMachines;
 using Logic.Entities;
 using Logic.Types;
+using UI.Elements;
 using UnityEngine;
 using Zenject;
 
@@ -34,19 +35,21 @@ namespace Infrastructure.Services
 
         private IEnumerator PlayEnemyCardsWithDelay()
         {
-            var enemyHand = _tableService.GetEnemyHand();
-            var cardsToPlay = new List<Card>();
+            List<CardView> enemyHand = _tableService.GetEnemyHandViews();
+            List<Card> cardsToPlay = new List<Card>();
 
             foreach (var cardToPlay in enemyHand)
             {
-                if (cardToPlay.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.5)
+                Card card = cardToPlay.GetCard();
+
+                if (card.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.5)
                 {
                     var availableDropArea = GetAvailableDropArea();
 
                     if (availableDropArea != null)
                     {
-                        cardsToPlay.Add(cardToPlay);
-                        yield return PlaceCardInDropAreaWithDelay(cardToPlay, availableDropArea);
+                        cardsToPlay.Add(card);
+                        yield return PlaceCardInDropAreaWithDelay(enemyHand, cardToPlay, availableDropArea);
                     }
                 }
             }
@@ -59,20 +62,20 @@ namespace Infrastructure.Services
                     var availableDropArea = GetAvailableDropArea();
                     if (availableDropArea != null)
                     {
-                        _tableService.RemoveCardFromEnemyHand(cardToPlay);
-                        _tableService.AddCardToEnemyTable(cardToPlay);
-                        yield return PlaceCardInDropAreaWithDelay(cardToPlay, availableDropArea);
+                        _tableService.GetEnemyHandViews().Remove(cardToPlay);
+                        _tableService.GetEnemyTableViews().Add(cardToPlay);
+                        yield return PlaceCardInDropAreaWithDelay(enemyHand, cardToPlay, availableDropArea);
                     }
                 }
             }
         }
 
-        private Card TryPlayAtLeastOneCard()
+        private CardView TryPlayAtLeastOneCard()
         {
-            var enemyHand = _tableService.GetEnemyHand();
+            var enemyHand = _tableService.GetEnemyHandViews();
             foreach (var cardToPlay in enemyHand)
             {
-                if (cardToPlay.CardData.Category == CardCategory.Unit)
+                if (cardToPlay.GetCard().CardData.Category == CardCategory.Unit)
                 {
                     return cardToPlay;
                 }
@@ -81,10 +84,10 @@ namespace Infrastructure.Services
             return null;
         }
 
-        private IEnumerator PlaceCardInDropAreaWithDelay(Card cardToPlay, EnemyCardDropArea dropArea)
+        private IEnumerator PlaceCardInDropAreaWithDelay( List<CardView> enemyCardViews, CardView cardToPlay, EnemyCardDropArea dropArea)
         {
-            var enemyCardViews = _tableService.GetEnemyHandCardViews();
-            var cardView = enemyCardViews.Find(cv => cv.GetCard() == cardToPlay);
+            var cardView = enemyCardViews.Find(cv => cv.GetCard() == cardToPlay.GetCard());
+            
             if (cardView != null)
             {
                 cardView.ChangeRaycasts(false);

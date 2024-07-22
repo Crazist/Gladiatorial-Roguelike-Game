@@ -39,7 +39,6 @@ namespace Infrastructure
         private void StartBattle()
         {
             _cardService.ShuffleDecks();
-            _tableService.InitializeHands();
             
             _windowService.Open(WindowId.TableWindow);
             

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using Infrastructure.Services.CardsServices;
-using Logic.Entities;
 using Logic.Types;
 using UI.Elements;
 using UnityEngine;
@@ -35,8 +34,8 @@ namespace Infrastructure.Services.AIServices
         {
             yield return new WaitForSeconds(1);
 
-            var enemyHand = _tableService.GetEnemyHandCardViews();
-            var targetCardView = GetRandomUnitCardOnTable();
+            var enemyHand = _tableService.GetEnemyHandViews();
+            var targetCardView = GetRandomUnitCardOnTable(enemyHand);
 
             if (targetCardView == null)
                 yield break;
@@ -53,14 +52,13 @@ namespace Infrastructure.Services.AIServices
 
             foreach (var buffCard in buffCards)
             {
-                _tableService.RemoveCardFromEnemyHand(buffCard.GetCard());
+                _tableService.GetEnemyHandViews().Remove(buffCard);
                 yield return ApplyBuffWithDelay(buffCard, targetCardView);
             }
         }
 
-        private CardView GetRandomUnitCardOnTable()
+        private CardView GetRandomUnitCardOnTable(List<CardView> enemyCardViews)
         {
-            List<CardView> enemyCardViews = _tableService.GetEnemyHandCardViews();
             List<CardView> unitCardViews =
                 enemyCardViews.FindAll(cv => cv.GetCard().CardData.Category == CardCategory.Unit);
 
@@ -74,10 +72,12 @@ namespace Infrastructure.Services.AIServices
         {
             buffCard.GetCardDisplay().FlipCard();
 
-            yield return buffCard.GetRectTransform().DOMove(targetCardView.GetRectTransform().position, 0.5f)
-                .WaitForCompletion();
+            var moveTween = buffCard.GetRectTransform().DOMove(targetCardView.GetRectTransform().position, 0.5f);
+            yield return moveTween.WaitForCompletion();
 
-            _tableService.RemoveCardViewFromEnemyHand(buffCard);
+            moveTween.Kill();
+
+            _tableService.GetEnemyHandViews().Remove(buffCard);
 
             _buffService.ApplyBuffForAi(buffCard, targetCardView);
 

@@ -50,22 +50,22 @@ namespace Infrastructure.Services.CardsServices
                 yield break;
             }
 
-            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos);
+            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos, false);
         }
 
         private IEnumerator ApplyAIBuffCoroutine(CardView buffCardView, CardView targetCardView, Action resetPos)
         {
             yield return null;
 
-            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos);
+            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos, true);
         }
 
         private bool IsValidBuffTarget(CardView targetCardView, CardType buffCardType)
         {
             if (targetCardView == null) return false;
             
-            List<Card> table = buffCardType == CardType.Recruit ? _tableService.GetEnemyTable() : _tableService.GetPlayerTable();
-            return table.Contains(targetCardView.GetCard());
+            List<CardView> table = buffCardType == CardType.Recruit ? _tableService.GetEnemyTableViews() : _tableService.GetPlayerTableViews();
+            return table.Contains(targetCardView);
         }
 
         private CardView GetHoveredCardView() => _tableService.GetHoveredCard();

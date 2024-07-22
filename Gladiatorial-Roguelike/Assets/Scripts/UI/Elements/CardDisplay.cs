@@ -2,7 +2,6 @@ using DG.Tweening;
 using Infrastructure.Services;
 using Logic.Cards;
 using Logic.Entities;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -66,5 +65,7 @@ namespace UI.Elements
 
         private void UpdateCardDisplay() =>
             _cardImage.sprite = _isFaceUp ? _cardData.Icon : _staticDataService.ForDeck(_cardData.DeckType).CardBackImage;
+
+        private void OnDestroy() => _flipTween?.Kill();
     }
 }

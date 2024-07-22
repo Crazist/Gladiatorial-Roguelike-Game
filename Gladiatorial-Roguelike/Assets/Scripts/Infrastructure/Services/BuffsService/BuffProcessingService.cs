@@ -17,7 +17,7 @@ namespace Infrastructure.Services.BuffsService
             _tableService = tableService;
         }
 
-        public void ProcessBuff(CardView buffCardView, CardView targetCardView, Action resetPos)
+        public void ProcessBuff(CardView buffCardView, CardView targetCardView, Action resetPos, bool isPlayer)
         {
             var targetCard = targetCardView.GetCard() as UnitCard;
             var buffCard = buffCardView.GetCard() as SpecialCard;
@@ -36,12 +36,20 @@ namespace Infrastructure.Services.BuffsService
             }
 
             targetCardView.UpdateView();
-            CompleteBuff(buffCardView, resetPos);
+            CompleteBuff(buffCardView, resetPos, isPlayer);
         }
 
-        public void CompleteBuff(CardView buffCardView, Action resetPos)
+        public void CompleteBuff(CardView buffCardView, Action resetPos, bool isPlayer)
         {
-            _tableService.RemoveCardFromPlayerHand(buffCardView.GetCard());
+            if (isPlayer)
+            {
+                _tableService.GetPlayerHandViews().Remove(buffCardView);
+            }
+            else
+            {
+                _tableService.GetEnemyHandViews().Remove(buffCardView);
+            }
+            
             Object.Destroy(buffCardView.gameObject);
             resetPos?.Invoke();
         }

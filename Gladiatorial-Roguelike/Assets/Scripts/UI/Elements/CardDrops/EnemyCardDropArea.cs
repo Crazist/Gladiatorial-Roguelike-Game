@@ -23,7 +23,8 @@ public class EnemyCardDropArea : CardDropArea
         if (_occupiedCard != null) return;
 
         _occupiedCard = cardView;
-        _tableService.AddCardToEnemyTable(cardView.GetCard());
+        _tableService.GetEnemyTableViews().Add(cardView);
+        
         MoveCardToDropArea(cardView);
     }
 

@@ -58,24 +58,24 @@ namespace UI.Windows
 
         public void InitializePlayerHand()
         {
-            foreach (var card in _tableService.GetPlayerHand())
+            foreach (var card in _tableService.DrawPlayerHand())
             {
                 var cardView = Instantiate(_cardPrefab, _playerHandArea);
                 cardView.Initialize(card, true);
                 _cardPopup.SubscribeToCard(cardView);
-                _tableService.AddCardViewToPlayer(cardView);
+                _tableService.GetPlayerHandViews().Add(cardView);
             }
         }
 
         public void InitializeEnemyHand()
         {
-            foreach (var card in _tableService.GetEnemyHand())
+            foreach (var card in _tableService.DrawEnemyHand())
             {
                 var cardView = Instantiate(_cardPrefab, _enemyHandArea);
                 cardView.Initialize(card, false);
                 cardView.GetCardDisplay().SetFaceDown();
                 _cardPopup.SubscribeToCard(cardView);
-                _tableService.AddCardViewToEnemyHand(cardView);
+                _tableService.GetEnemyHandViews().Add(cardView);
             }
         }
 

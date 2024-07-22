@@ -17,7 +17,7 @@ public class CardTableArea : CardDropArea
     {
         if(cardView.GetCard().CardData.Category == CardCategory.Special) return;
         
-        _tableService.AddCardToPlayerTable(cardView.GetCard());
+        _tableService.GetPlayerTableViews().Add(cardView);
         cardView.GetCardDragHandler().ChangeDraggable(false);
         CenterCardInDropArea(cardView);
     }
