@@ -2,27 +2,30 @@ using System.Collections.Generic;
 using Logic.Types;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "CardRarityColor", menuName = "Card/Color Configuration")]
-public class CardRarityColor : ScriptableObject
+namespace Data.Cards
 {
-    [SerializeField] private List<RarityColor> _rarityColors;
-
-    public Dictionary<CardRarity, Color> RarityColorDictionary { get; private set; }
-
-    private void OnEnable()
+    [CreateAssetMenu(fileName = "CardRarityColor", menuName = "Card/Color Configuration")]
+    public class CardRarityColor : ScriptableObject
     {
-        InitializeDictionary();
-    }
+        [SerializeField] private List<RarityColor> _rarityColors;
 
-    private void InitializeDictionary()
-    {
-        RarityColorDictionary = new Dictionary<CardRarity, Color>();
+        public Dictionary<CardRarity, Color> RarityColorDictionary { get; private set; }
 
-        foreach (var rarityColor in _rarityColors)
+        private void OnEnable()
         {
-            if (!RarityColorDictionary.ContainsKey(rarityColor.Rarity))
+            InitializeDictionary();
+        }
+
+        private void InitializeDictionary()
+        {
+            RarityColorDictionary = new Dictionary<CardRarity, Color>();
+
+            foreach (var rarityColor in _rarityColors)
             {
-                RarityColorDictionary.Add(rarityColor.Rarity, rarityColor.Color);
+                if (!RarityColorDictionary.ContainsKey(rarityColor.Rarity))
+                {
+                    RarityColorDictionary.Add(rarityColor.Rarity, rarityColor.Color);
+                }
             }
         }
     }

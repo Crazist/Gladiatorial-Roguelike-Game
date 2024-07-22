@@ -1,6 +1,6 @@
 using System;
 
-namespace Logic.Cards
+namespace Data.Cards
 {
     [Serializable]
     public class SpecialCardData

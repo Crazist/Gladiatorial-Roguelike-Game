@@ -1,8 +1,9 @@
 using Infrastructure.Services;
 using Logic.Types;
+using UnityEditorScripts;
 using UnityEngine;
 
-namespace Logic.Cards
+namespace Data.Cards
 {
     [CreateAssetMenu(fileName = "New Card", menuName = "Gladiatorial-Roguelike/Card/Create New Card")]
     public class CardData : ScriptableObject

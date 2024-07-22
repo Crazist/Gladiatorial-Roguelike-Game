@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Infrastructure.Data
 {
@@ -14,7 +15,10 @@ namespace Infrastructure.Data
             Profile = new Profile();
             PermaDeck = new PermaDeck();
         }
-        public void ClearProgress() => 
+        public void ClearProgress()
+        {
             CurrentRun = new CurrentRun();
+            PlayerPrefs.DeleteAll();
+        }
     }
 }
