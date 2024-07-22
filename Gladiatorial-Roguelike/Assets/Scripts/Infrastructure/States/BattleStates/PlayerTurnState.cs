@@ -1,6 +1,7 @@
 using System;
 using Infrastructure.Services.BattleService;
 using Infrastructure.StateMachines;
+using UI.Factory;
 using Zenject;
 
 namespace Infrastructure
@@ -9,10 +10,14 @@ namespace Infrastructure
     {
         private BattleStateMachine _battleStateMachine;
         private TurnService _turnService;
+        private UIFactory _uiFactory;
 
         [Inject]
-        private void Inject(BattleStateMachine battleStateMachine) => 
+        private void Inject(BattleStateMachine battleStateMachine, UIFactory uiFactory)
+        {
+            _uiFactory = uiFactory;
             _battleStateMachine = battleStateMachine;
+        }
 
         public void Enter()
         {
@@ -26,6 +31,7 @@ namespace Infrastructure
 
         private void PlayerTurn()
         {
+            _uiFactory.TurnShower.SetTurnText(StringHelper.PlayerTurn);
         //    _battleStateMachine.Enter<EnemyTurnState>();
         }
     }

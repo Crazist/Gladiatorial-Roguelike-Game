@@ -2,7 +2,7 @@ using Infrastructure.Services;
 using Infrastructure.Services.AIServices;
 using Infrastructure.StateMachines;
 using System.Collections;
-using UnityEngine;
+using UI.Factory;
 using Zenject;
 
 namespace Infrastructure
@@ -13,11 +13,13 @@ namespace Infrastructure
         private AIService _aiService;
         private AIBuffService _aiBuffService;
         private CoroutineCustomRunner _coroutineRunner;
+        private UIFactory _uiFactory;
 
         [Inject]
         private void Inject(BattleStateMachine battleStateMachine, AIService aiService, AIBuffService aiBuffService,
-            CoroutineCustomRunner coroutineRunner)
+            CoroutineCustomRunner coroutineRunner, UIFactory uiFactory)
         {
+            _uiFactory = uiFactory;
             _aiBuffService = aiBuffService;
             _aiService = aiService;
             _battleStateMachine = battleStateMachine;
@@ -26,6 +28,8 @@ namespace Infrastructure
 
         public void Enter()
         {
+            _uiFactory.TurnShower.SetTurnText(StringHelper.EnemyTurn);
+            
             _coroutineRunner.StartCoroutine(EnemyTurnRoutine());
         }
 

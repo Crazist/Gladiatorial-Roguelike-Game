@@ -27,16 +27,16 @@ namespace UI.Service
                     _uiFactory.CreateChooseDeck();
                     break;
                 case WindowId.DeckWindow:
-                    _uiFactory. CreateDeckWindow();
+                    _uiFactory.CreateDeckWindow();
                     break;
                 case WindowId.PermaDeck:
-                    _uiFactory. CreatePermaDeckWindow();
+                    _uiFactory.CreatePermaDeckWindow();
                     break;
                 case WindowId.EnemyChoose:
-                    _uiFactory. CreateEnemyChooseWindow();
+                    _uiFactory.CreateEnemyChooseWindow();
                     break;
                 case WindowId.TableWindow:
-                    _uiFactory. CreateTableWindow();
+                    _uiFactory.CreateTableWindow();
                     break;
             }
         }

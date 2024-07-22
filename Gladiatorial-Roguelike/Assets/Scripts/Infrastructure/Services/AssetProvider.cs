@@ -5,7 +5,7 @@ namespace Infrastructure.Services
 {
     public class AssetProvider
     {
-        public T InstantiateAsset<T>(string path) where T : Object
+        public T InstantiateAsset<T>(string path, Transform parent = null) where T : Object
         {
             T asset = LoadAsset<T>(path);
 
@@ -15,7 +15,7 @@ namespace Infrastructure.Services
                 return null;
             }
 
-            T instantiatedAsset = Object.Instantiate(asset);
+            T instantiatedAsset = Object.Instantiate(asset, parent);
             return instantiatedAsset;
         }
 

@@ -9,8 +9,9 @@ namespace UI.Factory
     {
         private const string UIRoot = "UI/UIRoot";
         private const string DebugPanelPath = "UI/DebugPanel";
-
+        private const string TurnIndicator = "UI/TurnIndicator";
         public  Canvas UI { get; set; }
+        public  TurnIndicator TurnShower { get; set; }
         
         private AssetProvider _assetProvider;
         private Transform _uiRoot;
@@ -29,7 +30,9 @@ namespace UI.Factory
           UI = _assetProvider.InstantiateAsset<Canvas>(UIRoot);
           _uiRoot = UI.gameObject.transform;
         } 
-            
+        public void CreateTurnIndicator() => 
+            TurnShower = _assetProvider.InstantiateAsset<TurnIndicator>(TurnIndicator, _uiRoot);
+
         public void CreateDebugPanel() => 
             Object.Instantiate(_assetProvider.LoadAsset<GameObject>(DebugPanelPath), _uiRoot);
 

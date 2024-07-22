@@ -1,12 +1,12 @@
-using System;
 using Infrastructure.Services;
 using Infrastructure.Services.BattleService;
 using Infrastructure.StateMachines;
+using UI.Factory;
 using UI.Service;
 using UI.Type;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.States.BattleStates
 {
     public class BattleStartState : IState
     {
@@ -15,11 +15,13 @@ namespace Infrastructure
         private TableService _tableService;
         private WindowService _windowService;
         private TurnService _turnService;
+        private UIFactory _uiFactory;
 
         [Inject]
         private void Inject(BattleStateMachine battleStateMachine, CardService cardService, TableService tableService
-        ,WindowService windowService)
+        ,WindowService windowService, UIFactory uiFactory)
         {
+            _uiFactory = uiFactory;
             _windowService = windowService;
             _tableService = tableService;
             _cardService = cardService;
@@ -41,6 +43,7 @@ namespace Infrastructure
             _cardService.ShuffleDecks();
             
             _windowService.Open(WindowId.TableWindow);
+            _uiFactory.CreateTurnIndicator();
             
             _battleStateMachine.Enter<EnemyTurnState>();
         }

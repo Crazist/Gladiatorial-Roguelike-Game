@@ -11,4 +11,4 @@ namespace Infrastructure
         private void Inject(GameStateMachine gameStateMachine) => 
             StateMachine = gameStateMachine;
     }
-}
+}  
