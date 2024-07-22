@@ -10,12 +10,9 @@ namespace Logic.Entities
 
         public override void InitCard(CardData cardData)
         {
-            if (cardData is SpecialCardData specialCardData)
-            {
-                CardData = specialCardData;
-                SpecialEffect = specialCardData.SpecialEffect;
-                EffectValue = specialCardData.EffectValue;
-            }
+            CardData = cardData;
+            SpecialEffect = cardData.SpecialData.SpecialEffect;
+            EffectValue = cardData.SpecialData.EffectValue;
         }
 
         public override void InitializeView(DynamicCardView dynamicCardView) =>

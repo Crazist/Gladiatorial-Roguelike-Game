@@ -1,4 +1,3 @@
-using Logic.Cards;
 using Logic.Entities;
 using TMPro;
 using UnityEngine;
@@ -7,11 +6,11 @@ using UnityEngine.UI;
 public class DynamicCardView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _hp;
-    [SerializeField] private Image _hpBar;
-
-    public void Initialize(UnitCard unitCard, UnitCardData unitCardData)
+    [SerializeField] private Image _fill;
+    [SerializeField] private GameObject _hpBar;
+    public void Initialize(UnitCard unitCard)
     {
-        UpdateHp(unitCard.Hp, unitCardData.Hp);
+        UpdateHp(unitCard.Hp, unitCard.CardData.UnitData.Hp);
         _hp.gameObject.SetActive(true);
         _hpBar.gameObject.SetActive(true);
     }
@@ -31,6 +30,6 @@ public class DynamicCardView : MonoBehaviour
     public void UpdateHp(int currentHp, int maxHp)
     {
         _hp.text = currentHp.ToString() + " HP";
-        _hpBar.fillAmount = (float)currentHp / maxHp;
+        _fill.fillAmount = (float)currentHp / maxHp;
     }
 }

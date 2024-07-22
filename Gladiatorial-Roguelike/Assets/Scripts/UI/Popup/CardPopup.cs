@@ -1,5 +1,6 @@
 using Logic.Cards;
 using Logic.Entities;
+using Logic.Types;
 using TMPro;
 using UnityEngine;
 
@@ -37,13 +38,13 @@ namespace UI.Elements
             _cardName.text = cardData.CardName;
             _cardType.text = cardData.CardType.ToString();
 
-            if (cardData is UnitCardData unitCardData)
+            if (cardData.Category == CardCategory.Unit)
             {
-                SetUnitCard(unitCardData);
+                SetUnitCard(cardData.UnitData);
             }
-            else if (cardData is SpecialCardData specialCardData)
+            else if (cardData.Category == CardCategory.Special)
             {
-                SetSpecialCard(specialCardData);
+                SetSpecialCard(cardData.SpecialData);
             }
         }
 

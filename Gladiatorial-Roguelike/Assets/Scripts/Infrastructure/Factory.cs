@@ -4,6 +4,7 @@ using System.Linq;
 using Infrastructure.Interface;
 using Logic.Cards;
 using Logic.Entities;
+using Logic.Types;
 
 namespace Infrastructure
 {
@@ -17,25 +18,25 @@ namespace Infrastructure
 
         public Card CreateCard(CardData cardData)
         {
-            switch (cardData)
+            switch (cardData.Category)
             {
-                case UnitCardData unitCardData:
-                    return CreateUnitCard(unitCardData);
-                case SpecialCardData specialCardData:
-                    return CreateSpecialCard(specialCardData);
+                case CardCategory.Unit:
+                    return CreateUnitCard(cardData);
+                case CardCategory.Special:
+                    return CreateSpecialCard(cardData);
                 default:
                     throw new ArgumentOutOfRangeException(nameof(cardData));
             }
         }
 
-        private Card CreateUnitCard(UnitCardData cardData)
+        private Card CreateUnitCard(CardData cardData)
         {
             Card card = new UnitCard();
             card.InitCard(cardData);
             return card;
         }
 
-        private Card CreateSpecialCard(SpecialCardData cardData)
+        private Card CreateSpecialCard(CardData cardData)
         {
             Card card = new SpecialCard();
             card.InitCard(cardData);;

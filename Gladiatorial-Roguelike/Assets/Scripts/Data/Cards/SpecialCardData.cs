@@ -1,9 +1,9 @@
-using UnityEngine;
+using System;
 
 namespace Logic.Cards
 {
-    [CreateAssetMenu(fileName = "New Special Card", menuName = "Gladiatorial-Roguelike/Card/Create New Special Card")]
-    public class SpecialCardData : CardData
+    [Serializable]
+    public class SpecialCardData
     {
         public int EffectValue;
         public string SpecialEffect;

@@ -1,9 +1,9 @@
-using UnityEngine;
+using System;
 
 namespace Logic.Cards
 {
-    [CreateAssetMenu(fileName = "New Unit Card", menuName = "Gladiatorial-Roguelike/Card/Create New Unit Card")]
-    public class UnitCardData : CardData
+    [Serializable]
+    public class UnitCardData
     {
         public int Attack;
         public int Defense;

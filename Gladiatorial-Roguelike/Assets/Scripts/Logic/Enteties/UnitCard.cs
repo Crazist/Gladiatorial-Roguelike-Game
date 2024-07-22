@@ -19,14 +19,11 @@ namespace Logic.Entities
 
         public override void InitCard(CardData cardData)
         {
-            if (cardData is UnitCardData unitCardData)
-            {
-                CardData = unitCardData;
-                Attack = unitCardData.Attack;
-                Defense = unitCardData.Defense;
-                Hp = unitCardData.Hp;
-                XP = unitCardData.XP;
-            }
+            CardData = cardData;
+            Attack = cardData.UnitData.Attack;
+            Defense = cardData.UnitData.Defense;
+            Hp = cardData.UnitData.Hp;
+            XP = cardData.UnitData.XP;
         }
 
         public override void InitializeView(DynamicCardView dynamicCardView) =>
