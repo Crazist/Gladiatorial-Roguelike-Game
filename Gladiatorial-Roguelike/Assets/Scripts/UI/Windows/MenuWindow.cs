@@ -1,11 +1,10 @@
-using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UI
+namespace UI.Windows
 {
     public class MenuWindow : WindowBase
     {

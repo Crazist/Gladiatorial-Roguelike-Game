@@ -36,8 +36,8 @@ namespace Infrastructure
         {
             _curtain.Show();
             _enemyService.InitEnemyDecks();
-            _permaDeckService.AddCardToDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.Cards[0]);
-            _permaDeckService.AddCardToDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.Cards[1]);
+          //  _permaDeckService.AddCardToDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.Cards[0]);
+          //  _permaDeckService.AddCardToDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.Cards[1]);
             _sceneLoader.Load(sceneName, OnLoaded);
         }
 

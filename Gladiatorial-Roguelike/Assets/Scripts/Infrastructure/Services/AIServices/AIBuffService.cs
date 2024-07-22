@@ -26,7 +26,6 @@ namespace Infrastructure.Services.AIServices
 
         public IEnumerator ExecuteBuffsRoutine()
         {
-            yield return new WaitForSeconds(1);
             yield return ApplyBuffsRoutine();
         }
 

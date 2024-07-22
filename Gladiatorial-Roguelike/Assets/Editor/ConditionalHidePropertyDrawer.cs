@@ -1,14 +1,14 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor
+namespace CustomEditorAttributes
 {
-    [CustomPropertyDrawer(typeof(global::UnityEditorScripts.ConditionalHideAttribute))]
+    [CustomPropertyDrawer(typeof(ConditionalHideAttribute))]
     public class ConditionalHidePropertyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            global::UnityEditorScripts.ConditionalHideAttribute condHAtt = (global::UnityEditorScripts.ConditionalHideAttribute)attribute;
+            ConditionalHideAttribute condHAtt = (ConditionalHideAttribute)attribute;
             bool enabled = GetConditionalHideAttributeResult(condHAtt, property);
 
             bool wasEnabled = GUI.enabled;
@@ -22,7 +22,7 @@ namespace Editor
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
-            global::UnityEditorScripts.ConditionalHideAttribute condHAtt = (global::UnityEditorScripts.ConditionalHideAttribute)attribute;
+            ConditionalHideAttribute condHAtt = (ConditionalHideAttribute)attribute;
             bool enabled = GetConditionalHideAttributeResult(condHAtt, property);
 
             if (enabled)
@@ -35,13 +35,13 @@ namespace Editor
             }
         }
 
-        private bool GetConditionalHideAttributeResult(global::UnityEditorScripts.ConditionalHideAttribute condHAtt, SerializedProperty property)
+        private bool GetConditionalHideAttributeResult(ConditionalHideAttribute condHAtt, SerializedProperty property)
         {
             bool enabled = true;
             SerializedProperty sourcePropertyValue = null;
 
             string propertyPath = property.propertyPath;
-            string conditionPath = propertyPath.Replace(property.name, condHAtt.ConditionalSourceField); 
+            string conditionPath = propertyPath.Replace(property.name, condHAtt.ConditionalSourceField);
             sourcePropertyValue = property.serializedObject.FindProperty(conditionPath);
 
             if (sourcePropertyValue != null)

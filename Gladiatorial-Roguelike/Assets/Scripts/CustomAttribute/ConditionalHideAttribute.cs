@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace UnityEditorScripts
+namespace CustomEditorAttributes
 {
     public class ConditionalHideAttribute : PropertyAttribute
     {

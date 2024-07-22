@@ -1,7 +1,7 @@
 using Infrastructure.Services;
 using Logic.Types;
-using UnityEditorScripts;
 using UnityEngine;
+using CustomEditorAttributes;
 
 namespace Data.Cards
 {
