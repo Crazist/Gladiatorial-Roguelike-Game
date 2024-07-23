@@ -32,6 +32,7 @@ namespace UI.View
         private CardDragService _cardDragService;
         private UIFactory _uiFactory;
         private CanvasService _canvasService;
+        private bool _isDragging;
 
         [Inject]
         private void Inject(TableService tableService, TurnService turnService, AttackService attackService,
@@ -69,6 +70,7 @@ namespace UI.View
         }
 
         public void ChangeRaycasts(bool on) => _canvasGroup.blocksRaycasts = on;
+        public void SetDraggingState(bool isDragging) => _isDragging = isDragging;
 
         public Card GetCard() => _card;
 
@@ -78,9 +80,10 @@ namespace UI.View
 
         public CardDragHandler GetCardDragHandler() => _cardDragHandler;
 
+
         private void HandleCardHoverEnter(CardView cardView)
         {
-            if (_cardDisplay.IsFaceUp())
+            if (_cardDisplay.IsFaceUp() && !_isDragging)
             {
                 _tableService.SetHoveredCard(this);
                 OnCardHoverEnter?.Invoke(this);
@@ -89,7 +92,7 @@ namespace UI.View
 
         private void HandleCardHoverExit(CardView cardView)
         {
-            if (_cardDisplay.IsFaceUp())
+            if (_cardDisplay.IsFaceUp() && !_isDragging)
             {
                 OnCardHoverExit?.Invoke(this);
                 _tableService.SetHoveredCard(null);
