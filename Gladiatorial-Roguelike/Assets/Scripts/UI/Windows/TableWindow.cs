@@ -7,7 +7,6 @@ using Infrastructure.Services.PersistentProgress;
 using Infrastructure.StateMachines;
 using Infrastructure.States.BattleStates;
 using Logic.Types;
-using UI.Elements;
 using UI.Elements.CardDrops;
 using UI.Services;
 using UI.View;
@@ -62,8 +61,14 @@ namespace UI.Windows
         }
 
         protected override void OnAwake() => _finishTurn.gameObject.SetActive(false);
-        private void SubscribeToTurnEvents() => _turnService.OnPlayerTurnStart += OnPlayerTurnStart;
+        private void SubscribeToTurnEvents()
+        {
+            _turnService.OnPlayerTurnStart += OnPlayerTurnStart;
+            _turnService.OnTurnEnd += NewTurn;
+        }
+
         private void OnPlayerTurnStart() => _finishTurn.gameObject.SetActive(true);
+
         private void InitializeBtns() => _finishTurn.onClick.AddListener(OnFinishTurnClicked);
 
         private void OnFinishTurnClicked()
@@ -81,7 +86,7 @@ namespace UI.Windows
                 .CardBackImage;
         }
 
-        public void InitializePlayerHand()
+        private void InitializePlayerHand()
         {
             foreach (var card in _tableService.DrawPlayerHand())
             {
@@ -93,7 +98,7 @@ namespace UI.Windows
             }
         }
 
-        public void InitializeEnemyHand()
+        private void InitializeEnemyHand()
         {
             foreach (var card in _tableService.DrawEnemyHand())
             {
@@ -104,6 +109,12 @@ namespace UI.Windows
                 _cardPopup.SubscribeToCard(cardView);
                 _tableService.GetEnemyHandViews().Add(cardView);
             }
+        }
+
+        private void NewTurn()
+        {
+            InitializePlayerHand();
+            InitializeEnemyHand();
         }
 
         private void InitializeDropAreas()

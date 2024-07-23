@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
+using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.CardsServices;
 using Logic.Types;
 using UI.Elements;

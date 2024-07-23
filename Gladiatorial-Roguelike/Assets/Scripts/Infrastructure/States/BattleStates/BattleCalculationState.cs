@@ -45,6 +45,7 @@ namespace Infrastructure.States.BattleStates
         {
             yield return _battleService.CalculateAttacks();
 
+            _turnService.StartTurnEnd();
             _battleStateMachine.Enter<EnemyTurnState>();
         }
     }
