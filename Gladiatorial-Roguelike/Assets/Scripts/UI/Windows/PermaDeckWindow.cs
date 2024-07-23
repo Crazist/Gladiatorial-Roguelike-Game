@@ -3,9 +3,11 @@ using Infrastructure.Services.PersistentProgress;
 using UI.Elements;
 using Infrastructure.Services.CardsServices;
 using Logic.Entities;
+using Logic.Types;
 using UI.Elements.CardDrops;
 using UI.Model;
 using UI.Services;
+using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -57,7 +59,7 @@ namespace UI
             foreach (Card card in cards)
             {
                 CardView cardView = Instantiate(_cardPrefab, _cardsParent);
-                cardView.Initialize(card, true);
+                cardView.Initialize(card, TeamType.Ally, true);
 
                 _cardPopupService.SubscribeToCard(cardView);
             }

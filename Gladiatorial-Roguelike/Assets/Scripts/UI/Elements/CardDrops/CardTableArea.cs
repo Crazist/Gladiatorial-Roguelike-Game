@@ -1,6 +1,7 @@
 using Infrastructure.Services;
 using Logic.Types;
 using UI.Services;
+using UI.View;
 using UnityEngine;
 using Zenject;
 
@@ -24,6 +25,7 @@ namespace UI.Elements.CardDrops
             OccupiedCard = cardView;
         
             cardView.GetCardDragHandler().ChangeDraggable(false);
+            cardView.State = CardState.OnTable;
             
             CenterCardInDropArea(cardView);
         }

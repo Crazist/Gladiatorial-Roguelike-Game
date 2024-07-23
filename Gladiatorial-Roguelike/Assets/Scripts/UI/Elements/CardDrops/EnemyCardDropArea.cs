@@ -1,6 +1,8 @@
 using DG.Tweening;
 using Infrastructure.Services;
+using Logic.Types;
 using UI.Services;
+using UI.View;
 using UnityEngine;
 using Zenject;
 
@@ -19,6 +21,7 @@ namespace UI.Elements.CardDrops
             if (OccupiedCard != null) return;
 
             OccupiedCard = cardView;
+            cardView.State = CardState.OnTable;
             _tableService.GetEnemyTableViews().Add(cardView);
         
             MoveCardToDropArea(cardView);

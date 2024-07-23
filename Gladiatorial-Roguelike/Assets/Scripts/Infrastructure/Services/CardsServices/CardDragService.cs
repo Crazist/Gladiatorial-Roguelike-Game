@@ -7,6 +7,7 @@ using Infrastructure.Services;
 using Infrastructure.Services.CardsServices;
 using Logic.Types;
 using UI.Elements.CardDrops;
+using UI.View;
 using UnityEngine.EventSystems;
 using Zenject;
 

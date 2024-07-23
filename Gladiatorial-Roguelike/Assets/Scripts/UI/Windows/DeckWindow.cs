@@ -5,8 +5,10 @@ using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
 using Logic.Entities;
+using Logic.Types;
 using UI.Elements;
 using UI.Model;
+using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -100,7 +102,7 @@ namespace UI
             foreach (var cardData in cards)
             {
                 CardView cardComponent = Instantiate(_cardPrefab, _cardGroup);
-                cardComponent.Initialize(cardData, false);
+                cardComponent.Initialize(cardData,TeamType.None, false);
                 _cardPopupService.SubscribeToCard(cardComponent);
             }
         }

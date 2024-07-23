@@ -3,9 +3,11 @@ using Infrastructure.Services;
 using Infrastructure.Services.AIServices;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
+using Logic.Types;
 using UI.Elements;
 using UI.Elements.CardDrops;
 using UI.Services;
+using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -63,7 +65,8 @@ namespace UI.Windows
             foreach (var card in _tableService.DrawPlayerHand())
             {
                 var cardView = Instantiate(_cardPrefab, _playerHandArea);
-                cardView.Initialize(card, true);
+                cardView.Initialize(card,TeamType.Ally, true);
+                cardView.State = CardState.OnHand;
                 _cardPopup.SubscribeToCard(cardView);
                 _tableService.GetPlayerHandViews().Add(cardView);
             }
@@ -74,7 +77,8 @@ namespace UI.Windows
             foreach (var card in _tableService.DrawEnemyHand())
             {
                 var cardView = Instantiate(_cardPrefab, _enemyHandArea);
-                cardView.Initialize(card, false);
+                cardView.Initialize(card,TeamType.Enemy, false);
+                cardView.State = CardState.OnHand;
                 cardView.GetCardDisplay().SetFaceDown();
                 _cardPopup.SubscribeToCard(cardView);
                 _tableService.GetEnemyHandViews().Add(cardView);

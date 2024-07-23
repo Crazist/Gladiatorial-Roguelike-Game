@@ -1,6 +1,6 @@
 using System;
 
-namespace Infrastructure.Services.BattleService
+namespace Infrastructure.Services.BattleServices
 {
     public class TurnService
     {

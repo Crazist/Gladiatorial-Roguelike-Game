@@ -1,40 +1,58 @@
-using UnityEngine;
-using UnityEngine.EventSystems;
 using System;
 using Infrastructure.Services;
-using Infrastructure.Services.BattleService;
+using Infrastructure.Services.BattleServices;
 using Logic.Entities;
+using Logic.Types;
+using UI.Elements;
+using UI.Services;
+using UnityEngine;
 using Zenject;
 
-namespace UI.Elements
+namespace UI.View
 {
-    public class CardView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class CardView : MonoBehaviour
     {
         [SerializeField] private DynamicCardView _dynamicCard;
         [SerializeField] private CardDragHandler _cardDragHandler;
         [SerializeField] private RectTransform _rectTransform;
         [SerializeField] private CardDisplay _cardDisplay;
         [SerializeField] private CanvasGroup _canvasGroup;
+        [SerializeField] private CardInteractionHandler _interactionHandler;
+        [SerializeField] private AttackAndDefence _attackAndDefence;
         public event Action<CardView> OnCardHoverEnter;
         public event Action<CardView> OnCardHoverExit;
+        public CardState State { get; set; }
+        public TeamType Team { get; set; }
 
         private Card _card;
         private TableService _tableService;
         private TurnService _turnService;
+        private AttackService _attackService;
+        private CardDragService _cardDragService;
 
         [Inject]
-        private void Inject(TableService tableService, TurnService turnService)
+        private void Inject(TableService tableService, TurnService turnService, AttackService attackService,
+            CardDragService cardDragService)
         {
+            _cardDragService = cardDragService;
+            _attackService = attackService;
             _tableService = tableService;
             _turnService = turnService;
         }
 
-        public void Initialize(Card card, bool isDraggable)
+        public void Initialize(Card card, TeamType team, bool isDraggable)
         {
             _card = card;
-            _cardDragHandler.Init(this, isDraggable);
-            card.InitializeView(_dynamicCard);
+            Team = team;
+
+            _card.InitializeView(_dynamicCard);
+            _interactionHandler.Initialize(this);
+            _cardDragHandler.Init(this, _cardDragService, _interactionHandler, isDraggable);
             _cardDisplay.Initialize(card);
+            _attackAndDefence.Initialize(this, _interactionHandler);
+
+            _interactionHandler.OnCardHoverEnter += HandleCardHoverEnter;
+            _interactionHandler.OnCardHoverExit += HandleCardHoverExit;
 
             _turnService.OnPlayerTurnStart += EnableInteraction;
             _turnService.OnEnemyTurnStart += DisableInteraction;
@@ -46,6 +64,8 @@ namespace UI.Elements
             _cardDisplay.Initialize(_card);
         }
 
+        public void ChangeRaycasts(bool on) => _canvasGroup.blocksRaycasts = on;
+
         public Card GetCard() => _card;
 
         public RectTransform GetRectTransform() => _rectTransform;
@@ -54,9 +74,7 @@ namespace UI.Elements
 
         public CardDragHandler GetCardDragHandler() => _cardDragHandler;
 
-        public void ChangeRaycasts(bool on) => _canvasGroup.blocksRaycasts = on;
-
-        public void OnPointerEnter(PointerEventData eventData)
+        private void HandleCardHoverEnter(CardView cardView)
         {
             if (_cardDisplay.IsFaceUp())
             {
@@ -65,7 +83,7 @@ namespace UI.Elements
             }
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        private void HandleCardHoverExit(CardView cardView)
         {
             if (_cardDisplay.IsFaceUp())
             {
@@ -78,9 +96,12 @@ namespace UI.Elements
         {
             _turnService.OnPlayerTurnStart -= EnableInteraction;
             _turnService.OnEnemyTurnStart -= DisableInteraction;
+            _interactionHandler.OnCardHoverEnter -= HandleCardHoverEnter;
+            _interactionHandler.OnCardHoverExit -= HandleCardHoverExit;
         }
 
         private void EnableInteraction() => ChangeRaycasts(true);
+
         private void DisableInteraction() => ChangeRaycasts(false);
     }
 }

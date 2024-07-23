@@ -1,4 +1,4 @@
-using Infrastructure.Services.BattleService;
+using Infrastructure.Services.BattleServices;
 using Infrastructure.StateMachines;
 using UI.Factory;
 using Zenject;

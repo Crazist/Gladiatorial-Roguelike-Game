@@ -1,6 +1,7 @@
 using UI.Elements;
 using UI.Elements.CardDrops;
 using UI.Services;
+using UI.View;
 using Zenject;
 
 public class SellArea : CardDropArea

@@ -5,6 +5,7 @@ using Infrastructure.Services.BuffsService;
 using Logic.Entities;
 using Logic.Types;
 using UI.Elements;
+using UI.View;
 using Zenject;
 
 namespace Infrastructure.Services.CardsServices

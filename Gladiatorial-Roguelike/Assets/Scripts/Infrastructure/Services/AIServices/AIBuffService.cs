@@ -4,6 +4,7 @@ using DG.Tweening;
 using Infrastructure.Services.CardsServices;
 using Logic.Types;
 using UI.Elements;
+using UI.View;
 using UnityEngine;
 using Zenject;
 

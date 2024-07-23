@@ -1,4 +1,5 @@
 using Infrastructure.Services;
+using UI.Elements;
 using UI.Type;
 using UnityEngine;
 using Zenject;
@@ -10,6 +11,7 @@ namespace UI.Factory
         private const string UIRoot = "UI/UIRoot";
         private const string DebugPanelPath = "UI/DebugPanel";
         private const string TurnIndicator = "UI/TurnIndicator";
+        private const string AttackArrowPath = "UI/AttackArrow";
         public  Canvas UI { get; set; }
         public  TurnIndicator TurnShower { get; set; }
         
@@ -36,6 +38,9 @@ namespace UI.Factory
         public void CreateDebugPanel() => 
             Object.Instantiate(_assetProvider.LoadAsset<GameObject>(DebugPanelPath), _uiRoot);
 
+        public AttackArrow CreateAttackArrow() => 
+            _assetProvider.InstantiateAsset<AttackArrow>(AttackArrowPath, _uiRoot);
+
         public void CreateMenu()
         {
             var config = _staticDataService.ForWindow(WindowId.Menu);
@@ -47,16 +52,19 @@ namespace UI.Factory
             var config = _staticDataService.ForWindow(WindowId.ChooseDeck);
             Object.Instantiate(config.Prefab, _uiRoot);
         }
+
         public void CreateDeckWindow()
         {
             var config = _staticDataService.ForWindow(WindowId.DeckWindow);
             Object.Instantiate(config.Prefab, _uiRoot);
         }
+
         public void CreatePermaDeckWindow()
         {
             var config = _staticDataService.ForWindow(WindowId.PermaDeck);
             Object.Instantiate(config.Prefab, _uiRoot);
         }
+
         public void CreateEnemyChooseWindow()
         {
             var config = _staticDataService.ForWindow(WindowId.EnemyChoose);

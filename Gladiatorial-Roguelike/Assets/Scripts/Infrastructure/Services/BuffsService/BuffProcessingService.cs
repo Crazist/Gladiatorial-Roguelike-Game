@@ -2,6 +2,7 @@ using Logic.Entities;
 using UI.Elements;
 using System;
 using Logic.Types;
+using UI.View;
 using Object = UnityEngine.Object;
 
 namespace Infrastructure.Services.BuffsService

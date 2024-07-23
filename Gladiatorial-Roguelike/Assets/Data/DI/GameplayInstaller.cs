@@ -1,7 +1,7 @@
 using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.AIServices;
-using Infrastructure.Services.BattleService;
+using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.BuffsService;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
@@ -60,6 +60,8 @@ namespace Data.DI
             Container.Bind<AIService>().AsSingle().NonLazy();
             Container.Bind<AIBuffService>().AsSingle().NonLazy();
             Container.Bind<BuffProcessingService>().AsSingle().NonLazy();
+            Container.Bind<BattleService>().AsSingle().NonLazy();
+            Container.Bind<AttackService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()

@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Infrastructure.Services.BattleService;
+using Infrastructure.Services.BattleServices;
 using Infrastructure.States.BattleStates;
 using Zenject;
 

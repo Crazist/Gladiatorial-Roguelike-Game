@@ -4,6 +4,7 @@ using Logic.Entities;
 using Logic.Types;
 using UI.Elements;
 using UI.Elements.CardDrops;
+using UI.View;
 using UnityEngine;
 using Zenject;
 
