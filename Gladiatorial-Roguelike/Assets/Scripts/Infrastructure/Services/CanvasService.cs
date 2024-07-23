@@ -24,5 +24,7 @@ namespace Infrastructure.Services
 
             element.SetParent(originalParent, false);
         }
+
+        public Canvas GetOverlayCanvas() => _overlayCanvas;
     }
 }

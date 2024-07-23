@@ -51,7 +51,7 @@ namespace UI.View
             _interactionHandler.Initialize(this);
             _cardDragHandler.Init(this, _cardDragService, _interactionHandler, isDraggable);
             _cardDisplay.Initialize(card);
-            _attackAndDefence.Initialize(this, _interactionHandler);
+            _attackAndDefence.Initialize(this, _interactionHandler, _attackService, _tableService);
 
             _interactionHandler.OnCardHoverEnter += HandleCardHoverEnter;
             _interactionHandler.OnCardHoverExit += HandleCardHoverExit;

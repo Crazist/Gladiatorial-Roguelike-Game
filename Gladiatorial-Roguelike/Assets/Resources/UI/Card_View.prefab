@@ -1071,5 +1071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27b8f6c0cfd745d795e61cc66c7263e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_myTransform: {fileID: 3924715200678294064}
-  m_image: {fileID: 3281763654298852820}
+  _transform: {fileID: 4924165802501435078}
+  _mMyTransform: {fileID: 3924715200678294064}
+  _mImage: {fileID: 3281763654298852820}

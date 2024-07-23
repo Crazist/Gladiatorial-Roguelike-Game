@@ -1,9 +1,10 @@
-using Infrastructure.Services;
 using Logic.Types;
 using UI.View;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
+using Infrastructure.Services;
+using Infrastructure.Services.BattleServices;
 
 namespace UI.Elements
 {
@@ -17,8 +18,10 @@ namespace UI.Elements
         private CardView _cardView;
         private CardInteractionHandler _cardInteractionHandler;
         private CanvasService _canvasService;
-        private Transform _originalParent;
         private bool _isDragging;
+        private Transform _originalParent;
+        private AttackService _attackService;
+        private TableService _tableService;
 
         [Inject]
         public void Construct(CanvasService canvasService)
@@ -26,8 +29,11 @@ namespace UI.Elements
             _canvasService = canvasService;
         }
 
-        public void Initialize(CardView cardView, CardInteractionHandler cardInteractionHandler)
+        public void Initialize(CardView cardView, CardInteractionHandler cardInteractionHandler,
+            AttackService attackService, TableService tableService)
         {
+            _tableService = tableService;
+            _attackService = attackService;
             _cardInteractionHandler = cardInteractionHandler;
             _cardView = cardView;
 
@@ -43,7 +49,8 @@ namespace UI.Elements
 
         private void HandleCardClick(CardView cardView)
         {
-            if (_cardView.State == CardState.OnTable && RectTransformUtility.RectangleContainsScreenPoint(_defenceZone, Input.mousePosition))
+            if (_cardView.State == CardState.OnTable &&
+                RectTransformUtility.RectangleContainsScreenPoint(_defenceZone, Input.mousePosition))
             {
                 EnableDefenseShield(true);
             }
@@ -51,12 +58,13 @@ namespace UI.Elements
 
         private void HandleBeginDrag(CardView cardView, PointerEventData eventData)
         {
-            if (_cardView.State == CardState.OnTable && RectTransformUtility.RectangleContainsScreenPoint(_attackZone, eventData.position))
+            if (_cardView.State == CardState.OnTable &&
+                RectTransformUtility.RectangleContainsScreenPoint(_attackZone, eventData.position))
             {
                 _isDragging = true;
                 _lineRendererUi.SetLineActive(true);
                 _originalParent = _lineRendererUi.transform.parent;
-                _canvasService.MoveToOverlay(_lineRendererUi.GetComponent<RectTransform>());
+                _canvasService.MoveToOverlay(_lineRendererUi.GetRectTransform());
                 _lineRendererUi.CreateLine(_attackZone.position, Input.mousePosition, Color.red);
                 EnableDefenseShield(false);
             }
@@ -76,12 +84,13 @@ namespace UI.Elements
             {
                 _isDragging = false;
                 _lineRendererUi.SetLineActive(false);
-                _canvasService.MoveBack(_lineRendererUi.GetComponent<RectTransform>(), _originalParent);
+                _canvasService.MoveBack(_lineRendererUi.GetRectTransform(), _originalParent);
 
                 if (TryGetTargetCard(eventData, out CardView targetCardView))
                 {
                     Debug.Log("Attack action confirmed.");
-                    // Implement attack logic
+                    // Add attack logic here
+                    AddAttack(cardView, targetCardView);
                 }
             }
         }
@@ -89,18 +98,25 @@ namespace UI.Elements
         private bool TryGetTargetCard(PointerEventData eventData, out CardView targetCardView)
         {
             targetCardView = null;
+            Vector2 screenPoint = eventData.position;
 
-            if (Camera.main != null)
+            foreach (var enemyCardView in _tableService.GetEnemyTableViews())
             {
-                Ray ray = Camera.main.ScreenPointToRay(eventData.position);
-                if (Physics.Raycast(ray, out RaycastHit hit))
+                RectTransform enemyRectTransform = enemyCardView.GetRectTransform();
+                if (RectTransformUtility.RectangleContainsScreenPoint(enemyRectTransform, screenPoint,
+                        eventData.pressEventCamera))
                 {
-                    targetCardView = hit.collider.GetComponent<CardView>();
-                    return targetCardView != null;
+                    targetCardView = enemyCardView;
+                    return true;
                 }
             }
 
             return false;
+        }
+
+        private void AddAttack(CardView attacker, CardView defender)
+        {
+            _attackService.AddAttack(attacker, defender);
         }
 
         private void EnableDefenseShield(bool enable) => _defenseShield.SetActive(enable);
