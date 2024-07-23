@@ -1,6 +1,7 @@
 using Data.Cards;
 using Logic.Cards;
 using Newtonsoft.Json;
+using UI.View;
 
 namespace Logic.Entities
 {

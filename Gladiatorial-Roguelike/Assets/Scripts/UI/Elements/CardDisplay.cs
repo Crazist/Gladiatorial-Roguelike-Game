@@ -1,8 +1,8 @@
 using Data.Cards;
 using DG.Tweening;
 using Infrastructure.Services;
-using Logic.Cards;
 using Logic.Entities;
+using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
