@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Numidian
   m_EditorClassIdentifier: 
   DeckType: 7
-  CardBackImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  CardBackImage: {fileID: 21300000, guid: 51d2e666250237644b5eab029db231b3, type: 3}
   CardFrontImage: {fileID: 21300000, guid: 27e31aa2f1230ea44b9c1ddbee50afeb, type: 3}
   Cards:
   - {fileID: 11400000, guid: 3ddf04a1a6f507e43a45fa0f6ebac67b, type: 2}

@@ -18,24 +18,19 @@ namespace UI.Elements
         private CardView _cardView;
         private CardInteractionHandler _cardInteractionHandler;
         private CanvasService _canvasService;
-        private bool _isDragging;
         private Transform _originalParent;
         private AttackService _attackService;
         private TableService _tableService;
-
-        [Inject]
-        public void Construct(CanvasService canvasService)
-        {
-            _canvasService = canvasService;
-        }
+        private bool _isDragging;
 
         public void Initialize(CardView cardView, CardInteractionHandler cardInteractionHandler,
-            AttackService attackService, TableService tableService)
+            CanvasService canvasService, AttackService attackService, TableService tableService)
         {
-            _tableService = tableService;
-            _attackService = attackService;
             _cardInteractionHandler = cardInteractionHandler;
             _cardView = cardView;
+            _canvasService = canvasService;
+            _attackService = attackService;
+            _tableService = tableService;
 
             _cardInteractionHandler.OnCardClick += HandleCardClick;
             _cardInteractionHandler.OnBeginDragAction += HandleBeginDrag;
@@ -45,7 +40,13 @@ namespace UI.Elements
             _lineRendererUi.SetLineActive(false);
         }
 
-        public void CleanUp() => EnableDefenseShield(false);
+        public void CleanUp()
+        {
+            EnableDefenseShield(false);
+            _lineRendererUi.SetLineActive(false);
+            _lineRendererUi.transform.SetParent(_originalParent, false);
+            RemoveAttack();
+        }
 
         private void HandleCardClick(CardView cardView)
         {
@@ -61,6 +62,7 @@ namespace UI.Elements
             if (_cardView.State == CardState.OnTable &&
                 RectTransformUtility.RectangleContainsScreenPoint(_attackZone, eventData.position))
             {
+                CleanUp();
                 _isDragging = true;
                 _lineRendererUi.SetLineActive(true);
                 _originalParent = _lineRendererUi.transform.parent;
@@ -83,14 +85,16 @@ namespace UI.Elements
             if (_isDragging)
             {
                 _isDragging = false;
-                _lineRendererUi.SetLineActive(false);
-                _canvasService.MoveBack(_lineRendererUi.GetRectTransform(), _originalParent);
 
                 if (TryGetTargetCard(eventData, out CardView targetCardView))
                 {
                     Debug.Log("Attack action confirmed.");
-                    // Add attack logic here
                     AddAttack(cardView, targetCardView);
+                    _lineRendererUi.CreateLine(_attackZone.position, targetCardView.GetRectTransform().position, Color.red);
+                }
+                else
+                {
+                    CleanUp();
                 }
             }
         }
@@ -103,8 +107,7 @@ namespace UI.Elements
             foreach (var enemyCardView in _tableService.GetEnemyTableViews())
             {
                 RectTransform enemyRectTransform = enemyCardView.GetRectTransform();
-                if (RectTransformUtility.RectangleContainsScreenPoint(enemyRectTransform, screenPoint,
-                        eventData.pressEventCamera))
+                if (RectTransformUtility.RectangleContainsScreenPoint(enemyRectTransform, screenPoint, eventData.pressEventCamera))
                 {
                     targetCardView = enemyCardView;
                     return true;
@@ -114,11 +117,13 @@ namespace UI.Elements
             return false;
         }
 
-        private void AddAttack(CardView attacker, CardView defender)
-        {
+        private void AddAttack(CardView attacker, CardView defender) =>
             _attackService.AddAttack(attacker, defender);
-        }
 
-        private void EnableDefenseShield(bool enable) => _defenseShield.SetActive(enable);
+        private void RemoveAttack() => 
+            _attackService.RemoveAttack(_cardView);
+
+        private void EnableDefenseShield(bool enable) =>
+            _defenseShield.SetActive(enable);
     }
 }

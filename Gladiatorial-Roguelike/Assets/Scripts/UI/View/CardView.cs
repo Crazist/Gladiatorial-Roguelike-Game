@@ -31,11 +31,13 @@ namespace UI.View
         private AttackService _attackService;
         private CardDragService _cardDragService;
         private UIFactory _uiFactory;
+        private CanvasService _canvasService;
 
         [Inject]
         private void Inject(TableService tableService, TurnService turnService, AttackService attackService,
-            CardDragService cardDragService)
+            CardDragService cardDragService, CanvasService canvasService)
         {
+            _canvasService = canvasService;
             _cardDragService = cardDragService;
             _attackService = attackService;
             _tableService = tableService;
@@ -51,7 +53,7 @@ namespace UI.View
             _interactionHandler.Initialize(this);
             _cardDragHandler.Init(this, _cardDragService, _interactionHandler, isDraggable);
             _cardDisplay.Initialize(card);
-            _attackAndDefence.Initialize(this, _interactionHandler, _attackService, _tableService);
+            _attackAndDefence.Initialize(this, _interactionHandler, _canvasService, _attackService, _tableService);
 
             _interactionHandler.OnCardHoverEnter += HandleCardHoverEnter;
             _interactionHandler.OnCardHoverExit += HandleCardHoverExit;

@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Logic.Enteties;
-using UI.Elements;
 using UI.View;
 
 namespace Infrastructure.Services.BattleServices
@@ -11,6 +10,9 @@ namespace Infrastructure.Services.BattleServices
 
         public void AddAttack(CardView attacker, CardView defender) =>
             _attacks.Add(new AttackInfo { Attacker = attacker, Defender = defender });
+
+        public void RemoveAttack(CardView attacker) => 
+            _attacks.RemoveAll(attack => attack.Attacker == attacker);
 
         public List<AttackInfo> GetAttacks() =>
             _attacks;
