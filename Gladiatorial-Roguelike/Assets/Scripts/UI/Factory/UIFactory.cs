@@ -12,12 +12,14 @@ namespace UI.Factory
         private const string DebugPanelPath = "UI/DebugPanel";
         private const string TurnIndicator = "UI/TurnIndicator";
         private const string AttackArrowPath = "UI/AttackArrow";
-        public  Canvas UI { get; set; }
-        public  TurnIndicator TurnShower { get; set; }
-        
+        public  Canvas UI { get; private set; }
+        public Canvas WorldSpaceCanvas { get; private set; }
+        public  TurnIndicator TurnShower { get; private set; }
+
         private AssetProvider _assetProvider;
         private Transform _uiRoot;
         private StaticDataService _staticDataService;
+
 
         [Inject]
        
@@ -31,7 +33,8 @@ namespace UI.Factory
         { 
           UI = _assetProvider.InstantiateAsset<Canvas>(UIRoot);
           _uiRoot = UI.gameObject.transform;
-        } 
+        }
+
         public void CreateTurnIndicator() => 
             TurnShower = _assetProvider.InstantiateAsset<TurnIndicator>(TurnIndicator, _uiRoot);
 

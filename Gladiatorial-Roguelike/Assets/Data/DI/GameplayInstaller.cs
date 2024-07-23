@@ -62,12 +62,15 @@ namespace Data.DI
             Container.Bind<BuffProcessingService>().AsSingle().NonLazy();
             Container.Bind<BattleService>().AsSingle().NonLazy();
             Container.Bind<AttackService>().AsSingle().NonLazy();
+            Container.Bind<CanvasService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()
         {
             var canvasInstance = Container.InstantiatePrefabForComponent<Canvas>(_canvasPrefab);
 
+            Container.Bind<Canvas>().FromInstance(canvasInstance).AsSingle();
+            
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(_curtain)
                 .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
             Container.Bind<CardPopup>().FromComponentInNewPrefab(_cardPopup)

@@ -1,7 +1,9 @@
+using Infrastructure.Services;
 using Logic.Types;
 using UI.View;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace UI.Elements
 {
@@ -10,11 +12,19 @@ namespace UI.Elements
         [SerializeField] private RectTransform _attackZone;
         [SerializeField] private RectTransform _defenceZone;
         [SerializeField] private GameObject _defenseShield;
-        [SerializeField] private LineRenderer _attackLineRenderer;
+        [SerializeField] private LineRendererUi _lineRendererUi;
 
         private CardView _cardView;
         private CardInteractionHandler _cardInteractionHandler;
+        private CanvasService _canvasService;
+        private Transform _originalParent;
         private bool _isDragging;
+
+        [Inject]
+        public void Construct(CanvasService canvasService)
+        {
+            _canvasService = canvasService;
+        }
 
         public void Initialize(CardView cardView, CardInteractionHandler cardInteractionHandler)
         {
@@ -26,17 +36,7 @@ namespace UI.Elements
             _cardInteractionHandler.OnDragAction += HandleDrag;
             _cardInteractionHandler.OnEndDragAction += HandleEndDrag;
 
-            _attackLineRenderer.positionCount = 2;
-            _attackLineRenderer.sortingOrder = 10; // Ensure the line is rendered on top of other UI elements
-
-            if (_attackLineRenderer.material == null)
-            {
-                _attackLineRenderer.material = new Material(Shader.Find("Sprites/Default"));
-                _attackLineRenderer.startColor = Color.red;
-                _attackLineRenderer.endColor = Color.red;
-                _attackLineRenderer.startWidth = 0.1f;
-                _attackLineRenderer.endWidth = 0.1f;
-            }
+            _lineRendererUi.SetLineActive(false);
         }
 
         public void CleanUp() => EnableDefenseShield(false);
@@ -54,9 +54,10 @@ namespace UI.Elements
             if (_cardView.State == CardState.OnTable && RectTransformUtility.RectangleContainsScreenPoint(_attackZone, eventData.position))
             {
                 _isDragging = true;
-                _attackLineRenderer.gameObject.SetActive(true);
-                Vector3 worldStartPosition = Camera.main.ScreenToWorldPoint(new Vector3(_attackZone.position.x, _attackZone.position.y, 10));
-                _attackLineRenderer.SetPosition(0, worldStartPosition);
+                _lineRendererUi.SetLineActive(true);
+                _originalParent = _lineRendererUi.transform.parent;
+                _canvasService.MoveToOverlay(_lineRendererUi.GetComponent<RectTransform>());
+                _lineRendererUi.CreateLine(_attackZone.position, Input.mousePosition, Color.red);
                 EnableDefenseShield(false);
             }
         }
@@ -65,10 +66,7 @@ namespace UI.Elements
         {
             if (_isDragging)
             {
-                Vector3 worldPosition;
-                RectTransformUtility.ScreenPointToWorldPointInRectangle(_cardView.GetRectTransform(), eventData.position, eventData.pressEventCamera, out worldPosition);
-                worldPosition.z = 0; // Adjust depth if necessary
-                _attackLineRenderer.SetPosition(1, worldPosition);
+                _lineRendererUi.CreateLine(_attackZone.position, Input.mousePosition, Color.red);
             }
         }
 
@@ -77,7 +75,8 @@ namespace UI.Elements
             if (_isDragging)
             {
                 _isDragging = false;
-                _attackLineRenderer.gameObject.SetActive(false);
+                _lineRendererUi.SetLineActive(false);
+                _canvasService.MoveBack(_lineRendererUi.GetComponent<RectTransform>(), _originalParent);
 
                 if (TryGetTargetCard(eventData, out CardView targetCardView))
                 {

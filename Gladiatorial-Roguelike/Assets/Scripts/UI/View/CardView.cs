@@ -4,6 +4,7 @@ using Infrastructure.Services.BattleServices;
 using Logic.Entities;
 using Logic.Types;
 using UI.Elements;
+using UI.Factory;
 using UI.Services;
 using UnityEngine;
 using Zenject;
@@ -29,6 +30,7 @@ namespace UI.View
         private TurnService _turnService;
         private AttackService _attackService;
         private CardDragService _cardDragService;
+        private UIFactory _uiFactory;
 
         [Inject]
         private void Inject(TableService tableService, TurnService turnService, AttackService attackService,
