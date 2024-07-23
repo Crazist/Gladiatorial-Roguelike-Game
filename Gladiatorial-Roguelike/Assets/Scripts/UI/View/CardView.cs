@@ -60,7 +60,7 @@ namespace UI.View
             _interactionHandler.OnCardHoverExit += HandleCardHoverExit;
 
             _turnService.OnPlayerTurnStart += EnableInteraction;
-            _turnService.OnEnemyTurnStart += DisableInteraction;
+            _turnService.OnEnemyNonPlayerInteractionStateStart += DisableInteraction;
         }
 
         public void UpdateView()
@@ -70,16 +70,20 @@ namespace UI.View
         }
 
         public void ChangeRaycasts(bool on) => _canvasGroup.blocksRaycasts = on;
-        public void SetDraggingState(bool isDragging) => _isDragging = isDragging;
+
+        public void SetDraggingState(bool isDragging)
+        {
+            _isDragging = isDragging;
+
+            if (!isDragging) HandleCardHoverExit(this);
+        }
 
         public Card GetCard() => _card;
-
         public RectTransform GetRectTransform() => _rectTransform;
-
         public CardDisplay GetCardDisplay() => _cardDisplay;
-
+        public DynamicCardView GetDynamicCardView() => _dynamicCard;
         public CardDragHandler GetCardDragHandler() => _cardDragHandler;
-
+        public AttackAndDefence GetAttackAndDefence() => _attackAndDefence;
 
         private void HandleCardHoverEnter(CardView cardView)
         {
@@ -92,7 +96,7 @@ namespace UI.View
 
         private void HandleCardHoverExit(CardView cardView)
         {
-            if (_cardDisplay.IsFaceUp() && !_isDragging)
+            if (_cardDisplay.IsFaceUp())
             {
                 OnCardHoverExit?.Invoke(this);
                 _tableService.SetHoveredCard(null);
@@ -102,7 +106,7 @@ namespace UI.View
         private void OnDestroy()
         {
             _turnService.OnPlayerTurnStart -= EnableInteraction;
-            _turnService.OnEnemyTurnStart -= DisableInteraction;
+            _turnService.OnEnemyNonPlayerInteractionStateStart -= DisableInteraction;
             _interactionHandler.OnCardHoverEnter -= HandleCardHoverEnter;
             _interactionHandler.OnCardHoverExit -= HandleCardHoverExit;
         }

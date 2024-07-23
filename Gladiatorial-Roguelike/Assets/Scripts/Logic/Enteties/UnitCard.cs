@@ -30,5 +30,14 @@ namespace Logic.Entities
 
         public override void InitializeView(DynamicCardView dynamicCardView) =>
             dynamicCardView.Initialize(this);
+        public void TakeDamage(int damage)
+        {
+            Hp -= damage;
+            
+            if (Hp <= 0)
+            {
+                Hp = 0;
+            }
+        }
     }
 }

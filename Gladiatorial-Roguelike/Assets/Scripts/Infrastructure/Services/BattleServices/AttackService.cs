@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Logic.Enteties;
+using UI.Elements;
 using UI.View;
 
 namespace Infrastructure.Services.BattleServices
@@ -16,7 +17,17 @@ namespace Infrastructure.Services.BattleServices
 
         public List<AttackInfo> GetAttacks() =>
             _attacks;
-
+        public void DeactivateAllArrows()
+        {
+            foreach (var attack in _attacks)
+            {
+                var attackAndDefence = attack.Attacker.GetAttackAndDefence();
+                if (attackAndDefence != null)
+                {
+                    attackAndDefence.RemoveLine();
+                }
+            }
+        }
         public void ClearAttacks() =>
             _attacks.Clear();
     }

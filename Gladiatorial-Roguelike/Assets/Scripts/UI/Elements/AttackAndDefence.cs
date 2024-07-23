@@ -42,13 +42,16 @@ namespace UI.Elements
         public void CleanUp()
         {
             EnableDefenseShield(false);
-            _lineRendererUi.SetLineActive(false);
-            _lineRendererUi.transform.SetParent(_originalParent, false);
+            RemoveLine();
             RemoveAttack();
             _isDragging = false;
-            _cardView.SetDraggingState(true);
+            _cardView.SetDraggingState(_isDragging);
         }
-
+        public void RemoveLine()
+        {
+            _lineRendererUi.SetLineActive(false);
+            _lineRendererUi.transform.SetParent(_originalParent, false);
+        }
         private void HandleCardClick(CardView cardView)
         {
             if (CheckIfEnemy()) return;
@@ -70,7 +73,7 @@ namespace UI.Elements
             {
                 CleanUp();
                 _isDragging = true;
-                _cardView.SetDraggingState(true);
+                _cardView.SetDraggingState(_isDragging);
                 _lineRendererUi.SetLineActive(true);
                 _originalParent = _lineRendererUi.transform.parent;
                 _canvasService.MoveToOverlay(_lineRendererUi.GetRectTransform());
@@ -98,7 +101,7 @@ namespace UI.Elements
             if (_isDragging)
             {
                 _isDragging = false;
-                _cardView.SetDraggingState(false);
+                _cardView.SetDraggingState(_isDragging);
 
                 if (TryGetTargetCard(eventData, out CardView targetCardView))
                 {

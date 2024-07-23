@@ -23,7 +23,8 @@ namespace UI.Elements.CardDrops
             OccupiedCard = cardView;
             cardView.State = CardState.OnTable;
             _tableService.GetEnemyTableViews().Add(cardView);
-        
+            _tableService.GetEnemyHandViews().Remove(cardView);
+            
             MoveCardToDropArea(cardView);
         }
 

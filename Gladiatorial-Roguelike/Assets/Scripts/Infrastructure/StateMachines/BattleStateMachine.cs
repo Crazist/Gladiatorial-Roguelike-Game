@@ -27,6 +27,7 @@ namespace Infrastructure.StateMachines
             _states[typeof(BattleStartState)] = _diContainer.Instantiate<BattleStartState>();
             _states[typeof(PlayerTurnState)] = _diContainer.Instantiate<PlayerTurnState>();
             _states[typeof(EnemyTurnState)] = _diContainer.Instantiate<EnemyTurnState>();
+            _states[typeof(BattleCalculationState)] = _diContainer.Instantiate<BattleCalculationState>();
             _states[typeof(BattleEndState)] = _diContainer.Instantiate<BattleEndState>();
         }
 
@@ -63,7 +64,7 @@ namespace Infrastructure.StateMachines
             }
             else if (newState == typeof(EnemyTurnState))
             {
-                _turnService.StartEnemyTurn();
+                _turnService.StartNonPlayerInteractionStateStart();
             }
         }
     }

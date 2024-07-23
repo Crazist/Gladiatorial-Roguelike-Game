@@ -39,9 +39,9 @@ namespace Infrastructure.Services.AIServices
             List<CardView> enemyHand = _tableService.GetEnemyHandViews();
             List<Card> cardsToPlay = new List<Card>();
 
-            foreach (var cardToPlay in enemyHand)
+            for (int i = 0; i < enemyHand.Count; i++)
             {
-                Card card = cardToPlay.GetCard();
+                Card card = enemyHand[i].GetCard();
 
                 if (card.CardData.Category == CardCategory.Unit && _random.NextDouble() < 0.85f)
                 {
@@ -50,7 +50,7 @@ namespace Infrastructure.Services.AIServices
                     if (availableDropArea != null)
                     {
                         cardsToPlay.Add(card);
-                        yield return PlaceCardInDropAreaWithDelay(enemyHand, cardToPlay, availableDropArea);
+                        yield return PlaceCardInDropAreaWithDelay(enemyHand[i], availableDropArea);
                     }
                 }
             }
@@ -65,7 +65,7 @@ namespace Infrastructure.Services.AIServices
                     {
                         _tableService.GetEnemyHandViews().Remove(cardToPlay);
                         _tableService.GetEnemyTableViews().Add(cardToPlay);
-                        yield return PlaceCardInDropAreaWithDelay(enemyHand, cardToPlay, availableDropArea);
+                        yield return PlaceCardInDropAreaWithDelay(cardToPlay, availableDropArea);
                     }
                 }
             }
@@ -85,18 +85,13 @@ namespace Infrastructure.Services.AIServices
             return null;
         }
 
-        private IEnumerator PlaceCardInDropAreaWithDelay( List<CardView> enemyCardViews, CardView cardToPlay, EnemyCardDropArea dropArea)
+        private IEnumerator PlaceCardInDropAreaWithDelay(CardView cardToPlay, EnemyCardDropArea dropArea)
         {
-            var cardView = enemyCardViews.Find(cv => cv.GetCard() == cardToPlay.GetCard());
-            
-            if (cardView != null)
-            {
-                cardView.ChangeRaycasts(false);
-                cardView.GetCardDisplay().FlipCard();
-                dropArea.HandleDrop(cardView, null);
+            cardToPlay.ChangeRaycasts(false);
+            cardToPlay.GetCardDisplay().FlipCard();
+            dropArea.HandleDrop(cardToPlay, null);
 
-                yield return new WaitForSeconds(1);
-            }
+            yield return new WaitForSeconds(1);
         }
 
         private EnemyCardDropArea GetAvailableDropArea()

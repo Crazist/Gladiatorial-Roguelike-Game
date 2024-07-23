@@ -14,10 +14,15 @@ namespace UI.View
         
         [SerializeField] private Sprite _fullHeartSprite;
         [SerializeField] private Sprite _emptyHeartSprite;
+       
+        private UnitCard _unitCard;
 
         public void Initialize(UnitCard unitCard)
         {
-            UpdateHp(unitCard.Hp, unitCard.CardData.UnitData.Hp);
+            _unitCard = unitCard;
+            
+            UpdateHp();
+            
             _hp.gameObject.SetActive(true);
             _hpBar.gameObject.SetActive(true);
         }
@@ -34,8 +39,14 @@ namespace UI.View
             _hpBar.gameObject.SetActive(!hide);
         }
 
-        public void UpdateHp(int currentHp, int maxHp)
+        public UnitCard GetConcreteTCard() => 
+            _unitCard;
+
+        public void UpdateHp()
         {
+            int currentHp = _unitCard.Hp;
+            int maxHp = _unitCard.CardData.UnitData.Hp;
+
             _hp.text = currentHp.ToString() + " HP";
             _fill.fillAmount = (float)currentHp / maxHp;
 

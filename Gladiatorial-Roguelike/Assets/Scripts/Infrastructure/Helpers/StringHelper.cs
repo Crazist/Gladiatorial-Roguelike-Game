@@ -4,5 +4,6 @@ namespace Infrastructure
     {
         public const string EnemyTurn = "Enemy turn";
         public const string PlayerTurn = "Player turn";
+        public const string Calculation = "Calculation";
     }
 }
