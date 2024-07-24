@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Infrastructure.Services.BattleServices;
 using Logic.Enteties;
-using Logic.Entities;
 using UI.View;
 
 namespace Infrastructure.Services.AIServices
@@ -19,41 +18,96 @@ namespace Infrastructure.Services.AIServices
             var botCards = _tableService.GetEnemyTableViews().Except(defenseCards).ToList();
 
             var attacks = new List<AttackInfo>();
-            var sortedPlayerCards = playerCards.OrderBy(card => card.GetDynamicCardView().GetConcreteTCard().Hp).ToList();
+            var remainingPlayerCards = new List<CardView>(playerCards);
+            var remainingBotCards = new List<CardView>(botCards);
 
-            foreach (var botCard in botCards)
-            {
-                var botUnitCard = botCard.GetDynamicCardView().GetConcreteTCard();
-                if (botUnitCard == null)
-                    continue;
-
-                var target = FindKillableTarget(sortedPlayerCards, botUnitCard);
-
-                if (target == null)
-                {
-                    target = FindMostDangerousTarget(sortedPlayerCards);
-                }
-
-                if (target != null)
-                {
-                    attacks.Add(new AttackInfo { Attacker = botCard, Defender = target });
-                    sortedPlayerCards.Remove(target);
-                }
-            }
+            AttackWithMinimumHits(remainingPlayerCards, remainingBotCards, attacks);
+            AttackRandomTargets(remainingPlayerCards, remainingBotCards, attacks);
 
             return attacks;
         }
 
-        private CardView FindKillableTarget(List<CardView> sortedPlayerCards, UnitCard botUnitCard)
+        private void AttackWithMinimumHits(List<CardView> remainingPlayerCards, List<CardView> remainingBotCards, List<AttackInfo> attacks)
         {
-            return sortedPlayerCards.FirstOrDefault(playerCard =>
-                playerCard.GetDynamicCardView().GetConcreteTCard().Hp <= botUnitCard.CardData.UnitData.Attack);
+            var attackQueue = new List<CardView>(remainingBotCards);
+
+            while (remainingPlayerCards.Count > 0 && attackQueue.Count > 0)
+            {
+                var target = FindBestTarget(remainingPlayerCards, attackQueue);
+                if (target == null) break;
+
+                int requiredHits = CalculateRequiredHits(target, attackQueue);
+                var attackers = attackQueue.Take(requiredHits).ToList();
+
+                foreach (var attacker in attackers)
+                {
+                    attacks.Add(new AttackInfo { Attacker = attacker, Defender = target });
+                    attackQueue.Remove(attacker);
+                }
+
+                remainingPlayerCards.Remove(target);
+            }
         }
 
-        private CardView FindMostDangerousTarget(List<CardView> sortedPlayerCards)
+        private void AttackRandomTargets(List<CardView> remainingPlayerCards, List<CardView> remainingBotCards, List<AttackInfo> attacks)
         {
-            return sortedPlayerCards.OrderByDescending(playerCard =>
-                playerCard.GetDynamicCardView().GetConcreteTCard().CardData.UnitData.Attack).FirstOrDefault();
+            foreach (var botCard in remainingBotCards)
+            {
+                var randomTarget = remainingPlayerCards.OrderBy(_ => System.Guid.NewGuid()).FirstOrDefault();
+                if (randomTarget != null)
+                {
+                    attacks.Add(new AttackInfo { Attacker = botCard, Defender = randomTarget });
+                }
+            }
+        }
+
+        private CardView FindBestTarget(List<CardView> remainingPlayerCards, List<CardView> attackQueue)
+        {
+            foreach (var playerCard in remainingPlayerCards)
+            {
+                int requiredHits = CalculateRequiredHits(playerCard, attackQueue);
+                if (requiredHits <= attackQueue.Count)
+                {
+                    return playerCard;
+                }
+            }
+
+            return null;
+        }
+
+        private int CalculateRequiredHits(CardView playerCard, List<CardView> attackQueue)
+        {
+            int requiredHits = 0;
+            int totalDamage = 0;
+            int remainingHp = playerCard.GetDynamicCardView().GetConcreteTCard().Hp;
+            int shieldHp = playerCard.GetAttackAndDefence().HasShield ? playerCard.GetDynamicCardView().GetConcreteTCard().CardData.UnitData.Defense : 0;
+
+            var sortedAttackQueue = attackQueue.OrderBy(c => c.GetDynamicCardView().GetConcreteTCard().CardData.UnitData.Attack).ToList();
+
+            foreach (var attacker in sortedAttackQueue)
+            {
+                totalDamage += attacker.GetDynamicCardView().GetConcreteTCard().CardData.UnitData.Attack;
+                requiredHits++;
+
+                if (shieldHp > 0)
+                {
+                    if (totalDamage >= shieldHp)
+                    {
+                        totalDamage -= shieldHp;
+                        shieldHp = 0;
+                    }
+                }
+                else
+                {
+                    remainingHp -= totalDamage;
+                    if (remainingHp <= 0)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            return requiredHits;
         }
     }
 }
