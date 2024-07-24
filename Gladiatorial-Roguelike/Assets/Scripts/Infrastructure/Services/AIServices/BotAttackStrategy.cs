@@ -11,15 +11,12 @@ namespace Infrastructure.Services.AIServices
     {
         private readonly TableService _tableService;
 
-        public BotAttackStrategy(TableService tableService)
-        {
-            _tableService = tableService;
-        }
+        public BotAttackStrategy(TableService tableService) => _tableService = tableService;
 
-        public List<AttackInfo>  DetermineAttacks()
+        public List<AttackInfo> DetermineAttacks(List<CardView> defenseCards)
         {
             var playerCards = _tableService.GetPlayerTableViews();
-            var botCards = _tableService.GetEnemyTableViews();
+            var botCards = _tableService.GetEnemyTableViews().Except(defenseCards).ToList();
 
             var attacks = new List<AttackInfo>();
             var sortedPlayerCards = playerCards.OrderBy(card => card.GetDynamicCardView().GetConcreteTCard().Hp).ToList();

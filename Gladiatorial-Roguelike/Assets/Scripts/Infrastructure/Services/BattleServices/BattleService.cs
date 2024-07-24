@@ -1,7 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using DG.Tweening;
 using Infrastructure.Services.AIServices;
-using Logic.Entities;
+using Logic.Enteties;
 using UI.Factory;
 using UI.View;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Infrastructure.Services.BattleServices
         private UIFactory _uiFactory;
         private DamageService _damageService;
         private BotAttackStrategy _botAttackStrategy;
+        private BotDefenseStrategy _botDefenseStrategy;
         private TableService _tableService;
 
         [Inject]
@@ -27,21 +29,44 @@ namespace Infrastructure.Services.BattleServices
             _tableService = tableService;
 
             _botAttackStrategy = new BotAttackStrategy(tableService);
+            _botDefenseStrategy = new BotDefenseStrategy(tableService);
         }
 
         public IEnumerator CalculateAttacks()
         {
-            foreach (var attack in _attackService.GetAttacks())
+            List<AttackInfo> attacks = _attackService.GetAttacks();
+
+            for (int i = 0; i < attacks.Count; i++)
             {
-                if (attack.Defender == null || attack.Defender.GetDynamicCardView() == null)
+                if (attacks[i].Defender == null || attacks[i].Defender.GetDynamicCardView() == null)
                 {
                     continue;
                 }
 
-                yield return PerformAttackAnimation(attack.Attacker, attack.Defender);
+                yield return PerformAttackAnimation(attacks[i].Attacker, attacks[i].Defender);
+                
+                if (attacks[i].Defender == null)
+                {
+                    RemoveRelatedAttacks(attacks, attacks[i].Defender);
+                }
             }
 
             _attackService.ClearAttacks();
+            DisableAllShields();
+        }
+
+        public IEnumerator ExecuteBotActions()
+        {
+            var defenseCards = _botDefenseStrategy.DetermineDefense();
+            
+            yield return new WaitForSeconds(0.5f);
+
+            var attacks = _botAttackStrategy.DetermineAttacks(defenseCards);
+            
+            foreach (var attack in attacks)
+            {
+                _attackService.AddAttack(attack.Attacker, attack.Defender);
+            }
         }
 
         private IEnumerator PerformAttackAnimation(CardView attacker, CardView defender)
@@ -61,17 +86,26 @@ namespace Infrastructure.Services.BattleServices
             yield return moveBackToStartPosition.WaitForCompletion();
         }
 
-        public IEnumerator ExecuteBotAttacks()
+        private void DisableAllShields()
         {
-            var attacks = _botAttackStrategy.DetermineAttacks();
-
-            foreach (var attack in attacks)
+            foreach (var card in _tableService.GetEnemyTableViews())
             {
-                _attackService.AddAttack(attack.Attacker, attack.Defender);
-                yield return PerformAttackAnimation(attack.Attacker, attack.Defender);
+                card.GetAttackAndDefence().DisableShield();
             }
-
-            _attackService.ClearAttacks();
+            foreach (var card in _tableService.GetPlayerTableViews())
+            {
+                card.GetAttackAndDefence().DisableShield();
+            }
+        }
+        private void RemoveRelatedAttacks(List<AttackInfo> attacks, CardView card)
+        {
+            for (int i = attacks.Count - 1; i >= 0; i--)
+            {
+                if (attacks[i].Attacker == card || attacks[i].Defender == card)
+                {
+                    attacks.RemoveAt(i);
+                }
+            }
         }
     }
 }

@@ -1,6 +1,4 @@
-using Logic.Entities;
 using Logic.Types;
-using UI.Elements;
 using UI.View;
 using UnityEngine;
 using Zenject;
@@ -16,31 +14,30 @@ namespace Infrastructure.Services.BattleServices
 
         public void ApplyDamage(CardView attackerView, CardView defenderView)
         {
-            UnitCard attackerUnit = attackerView.GetDynamicCardView().GetConcreteTCard();
-            UnitCard defenderUnit = defenderView.GetDynamicCardView().GetConcreteTCard();
+            var attackerUnit = attackerView.GetDynamicCardView().GetConcreteTCard();
+            var defenderUnit = defenderView.GetDynamicCardView().GetConcreteTCard();
+            var attackAndDefence = defenderView.GetAttackAndDefence();
 
             if (attackerUnit != null && defenderUnit != null)
             {
-                int attackDamage = attackerUnit.CardData.UnitData.Attack;
-                int shieldDefense = defenderUnit.CardData.UnitData.Defense;
-               
-                AttackAndDefence attackAndDefence = defenderView.GetAttackAndDefence();
-
                 if (attackAndDefence.HasShield)
                 {
-                    if (shieldDefense >= attackDamage)
+                    int remainingDamage = attackerUnit.CardData.UnitData.Attack - defenderUnit.CardData.UnitData.Defense;
+                    if (remainingDamage > 0)
                     {
-                        attackAndDefence.CleanUp();
-                        return;
+                        defenderUnit.TakeDamage(remainingDamage);
+                        attackAndDefence.BreakShield();
                     }
                     else
                     {
-                        attackAndDefence.CleanUp();
-                        attackDamage -= shieldDefense;
+                        attackAndDefence.DisableShield();
                     }
                 }
+                else
+                {
+                    defenderUnit.TakeDamage(attackerUnit.CardData.UnitData.Attack);
+                }
 
-                defenderUnit.TakeDamage(attackDamage);
                 defenderView.GetDynamicCardView().UpdateHp();
 
                 if (defenderUnit.Hp <= 0)

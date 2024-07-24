@@ -13,7 +13,12 @@ namespace UI.Elements
         [SerializeField] private RectTransform _defenceZone;
         [SerializeField] private GameObject _defenseShield;
         [SerializeField] private LineRendererUi _lineRendererUi;
+        
+        private bool _hasShield;
+        private bool _shieldBroken;
+
         public bool HasShield => _hasShield;
+        public bool ShieldBroken => _shieldBroken;
 
         private CardView _cardView;
         private CardInteractionHandler _cardInteractionHandler;
@@ -23,8 +28,6 @@ namespace UI.Elements
         private TableService _tableService;
 
         private bool _isDragging;
-        private bool _hasShield;
-
 
         public void Initialize(CardView cardView, CardInteractionHandler cardInteractionHandler,
             CanvasService canvasService, AttackService attackService, TableService tableService)
@@ -42,6 +45,7 @@ namespace UI.Elements
 
             _lineRendererUi.SetLineActive(false);
             _hasShield = false;
+            _shieldBroken = false;
         }
 
         public void RemoveLine()
@@ -60,6 +64,33 @@ namespace UI.Elements
             _hasShield = false;
         }
 
+        public void EnableShield()
+        {
+            if (!_shieldBroken && !_hasShield)
+            {
+                EnableDefenseShield(true);
+                _hasShield = true;
+            }
+        }
+
+        public void DisableShield()
+        {
+            EnableDefenseShield(false);
+            _hasShield = false;
+        }
+
+        public void BreakShield()
+        {
+            _shieldBroken = true;
+            DisableShield();
+        }
+
+        public void ResetShieldStatus()
+        {
+            _shieldBroken = false;
+            _hasShield = false;
+        }
+
         private void HandleCardClick(CardView cardView)
         {
             if (CheckIfEnemy()) return;
@@ -67,7 +98,7 @@ namespace UI.Elements
             if (_cardView.State == CardState.OnTable &&
                 RectTransformUtility.RectangleContainsScreenPoint(_defenceZone, Input.mousePosition))
             {
-                if (_hasShield) return;
+                if (_hasShield || _shieldBroken) return;
                 CleanUp();
                 EnableDefenseShield(true);
                 _hasShield = true;

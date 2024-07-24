@@ -2,7 +2,6 @@ using System.Collections;
 using Infrastructure.Services.BattleServices;
 using Infrastructure.StateMachines;
 using UI.Factory;
-using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.States.BattleStates
@@ -14,7 +13,7 @@ namespace Infrastructure.States.BattleStates
         private readonly TurnService _turnService;
         private readonly CoroutineCustomRunner _coroutineCustomRunner;
         private readonly UIFactory _uiFactory;
-        private AttackService _attackService;
+        private readonly AttackService _attackService;
 
         [Inject]
         public BattleCalculationState(BattleStateMachine battleStateMachine, BattleService battleService,
@@ -43,9 +42,9 @@ namespace Infrastructure.States.BattleStates
 
         private IEnumerator ProcessAttacks()
         {
+            yield return _battleService.ExecuteBotActions();
             yield return _battleService.CalculateAttacks();
-            yield return _battleService.ExecuteBotAttacks();
-
+            
             _turnService.StartTurnEnd();
             
             _battleStateMachine.Enter<EnemyTurnState>();
