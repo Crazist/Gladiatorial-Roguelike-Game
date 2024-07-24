@@ -44,8 +44,10 @@ namespace Infrastructure.States.BattleStates
         private IEnumerator ProcessAttacks()
         {
             yield return _battleService.CalculateAttacks();
+            yield return _battleService.ExecuteBotAttacks();
 
             _turnService.StartTurnEnd();
+            
             _battleStateMachine.Enter<EnemyTurnState>();
         }
     }

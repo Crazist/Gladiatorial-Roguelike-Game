@@ -13,6 +13,7 @@ namespace UI.Elements
         [SerializeField] private RectTransform _defenceZone;
         [SerializeField] private GameObject _defenseShield;
         [SerializeField] private LineRendererUi _lineRendererUi;
+        public bool HasShield => _hasShield;
 
         private CardView _cardView;
         private CardInteractionHandler _cardInteractionHandler;
@@ -20,7 +21,10 @@ namespace UI.Elements
         private Transform _originalParent;
         private AttackService _attackService;
         private TableService _tableService;
+
         private bool _isDragging;
+        private bool _hasShield;
+
 
         public void Initialize(CardView cardView, CardInteractionHandler cardInteractionHandler,
             CanvasService canvasService, AttackService attackService, TableService tableService)
@@ -37,6 +41,13 @@ namespace UI.Elements
             _cardInteractionHandler.OnEndDragAction += HandleEndDrag;
 
             _lineRendererUi.SetLineActive(false);
+            _hasShield = false;
+        }
+
+        public void RemoveLine()
+        {
+            _lineRendererUi.SetLineActive(false);
+            _lineRendererUi.transform.SetParent(_originalParent, false);
         }
 
         public void CleanUp()
@@ -46,12 +57,9 @@ namespace UI.Elements
             RemoveAttack();
             _isDragging = false;
             _cardView.SetDraggingState(_isDragging);
+            _hasShield = false;
         }
-        public void RemoveLine()
-        {
-            _lineRendererUi.SetLineActive(false);
-            _lineRendererUi.transform.SetParent(_originalParent, false);
-        }
+
         private void HandleCardClick(CardView cardView)
         {
             if (CheckIfEnemy()) return;
@@ -59,8 +67,10 @@ namespace UI.Elements
             if (_cardView.State == CardState.OnTable &&
                 RectTransformUtility.RectangleContainsScreenPoint(_defenceZone, Input.mousePosition))
             {
+                if (_hasShield) return;
                 CleanUp();
                 EnableDefenseShield(true);
+                _hasShield = true;
             }
         }
 

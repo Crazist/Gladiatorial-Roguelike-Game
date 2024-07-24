@@ -20,6 +20,7 @@ namespace Infrastructure.Services.BattleServices
         private void Inject(CardService cardService)
         {
             _cardService = cardService;
+            
             _playerHandViews = new List<CardView>();
             _enemyHandViews = new List<CardView>();
             _playerTableViews = new List<CardView>();

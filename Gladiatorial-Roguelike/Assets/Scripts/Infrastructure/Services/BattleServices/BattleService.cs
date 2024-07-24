@@ -1,7 +1,10 @@
 using System.Collections;
 using DG.Tweening;
+using Infrastructure.Services.AIServices;
+using Logic.Entities;
 using UI.Factory;
 using UI.View;
+using UnityEngine;
 using Zenject;
 
 namespace Infrastructure.Services.BattleServices
@@ -11,13 +14,19 @@ namespace Infrastructure.Services.BattleServices
         private AttackService _attackService;
         private UIFactory _uiFactory;
         private DamageService _damageService;
+        private BotAttackStrategy _botAttackStrategy;
+        private TableService _tableService;
 
         [Inject]
-        private void Inject(AttackService attackService, UIFactory uiFactory, DamageService damageService)
+        private void Inject(AttackService attackService, UIFactory uiFactory, DamageService damageService,
+            TableService tableService)
         {
             _attackService = attackService;
             _uiFactory = uiFactory;
             _damageService = damageService;
+            _tableService = tableService;
+
+            _botAttackStrategy = new BotAttackStrategy(tableService);
         }
 
         public IEnumerator CalculateAttacks()
@@ -50,6 +59,19 @@ namespace Infrastructure.Services.BattleServices
 
             Tween moveBackToStartPosition = attacker.transform.DOMove(attackerStartPosition, 0.5f);
             yield return moveBackToStartPosition.WaitForCompletion();
+        }
+
+        public IEnumerator ExecuteBotAttacks()
+        {
+            var attacks = _botAttackStrategy.DetermineAttacks();
+
+            foreach (var attack in attacks)
+            {
+                _attackService.AddAttack(attack.Attacker, attack.Defender);
+                yield return PerformAttackAnimation(attack.Attacker, attack.Defender);
+            }
+
+            _attackService.ClearAttacks();
         }
     }
 }
