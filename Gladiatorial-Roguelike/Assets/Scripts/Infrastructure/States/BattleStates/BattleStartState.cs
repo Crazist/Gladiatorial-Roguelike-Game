@@ -1,5 +1,6 @@
 using Infrastructure.Services;
 using Infrastructure.Services.BattleServices;
+using Infrastructure.Services.CardsServices;
 using Infrastructure.StateMachines;
 using UI.Factory;
 using UI.Service;

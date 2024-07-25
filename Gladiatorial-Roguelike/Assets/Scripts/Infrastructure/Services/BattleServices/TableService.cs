@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Infrastructure.Services.CardsServices;
 using Logic.Entities;
 using UI.View;
 using Zenject;
@@ -37,5 +38,14 @@ namespace Infrastructure.Services.BattleServices
         public CardView GetHoveredCard() => _hoveredCard;
 
         public void SetHoveredCard(CardView card) => _hoveredCard = card;
+
+        public void CleanUp()
+        {
+            _playerHandViews.Clear();
+            _enemyHandViews.Clear();
+            _playerTableViews.Clear();
+            _enemyTableViews.Clear();
+            _hoveredCard = null;
+        }
     }
 }

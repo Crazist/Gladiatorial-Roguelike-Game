@@ -5,6 +5,7 @@ using DG.Tweening;
 using Infrastructure;
 using Infrastructure.Services.BattleServices;
 using Infrastructure.StateMachines;
+using Infrastructure.States.BattleStates;
 
 namespace UI.Popup
 {

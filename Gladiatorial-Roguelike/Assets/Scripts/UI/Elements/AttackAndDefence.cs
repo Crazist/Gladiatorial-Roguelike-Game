@@ -23,7 +23,6 @@ namespace UI.Elements
         private CardView _cardView;
         private CardInteractionHandler _cardInteractionHandler;
         private CanvasService _canvasService;
-        private Transform _originalParent;
         private AttackService _attackService;
         private TableService _tableService;
 
@@ -51,7 +50,7 @@ namespace UI.Elements
         public void RemoveLine()
         {
             _lineRendererUi.SetLineActive(false);
-            _lineRendererUi.transform.SetParent(_originalParent, false);
+            _canvasService.MoveBack(_lineRendererUi.GetRectTransform());
         }
 
         public void CleanUp()
@@ -116,7 +115,6 @@ namespace UI.Elements
                 _isDragging = true;
                 _cardView.SetDraggingState(_isDragging);
                 _lineRendererUi.SetLineActive(true);
-                _originalParent = _lineRendererUi.transform.parent;
                 _canvasService.MoveToOverlay(_lineRendererUi.GetRectTransform());
                 _lineRendererUi.CreateLine(_attackZone.position, Input.mousePosition, Color.red);
                 EnableDefenseShield(false);

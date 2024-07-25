@@ -1,17 +1,22 @@
-using System;
+using Infrastructure.Services.BattleServices;
+using Infrastructure.Services.CardsServices;
 using Infrastructure.StateMachines;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.States.BattleStates
 {
     public class BattleEndState : IState
     {
-        private BattleStateMachine _battleStateMachine;
+        private GameStateMachine _gameStateMachine;
+        private CardService _cardService;
+        private TableService _tableService;
 
         [Inject]
-        private void Inject(BattleStateMachine battleStateMachine)
+        private void Inject(GameStateMachine gameStateMachine, CardService cardService, TableService tableService)
         {
-            _battleStateMachine = battleStateMachine;
+            _tableService = tableService;
+            _cardService = cardService;
+            _gameStateMachine = gameStateMachine;
         }
 
         public void Enter()
@@ -21,14 +26,11 @@ namespace Infrastructure
 
         public void Exit()
         {
-            // ОЧИСТИТЬ ВСЕ СЕРВИСЫ БИТВЫ!!!
-            // Очистка состояния
+            _cardService.CleanUp();
+            _tableService.CleanUp();
         }
 
-        private void EndBattle()
-        {
-            // Логика завершения битвы
-            // Обработка результатов битвы, награды и т.д.
-        }
+        private void EndBattle() => 
+            _gameStateMachine.Enter<EndGameState>();
     }
 }

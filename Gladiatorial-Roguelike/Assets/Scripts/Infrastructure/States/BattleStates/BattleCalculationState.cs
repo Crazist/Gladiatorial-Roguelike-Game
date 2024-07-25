@@ -1,6 +1,7 @@
 using System.Collections;
 using Infrastructure.Services.BattleServices;
 using Infrastructure.StateMachines;
+using Logic.Types;
 using UI.Factory;
 using Zenject;
 
@@ -15,13 +16,14 @@ namespace Infrastructure.States.BattleStates
         private readonly UIFactory _uiFactory;
         private readonly AttackService _attackService;
         private readonly TableService _tableService;
+        private BattleResultService _battleResultService;
 
         [Inject]
         public BattleCalculationState(BattleStateMachine battleStateMachine, BattleService battleService,
             TurnService turnService, CoroutineCustomRunner coroutineCustomRunner, UIFactory uiFactory,
-            AttackService attackService,
-            TableService tableService)
+            AttackService attackService,TableService tableService, BattleResultService battleResultService)
         {
+            _battleResultService = battleResultService;
             _tableService = tableService;
             _attackService = attackService;
             _uiFactory = uiFactory;
@@ -58,14 +60,27 @@ namespace Infrastructure.States.BattleStates
 
         private bool CheckIfEndBattle()
         {
-            if ((_tableService.GetEnemyTableViews().Count == 0 && _tableService.DrawEnemyHand().Count == 0) ||
-                (_tableService.GetPlayerTableViews().Count == 0 && _tableService.DrawPlayerHand().Count == 0))
+            bool isEnemyDefeated = _tableService.GetEnemyTableViews().Count == 0 && _tableService.DrawEnemyHand().Count == 0;
+            bool isPlayerDefeated = _tableService.GetPlayerTableViews().Count == 0 && _tableService.DrawPlayerHand().Count == 0;
+
+            if (isEnemyDefeated || isPlayerDefeated)
             {
                 _turnService.StartEndBattle();
+
+                if (isEnemyDefeated)
+                {
+                    _battleResultService.BattleResult = BattleResult.Win;
+                }
+                else
+                {
+                    _battleResultService.BattleResult = BattleResult.Lose;
+                }
+                
                 return true;
             }
 
             return false;
         }
+
     }
 }

@@ -1,12 +1,11 @@
 using System.Collections.Generic;
-using System.Linq;
 using Infrastructure.Data;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Entities;
 using UnityEngine;
 using Zenject;
 
-namespace Infrastructure.Services
+namespace Infrastructure.Services.CardsServices
 {
     public class CardService
     {
@@ -38,6 +37,12 @@ namespace Infrastructure.Services
 
         public List<Card> DrawEnemyHand(int count) =>
             DrawCards(_shuffledEnemyDeck, count);
+
+        public void CleanUp()
+        {
+            _shuffledPlayerDeck.Clear();
+            _shuffledEnemyDeck.Clear();
+        }
 
         private void ShuffleDeck(List<Card> deck)
         {

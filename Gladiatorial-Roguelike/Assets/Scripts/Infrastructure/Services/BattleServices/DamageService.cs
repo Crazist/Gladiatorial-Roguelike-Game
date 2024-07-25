@@ -8,9 +8,14 @@ namespace Infrastructure.Services.BattleServices
     public class DamageService
     {
         private TableService _tableService;
+        private BattleResultService _battleResultService;
 
         [Inject]
-        private void Inject(TableService tableService) => _tableService = tableService;
+        private void Inject(TableService tableService, BattleResultService battleResultService)
+        {
+            _battleResultService = battleResultService;
+            _tableService = tableService;
+        }
 
         public void ApplyDamage(CardView attackerView, CardView defenderView)
         {
@@ -42,6 +47,7 @@ namespace Infrastructure.Services.BattleServices
 
                 if (defenderUnit.Hp <= 0)
                 {
+                    SetPlayerLose(defenderView);
                     RemoveFromTable(defenderView);
                     DestroyCard(defenderView);
                 }
@@ -60,6 +66,13 @@ namespace Infrastructure.Services.BattleServices
             }
         }
 
+        private void SetPlayerLose(CardView cardView)
+        {
+            if (cardView.Team == TeamType.Ally)
+            {
+                _battleResultService.PlayerLost.Add(cardView.GetCard());
+            }
+        }
         private void DestroyCard(CardView cardView) => 
             Object.Destroy(cardView.gameObject);
     }

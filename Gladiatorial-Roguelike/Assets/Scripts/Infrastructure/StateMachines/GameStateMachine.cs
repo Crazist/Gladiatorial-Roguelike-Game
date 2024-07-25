@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Infrastructure.States;
 using Zenject;
 
 namespace Infrastructure.StateMachines
@@ -28,6 +29,7 @@ namespace Infrastructure.StateMachines
             _states[typeof(LoadLevelState)] = _diContainer.Instantiate<LoadLevelState>();
             _states[typeof(MenuState)] = _diContainer.Instantiate<MenuState>();
             _states[typeof(GameLoopState)] = _diContainer.Instantiate<GameLoopState>();
+            _states[typeof(EndGameState)] = _diContainer.Instantiate<EndGameState>();
         }
         public void Enter<TState>() where TState : class, IState
         {
