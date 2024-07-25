@@ -1,5 +1,4 @@
 using Logic.Entities;
-using UI.Elements;
 using System;
 using Infrastructure.Services.BattleServices;
 using Logic.Types;
@@ -39,6 +38,9 @@ namespace Infrastructure.Services.BuffsService
 
             targetCardView.UpdateView();
             CompleteBuff(buffCardView, resetPos, isPlayer);
+
+            if (isPlayer)
+                _tableService.GetPlayerHandViews().Remove(buffCardView);
         }
 
         public void CompleteBuff(CardView buffCardView, Action resetPos, bool isPlayer)

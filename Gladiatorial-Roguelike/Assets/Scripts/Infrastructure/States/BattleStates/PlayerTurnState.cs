@@ -28,10 +28,7 @@ namespace Infrastructure
          
         }
 
-        private void PlayerTurn()
-        {
+        private void PlayerTurn() => 
             _uiFactory.TurnShower.SetTurnText(StringHelper.PlayerTurn);
-        //    _battleStateMachine.Enter<EnemyTurnState>();
-        }
     }
 }

@@ -79,5 +79,10 @@ namespace UI.Factory
             var config = _staticDataService.ForWindow(WindowId.TableWindow);
             Object.Instantiate(config.Prefab, _uiRoot);
         }
+        public void CreateVictoryWindow()
+        {
+            var config = _staticDataService.ForWindow(WindowId.VictoryWindow);
+            Object.Instantiate(config.Prefab, _uiRoot);
+        }
     }
 }

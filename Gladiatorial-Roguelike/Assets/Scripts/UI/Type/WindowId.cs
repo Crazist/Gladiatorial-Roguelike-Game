@@ -9,5 +9,7 @@ namespace UI.Type
         PermaDeck,
         EnemyChoose,
         TableWindow,
+        VictoryWindow,
+        LoseWindow,
     }
 }

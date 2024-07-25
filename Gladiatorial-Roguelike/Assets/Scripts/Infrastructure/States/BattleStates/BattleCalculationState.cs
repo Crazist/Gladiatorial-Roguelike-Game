@@ -60,8 +60,8 @@ namespace Infrastructure.States.BattleStates
 
         private bool CheckIfEndBattle()
         {
-            bool isEnemyDefeated = _tableService.GetEnemyTableViews().Count == 0 && _tableService.DrawEnemyHand().Count == 0;
-            bool isPlayerDefeated = _tableService.GetPlayerTableViews().Count == 0 && _tableService.DrawPlayerHand().Count == 0;
+            bool isEnemyDefeated = _tableService.GetEnemyTableViews().Count == 0 && _tableService.GetEnemyHandViews().Count == 0;
+            bool isPlayerDefeated = _tableService.GetPlayerTableViews().Count == 0 && _tableService.GetPlayerHandViews().Count == 0;
 
             if (isEnemyDefeated || isPlayerDefeated)
             {

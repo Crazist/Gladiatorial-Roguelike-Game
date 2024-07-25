@@ -38,6 +38,9 @@ namespace UI.Service
                 case WindowId.TableWindow:
                     _uiFactory.CreateTableWindow();
                     break;
+                case WindowId.VictoryWindow:
+                    _uiFactory.CreateVictoryWindow();
+                    break;
             }
         }
     }
