@@ -29,20 +29,18 @@ namespace Infrastructure.Services.AIServices
 
         private void AttackWithMinimumHits(List<CardView> remainingPlayerCards, List<CardView> remainingBotCards, List<AttackInfo> attacks)
         {
-            var attackQueue = new List<CardView>(remainingBotCards);
-
-            while (remainingPlayerCards.Count > 0 && attackQueue.Count > 0)
+            while (remainingPlayerCards.Count > 0 && remainingBotCards.Count > 0)
             {
-                var target = FindBestTarget(remainingPlayerCards, attackQueue);
+                var target = FindBestTarget(remainingPlayerCards, remainingBotCards);
                 if (target == null) break;
 
-                int requiredHits = CalculateRequiredHits(target, attackQueue);
-                var attackers = attackQueue.Take(requiredHits).ToList();
+                int requiredHits = CalculateRequiredHits(target, remainingBotCards);
+                var attackers = remainingBotCards.Take(requiredHits).ToList();
 
                 foreach (var attacker in attackers)
                 {
                     attacks.Add(new AttackInfo { Attacker = attacker, Defender = target });
-                    attackQueue.Remove(attacker);
+                    remainingBotCards.Remove(attacker);
                 }
 
                 remainingPlayerCards.Remove(target);
@@ -86,7 +84,8 @@ namespace Infrastructure.Services.AIServices
 
             foreach (var attacker in sortedAttackQueue)
             {
-                totalDamage += attacker.GetDynamicCardView().GetConcreteTCard().CardData.UnitData.Attack;
+                int attackDamage = attacker.GetDynamicCardView().GetConcreteTCard().CardData.UnitData.Attack;
+                totalDamage += attackDamage;
                 requiredHits++;
 
                 if (shieldHp > 0)
@@ -97,13 +96,11 @@ namespace Infrastructure.Services.AIServices
                         shieldHp = 0;
                     }
                 }
-                else
+
+                remainingHp -= totalDamage;
+                if (remainingHp <= 0)
                 {
-                    remainingHp -= totalDamage;
-                    if (remainingHp <= 0)
-                    {
-                        break;
-                    }
+                    break;
                 }
             }
 

@@ -38,17 +38,12 @@ namespace Infrastructure.Services.BattleServices
 
             for (int i = 0; i < attacks.Count; i++)
             {
-                if (attacks[i].Defender == null || attacks[i].Defender.GetDynamicCardView() == null)
+                if (attacks[i].Defender == null || attacks[i].Attacker == null)
                 {
                     continue;
                 }
 
                 yield return PerformAttackAnimation(attacks[i].Attacker, attacks[i].Defender);
-                
-                if (attacks[i].Defender == null)
-                {
-                    RemoveRelatedAttacks(attacks, attacks[i].Defender);
-                }
             }
 
             _attackService.ClearAttacks();
@@ -77,10 +72,7 @@ namespace Infrastructure.Services.BattleServices
             Tween moveToAttackPosition = attacker.transform.DOMove(attackPosition, 0.5f);
             yield return moveToAttackPosition.WaitForCompletion();
 
-            if (defender != null && defender.GetDynamicCardView() != null)
-            {
-                _damageService.ApplyDamage(attacker, defender);
-            }
+            _damageService.ApplyDamage(attacker, defender);
 
             Tween moveBackToStartPosition = attacker.transform.DOMove(attackerStartPosition, 0.5f);
             yield return moveBackToStartPosition.WaitForCompletion();
@@ -95,16 +87,6 @@ namespace Infrastructure.Services.BattleServices
             foreach (var card in _tableService.GetPlayerTableViews())
             {
                 card.GetAttackAndDefence().DisableShield();
-            }
-        }
-        private void RemoveRelatedAttacks(List<AttackInfo> attacks, CardView card)
-        {
-            for (int i = attacks.Count - 1; i >= 0; i--)
-            {
-                if (attacks[i].Attacker == card || attacks[i].Defender == card)
-                {
-                    attacks.RemoveAt(i);
-                }
             }
         }
     }
