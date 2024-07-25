@@ -52,14 +52,14 @@ namespace Infrastructure.Services.CardsServices
                 yield break;
             }
 
-            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos, false);
+            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos, true);
         }
 
         private IEnumerator ApplyAIBuffCoroutine(CardView buffCardView, CardView targetCardView, Action resetPos)
         {
             yield return null;
 
-            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos, true);
+            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos, false);
         }
 
         private bool IsValidBuffTarget(CardView targetCardView, CardType buffCardType)

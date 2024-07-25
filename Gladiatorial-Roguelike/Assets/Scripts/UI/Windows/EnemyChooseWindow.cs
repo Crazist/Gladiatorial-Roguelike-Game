@@ -4,7 +4,6 @@ using Infrastructure.Data;
 using Infrastructure.Services;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.StateMachines;
-using Logic.Types;
 using Services;
 using TMPro;
 using UI.Elements;
@@ -13,7 +12,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace UI
+namespace UI.Windows
 {
     public class EnemyChooseWindow : WindowBase
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 using Infrastructure.Services;
+using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.CardsServices;
 using Logic.Types;
 using UI.Elements.CardDrops;
@@ -26,12 +27,13 @@ namespace UI.Services
         private Vector3 _startPosition;
         private Vector2 _offset;
         private CardBuffService _cardBuffService;
-
+        
         [Inject]
         private void Inject(UIFactory uiFactory,  CardBuffService cardBuffService)
         {
             _cardBuffService = cardBuffService;
             _uiFactory = uiFactory;
+            
             _dropAreas = new List<CardDropArea>();
         }
 
@@ -109,7 +111,9 @@ namespace UI.Services
         private void ApplyBuff()
         {
             var currentCardViewCopy = _currentCardView;
+            
             _cardBuffService.ApplyBuff(_currentCardView, () => ResetPosition(currentCardViewCopy));
+            
             ResetDrag();
         }
 

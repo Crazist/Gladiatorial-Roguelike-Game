@@ -53,11 +53,11 @@ namespace Infrastructure.Services.BattleServices
         public IEnumerator ExecuteBotActions()
         {
             var defenseCards = _botDefenseStrategy.DetermineDefense();
-            
+
             yield return new WaitForSeconds(0.5f);
 
             var attacks = _botAttackStrategy.DetermineAttacks(defenseCards);
-            
+
             foreach (var attack in attacks)
             {
                 _attackService.AddAttack(attack.Attacker, attack.Defender);
@@ -82,11 +82,14 @@ namespace Infrastructure.Services.BattleServices
         {
             foreach (var card in _tableService.GetEnemyTableViews())
             {
-                card.GetAttackAndDefence().DisableShield();
+                if (card != null)
+                    card.GetAttackAndDefence().DisableShield();
             }
+
             foreach (var card in _tableService.GetPlayerTableViews())
             {
-                card.GetAttackAndDefence().DisableShield();
+                if (card != null)
+                    card.GetAttackAndDefence().DisableShield();
             }
         }
     }

@@ -81,8 +81,6 @@ namespace Infrastructure.Services.AIServices
 
             moveTween.Kill();
 
-            _tableService.GetEnemyHandViews().Remove(buffCard);
-
             _buffService.ApplyBuffForAi(buffCard, targetCardView);
 
             yield return new WaitForSeconds(1);

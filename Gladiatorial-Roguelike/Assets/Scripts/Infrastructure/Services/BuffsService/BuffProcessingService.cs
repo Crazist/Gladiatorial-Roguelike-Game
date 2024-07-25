@@ -38,12 +38,9 @@ namespace Infrastructure.Services.BuffsService
 
             targetCardView.UpdateView();
             CompleteBuff(buffCardView, resetPos, isPlayer);
-
-            if (isPlayer)
-                _tableService.GetPlayerHandViews().Remove(buffCardView);
         }
 
-        public void CompleteBuff(CardView buffCardView, Action resetPos, bool isPlayer)
+        private void CompleteBuff(CardView buffCardView, Action resetPos, bool isPlayer)
         {
             if (isPlayer)
             {
@@ -58,19 +55,19 @@ namespace Infrastructure.Services.BuffsService
             resetPos?.Invoke();
         }
 
-        public void ApplyHealingBuff(UnitCard targetCard, SpecialCard buffCard)
+        private void ApplyHealingBuff(UnitCard targetCard, SpecialCard buffCard)
         {
             if (targetCard == null || buffCard == null) return;
             // _buffService.Heal(targetCard, buffCard.SpecialEffectValue);
         }
 
-        public void ApplyStatBuff(UnitCard targetCard, SpecialCard buffCard)
+        private void ApplyStatBuff(UnitCard targetCard, SpecialCard buffCard)
         {
             if (targetCard == null || buffCard == null) return;
             _buffService.Buff(targetCard, buffCard);
         }
 
-        public void ApplyRecruitBuff(UnitCard targetCard, SpecialCard buffCard)
+        private void ApplyRecruitBuff(UnitCard targetCard, SpecialCard buffCard)
         {
             if (targetCard == null || buffCard == null) return;
             // Implement recruitment logic here

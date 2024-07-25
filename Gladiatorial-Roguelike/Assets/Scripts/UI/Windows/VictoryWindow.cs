@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Infrastructure.Services.BattleServices;
 using Logic.Entities;
 using Logic.Types;
+using UI.Service;
+using UI.Type;
 using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,10 +17,16 @@ namespace UI.Windows
         [SerializeField] private Button _viewDeckButton;
         [SerializeField] private RectTransform _lostCardsContainer;
         [SerializeField] private CardView _cardViewPrefab;
+        
+        private DeckViewModel _deckViewModel;
+        private WindowService _windowService;
 
         [Inject]
-        public void Inject(BattleResultService battleResultService)
+        public void Inject(BattleResultService battleResultService, DeckViewModel deckViewModel, WindowService windowService)
         {
+            _windowService = windowService;
+            _deckViewModel = deckViewModel;
+            
             InitializeBtns();
             DisplayLostCards(battleResultService.PlayerLost);
         }
@@ -42,7 +50,8 @@ namespace UI.Windows
 
         private void OnViewDeckButtonClicked()
         {
-            // throw new System.NotImplementedException();
+            _deckViewModel.SetContinueBtn(false);
+            _windowService.Open(WindowId.DeckWindow);
         }
 
         private void OnContinueButtonClicked()

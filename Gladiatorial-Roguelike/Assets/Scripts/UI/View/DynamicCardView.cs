@@ -16,10 +16,12 @@ namespace UI.View
         [SerializeField] private Sprite _emptyHeartSprite;
        
         private UnitCard _unitCard;
+        private int _maxHp;
 
         public void Initialize(UnitCard unitCard)
         {
             _unitCard = unitCard;
+            _maxHp = _unitCard.CardData.UnitData.Hp;
             
             UpdateHp();
             
@@ -45,10 +47,16 @@ namespace UI.View
         public void UpdateHp()
         {
             int currentHp = _unitCard.Hp;
-            int maxHp = _unitCard.CardData.UnitData.Hp;
+
+            if (currentHp > _maxHp)
+            {
+                _maxHp = currentHp;
+            }
 
             _hp.text = currentHp.ToString() + " HP";
-            _fill.fillAmount = (float)currentHp / maxHp;
+
+            float fillPercentage = (float)currentHp / _maxHp;
+            _fill.rectTransform.anchorMax = new Vector2(fillPercentage, _fill.rectTransform.anchorMax.y);
 
             if (currentHp <= 0)
             {

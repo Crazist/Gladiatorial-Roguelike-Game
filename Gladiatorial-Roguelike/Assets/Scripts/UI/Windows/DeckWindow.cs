@@ -6,7 +6,6 @@ using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
 using Logic.Entities;
 using Logic.Types;
-using UI.Elements;
 using UI.Model;
 using UI.View;
 using UnityEngine;
