@@ -7,6 +7,7 @@ using Infrastructure.Services.PersistentProgress;
 using Infrastructure.StateMachines;
 using Infrastructure.States.BattleStates;
 using Logic.Types;
+using UI.Elements;
 using UI.Elements.CardDrops;
 using UI.Services;
 using UI.View;
@@ -21,8 +22,8 @@ namespace UI.Windows
         [SerializeField] private List<CardDropArea> _playerDropAreas;
         [SerializeField] private List<EnemyCardDropArea> _enemyDropAreas;
 
-        [SerializeField] private Image _playerDeck;
-        [SerializeField] private Image _enemyDeck;
+        [SerializeField] private DeckBattleView _playerDeckView;
+        [SerializeField] private DeckBattleView _enemyDeckView;
         [SerializeField] private Transform _playerHandArea;
         [SerializeField] private Transform _enemyHandArea;
         [SerializeField] private CardView _cardPrefab;
@@ -36,12 +37,13 @@ namespace UI.Windows
         private AIService _aiService;
         private BattleStateMachine _battleStateMachine;
         private TurnService _turnService;
+        private CardService _cardService;
 
         [Inject]
         private void Inject(TableService tableService, StaticDataService staticDataService,
             PersistentProgressService persistentProgressService, CardPopupService cardPopup,
-            CardDragService cardDragService,
-            AIService aiService, BattleStateMachine battleStateMachine, TurnService turnService)
+            CardDragService cardDragService, AIService aiService, BattleStateMachine battleStateMachine,
+            TurnService turnService, CardService cardService)
         {
             _turnService = turnService;
             _battleStateMachine = battleStateMachine;
@@ -51,16 +53,18 @@ namespace UI.Windows
             _staticDataService = staticDataService;
             _tableService = tableService;
             _aiService = aiService;
+            _cardService = cardService;
 
             SubscribeToTurnEvents();
             InitializeBtns();
             InitializePlayerHand();
             InitializeEnemyHand();
-            SetDeckImages();
+            SetDeckViews();
             InitializeDropAreas();
         }
 
         protected override void OnAwake() => _finishTurn.gameObject.SetActive(false);
+
         private void SubscribeToTurnEvents()
         {
             _turnService.OnPlayerTurnStart += OnPlayerTurnStart;
@@ -77,13 +81,21 @@ namespace UI.Windows
             _battleStateMachine.Enter<BattleCalculationState>();
         }
 
-        private void SetDeckImages()
+        private void SetDeckViews()
         {
-            _playerDeck.sprite = _staticDataService
-                .ForDeck(_persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck).CardBackImage;
-            _enemyDeck.sprite = _staticDataService
-                .ForDeck(_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType)
-                .CardBackImage;
+            var playerDeck = _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck;
+            var enemyDeck = _persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType;
+
+            _playerDeckView.SetDeckImage(_staticDataService.ForDeck(playerDeck).CardBackImage);
+            _enemyDeckView.SetDeckImage(_staticDataService.ForDeck(enemyDeck).CardBackImage);
+
+            UpdateDeckCounts();
+        }
+
+        private void UpdateDeckCounts()
+        {
+            _playerDeckView.UpdateDeckCount(_cardService.GetRemainingPlayerCardsCount(), _cardService.GetMaxPlayerCardsCount());
+            _enemyDeckView.UpdateDeckCount(_cardService.GetRemainingEnemyCardsCount(), _cardService.GetMaxEnemyCardsCount());
         }
 
         private void InitializePlayerHand()
@@ -115,6 +127,8 @@ namespace UI.Windows
         {
             InitializePlayerHand();
             InitializeEnemyHand();
+            
+            UpdateDeckCounts();
         }
 
         private void InitializeDropAreas()

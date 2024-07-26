@@ -38,6 +38,27 @@ namespace Infrastructure.Services.CardsServices
         public List<Card> DrawEnemyHand(int count) =>
             DrawCards(_shuffledEnemyDeck, count);
 
+        public int GetRemainingPlayerCardsCount() =>
+            _shuffledPlayerDeck.Count;
+
+        public int GetRemainingEnemyCardsCount() =>
+            _shuffledEnemyDeck.Count;
+
+        public int GetMaxPlayerCardsCount() =>
+            _playerDeckService.GetDeck().Count;
+
+        public int GetMaxEnemyCardsCount()
+        {
+            var enemyProgress = _persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress;
+            return enemyProgress.ChoosenDeck switch
+            {
+                DeckComplexity.Easy => enemyProgress.EasyDeck.Cards.Count,
+                DeckComplexity.Intermediate => enemyProgress.IntermediateDeck.Cards.Count,
+                DeckComplexity.Hard => enemyProgress.HardDeck.Cards.Count,
+                _ => 0
+            };
+        }
+
         public void CleanUp()
         {
             _shuffledPlayerDeck.Clear();

@@ -28,9 +28,18 @@ namespace Infrastructure.Services.BattleServices
             _enemyTableViews = new List<CardView>();
         }
 
-        public List<Card> DrawEnemyHand() => _cardService.DrawEnemyHand(6);
-        public List<Card> DrawPlayerHand() => _cardService.DrawPlayerHand(6);
-        
+        public List<Card> DrawEnemyHand()
+        {
+            int neededCards = 6 - _enemyHandViews.Count;
+            return _cardService.DrawEnemyHand(neededCards);
+        }
+
+        public List<Card> DrawPlayerHand()
+        {
+            int neededCards = 6 - _playerHandViews.Count;
+            return _cardService.DrawPlayerHand(neededCards);
+        }
+
         public List<CardView> GetPlayerHandViews() => _playerHandViews;
         public List<CardView> GetEnemyHandViews() => _enemyHandViews;
         public List<CardView> GetPlayerTableViews() => _playerTableViews;
