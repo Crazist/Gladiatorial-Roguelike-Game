@@ -1,11 +1,11 @@
-using Infrastructure.Services;
-using Infrastructure.Services.AIServices;
-using Infrastructure.StateMachines;
 using System.Collections;
+using Infrastructure.Services.AIServices;
+using Infrastructure.Services.BattleServices;
+using Infrastructure.StateMachines;
 using UI.Factory;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.States.BattleStates
 {
     public class EnemyTurnState : IState
     {
@@ -14,11 +14,13 @@ namespace Infrastructure
         private AIBuffService _aiBuffService;
         private CoroutineCustomRunner _coroutineRunner;
         private UIFactory _uiFactory;
+        private BattleService _battleService;
 
         [Inject]
         private void Inject(BattleStateMachine battleStateMachine, AIService aiService, AIBuffService aiBuffService,
-            CoroutineCustomRunner coroutineRunner, UIFactory uiFactory)
+            CoroutineCustomRunner coroutineRunner, UIFactory uiFactory, BattleService battleService)
         {
+            _battleService = battleService;
             _uiFactory = uiFactory;
             _aiBuffService = aiBuffService;
             _aiService = aiService;
@@ -41,6 +43,7 @@ namespace Infrastructure
         {
             yield return _aiService.ExecuteEnemyTurnRoutine();
             yield return _aiBuffService.ExecuteBuffsRoutine();
+            yield return _battleService.ExecuteBotDefense();
 
             _battleStateMachine.Enter<PlayerTurnState>();
         }

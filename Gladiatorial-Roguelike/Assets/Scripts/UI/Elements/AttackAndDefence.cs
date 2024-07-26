@@ -11,11 +11,12 @@ namespace UI.Elements
     {
         [SerializeField] private RectTransform _attackZone;
         [SerializeField] private RectTransform _defenceZone;
-        [SerializeField] private GameObject _defenseShield;
+        [SerializeField] private DefenseShield _defenseShield;
         [SerializeField] private LineRendererUi _lineRendererUi;
         
         private bool _hasShield;
         private bool _shieldBroken;
+        private int _shieldStrength;
 
         public bool HasShield => _hasShield;
         public bool ShieldBroken => _shieldBroken;
@@ -45,6 +46,9 @@ namespace UI.Elements
             _lineRendererUi.SetLineActive(false);
             _hasShield = false;
             _shieldBroken = false;
+
+            if(_cardView.GetCard().CardData.Category == CardCategory.Unit)
+              UpdateShieldStrength(_cardView.GetDynamicCardView().GetConcreteTCard().CardData.UnitData.Defense);
         }
 
         public void RemoveLine()
@@ -55,39 +59,46 @@ namespace UI.Elements
 
         public void CleanUp()
         {
-            EnableDefenseShield(false);
+            _defenseShield.Hide();
             RemoveLine();
             RemoveAttack();
             _isDragging = false;
             _cardView.SetDraggingState(_isDragging);
             _hasShield = false;
+            _shieldStrength = 0;
         }
 
-        public void EnableShield()
+        public void EnableShield(int strength)
         {
             if (!_shieldBroken && !_hasShield)
             {
-                EnableDefenseShield(true);
+                _shieldStrength = strength;
+                _defenseShield.SetText(_shieldStrength.ToString());
                 _hasShield = true;
             }
         }
 
         public void DisableShield()
         {
-            EnableDefenseShield(false);
             _hasShield = false;
+            _defenseShield.Hide();
+        }
+
+        public void UpdateShieldStrength(int strength)
+        {
+            _shieldStrength = strength;
+            if (_hasShield)
+            {
+                _defenseShield.SetText(_shieldStrength.ToString());
+            }
         }
 
         public void BreakShield()
         {
             _shieldBroken = true;
-            DisableShield();
-        }
-
-        public void ResetShieldStatus()
-        {
-            _shieldBroken = false;
+            _defenseShield.Hide();
             _hasShield = false;
+            _shieldStrength = 0;
         }
 
         private void HandleCardClick(CardView cardView)
@@ -99,14 +110,13 @@ namespace UI.Elements
             {
                 if (_hasShield || _shieldBroken) return;
                 CleanUp();
-                EnableDefenseShield(true);
-                _hasShield = true;
+                EnableShield(_cardView.GetDynamicCardView().GetConcreteTCard().Defense);
             }
         }
 
         private void HandleBeginDrag(CardView cardView, PointerEventData eventData)
         {
-            if (CheckIfEnemy()) return;
+            if (CheckIfEnemy() || _hasShield || _shieldBroken) return;
 
             if (_cardView.State == CardState.OnTable &&
                 RectTransformUtility.RectangleContainsScreenPoint(_attackZone, eventData.position))
@@ -117,7 +127,6 @@ namespace UI.Elements
                 _lineRendererUi.SetLineActive(true);
                 _canvasService.MoveToOverlay(_lineRendererUi.GetRectTransform());
                 _lineRendererUi.CreateLine(_attackZone.position, Input.mousePosition, Color.red);
-                EnableDefenseShield(false);
             }
         }
 
@@ -178,8 +187,5 @@ namespace UI.Elements
 
         private void RemoveAttack() => 
             _attackService.RemoveAttack(_cardView);
-
-        private void EnableDefenseShield(bool enable) =>
-            _defenseShield.SetActive(enable);
     }
 }

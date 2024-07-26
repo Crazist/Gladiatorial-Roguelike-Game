@@ -12,6 +12,8 @@ namespace Infrastructure.Services.BattleServices
 {
     public class BattleService
     {
+        private List<CardView> _defenseCards = new ();
+        
         private AttackService _attackService;
         private UIFactory _uiFactory;
         private DamageService _damageService;
@@ -50,18 +52,23 @@ namespace Infrastructure.Services.BattleServices
             DisableAllShields();
         }
 
-        public IEnumerator ExecuteBotActions()
+        public IEnumerator ExecuteBotAttacks()
         {
-            var defenseCards = _botDefenseStrategy.DetermineDefense();
-
-            yield return new WaitForSeconds(0.5f);
-
-            var attacks = _botAttackStrategy.DetermineAttacks(defenseCards);
+            var attacks = _botAttackStrategy.DetermineAttacks(_defenseCards);
 
             foreach (var attack in attacks)
             {
                 _attackService.AddAttack(attack.Attacker, attack.Defender);
             }
+            
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        public IEnumerator ExecuteBotDefense()
+        {
+            _defenseCards = _botDefenseStrategy.DetermineDefense();
+
+            yield return new WaitForSeconds(0.5f);
         }
 
         private IEnumerator PerformAttackAnimation(CardView attacker, CardView defender)

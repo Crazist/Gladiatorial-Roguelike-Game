@@ -1093,6 +1093,9 @@ MonoBehaviour:
   _popUp: {fileID: 195703217784924978}
   _unitGroup: {fileID: 1968819926044356682}
   _specialGroup: {fileID: 3018276717628255934}
+  _offsetAbove: {x: -100, y: 200, z: 0}
+  _offsetBeside: {x: 50, y: 0, z: 0}
+  _positionAbove: 1
 --- !u!1 &7892889076271990254
 GameObject:
   m_ObjectHideFlags: 0

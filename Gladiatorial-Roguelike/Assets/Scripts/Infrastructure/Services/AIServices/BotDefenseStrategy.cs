@@ -8,6 +8,7 @@ namespace Infrastructure.Services.AIServices
     public class BotDefenseStrategy
     {
         private readonly TableService _tableService;
+        private readonly System.Random _random = new System.Random();
 
         public BotDefenseStrategy(TableService tableService) => _tableService = tableService;
 
@@ -23,7 +24,7 @@ namespace Infrastructure.Services.AIServices
             {
                 if (ShouldDefend(botCard, highPriorityPlayerCards))
                 {
-                    botCard.GetAttackAndDefence().EnableShield();
+                    botCard.GetAttackAndDefence().EnableShield(botCard.GetDynamicCardView().GetConcreteTCard().CardData.UnitData.Defense);
                     defenseCards.Add(botCard);
                 }
             }
@@ -49,6 +50,13 @@ namespace Infrastructure.Services.AIServices
             var attackTargets = DeterminePotentialAttackTargets(botCard);
             if (attackTargets.Any())
             {
+                double randomChance = _random.NextDouble();
+               
+                if (randomChance < 0.2f) 
+                {
+                    return true;
+                }
+                
                 return false;
             }
 

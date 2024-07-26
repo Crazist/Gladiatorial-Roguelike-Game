@@ -26,16 +26,21 @@ namespace Infrastructure.Services.BattleServices
             if (attackerUnit != null && defenderUnit != null)
             {
                 if (attackAndDefence.HasShield)
-                {
-                    int remainingDamage = attackerUnit.CardData.UnitData.Attack - defenderUnit.CardData.UnitData.Defense;
-                    if (remainingDamage > 0)
+                { 
+                    defenderUnit.Defense  -= attackerUnit.CardData.UnitData.Attack;
+                    
+                    if (defenderUnit.Defense  > 0)
                     {
-                        defenderUnit.TakeDamage(remainingDamage);
-                        attackAndDefence.BreakShield();
+                        attackAndDefence.UpdateShieldStrength(defenderUnit.Defense);
                     }
                     else
                     {
-                        attackAndDefence.DisableShield();
+                        int remainingDamage = attackerUnit.CardData.UnitData.Attack - defenderUnit.CardData.UnitData.Defense;
+                        attackAndDefence.BreakShield();
+                        if (remainingDamage > 0)
+                        {
+                            defenderUnit.TakeDamage(remainingDamage);
+                        }
                     }
                 }
                 else
@@ -73,6 +78,7 @@ namespace Infrastructure.Services.BattleServices
                 _battleResultService.PlayerLost.Add(cardView.GetCard());
             }
         }
+        
         private void DestroyCard(CardView cardView) => 
             Object.Destroy(cardView.gameObject);
     }

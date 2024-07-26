@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackZone: {fileID: 3671613720262065472}
   _defenceZone: {fileID: 7170642893642309027}
-  _defenseShield: {fileID: 1278670879241117130}
+  _defenseShield: {fileID: 2958739849777158489}
   _lineRendererUi: {fileID: 396502511651095234}
 --- !u!1 &1055176637534062984
 GameObject:
@@ -296,6 +296,7 @@ GameObject:
   - component: {fileID: 8643515478446624513}
   - component: {fileID: 2322909998497552470}
   - component: {fileID: 8160939536058068139}
+  - component: {fileID: 2958739849777158489}
   m_Layer: 0
   m_Name: Shild
   m_TagString: Untagged
@@ -362,6 +363,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2958739849777158489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1278670879241117130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7484a1c02eea43b98f74e9929fdec51a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _countText: {fileID: 8990829183231676116}
 --- !u!1 &2327162176086117555
 GameObject:
   m_ObjectHideFlags: 0
