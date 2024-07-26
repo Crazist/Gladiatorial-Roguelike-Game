@@ -1,11 +1,10 @@
 using Data.Cards;
-using Logic.Cards;
 using Logic.Entities;
 using Logic.Types;
 using TMPro;
 using UnityEngine;
 
-namespace UI.Elements
+namespace UI.Popup
 {
     public class CardPopup : MonoBehaviour
     {
@@ -19,6 +18,12 @@ namespace UI.Elements
 
         [SerializeField] private CanvasGroup _unitGroup;
         [SerializeField] private CanvasGroup _specialGroup;
+
+        [Header("Popup Position Settings")]
+        [SerializeField] private Vector3 _offsetAbove = new Vector3(0, 50, 0);
+        [SerializeField] private Vector3 _offsetBeside = new Vector3(50, 0, 0);
+      
+        [SerializeField] private bool _positionAbove = true;
 
         public void Show(Vector3 position, Card card)
         {
@@ -67,8 +72,11 @@ namespace UI.Elements
             SetCanvasGroupVisibility(_specialGroup, false);
         }
 
-        private void SetPosition(Vector3 position) =>
-            _popUp.transform.position = position;
+        private void SetPosition(Vector3 position)
+        {
+            Vector3 offset = _positionAbove ? _offsetAbove : _offsetBeside;
+            _popUp.transform.position = position + offset;
+        }
 
         private void SetCanvasGroupVisibility(CanvasGroup canvasGroup, bool isVisible)
         {
