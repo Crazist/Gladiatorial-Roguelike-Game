@@ -65,7 +65,6 @@ namespace Infrastructure.Services.AIServices
                     if (availableDropArea != null)
                     {
                         _tableService.GetEnemyHandViews().Remove(cardToPlay);
-                        _tableService.GetEnemyTableViews().Add(cardToPlay);
                         yield return PlaceCardInDropAreaWithDelay(cardToPlay, availableDropArea);
                     }
                 }

@@ -1,8 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using DG.Tweening;
-using Infrastructure;
 using Infrastructure.Services.BattleServices;
 using Infrastructure.StateMachines;
 using Infrastructure.States.BattleStates;
@@ -22,11 +22,14 @@ namespace UI.Popup
         {
             _battleStateMachine = battleStateMachine;
             _turnService = turnService;
+
+            Initialize();
         }
 
-        private void OnEnable()
+        private void Initialize()
         {
             HidePopup();
+            
             _turnService.OnBattleEnd += ShowPopup;
             _confirm.onClick.AddListener(OnConfirm);
         }
@@ -42,6 +45,8 @@ namespace UI.Popup
             _canvasGroup.DOFade(1f, 2f);
             _canvasGroup.interactable = true;
             _canvasGroup.blocksRaycasts = true;
+            _canvasGroup.alpha = 1;
+            gameObject.SetActive(true);
         }
 
         private void HidePopup()
@@ -49,6 +54,7 @@ namespace UI.Popup
             _canvasGroup.alpha = 0;
             _canvasGroup.interactable = false;
             _canvasGroup.blocksRaycasts = false;
+            gameObject.SetActive(false);
         }
 
         private void OnConfirm() => _battleStateMachine.Enter<BattleEndState>();
