@@ -1,18 +1,14 @@
-using UI.Elements;
-using UI.Factory;
-using UnityEngine;
 using System;
 using System.Collections.Generic;
-using Infrastructure.Services;
-using Infrastructure.Services.BattleServices;
-using Infrastructure.Services.CardsServices;
 using Logic.Types;
 using UI.Elements.CardDrops;
+using UI.Factory;
 using UI.View;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
 
-namespace UI.Services
+namespace Infrastructure.Services.CardsServices
 {
     public class CardDragService
     {
@@ -45,13 +41,7 @@ namespace UI.Services
             }
         }
 
-        public void RemoveDropArea(CardDropArea dropArea)
-        {
-            if (_dropAreas.Contains(dropArea))
-            {
-                _dropAreas.Remove(dropArea);
-            }
-        }
+        public void CleanUp() => _dropAreas.Clear();
 
         public void HandleBeginDrag(CardView cardView, PointerEventData eventData, bool isDraggable)
         {

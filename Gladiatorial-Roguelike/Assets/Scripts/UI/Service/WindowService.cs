@@ -9,10 +9,7 @@ namespace UI.Service
         private UIFactory _uiFactory;
 
         [Inject]
-        private void Inject(UIFactory uiFactory)
-        {
-            _uiFactory = uiFactory;
-        }
+        private void Inject(UIFactory uiFactory) => _uiFactory = uiFactory;
 
         public void Open(WindowId id)
         {
@@ -40,6 +37,9 @@ namespace UI.Service
                     break;
                 case WindowId.VictoryWindow:
                     _uiFactory.CreateVictoryWindow();
+                    break;
+                case WindowId.BlackSmithWindow:
+                    _uiFactory.CreateTableWindow();
                     break;
             }
         }

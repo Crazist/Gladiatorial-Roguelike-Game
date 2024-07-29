@@ -10,24 +10,25 @@ namespace Infrastructure.States.BattleStates
         private GameStateMachine _gameStateMachine;
         private CardService _cardService;
         private TableService _tableService;
+        private CardDragService _cardDragService;
 
         [Inject]
-        private void Inject(GameStateMachine gameStateMachine, CardService cardService, TableService tableService)
+        private void Inject(GameStateMachine gameStateMachine, CardService cardService, TableService tableService,
+            CardDragService cardDragService)
         {
+            _cardDragService = cardDragService;
             _tableService = tableService;
             _cardService = cardService;
             _gameStateMachine = gameStateMachine;
         }
 
-        public void Enter()
-        {
-             EndBattle();
-        }
+        public void Enter() => EndBattle();
 
         public void Exit()
         {
             _cardService.CleanUp();
             _tableService.CleanUp();
+            _cardDragService.CleanUp();
         }
 
         private void EndBattle() => 
