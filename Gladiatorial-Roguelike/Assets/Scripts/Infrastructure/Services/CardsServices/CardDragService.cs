@@ -19,17 +19,19 @@ namespace Infrastructure.Services.CardsServices
         private UIFactory _uiFactory;
         private List<CardDropArea> _dropAreas;
         private CardView _currentCardView;
-       
+        private CanvasService _canvasService;
+
         private Vector3 _startPosition;
         private Vector2 _offset;
         private CardBuffService _cardBuffService;
-        
+
         [Inject]
-        private void Inject(UIFactory uiFactory,  CardBuffService cardBuffService)
+        private void Inject(UIFactory uiFactory, CardBuffService cardBuffService, CanvasService canvasService)
         {
             _cardBuffService = cardBuffService;
             _uiFactory = uiFactory;
-            
+            _canvasService = canvasService;
+
             _dropAreas = new List<CardDropArea>();
         }
 
@@ -51,11 +53,16 @@ namespace Infrastructure.Services.CardsServices
             IsDrag = true;
 
             InitializeDrag(eventData);
+            _canvasService.MoveToOverlay(cardView.GetRectTransform());
+            AdjustPositionToCanvas(cardView.GetRectTransform(), eventData);
             OnCardBeginDrag?.Invoke();
         }
 
-        public void ResetPosition(CardView cardView) =>
+        public void ResetPosition(CardView cardView)
+        {
             cardView.transform.localPosition = _startPosition;
+            _canvasService.MoveBack(cardView.GetRectTransform());
+        }
 
         private void InitializeDrag(PointerEventData eventData)
         {
@@ -68,7 +75,7 @@ namespace Infrastructure.Services.CardsServices
 
         public void HandleDrag(PointerEventData eventData, bool isDraggable)
         {
-            if (IsDrag && isDraggable) 
+            if (IsDrag && isDraggable)
                 PerformDrag(eventData);
         }
 
@@ -101,9 +108,9 @@ namespace Infrastructure.Services.CardsServices
         private void ApplyBuff()
         {
             var currentCardViewCopy = _currentCardView;
-            
+
             _cardBuffService.ApplyBuff(_currentCardView, () => ResetPosition(currentCardViewCopy));
-            
+
             ResetDrag();
         }
 
@@ -111,7 +118,6 @@ namespace Infrastructure.Services.CardsServices
         {
             dropArea.HandleDrop(_currentCardView, this);
             OnCardEndDrag?.Invoke();
-            ResetDrag();
         }
 
         private void HandleUnsuccessfulDrop()
@@ -131,7 +137,7 @@ namespace Infrastructure.Services.CardsServices
         private Vector2 LocalPoint(PointerEventData eventData)
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                _uiFactory.UI.transform as RectTransform,
+                _canvasService.GetOverlayCanvas().transform as RectTransform,
                 eventData.position,
                 eventData.pressEventCamera,
                 out Vector2 localPoint);
@@ -141,7 +147,22 @@ namespace Infrastructure.Services.CardsServices
         private void ResetDrag()
         {
             IsDrag = false;
+            _canvasService.MoveBack(_currentCardView.GetRectTransform());
             _currentCardView = null;
+        }
+
+        private void AdjustPositionToCanvas(RectTransform rectTransform, PointerEventData eventData)
+        {
+            var worldPoint = Vector3.zero;
+
+            if (RectTransformUtility.ScreenPointToWorldPointInRectangle(rectTransform, eventData.position,
+                    eventData.pressEventCamera, out worldPoint))
+            {
+                rectTransform.position = worldPoint;
+            }
+
+            var localPoint = LocalPoint(eventData);
+            _offset = rectTransform.localPosition - (Vector3)localPoint;
         }
     }
 }

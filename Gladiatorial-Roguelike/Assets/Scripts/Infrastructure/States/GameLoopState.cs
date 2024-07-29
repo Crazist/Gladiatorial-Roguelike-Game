@@ -3,7 +3,7 @@ using Infrastructure.States.BattleStates;
 using UI.Factory;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.States
 {
     public class GameLoopState : IState
     {

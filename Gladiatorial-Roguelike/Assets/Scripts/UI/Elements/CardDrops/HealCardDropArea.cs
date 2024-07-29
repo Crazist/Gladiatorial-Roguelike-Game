@@ -1,7 +1,5 @@
 using Infrastructure.Services.CardsServices;
-using UI.Services;
 using UI.View;
-using UnityEngine;
 
 namespace UI.Elements.CardDrops
 {
@@ -9,7 +7,7 @@ namespace UI.Elements.CardDrops
     {
         public override void HandleDrop(CardView cardView, CardDragService cardDragService)
         {
-            Debug.Log("Card healed");
+           Destroy(cardView.gameObject);
         }
     }
 }

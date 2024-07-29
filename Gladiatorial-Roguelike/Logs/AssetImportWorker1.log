@@ -1286,3 +1286,15 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 4856.645855 seconds.
+  path: Assets/Resources/UI/DeckWindow.prefab
+  artifactKey: Guid(bd2280a771426ea45b5a4efa063992cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Number of updated assets reloaded before import = 0
+Start importing Assets/Resources/UI/DeckWindow.prefab using Guid(bd2280a771426ea45b5a4efa063992cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '615166601b2d4122e0b3c8e74d696da7') in 0.156658 seconds 
+Number of asset objects unloaded after import = 102
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
