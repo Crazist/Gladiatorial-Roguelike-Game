@@ -1,13 +1,9 @@
 using Infrastructure.Services;
-using Infrastructure.Services.PersistentProgress;
 using Infrastructure.StateMachines;
-using Logic.Cards;
 using UI.Factory;
-using UnityEngine;
 using Zenject;
-using Object = UnityEngine.Object;
 
-namespace Infrastructure
+namespace Infrastructure.States
 {
     public class LoadLevelState : IPayloadedState<string>
     {

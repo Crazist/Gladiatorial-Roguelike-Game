@@ -1,7 +1,7 @@
 using Infrastructure.StateMachines;
 using Zenject;
 
-namespace Infrastructure
+namespace Infrastructure.States
 {
     public class MenuState : IState
     {

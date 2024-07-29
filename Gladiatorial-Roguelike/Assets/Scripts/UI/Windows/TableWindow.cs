@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Infrastructure.Services;
 using Infrastructure.Services.AIServices;
@@ -94,8 +95,10 @@ namespace UI.Windows
 
         private void UpdateDeckCounts()
         {
-            _playerDeckView.UpdateDeckCount(_cardService.GetRemainingPlayerCardsCount(), _cardService.GetMaxPlayerCardsCount());
-            _enemyDeckView.UpdateDeckCount(_cardService.GetRemainingEnemyCardsCount(), _cardService.GetMaxEnemyCardsCount());
+            _playerDeckView.UpdateDeckCount(_cardService.GetRemainingPlayerCardsCount(),
+                _cardService.GetMaxPlayerCardsCount());
+            _enemyDeckView.UpdateDeckCount(_cardService.GetRemainingEnemyCardsCount(),
+                _cardService.GetMaxEnemyCardsCount());
         }
 
         private void InitializePlayerHand()
@@ -127,7 +130,7 @@ namespace UI.Windows
         {
             InitializePlayerHand();
             InitializeEnemyHand();
-            
+
             UpdateDeckCounts();
         }
 
@@ -139,6 +142,13 @@ namespace UI.Windows
             }
 
             _aiService.Initialize(_enemyDropAreas);
+        }
+
+        private void OnDestroy()
+        {
+            _turnService.OnPlayerTurnStart -= OnPlayerTurnStart;
+            _turnService.OnTurnEnd -= NewTurn;
+            _finishTurn.onClick.RemoveListener(OnFinishTurnClicked);
         }
     }
 }

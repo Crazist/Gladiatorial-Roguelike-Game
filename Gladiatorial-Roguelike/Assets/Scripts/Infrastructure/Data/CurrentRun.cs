@@ -7,9 +7,11 @@ namespace Infrastructure.Data
     {
         public EnemyProgress EnemyProgress;
         public DeckProgress DeckProgress;
-        
+
         public int EnemyLevel;
-        public CurrentRun()
+        public CurrentRun() => RefreshCurrentRun();
+
+        public void RefreshCurrentRun()
         {
             EnemyProgress = new EnemyProgress();
             DeckProgress = new DeckProgress();

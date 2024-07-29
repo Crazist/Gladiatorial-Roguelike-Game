@@ -1,4 +1,8 @@
+using Infrastructure;
 using Infrastructure.Services;
+using Infrastructure.Services.PersistentProgress;
+using Infrastructure.StateMachines;
+using Infrastructure.States;
 using Logic.Types;
 using UI.View;
 using UnityEngine;
@@ -15,11 +19,19 @@ namespace UI.Windows
 
         private PlayerDeckService _playerDeckService;
         private PermaDeckService _permaDeckService;
-        private bool _cardSelected;
+        private GameStateMachine _gameStateMachine;
+        private SaveLoadService _saveLoadService;
+        private bool _cardSelected = false;
+        private PersistentProgressService _persistentProgressService;
 
         [Inject]
-        private void Inject(PlayerDeckService playerDeckService, PermaDeckService permaDeckService)
+        private void Inject(PlayerDeckService playerDeckService, PermaDeckService permaDeckService,
+            GameStateMachine gameStateMachine, SaveLoadService saveLoadService,
+            PersistentProgressService persistentProgressService)
         {
+            _persistentProgressService = persistentProgressService;
+            _saveLoadService = saveLoadService;
+            _gameStateMachine = gameStateMachine;
             _permaDeckService = permaDeckService;
             _playerDeckService = playerDeckService;
 
@@ -51,7 +63,9 @@ namespace UI.Windows
 
         private void OnContinueButtonClicked()
         {
-            // Handle continue button logic
+            _persistentProgressService.PlayerProgress.CurrentRun.RefreshCurrentRun();
+            _saveLoadService.SaveProgress();
+            _gameStateMachine.Enter<LoadProgressState>();
         }
     }
 }
