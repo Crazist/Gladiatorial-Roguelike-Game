@@ -38,8 +38,11 @@ namespace UI.Service
                 case WindowId.VictoryWindow:
                     _uiFactory.CreateVictoryWindow();
                     break;
+                case WindowId.LoseWindow:
+                    _uiFactory.CreateLoseWindow();
+                    break;
                 case WindowId.BlackSmithWindow:
-                    _uiFactory.CreateTableWindow();
+                    _uiFactory.CreateBlackSmithWindow();
                     break;
             }
         }

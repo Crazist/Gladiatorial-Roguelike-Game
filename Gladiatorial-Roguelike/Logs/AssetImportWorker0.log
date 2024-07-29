@@ -347,3 +347,7 @@ Received Import Request.
 Number of updated assets reloaded before import = 0
 Start importing Assets/Resources/UI/Menu_Window.prefab using Guid(e1bf2428f61de4b8cbae004ce20c67ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51b659474da1ca2e6ab50b6df7359538') in 0.023412 seconds 
 Number of asset objects unloaded after import = 142
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
+AssetImportWorker is now disconnected from the server
+Process exiting

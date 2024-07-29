@@ -9,8 +9,6 @@ namespace Infrastructure.Services
 {
     public class PlayerDeckService
     {
-        private List<Card> _currentDeck;
-        
         private Factory _deckFactory;
         private PersistentProgressService _persistentProgress;
 
@@ -21,25 +19,19 @@ namespace Infrastructure.Services
             _deckFactory = deckFactory;
         }
 
-        public void CreateDeck(CardData[] deck)
-        {
-            _currentDeck = _deckFactory.CreateCards(deck);
-            _persistentProgress.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck = _currentDeck;
-        }
-
-        public void LoadDeck(List<Card> deck) => 
-            _currentDeck = deck;
+        public void CreateDeck(CardData[] deck) => 
+            _persistentProgress.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck =  _deckFactory.CreateCards(deck);
 
         public void AddCard(CardData cardData) => 
-            _currentDeck.Add(_deckFactory.CreateCard(cardData));
+            _persistentProgress.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck.Add(_deckFactory.CreateCard(cardData));
 
         public List<Card> GetDeck() => 
-            _currentDeck;
+            _persistentProgress.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck;
 
         public void RemoveCard(Card card) => 
-            _currentDeck.Remove(card);
+            _persistentProgress.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck.Remove(card);
 
         public void ClearDeck() => 
-            _currentDeck.Clear();
+            _persistentProgress.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck.Clear();
     }
 }

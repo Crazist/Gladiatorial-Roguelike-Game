@@ -3,7 +3,6 @@ using UI.View;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using Data.Cards;
 using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.CardsServices;
 using Logic.Types;

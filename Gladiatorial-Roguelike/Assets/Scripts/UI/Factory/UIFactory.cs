@@ -84,6 +84,11 @@ namespace UI.Factory
             var config = _staticDataService.ForWindow(WindowId.VictoryWindow);
             Object.Instantiate(config.Prefab, _uiRoot);
         }
+        public void CreateLoseWindow()
+        {
+            var config = _staticDataService.ForWindow(WindowId.LoseWindow);
+            Object.Instantiate(config.Prefab, _uiRoot);
+        }
         public void CreateBlackSmithWindow()
         {
             var config = _staticDataService.ForWindow(WindowId.BlackSmithWindow);

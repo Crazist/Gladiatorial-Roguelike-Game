@@ -49,7 +49,10 @@ namespace Infrastructure.States
             if (_battleResultService.BattleResult == BattleResult.Win)
             {
                 _windowService.Open(WindowId.VictoryWindow);
+                return;
             }
+            
+            _windowService.Open(WindowId.LoseWindow);
         }
     }
 }

@@ -54,9 +54,6 @@ namespace UI.Windows
             _windowService.Open(WindowId.DeckWindow);
         }
 
-        private void OnContinueButtonClicked()
-        {
-            // throw new System.NotImplementedException();
-        }
+        private void OnContinueButtonClicked() => _windowService.Open(WindowId.BlackSmithWindow);
     }
 }

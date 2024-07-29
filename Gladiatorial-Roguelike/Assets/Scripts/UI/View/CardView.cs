@@ -85,6 +85,7 @@ namespace UI.View
         public DynamicCardView GetDynamicCardView() => _dynamicCard;
         public CardDragHandler GetCardDragHandler() => _cardDragHandler;
         public AttackAndDefence GetAttackAndDefence() => _attackAndDefence;
+        public CardInteractionHandler GetCardInteractionHandler() => _interactionHandler;
 
         private void HandleCardHoverEnter(CardView cardView)
         {
