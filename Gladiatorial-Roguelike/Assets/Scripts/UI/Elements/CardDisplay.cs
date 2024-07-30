@@ -1,6 +1,7 @@
 using Data.Cards;
 using DG.Tweening;
 using Infrastructure.Services;
+using Logic.Enteties;
 using Logic.Entities;
 using UI.View;
 using UnityEngine;

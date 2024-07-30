@@ -12,7 +12,10 @@ namespace Infrastructure.Data
 
         public DeckType EnemyDeckType;
         public DeckComplexity ChoosenDeck;
-        public EnemyProgress()
+        public EnemyProgress() => 
+            RefreshEnemy();
+
+        public void RefreshEnemy()
         {
             EasyDeck = new EnemyDeck(DeckComplexity.Easy);
             IntermediateDeck = new EnemyDeck(DeckComplexity.Intermediate);

@@ -1,4 +1,6 @@
+using Infrastructure.Data;
 using Infrastructure.Services.BattleServices;
+using Infrastructure.Services.PersistentProgress;
 using Infrastructure.StateMachines;
 using Logic.Types;
 using UI.Factory;
@@ -17,11 +19,16 @@ namespace Infrastructure.States
         private UIFactory _uiFactory;
         private WindowService _windowService;
         private BattleResultService _battleResultService;
+        private PersistentProgressService _persistentProgressService;
+        private SaveLoadService _saveLoadService;
 
         [Inject]
         private void Inject(GameStateMachine gameStateMachine, SceneLoader sceneLoader, UIFactory uiFactory,
-            WindowService windowService, BattleResultService battleResultService)
+            WindowService windowService, BattleResultService battleResultService,
+            PersistentProgressService persistentProgressService, SaveLoadService saveLoadService)
         {
+            _saveLoadService = saveLoadService;
+            _persistentProgressService = persistentProgressService;
             _battleResultService = battleResultService;
             _windowService = windowService;
             _uiFactory = uiFactory;
@@ -48,11 +55,32 @@ namespace Infrastructure.States
         {
             if (_battleResultService.BattleResult == BattleResult.Win)
             {
+                UpdateCurrentEnemyDeck();
+                _saveLoadService.SaveProgress();
                 _windowService.Open(WindowId.VictoryWindow);
                 return;
             }
-            
+
             _windowService.Open(WindowId.LoseWindow);
+        }
+
+        private void UpdateCurrentEnemyDeck()
+        {
+            switch (_persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.ChoosenDeck)
+            {
+                case DeckComplexity.Easy:
+                    _persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.IsSkipped =
+                        EnemyDeckState.Defeated;
+                    break;
+                case DeckComplexity.Intermediate:
+                    _persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.IntermediateDeck.IsSkipped =
+                        EnemyDeckState.Defeated;
+                    break;
+                case DeckComplexity.Hard:
+                    _persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.HardDeck.IsSkipped =
+                        EnemyDeckState.Defeated;
+                    break;
+            }
         }
     }
 }

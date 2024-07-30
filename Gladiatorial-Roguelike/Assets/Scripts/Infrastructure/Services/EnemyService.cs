@@ -1,8 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Data.Cards;
+using Infrastructure.Data;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
+using Logic.Enteties;
 using Logic.Entities;
 using Logic.Types;
 using Zenject;
@@ -35,6 +37,15 @@ namespace Infrastructure.Services
             _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EasyDeck.Cards = CreateDeck(5, 3);
             _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.IntermediateDeck.Cards = CreateDeck(6, 4);
             _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.HardDeck.Cards = CreateDeck(8, 5);
+        }
+
+        public bool NeedRefreshEnemy() => 
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.HardDeck.IsSkipped == EnemyDeckState.Defeated;
+
+        public void RefreshEnemy()
+        {
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.RefreshEnemy();
+            InitEnemyDecks();
         }
 
         private void LoadAndSelectRandomConfig()

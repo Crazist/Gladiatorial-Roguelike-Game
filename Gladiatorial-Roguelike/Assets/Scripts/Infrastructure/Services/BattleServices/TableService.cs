@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Infrastructure.Services.CardsServices;
+using Logic.Enteties;
 using Logic.Entities;
 using UI.View;
 using Zenject;

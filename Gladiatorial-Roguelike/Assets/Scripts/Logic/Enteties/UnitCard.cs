@@ -1,5 +1,5 @@
 using Data.Cards;
-using Logic.Cards;
+using Logic.Enteties;
 using Newtonsoft.Json;
 using UI.View;
 
@@ -37,6 +37,7 @@ namespace Logic.Entities
             if (Hp <= 0)
             {
                 Hp = 0;
+                IsDead = true;
             }
         }
     }

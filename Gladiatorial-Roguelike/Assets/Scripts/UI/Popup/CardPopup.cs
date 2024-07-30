@@ -1,4 +1,5 @@
 using Data.Cards;
+using Logic.Enteties;
 using Logic.Entities;
 using Logic.Types;
 using TMPro;

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Zenject;
 using Infrastructure.Services.PersistentProgress;
+using Logic.Enteties;
 using Logic.Entities;
 
 namespace Infrastructure.Services

@@ -2,6 +2,7 @@ using System;
 using Infrastructure.Services;
 using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.CardsServices;
+using Logic.Enteties;
 using Logic.Entities;
 using Logic.Types;
 using UI.Elements;

@@ -45,6 +45,7 @@ namespace Infrastructure.States.BattleStates
             
             _windowService.Open(WindowId.TableWindow);
             _uiFactory.CreateTurnIndicator();
+            _uiFactory.CreateDebugPanel();
             
             _battleStateMachine.Enter<EnemyTurnState>();
         }

@@ -153,7 +153,6 @@ namespace UI.Elements
 
                 if (TryGetTargetCard(eventData, out CardView targetCardView))
                 {
-                    Debug.Log("Attack action confirmed.");
                     AddAttack(cardView, targetCardView);
                     _lineRendererUi.CreateLine(_attackZone.position, targetCardView.GetRectTransform().position, Color.red);
                 }

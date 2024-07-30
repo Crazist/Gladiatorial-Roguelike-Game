@@ -4,6 +4,7 @@ using System.Linq;
 using Data.Cards;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
+using Logic.Enteties;
 using Logic.Entities;
 using UI.Elements;
 using UI.View;

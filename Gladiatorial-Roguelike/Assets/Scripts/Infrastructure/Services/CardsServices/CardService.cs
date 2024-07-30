@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using Infrastructure.Data;
 using Infrastructure.Services.PersistentProgress;
+using Logic.Enteties;
 using Logic.Entities;
 using UnityEngine;
 using Zenject;
@@ -25,6 +27,7 @@ namespace Infrastructure.Services.CardsServices
         public void ShuffleDecks()
         {
             _shuffledPlayerDeck = new List<Card>(_playerDeckService.GetDeck());
+            _shuffledPlayerDeck = RemoveDeadCards();
             ShuffleDeck(_shuffledPlayerDeck);
 
             var enemyDeck = GetEnemyDeck();
@@ -64,6 +67,9 @@ namespace Infrastructure.Services.CardsServices
             _shuffledPlayerDeck.Clear();
             _shuffledEnemyDeck.Clear();
         }
+
+        private List<Card> RemoveDeadCards() => 
+            _shuffledPlayerDeck.Where(card => !card.IsDead).ToList();
 
         private void ShuffleDeck(List<Card> deck)
         {

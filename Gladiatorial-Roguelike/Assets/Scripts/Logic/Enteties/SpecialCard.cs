@@ -1,5 +1,6 @@
 using Data.Cards;
 using Logic.Cards;
+using Logic.Enteties;
 using Newtonsoft.Json;
 using UI.View;
 

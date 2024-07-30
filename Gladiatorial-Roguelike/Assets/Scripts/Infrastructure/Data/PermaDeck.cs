@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Logic.Enteties;
 using Logic.Entities;
 
 namespace Infrastructure.Data

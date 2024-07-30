@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Infrastructure.Services;
 using Infrastructure.StateMachines;
 using Infrastructure.States;
+using Logic.Enteties;
 using Logic.Entities;
 using Services;
 using TMPro;

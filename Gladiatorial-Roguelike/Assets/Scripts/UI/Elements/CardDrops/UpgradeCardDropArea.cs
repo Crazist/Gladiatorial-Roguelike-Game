@@ -1,6 +1,5 @@
 using Infrastructure.Services.CardsServices;
 using UI.View;
-using UnityEngine;
 
 namespace UI.Elements.CardDrops
 {

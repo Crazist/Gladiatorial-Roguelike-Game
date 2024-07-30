@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Infrastructure.Services.BattleServices;
+using Logic.Enteties;
 using Logic.Entities;
 using Logic.Types;
 using UI.Elements;

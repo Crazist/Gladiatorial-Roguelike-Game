@@ -66,6 +66,7 @@ namespace Data.DI
             Container.Bind<CanvasService>().AsSingle().NonLazy();
             Container.Bind<DamageService>().AsSingle().NonLazy();
             Container.Bind<BattleResultService>().AsSingle().NonLazy();
+            Container.Bind<HealService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()

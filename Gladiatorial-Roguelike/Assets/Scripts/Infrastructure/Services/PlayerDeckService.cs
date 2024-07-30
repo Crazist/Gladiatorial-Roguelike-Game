@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Data.Cards;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
+using Logic.Enteties;
 using Logic.Entities;
 using Zenject;
 
