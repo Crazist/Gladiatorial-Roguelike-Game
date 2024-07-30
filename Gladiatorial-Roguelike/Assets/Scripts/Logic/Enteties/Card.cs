@@ -1,5 +1,4 @@
 using Data.Cards;
-using Infrastructure.Json;
 using Logic.Types;
 using Newtonsoft.Json;
 using UI.View;
@@ -11,6 +10,7 @@ namespace Logic.Enteties
     public abstract class Card
     {
         [JsonProperty] public CardData CardData { get; set; }
+        [JsonProperty] public LevelMultiplierConfig LevelMultiplierConfig { get; set; }
         [JsonProperty] public CardRarity CardRarity { get; set; }
         [JsonProperty] public int Level { get;  set; }
         [JsonProperty] public bool IsDead { get; set; } = false;

@@ -9,7 +9,6 @@ namespace Logic.Entities
 {
     public class UnitCard : Card
     {
-        [JsonProperty] private LevelMultiplierConfig LevelMultiplierConfig;
         [JsonProperty] public int Attack { get; set; }
         [JsonProperty] public int Defense { get; set; }
         [JsonProperty] public int Hp { get; set; }
@@ -44,6 +43,16 @@ namespace Logic.Entities
             }
         }
 
+        public void GainXP(int xp)
+        {
+            XP += xp;
+
+            if (XP >= XpThreshold)
+            {
+                LevelUp();
+            }
+        }
+
         public void LevelUp()
         {
             XP -= XpThreshold;
@@ -56,16 +65,6 @@ namespace Logic.Entities
             }
 
             UpdateStats();
-        }
-
-        public void GainXP(int xp)
-        {
-            XP += xp;
-
-            if (XP >= XpThreshold)
-            {
-                LevelUp();
-            }
         }
 
         private void IncreaseRarity()

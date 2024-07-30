@@ -9,6 +9,7 @@ namespace Data.Cards
         public int Defense;
         public int Hp;
         public int XP;
+        public int XPWithKill;
         public float XPThresholdMultiplier;
     }
 }

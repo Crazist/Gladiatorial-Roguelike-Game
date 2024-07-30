@@ -59,7 +59,7 @@ namespace Infrastructure.Services.BattleServices
                     RemoveFromTable(defenderView);
                     DestroyCard(defenderView);
 
-                    attackerUnit.GainXP(defenderUnit.CardData.UnitData.XP);
+                    attackerUnit.GainXP(defenderUnit.CardData.UnitData.XPWithKill);
                 }
             }
         }
