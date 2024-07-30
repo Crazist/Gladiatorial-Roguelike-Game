@@ -1,7 +1,6 @@
 using Data.Cards;
 using Logic.Enteties;
 using Logic.Entities;
-using Logic.Types;
 using TMPro;
 using UnityEngine;
 
@@ -23,14 +22,14 @@ namespace UI.Popup
         [Header("Popup Position Settings")]
         [SerializeField] private Vector3 _offsetAbove = new Vector3(0, 50, 0);
         [SerializeField] private Vector3 _offsetBeside = new Vector3(50, 0, 0);
-      
+
         [SerializeField] private bool _positionAbove = true;
 
         public void Show(Vector3 position, Card card)
         {
             SetPosition(position);
-            UpdateData(card.CardData);
-          
+            UpdateData(card);
+
             gameObject.SetActive(true);
         }
 
@@ -40,35 +39,35 @@ namespace UI.Popup
         public void Hide() =>
             gameObject.SetActive(false);
 
-        private void UpdateData(CardData cardData)
+        private void UpdateData(Card card)
         {
-            _cardName.text = cardData.CardName;
-            _cardType.text = cardData.CardType.ToString();
+            _cardName.text = card.CardData.CardName;
+            _cardType.text = card.CardData.CardType.ToString();
 
-            if (cardData.Category == CardCategory.Unit)
+            if (card is UnitCard unitCard)
             {
-                SetUnitCard(cardData.UnitData);
+                SetUnitCard(unitCard);
             }
-            else if (cardData.Category == CardCategory.Special)
+            else if (card is SpecialCard specialCard)
             {
-                SetSpecialCard(cardData.SpecialData);
+                SetSpecialCard(specialCard);
             }
         }
 
-        private void SetSpecialCard(SpecialCardData specialCardData)
+        private void SetSpecialCard(SpecialCard specialCard)
         {
-            _cardEffect.text = $"Effect: {specialCardData.SpecialEffect}";
-          
+            _cardEffect.text = $"Effect: {specialCard.CardData.SpecialData.SpecialEffect}";
+
             SetCanvasGroupVisibility(_specialGroup, true);
             SetCanvasGroupVisibility(_unitGroup, false);
         }
 
-        private void SetUnitCard(UnitCardData unitCardData)
+        private void SetUnitCard(UnitCard unitCard)
         {
-            _cardAttack.text = $"ATK: {unitCardData.Attack}";
-            _cardDefense.text = $"DEF: {unitCardData.Defense}";
-            _cardXp.text = $"XP: {unitCardData.XP}";
-           
+            _cardAttack.text = $"ATK: {unitCard.Attack}";
+            _cardDefense.text = $"DEF: {unitCard.Defense}";
+            _cardXp.text = $"XP: {unitCard.XP}";
+
             SetCanvasGroupVisibility(_unitGroup, true);
             SetCanvasGroupVisibility(_specialGroup, false);
         }

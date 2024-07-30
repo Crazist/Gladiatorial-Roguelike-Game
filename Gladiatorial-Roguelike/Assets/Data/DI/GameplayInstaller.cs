@@ -1,3 +1,4 @@
+using Data.Cards;
 using Infrastructure;
 using Infrastructure.Services;
 using Infrastructure.Services.AIServices;
@@ -27,13 +28,20 @@ namespace Data.DI
         [SerializeField] private CoroutineCustomRunner _coroutineCustomRunner;
         [SerializeField] private ConfirmationPopup _confirmPopup;
         [SerializeField] private DeckPopup _deckPopup;
+        [SerializeField] private LevelMultiplierConfig _levelMultiplierConfig;
 
         public override void InstallBindings()
         {
             UIBinds();
             RegisterModels();
 
-            Container.Bind<CoroutineCustomRunner>().FromComponentInNewPrefab(_coroutineCustomRunner).AsSingle().NonLazy();
+            Container.Bind<CoroutineCustomRunner>().FromComponentInNewPrefab(_coroutineCustomRunner).AsSingle()
+                .NonLazy();
+          
+            Container.Bind<LevelMultiplierConfig>()
+                .FromScriptableObject(_levelMultiplierConfig)
+                .AsSingle()
+                .NonLazy();
 
             Container.Bind<Game>().AsSingle().NonLazy();
             Container.Bind<GameStateMachine>().AsSingle().NonLazy();
@@ -67,6 +75,7 @@ namespace Data.DI
             Container.Bind<DamageService>().AsSingle().NonLazy();
             Container.Bind<BattleResultService>().AsSingle().NonLazy();
             Container.Bind<HealService>().AsSingle().NonLazy();
+            Container.Bind<UpgradeService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()
@@ -74,7 +83,7 @@ namespace Data.DI
             var canvasInstance = Container.InstantiatePrefabForComponent<Canvas>(_canvasPrefab);
 
             Container.Bind<Canvas>().FromInstance(canvasInstance).AsSingle();
-            
+
             Container.Bind<LoadingCurtain>().FromComponentInNewPrefab(_curtain)
                 .UnderTransform(canvasInstance.transform).AsSingle().NonLazy();
             Container.Bind<CardPopup>().FromComponentInNewPrefab(_cardPopup)

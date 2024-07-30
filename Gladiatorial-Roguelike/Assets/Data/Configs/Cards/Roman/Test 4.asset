@@ -17,6 +17,7 @@ MonoBehaviour:
     Defense: 10
     Hp: 10
     XP: 0
+    XPThresholdMultiplier: 2
   _specialData:
     EffectValue: 0
     SpecialEffect: 

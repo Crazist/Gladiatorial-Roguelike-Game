@@ -19,10 +19,13 @@ namespace Infrastructure.Services
         private AssetProvider _assetProvider;
         private FractionDeckData _fractionConfig;
         private Factory _factory;
+        private SaveLoadService _saveLoadService;
 
         [Inject]
-        private void Inject(PersistentProgressService persistentProgress, AssetProvider assetProvider, Factory factory)
+        private void Inject(PersistentProgressService persistentProgress, AssetProvider assetProvider, Factory factory,
+            SaveLoadService saveLoadService)
         {
+            _saveLoadService = saveLoadService;
             _factory = factory;
             _assetProvider = assetProvider;
             _persistentProgress = persistentProgress;
@@ -39,13 +42,15 @@ namespace Infrastructure.Services
             _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.HardDeck.Cards = CreateDeck(8, 5);
         }
 
-        public bool NeedRefreshEnemy() => 
+        public bool NeedRefreshEnemy() =>
             _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.HardDeck.IsSkipped == EnemyDeckState.Defeated;
 
         public void RefreshEnemy()
         {
             _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.RefreshEnemy();
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType = DeckType.None;
             InitEnemyDecks();
+            _saveLoadService.SaveProgress();
         }
 
         private void LoadAndSelectRandomConfig()

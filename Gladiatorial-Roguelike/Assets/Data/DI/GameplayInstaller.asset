@@ -18,3 +18,4 @@ MonoBehaviour:
   _coroutineCustomRunner: {fileID: 5863357818706690931, guid: c53582cdf45ea8845a07c9873a30c201, type: 3}
   _confirmPopup: {fileID: 2664946873368251005, guid: 046e581447f64e042b2c39dca82eccf9, type: 3}
   _deckPopup: {fileID: 2238999063514201054, guid: d318c0a0de69b456f9e6feb2b3ac1a99, type: 3}
+  _levelMultiplierConfig: {fileID: 11400000, guid: 0e51d451c0e79df459ac842656213e3d, type: 2}

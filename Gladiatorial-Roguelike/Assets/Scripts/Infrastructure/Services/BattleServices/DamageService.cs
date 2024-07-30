@@ -25,18 +25,21 @@ namespace Infrastructure.Services.BattleServices
 
             if (attackerUnit != null && defenderUnit != null)
             {
+                int attackDamage = attackerUnit.Attack;
+
                 if (attackAndDefence.HasShield)
                 { 
-                    defenderUnit.Defense  -= attackerUnit.CardData.UnitData.Attack;
+                    defenderUnit.Defense -= attackDamage;
                     
-                    if (defenderUnit.Defense  > 0)
+                    if (defenderUnit.Defense > 0)
                     {
                         attackAndDefence.UpdateShieldStrength(defenderUnit.Defense);
                     }
                     else
                     {
-                        int remainingDamage = attackerUnit.CardData.UnitData.Attack - defenderUnit.CardData.UnitData.Defense;
+                        int remainingDamage = attackDamage - defenderUnit.CardData.UnitData.Defense;
                         attackAndDefence.BreakShield();
+                        
                         if (remainingDamage > 0)
                         {
                             defenderUnit.TakeDamage(remainingDamage);
@@ -45,7 +48,7 @@ namespace Infrastructure.Services.BattleServices
                 }
                 else
                 {
-                    defenderUnit.TakeDamage(attackerUnit.CardData.UnitData.Attack);
+                    defenderUnit.TakeDamage(attackDamage);
                 }
 
                 defenderView.GetDynamicCardView().UpdateHp();
@@ -55,6 +58,8 @@ namespace Infrastructure.Services.BattleServices
                     SetPlayerLose(defenderView);
                     RemoveFromTable(defenderView);
                     DestroyCard(defenderView);
+
+                    attackerUnit.GainXP(defenderUnit.CardData.UnitData.XP);
                 }
             }
         }
