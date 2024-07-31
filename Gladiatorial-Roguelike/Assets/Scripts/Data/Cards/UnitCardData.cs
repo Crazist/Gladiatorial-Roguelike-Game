@@ -10,6 +10,7 @@ namespace Data.Cards
         public int Hp;
         public int XP;
         public int XPWithKill;
+        public int XpThreshold;
         public float XPThresholdMultiplier;
     }
 }

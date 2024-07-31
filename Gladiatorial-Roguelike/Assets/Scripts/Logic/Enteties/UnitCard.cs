@@ -1,18 +1,17 @@
 using Data.Cards;
-using Logic.Enteties;
 using Logic.Types;
 using Newtonsoft.Json;
 using UI.View;
 using UnityEngine;
 
-namespace Logic.Entities
+namespace Logic.Enteties
 {
     public class UnitCard : Card
     {
         [JsonProperty] public int Attack { get; set; }
         [JsonProperty] public int Defense { get; set; }
         [JsonProperty] public int Hp { get; set; }
-        [JsonProperty] public int XP { get; set; }
+        [JsonProperty] public int Xp { get; set; }
         [JsonProperty] private int XpThreshold { get; set; }
         [JsonProperty] private float XpThresholdMultiplier { get; set; }
 
@@ -21,9 +20,10 @@ namespace Logic.Entities
             LevelMultiplierConfig = levelMultiplierConfig;
 
             CardData = cardData;
-            Level = 1;
+            Level = 0;
             CardRarity = CardRarity.Normal;
-            XpThreshold = cardData.UnitData.XP;
+            Xp = cardData.UnitData.XP;
+            XpThreshold = cardData.UnitData.XpThreshold;
             XpThresholdMultiplier = cardData.UnitData.XPThresholdMultiplier;
 
             UpdateStats();
@@ -45,9 +45,9 @@ namespace Logic.Entities
 
         public void GainXP(int xp)
         {
-            XP += xp;
+            Xp += xp;
 
-            if (XP >= XpThreshold)
+            if (Xp >= XpThreshold)
             {
                 LevelUp();
             }
@@ -55,7 +55,7 @@ namespace Logic.Entities
 
         public void LevelUp()
         {
-            XP -= XpThreshold;
+            Xp -= XpThreshold;
             Level++;
             XpThreshold = Mathf.RoundToInt(XpThreshold * XpThresholdMultiplier);
 
@@ -82,7 +82,7 @@ namespace Logic.Entities
             Attack = Mathf.RoundToInt(CardData.UnitData.Attack * multiplier);
             Defense = Mathf.RoundToInt(CardData.UnitData.Defense * multiplier);
             Hp = Mathf.RoundToInt(CardData.UnitData.Hp * multiplier);
-            XP = 0;
+            Xp = 0;
         }
     }
 }

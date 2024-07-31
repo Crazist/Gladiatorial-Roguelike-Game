@@ -78,15 +78,12 @@ namespace UI
             }
         }
 
-        private bool IsDeckSelectedInProgress(DeckViewModel deckViewModel)
-        {
-            return deckViewModel.SelectedDeck == DeckType.None &&
-                   _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck != DeckType.None;
-        }
+        private bool IsDeckSelectedInProgress(DeckViewModel deckViewModel) => 
+            _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.CurrentDeck != DeckType.None;
 
         private void LoadDeckFromProgress()
         {
-            var cards = _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck;
+            var cards = _playerDeckService.GetDeck();
             SpawnCards(cards);
         }
 

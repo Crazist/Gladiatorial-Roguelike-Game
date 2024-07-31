@@ -16,8 +16,9 @@ MonoBehaviour:
     Attack: 3
     Defense: 2
     Hp: 5
-    XP: 10
-    XPWithKill: 2
+    XP: 1
+    XPWithKill: 5
+    XpThreshold: 10
     XPThresholdMultiplier: 2
   _specialData:
     EffectValue: 0

@@ -1,3 +1,4 @@
+using Logic.Enteties;
 using Logic.Entities;
 
 namespace Infrastructure.Services.BuffsService

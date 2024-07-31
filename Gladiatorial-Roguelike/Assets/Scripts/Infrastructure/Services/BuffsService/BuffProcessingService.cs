@@ -1,6 +1,7 @@
 using Logic.Entities;
 using System;
 using Infrastructure.Services.BattleServices;
+using Logic.Enteties;
 using Logic.Types;
 using UI.View;
 using Object = UnityEngine.Object;

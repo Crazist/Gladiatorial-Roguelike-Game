@@ -66,7 +66,7 @@ namespace UI.Popup
         {
             _cardAttack.text = $"ATK: {unitCard.Attack}";
             _cardDefense.text = $"DEF: {unitCard.Defense}";
-            _cardXp.text = $"XP: {unitCard.XP}";
+            _cardXp.text = $"XP: {unitCard.Xp}";
 
             SetCanvasGroupVisibility(_unitGroup, true);
             SetCanvasGroupVisibility(_specialGroup, false);
