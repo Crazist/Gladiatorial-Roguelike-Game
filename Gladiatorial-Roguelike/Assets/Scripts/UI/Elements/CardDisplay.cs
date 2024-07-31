@@ -17,6 +17,7 @@ namespace UI.Elements
 
         private StaticDataService _staticDataService;
         private CardData _cardData;
+        private Card _card;
         private Tween _flipTween;
         private bool _isFaceUp = true;
 
@@ -26,6 +27,7 @@ namespace UI.Elements
 
         public void Initialize(Card card)
         {
+            _card = card;
             _cardData = card.CardData;
             UpdateCardDisplay();
         }
@@ -54,10 +56,17 @@ namespace UI.Elements
             }
         }
 
+        public void UpgradeImage()
+        {
+            var sprite = _card.GetCurrentIcon();
+            _cardImage.sprite = sprite != null ? sprite : _cardImage.sprite;
+        }
+
         public bool IsFaceUp() => _isFaceUp;
 
         private void UpdateCardDisplay() =>
-            _cardImage.sprite = _isFaceUp ? _cardData.Icon : _staticDataService.ForDeck(_cardData.DeckType).CardBackImage;
+            _cardImage.sprite =
+                _isFaceUp ? _card.GetCurrentIcon() : _staticDataService.ForDeck(_cardData.DeckType).CardBackImage;
 
         private void OnDestroy() => _flipTween?.Kill();
     }

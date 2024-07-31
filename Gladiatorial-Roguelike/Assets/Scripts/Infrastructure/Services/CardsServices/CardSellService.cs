@@ -39,8 +39,9 @@ namespace UI.Services
             if (cardToRemove != null)
             {
                 cards.Remove(cardToRemove);
-                UnityEngine.Object.Destroy(cardView.gameObject);
             }
+            
+            UnityEngine.Object.Destroy(cardView.gameObject);
         }
     }
 }

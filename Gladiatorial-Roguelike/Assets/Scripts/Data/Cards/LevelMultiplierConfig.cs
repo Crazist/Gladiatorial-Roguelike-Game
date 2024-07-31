@@ -19,5 +19,8 @@ namespace Data.Cards
             
             return 1f;
         }
+
+        public int GetMaxLevel() => 
+            LevelMultipliers.Length > 0 ? LevelMultipliers[^1].Level : 0;
     }
 }

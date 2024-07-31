@@ -11,20 +11,17 @@ namespace Logic.Enteties
         [JsonProperty] public int Attack { get; set; }
         [JsonProperty] public int Defense { get; set; }
         [JsonProperty] public int Hp { get; set; }
-        [JsonProperty] public int Xp { get; set; }
-        [JsonProperty] private int XpThreshold { get; set; }
-        [JsonProperty] private float XpThresholdMultiplier { get; set; }
 
         public override void InitCard(CardData cardData, LevelMultiplierConfig levelMultiplierConfig)
         {
             LevelMultiplierConfig = levelMultiplierConfig;
-
             CardData = cardData;
-            Level = 0;
             CardRarity = CardRarity.Normal;
-            Xp = cardData.UnitData.XP;
             XpThreshold = cardData.UnitData.XpThreshold;
             XpThresholdMultiplier = cardData.UnitData.XPThresholdMultiplier;
+            Xp = cardData.UnitData.XP;
+
+            Level = 0;
 
             UpdateStats();
         }
@@ -43,19 +40,19 @@ namespace Logic.Enteties
             }
         }
 
-        public void GainXP(int xp)
+        public override void LevelUp()
         {
-            Xp += xp;
-
-            if (Xp >= XpThreshold)
+            if (Level >= LevelMultiplierConfig.GetMaxLevel())
             {
-                LevelUp();
+                return;
             }
-        }
 
-        public void LevelUp()
-        {
             Xp -= XpThreshold;
+            if (Xp < 0)
+            {
+                Xp = 0;
+            }
+
             Level++;
             XpThreshold = Mathf.RoundToInt(XpThreshold * XpThresholdMultiplier);
 
@@ -82,7 +79,6 @@ namespace Logic.Enteties
             Attack = Mathf.RoundToInt(CardData.UnitData.Attack * multiplier);
             Defense = Mathf.RoundToInt(CardData.UnitData.Defense * multiplier);
             Hp = Mathf.RoundToInt(CardData.UnitData.Hp * multiplier);
-            Xp = 0;
         }
     }
 }

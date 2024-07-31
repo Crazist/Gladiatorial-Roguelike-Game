@@ -21,3 +21,11 @@ MonoBehaviour:
     Multiplier: 3.5
   - Level: 4
     Multiplier: 4
+  - Level: 5
+    Multiplier: 5
+  - Level: 6
+    Multiplier: 6
+  - Level: 7
+    Multiplier: 7
+  - Level: 8
+    Multiplier: 8

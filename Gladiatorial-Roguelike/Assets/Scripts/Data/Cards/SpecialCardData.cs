@@ -6,6 +6,9 @@ namespace Data.Cards
     public class SpecialCardData
     {
         public int EffectValue;
+        public int XpWithUse;
+        public int XpThreshold;
+        public float XPThresholdMultiplier;
         public string SpecialEffect;
     }
 }

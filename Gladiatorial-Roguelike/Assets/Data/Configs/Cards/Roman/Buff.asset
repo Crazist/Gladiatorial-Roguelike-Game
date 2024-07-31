@@ -23,7 +23,8 @@ MonoBehaviour:
   _specialData:
     EffectValue: 5
     SpecialEffect: Buff
-  Icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  RarityIcons:
+  - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   CardName: Buff
   CardType: 5
   CardRarity: 0

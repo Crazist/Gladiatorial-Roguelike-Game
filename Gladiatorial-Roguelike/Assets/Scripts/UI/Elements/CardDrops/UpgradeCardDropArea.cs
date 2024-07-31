@@ -1,6 +1,4 @@
 using Infrastructure.Services.CardsServices;
-using Logic.Enteties;
-using Logic.Entities;
 using UI.View;
 using Zenject;
 
@@ -11,19 +9,16 @@ namespace UI.Elements.CardDrops
         private UpgradeService _upgradeService;
 
         [Inject]
-        public void Construct(UpgradeService upgradeService)
-        {
+        public void Construct(UpgradeService upgradeService) =>
             _upgradeService = upgradeService;
-        }
 
         public override void HandleDrop(CardView cardView, CardDragService cardDragService)
         {
-            if (cardView.GetCard() is UnitCard unitCard)
-            {
-                _upgradeService.UpgradeCard(unitCard);
-                cardView.GetDynamicCardView().UpdateHp();
-            }
-            Destroy(cardView.gameObject);
+            _upgradeService.UpgradeCard(cardView.GetCard());
+            cardView.GetDynamicCardView().UpdateHp();
+            cardView.GetCardDisplay().UpgradeImage();
+
+            cardDragService.ResetPosition(cardView);
         }
     }
 }

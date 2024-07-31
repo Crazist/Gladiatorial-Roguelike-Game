@@ -23,7 +23,8 @@ MonoBehaviour:
   _specialData:
     EffectValue: 0
     SpecialEffect: 
-  Icon: {fileID: 21300000, guid: 9a75c6e2d13d265428a4ab940f776d59, type: 3}
+  RarityIcons:
+  - {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
   CardName: Test
   CardType: 0
   CardRarity: 0

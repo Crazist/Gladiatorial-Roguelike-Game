@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using Logic.Enteties;
+using UI.Elements;
 using UnityEngine;
-using Logic.Entities;
 
-namespace UI.Elements
+namespace UI.Popup
 {
     public class DeckPopup : MonoBehaviour
     {

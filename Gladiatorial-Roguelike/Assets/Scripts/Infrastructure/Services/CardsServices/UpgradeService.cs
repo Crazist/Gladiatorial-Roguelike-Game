@@ -1,14 +1,10 @@
 using Logic.Enteties;
-using Logic.Entities;
-using UnityEngine;
 
 namespace Infrastructure.Services.CardsServices
 {
     public class UpgradeService
     {
-        public void UpgradeCard(UnitCard unitCard)
-        {
-            unitCard.LevelUp();
-        }
+        public void UpgradeCard(Card card) => 
+            card.LevelUp();
     }
 }

@@ -21,6 +21,7 @@ namespace Infrastructure.Services.BattleServices
         {
             var attackerUnit = attackerView.GetDynamicCardView().GetConcreteTCard();
             var defenderUnit = defenderView.GetDynamicCardView().GetConcreteTCard();
+           
             var attackAndDefence = defenderView.GetAttackAndDefence();
 
             if (attackerUnit != null && defenderUnit != null)
@@ -60,6 +61,8 @@ namespace Infrastructure.Services.BattleServices
                     DestroyCard(defenderView);
 
                     attackerUnit.GainXP(defenderUnit.CardData.UnitData.XPWithKill);
+                    attackerView.GetDynamicCardView().UpdateHp();
+                    attackerView.GetCardDisplay().UpgradeImage();
                 }
             }
         }

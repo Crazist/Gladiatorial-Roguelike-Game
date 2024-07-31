@@ -23,7 +23,10 @@ MonoBehaviour:
   _specialData:
     EffectValue: 0
     SpecialEffect: 
-  Icon: {fileID: 21300000, guid: 7e444ba2e935be64dbf00ac69684de3f, type: 3}
+  RarityIcons:
+  - {fileID: 21300000, guid: 7e444ba2e935be64dbf00ac69684de3f, type: 3}
+  - {fileID: 21300000, guid: 5324820d2b140fc4c9b3bc2a9bfa6241, type: 3}
+  - {fileID: 21300000, guid: 421639db65ee6cc4ebee2231ebccb72c, type: 3}
   CardName: Roman Swordsman
   CardType: 1
   CardRarity: 0

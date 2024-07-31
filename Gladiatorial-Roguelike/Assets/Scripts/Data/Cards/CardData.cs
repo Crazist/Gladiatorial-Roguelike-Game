@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Infrastructure.Services;
 using Logic.Types;
 using UnityEngine;
@@ -14,7 +15,8 @@ namespace Data.Cards
         [ConditionalHide("Category", (int)CardCategory.Special)]
         [SerializeField] private SpecialCardData _specialData;
 
-        public Sprite Icon;
+        public List<Sprite> RarityIcons;
+
         public string CardName;
         public CardType CardType;
         public CardRarity CardRarity;
