@@ -16,7 +16,7 @@ namespace Infrastructure.Services.CardsServices
                 card.IsDead = false;
             }
             
-            cardView.GetDynamicCardView().UpdateHp();
+            cardView.GetDynamicCardView().UpdateCard();
         }
     }
 }

@@ -51,6 +51,8 @@ namespace Logic.Entities
             {
                 IncreaseRarity();
             }
+
+            UpdateStats();
         }
 
         private void IncreaseRarity()
@@ -59,6 +61,12 @@ namespace Logic.Entities
             {
                 CardRarity++;
             }
+        }
+        private void UpdateStats()
+        {
+            float multiplier = LevelMultiplierConfig.GetMultiplierForLevel(Level);
+
+            EffectValue = Mathf.RoundToInt(CardData.SpecialData.EffectValue * multiplier);
         }
     }
 }

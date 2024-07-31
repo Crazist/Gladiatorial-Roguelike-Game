@@ -1,8 +1,6 @@
-using Infrastructure.Services;
 using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.CardsServices;
 using Logic.Types;
-using UI.Services;
 using UI.View;
 using UnityEngine;
 using Zenject;
@@ -19,8 +17,12 @@ namespace UI.Elements.CardDrops
 
         public override void HandleDrop(CardView cardView, CardDragService cardDragService)
         {
-            if(cardView.GetCard().CardData.Category == CardCategory.Special) return;
-        
+            if (cardView.GetCard().CardData.Category == CardCategory.Special)
+            {
+                cardDragService.ResetPosition(cardView);
+                return;
+            }
+             
             _tableService.GetPlayerTableViews().Add(cardView);
             _tableService.GetPlayerHandViews().Remove(cardView);
             

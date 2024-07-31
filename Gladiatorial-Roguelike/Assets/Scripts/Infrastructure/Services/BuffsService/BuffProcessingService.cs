@@ -19,7 +19,7 @@ namespace Infrastructure.Services.BuffsService
             _tableService = tableService;
         }
 
-        public void ProcessBuff(CardView buffCardView, CardView targetCardView, Action resetPos, bool isPlayer)
+        public void ProcessBuff(CardView buffCardView, CardView targetCardView, bool isPlayer, Action resetPos = null)
         {
             var targetCard = targetCardView.GetCard() as UnitCard;
             var buffCard = buffCardView.GetCard() as SpecialCard;
@@ -38,10 +38,10 @@ namespace Infrastructure.Services.BuffsService
             }
 
             targetCardView.UpdateView();
-            CompleteBuff(buffCardView, resetPos, isPlayer);
+            CompleteBuff(buffCardView, isPlayer, resetPos);
         }
 
-        private void CompleteBuff(CardView buffCardView, Action resetPos, bool isPlayer)
+        private void CompleteBuff(CardView buffCardView, bool isPlayer, Action resetPos = null)
         {
             if (isPlayer)
             {
@@ -66,6 +66,7 @@ namespace Infrastructure.Services.BuffsService
         {
             if (targetCard == null || buffCard == null) return;
             _buffService.Buff(targetCard, buffCard);
+            buffCard.GainXP(buffCard.CardData.SpecialData.XpWithUse);
         }
 
         private void ApplyRecruitBuff(UnitCard targetCard, SpecialCard buffCard)

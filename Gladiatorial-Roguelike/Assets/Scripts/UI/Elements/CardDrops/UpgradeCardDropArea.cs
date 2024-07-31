@@ -15,7 +15,7 @@ namespace UI.Elements.CardDrops
         public override void HandleDrop(CardView cardView, CardDragService cardDragService)
         {
             _upgradeService.UpgradeCard(cardView.GetCard());
-            cardView.GetDynamicCardView().UpdateHp();
+            cardView.GetDynamicCardView().UpdateCard();
             cardView.GetCardDisplay().UpgradeImage();
 
             cardDragService.ResetPosition(cardView);

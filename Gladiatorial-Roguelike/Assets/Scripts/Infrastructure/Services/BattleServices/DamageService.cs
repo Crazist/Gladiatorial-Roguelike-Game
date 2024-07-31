@@ -52,7 +52,7 @@ namespace Infrastructure.Services.BattleServices
                     defenderUnit.TakeDamage(attackDamage);
                 }
 
-                defenderView.GetDynamicCardView().UpdateHp();
+                defenderView.GetDynamicCardView().UpdateCard();
 
                 if (defenderUnit.Hp <= 0)
                 {
@@ -61,7 +61,7 @@ namespace Infrastructure.Services.BattleServices
                     DestroyCard(defenderView);
 
                     attackerUnit.GainXP(defenderUnit.CardData.UnitData.XPWithKill);
-                    attackerView.GetDynamicCardView().UpdateHp();
+                    attackerView.GetDynamicCardView().UpdateCard();
                     attackerView.GetCardDisplay().UpgradeImage();
                 }
             }

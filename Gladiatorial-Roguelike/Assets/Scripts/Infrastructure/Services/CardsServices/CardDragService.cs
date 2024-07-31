@@ -90,7 +90,6 @@ namespace Infrastructure.Services.CardsServices
             if (_currentCardView.GetCard().CardData.Category == CardCategory.Special)
             {
                 ApplyBuff();
-                return;
             }
 
             foreach (var dropArea in _dropAreas)
@@ -105,14 +104,8 @@ namespace Infrastructure.Services.CardsServices
             HandleUnsuccessfulDrop();
         }
 
-        private void ApplyBuff()
-        {
-            var currentCardViewCopy = _currentCardView;
-
-            _cardBuffService.ApplyBuff(_currentCardView, () => ResetPosition(currentCardViewCopy));
-
-            ResetDrag();
-        }
+        private void ApplyBuff() => 
+            _cardBuffService.ApplyBuff(_currentCardView);
 
         private void HandleSuccessfulDrop(CardDropArea dropArea)
         {

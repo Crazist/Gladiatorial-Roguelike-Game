@@ -10,16 +10,14 @@ namespace Logic.Enteties
     [JsonConverter(typeof(CardConverter))]
     public abstract class Card
     {
-        [JsonProperty] public CardData CardData;
-        [JsonProperty] public LevelMultiplierConfig LevelMultiplierConfig;
-       
-        [JsonProperty] public CardRarity CardRarity;
-       
-        [JsonProperty] public int Level;
-        [JsonProperty] public int Xp;
-        [JsonProperty] public int XpThreshold;
-        [JsonProperty] public float XpThresholdMultiplier;
-        [JsonProperty] public bool IsDead = false;
+        [JsonProperty] public CardData CardData { get; set; }
+        [JsonProperty] public LevelMultiplierConfig LevelMultiplierConfig { get; set; }
+        [JsonProperty] public CardRarity CardRarity { get; set; }
+        [JsonProperty] public int Level { get; set; }
+        [JsonProperty] public int Xp { get; set; }
+        [JsonProperty] public int XpThreshold { get; set; }
+        [JsonProperty] public float XpThresholdMultiplier { get; set; }
+        [JsonProperty] public bool IsDead { get; set; } = false;
 
         public abstract void InitCard(CardData cardData, LevelMultiplierConfig levelMultiplierConfig);
         public abstract void InitializeView(DynamicCardView dynamicCardView);

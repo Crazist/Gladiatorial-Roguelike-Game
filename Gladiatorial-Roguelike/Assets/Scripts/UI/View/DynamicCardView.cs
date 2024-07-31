@@ -18,6 +18,7 @@ namespace UI.View
        
         private UnitCard _unitCard;
         private int _maxHp;
+        private SpecialCard _specialCard;
 
         public void Initialize(UnitCard unitCard)
         {
@@ -32,6 +33,8 @@ namespace UI.View
 
         public void Initialize(SpecialCard specialCard)
         {
+            _specialCard = specialCard;
+            
             _hp.gameObject.SetActive(false);
             _hpBar.gameObject.SetActive(false);
         }
@@ -45,7 +48,19 @@ namespace UI.View
         public UnitCard GetConcreteTCard() => 
             _unitCard;
 
-        public void UpdateHp()
+        public void UpdateCard()
+        {
+            if (_unitCard != null)
+            {
+                UpdateHp();
+            }
+            else if (_specialCard != null)
+            {
+                UpdateSpecialCard();
+            }
+        }
+
+        private void UpdateHp()
         {
             int currentHp = _unitCard.Hp;
 
@@ -67,6 +82,12 @@ namespace UI.View
             {
                 _heartIcon.sprite = _fullHeartSprite;
             }
+        }
+
+        private void UpdateSpecialCard()
+        {
+            // Логика обновления для SpecialCard
+            // Например, обновление специальных эффектов
         }
     }
 }

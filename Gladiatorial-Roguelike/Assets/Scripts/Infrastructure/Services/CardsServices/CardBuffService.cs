@@ -26,10 +26,10 @@ namespace Infrastructure.Services.CardsServices
             _tableService = tableService;
         }
 
-        public void ApplyBuff(CardView buffCardView, Action resetPos)
+        public void ApplyBuff(CardView buffCardView)
         {
             buffCardView.ChangeRaycasts(false);
-            _coroutineCustomRunner.StartCoroutine(ApplyBuffCoroutine(buffCardView, resetPos));
+            _coroutineCustomRunner.StartCoroutine(ApplyBuffCoroutine(buffCardView));
         }
 
         public void ApplyBuffForAi(CardView buffCardView, CardView unitCardView)
@@ -38,7 +38,7 @@ namespace Infrastructure.Services.CardsServices
             _coroutineCustomRunner.StartCoroutine(ApplyAIBuffCoroutine(buffCardView, unitCardView, null));
         }
 
-        private IEnumerator ApplyBuffCoroutine(CardView buffCardView, Action resetPos)
+        private IEnumerator ApplyBuffCoroutine(CardView buffCardView)
         {
             yield return null;
 
@@ -48,18 +48,17 @@ namespace Infrastructure.Services.CardsServices
             if (!IsValidBuffTarget(targetCardView, buffCardType))
             {
                 buffCardView.ChangeRaycasts(true);
-                resetPos?.Invoke();
                 yield break;
             }
 
-            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos, true);
+            _buffProcessingService.ProcessBuff(buffCardView, targetCardView,true);
         }
 
         private IEnumerator ApplyAIBuffCoroutine(CardView buffCardView, CardView targetCardView, Action resetPos)
         {
             yield return null;
 
-            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, resetPos, false);
+            _buffProcessingService.ProcessBuff(buffCardView, targetCardView, false, resetPos);
         }
 
         private bool IsValidBuffTarget(CardView targetCardView, CardType buffCardType)

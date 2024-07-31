@@ -1,6 +1,4 @@
 using Infrastructure.Services.CardsServices;
-using Infrastructure.Services.CardsServices;
-using UI.Services;
 using UI.View;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,7 +11,6 @@ namespace UI.Elements.CardDrops
         
         protected CardView OccupiedCard;
         public abstract void HandleDrop(CardView cardView, CardDragService cardDragService);
-
         public bool IsInDropArea(PointerEventData eventData) => 
             RectTransformUtility.RectangleContainsScreenPoint(_rectTransform, eventData.position, eventData.pressEventCamera);
         public bool IsOccupied() => 

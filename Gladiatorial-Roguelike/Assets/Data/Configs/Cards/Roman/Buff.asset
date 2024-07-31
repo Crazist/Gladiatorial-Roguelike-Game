@@ -22,9 +22,14 @@ MonoBehaviour:
     XPThresholdMultiplier: 2
   _specialData:
     EffectValue: 5
+    XpWithUse: 5
+    XpThreshold: 10
+    XPThresholdMultiplier: 2
     SpecialEffect: Buff
   RarityIcons:
   - {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -1812752228, guid: 7b75f56d69673d54e9edf53b533f02c3, type: 3}
+  - {fileID: 1467036005, guid: be7c60fdff3a68b47b159885795960a3, type: 3}
   CardName: Buff
   CardType: 5
   CardRarity: 0
