@@ -7,7 +7,6 @@ using Logic.Entities;
 using Logic.Types;
 using UI.Elements;
 using UI.Factory;
-using UI.Services;
 using UnityEngine;
 using Zenject;
 

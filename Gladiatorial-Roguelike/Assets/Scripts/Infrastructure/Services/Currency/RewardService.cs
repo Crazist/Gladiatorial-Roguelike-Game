@@ -27,7 +27,7 @@ namespace Infrastructure.Services.Currency
         public void GrantReward()
         {
             DeckComplexity chosenDeck = _persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.ChoosenDeck;
-            RewardRange rewardRange = _staticDataService.GetRewardRangeForComplexity(chosenDeck);
+            RewardRange rewardRange = _staticDataService.ForRewardRangeForComplexity(chosenDeck);
 
             int reward = _random.Next(rewardRange.Min, rewardRange.Max + 1);
 

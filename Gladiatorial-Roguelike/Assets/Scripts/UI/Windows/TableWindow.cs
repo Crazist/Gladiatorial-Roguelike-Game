@@ -10,7 +10,6 @@ using Infrastructure.States.BattleStates;
 using Logic.Types;
 using UI.Elements;
 using UI.Elements.CardDrops;
-using UI.Services;
 using UI.View;
 using UnityEngine;
 using UnityEngine.UI;

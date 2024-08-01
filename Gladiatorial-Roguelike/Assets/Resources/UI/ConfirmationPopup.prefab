@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a85b3c990a6745a7b5643080c52017b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _messageText: {fileID: 2598569430013803590}
   _confirmButton: {fileID: 2598569429502753450}
   _cancelButton: {fileID: 2598569429072150595}
 --- !u!1 &2598569428771748397

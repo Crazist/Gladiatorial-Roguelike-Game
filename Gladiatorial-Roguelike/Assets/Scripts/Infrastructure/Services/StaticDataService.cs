@@ -14,10 +14,12 @@ namespace Infrastructure.Services
         private const string StaticDataDeckPath = "Data/Decks";
         private const string StaticDataWindowsPath = "Data/Window/WindowStaticData";
         private const string StaticDataRewardPath = "Data/Rewards";
+        private const string StaticDataPriceSettingsPath = "Data/PriceSettingsConfig";
 
         private Dictionary<WindowId, WindowConfig> _windowConfigs;
         private Dictionary<DeckType, DeckData> _decks;
         private Dictionary<DeckComplexity, RewardRange> _rewardRanges;
+        private PriceSettingsConfig _priceSettingsConfig;
 
         private AssetProvider _assetProvider;
 
@@ -34,6 +36,7 @@ namespace Infrastructure.Services
             LoadDecks();
             LoadWindowConfig();
             LoadRewardRanges();
+            LoadPriceSettings();
         }
 
         public DeckData ForDeck(DeckType deckType) =>
@@ -42,8 +45,11 @@ namespace Infrastructure.Services
         public WindowConfig ForWindow(WindowId windowId) =>
             _windowConfigs.GetValueOrDefault(windowId);
 
-        public RewardRange GetRewardRangeForComplexity(DeckComplexity complexity) =>
+        public RewardRange ForRewardRangeForComplexity(DeckComplexity complexity) =>
             _rewardRanges.GetValueOrDefault(complexity);
+
+        public PriceSettingsConfig ForPriceSettings() =>
+            _priceSettingsConfig;
 
         private void LoadDecks() =>
             _decks = _assetProvider.LoadAllAssets<DeckData>(StaticDataDeckPath)
@@ -54,7 +60,11 @@ namespace Infrastructure.Services
                 .Configs
                 .ToDictionary(x => x.WindowId, x => x);
 
-        private void LoadRewardRanges() => _rewardRanges = _assetProvider.LoadAsset<Rewards>(StaticDataRewardPath)
-            .Ranges.ToDictionary(rewardRange => rewardRange.Complexity, x => x);
+        private void LoadRewardRanges() =>
+            _rewardRanges = _assetProvider.LoadAsset<Rewards>(StaticDataRewardPath)
+                .Ranges.ToDictionary(rewardRange => rewardRange.Complexity, x => x);
+
+        private void LoadPriceSettings() =>
+            _priceSettingsConfig = _assetProvider.LoadAsset<PriceSettingsConfig>(StaticDataPriceSettingsPath);
     }
 }

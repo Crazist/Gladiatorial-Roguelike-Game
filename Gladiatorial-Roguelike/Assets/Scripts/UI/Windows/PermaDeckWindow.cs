@@ -7,7 +7,6 @@ using Logic.Entities;
 using Logic.Types;
 using UI.Elements.CardDrops;
 using UI.Model;
-using UI.Services;
 using UI.View;
 using UnityEngine;
 using UnityEngine.UI;

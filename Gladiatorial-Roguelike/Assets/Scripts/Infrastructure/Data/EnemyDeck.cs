@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Logic.Enteties;
-using Logic.Entities;
 using Logic.Types;
 
 namespace Infrastructure.Data
@@ -10,7 +9,6 @@ namespace Infrastructure.Data
     public class EnemyDeck
     {
         public List<Card> Cards;
-        public Reward Reward;
         public EnemyDeckState IsSkipped;
         public DeckComplexity DeckComplexity;
         public EnemyDeck(DeckComplexity deckComplexity)

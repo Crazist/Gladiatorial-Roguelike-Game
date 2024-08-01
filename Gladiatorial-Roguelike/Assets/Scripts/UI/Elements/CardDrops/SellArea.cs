@@ -1,18 +1,18 @@
 using Infrastructure.Services.CardsServices;
-using UI.Elements;
-using UI.Elements.CardDrops;
-using UI.Services;
 using UI.View;
 using Zenject;
 
-public class SellArea : CardDropArea
+namespace UI.Elements.CardDrops
 {
-    private CardSellService _cardSellService;
+    public class SellArea : CardDropArea
+    {
+        private CardSellService _cardSellService;
 
-    [Inject]
-    private void Inject(CardSellService cardSellService) => 
-        _cardSellService = cardSellService;
+        [Inject]
+        private void Inject(CardSellService cardSellService) => 
+            _cardSellService = cardSellService;
 
-    public override void HandleDrop(CardView cardView, CardDragService cardDragService) => 
-        _cardSellService.SellCard(cardView, () => cardDragService.ResetPosition(cardView));
+        public override void HandleDrop(CardView cardView, CardDragService cardDragService) => 
+            _cardSellService.SellCard(cardView, () => cardDragService.ResetPosition(cardView));
+    }
 }
