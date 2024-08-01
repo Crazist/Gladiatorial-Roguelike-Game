@@ -11,6 +11,7 @@ namespace Infrastructure.Data
 
         [SerializeField] private int _level;
         [SerializeField] private int _exp;
+        [SerializeField] private int _currency;
 
         public int Level
         {
@@ -36,6 +37,12 @@ namespace Infrastructure.Data
                     OnExpChanged?.Invoke();
                 }
             }
+        }
+
+        public int Currency
+        {
+            get => _currency;
+            set => _currency = value;
         }
     }
 }

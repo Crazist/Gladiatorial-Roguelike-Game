@@ -1,6 +1,7 @@
 using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.StateMachines;
+using Infrastructure.Services.Currency;
 using Zenject;
 
 namespace Infrastructure.States.BattleStates
@@ -11,15 +12,17 @@ namespace Infrastructure.States.BattleStates
         private CardService _cardService;
         private TableService _tableService;
         private CardDragService _cardDragService;
+        private RewardService _rewardService;
 
         [Inject]
         private void Inject(GameStateMachine gameStateMachine, CardService cardService, TableService tableService,
-            CardDragService cardDragService)
+            CardDragService cardDragService, RewardService rewardService)
         {
             _cardDragService = cardDragService;
             _tableService = tableService;
             _cardService = cardService;
             _gameStateMachine = gameStateMachine;
+            _rewardService = rewardService;
         }
 
         public void Enter() => EndBattle();
@@ -31,7 +34,10 @@ namespace Infrastructure.States.BattleStates
             _cardDragService.CleanUp();
         }
 
-        private void EndBattle() => 
+        private void EndBattle()
+        {
+            _rewardService.GrantReward();
             _gameStateMachine.Enter<EndGameState>();
+        }
     }
 }

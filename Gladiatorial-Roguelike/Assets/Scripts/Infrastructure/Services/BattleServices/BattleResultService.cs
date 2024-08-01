@@ -9,5 +9,6 @@ namespace Infrastructure.Services.BattleServices
     {
         public List<Card> PlayerLost = new();
         public BattleResult BattleResult;
+        public int CurrencyReward;
     }
 }

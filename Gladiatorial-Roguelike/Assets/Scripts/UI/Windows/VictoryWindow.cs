@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Infrastructure.Services.BattleServices;
 using Logic.Enteties;
 using Logic.Types;
+using TMPro;
 using UI.Service;
 using UI.Type;
 using UI.View;
@@ -15,21 +16,27 @@ namespace UI.Windows
     {
         [SerializeField] private Button _continueButton;
         [SerializeField] private Button _viewDeckButton;
+        [SerializeField] private TMP_Text _currencyRewardText;
         [SerializeField] private RectTransform _lostCardsContainer;
         [SerializeField] private CardView _cardViewPrefab;
-        
+
         private DeckViewModel _deckViewModel;
         private WindowService _windowService;
 
         [Inject]
-        public void Inject(BattleResultService battleResultService, DeckViewModel deckViewModel, WindowService windowService)
+        public void Inject(BattleResultService battleResultService, DeckViewModel deckViewModel,
+            WindowService windowService)
         {
             _windowService = windowService;
             _deckViewModel = deckViewModel;
-            
+
             InitializeBtns();
             DisplayLostCards(battleResultService.PlayerLost);
+            DisplayCurrencyText(battleResultService.CurrencyReward);
         }
+
+        private void DisplayCurrencyText(int count) =>
+            _currencyRewardText.text = count + "Gold";
 
         private void InitializeBtns()
         {

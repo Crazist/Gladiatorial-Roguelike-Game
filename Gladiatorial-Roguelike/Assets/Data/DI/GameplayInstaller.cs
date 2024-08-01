@@ -5,6 +5,7 @@ using Infrastructure.Services.AIServices;
 using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.BuffsService;
 using Infrastructure.Services.CardsServices;
+using Infrastructure.Services.Currency;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.StateMachines;
 using Services;
@@ -76,6 +77,8 @@ namespace Data.DI
             Container.Bind<BattleResultService>().AsSingle().NonLazy();
             Container.Bind<HealService>().AsSingle().NonLazy();
             Container.Bind<UpgradeService>().AsSingle().NonLazy();
+            Container.Bind<CurrencyService>().AsSingle().NonLazy();
+            Container.Bind<RewardService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()

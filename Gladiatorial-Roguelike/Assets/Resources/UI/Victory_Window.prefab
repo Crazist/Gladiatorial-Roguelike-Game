@@ -212,6 +212,7 @@ MonoBehaviour:
   _closeBtn: {fileID: 0}
   _continueButton: {fileID: 5798975545417564362}
   _viewDeckButton: {fileID: 5798975546281994444}
+  _currencyRewardText: {fileID: 5798975545450346595}
   _lostCardsContainer: {fileID: 5798975544473829373}
   _cardViewPrefab: {fileID: 4046859139883548514, guid: 7202012f18fd52343a46aad63aa19176, type: 3}
 --- !u!114 &590139937151387804

@@ -4,6 +4,7 @@ using Infrastructure.Data;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Enteties;
 using Logic.Entities;
+using Logic.Types;
 using UnityEngine;
 using Zenject;
 

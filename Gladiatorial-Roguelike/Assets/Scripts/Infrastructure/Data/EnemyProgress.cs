@@ -1,5 +1,6 @@
 using System;
 using Infrastructure.Services;
+using Logic.Types;
 
 namespace Infrastructure.Data
 {

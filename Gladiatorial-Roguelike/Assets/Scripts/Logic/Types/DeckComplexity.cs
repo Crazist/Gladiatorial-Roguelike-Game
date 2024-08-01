@@ -1,4 +1,4 @@
-namespace Infrastructure.Data
+namespace Logic.Types
 {
     public enum DeckComplexity
     {

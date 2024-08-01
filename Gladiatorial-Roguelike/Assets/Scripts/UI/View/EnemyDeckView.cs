@@ -6,6 +6,7 @@ using Infrastructure.StateMachines;
 using Infrastructure.States;
 using Logic.Enteties;
 using Logic.Entities;
+using Logic.Types;
 using Services;
 using TMPro;
 using UI.Elements;
