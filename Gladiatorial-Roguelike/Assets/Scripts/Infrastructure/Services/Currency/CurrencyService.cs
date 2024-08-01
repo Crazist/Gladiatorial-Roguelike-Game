@@ -1,5 +1,4 @@
 using System;
-using Infrastructure.Data;
 using Infrastructure.Services.PersistentProgress;
 using Zenject;
 

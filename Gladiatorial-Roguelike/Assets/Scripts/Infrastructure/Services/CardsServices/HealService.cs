@@ -1,22 +1,23 @@
 using Logic.Enteties;
-using Logic.Entities;
-using UI.View;
+using Zenject;
 
 namespace Infrastructure.Services.CardsServices
 {
     public class HealService
     {
-        public void HealCard(CardView cardView)
-        {
-            var card = cardView.GetCard();
+        private StaticDataService _staticData;
 
-            if (card is UnitCard unitCard)
-            {
-                unitCard.Hp = card.CardData.UnitData.Hp;
-                card.IsDead = false;
-            }
-            
-            cardView.GetDynamicCardView().UpdateCard();
+        [Inject]
+        private void Inject(StaticDataService staticData) => 
+            _staticData = staticData;
+
+        public int CalculateHealCost(UnitCard unitCard) =>
+            (unitCard.CardData.UnitData.Hp - unitCard.Hp) * _staticData.ForPriceSettings().HealPricePerHp;
+
+        public void HealCard(UnitCard unitCard)
+        {
+            unitCard.Hp = unitCard.CardData.UnitData.Hp;
+            unitCard.IsDead = false;
         }
     }
 }
