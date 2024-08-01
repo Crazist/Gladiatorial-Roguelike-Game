@@ -12,9 +12,7 @@ namespace Infrastructure.Services.CardsServices
         public int CalculateUpgradeCost(Card card) => 
             (card.Level + 1) * _staticData.ForPriceSettings().UpgradePriceMultiplier;
 
-        public void UpgradeCard(Card card)
-        {
+        public void UpgradeCard(Card card) => 
             card.LevelUp();
-        }
     }
 }
