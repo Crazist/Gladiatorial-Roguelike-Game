@@ -87,6 +87,8 @@ namespace UI.View
         public AttackAndDefence GetAttackAndDefence() => _attackAndDefence;
         public CardInteractionHandler GetCardInteractionHandler() => _interactionHandler;
 
+        public void EnableInteraction() => ChangeRaycasts(true);
+
         private void HandleCardHoverEnter(CardView cardView)
         {
             if (_cardDisplay.IsFaceUp() && !_isDragging)
@@ -112,8 +114,6 @@ namespace UI.View
             _interactionHandler.OnCardHoverEnter -= HandleCardHoverEnter;
             _interactionHandler.OnCardHoverExit -= HandleCardHoverExit;
         }
-
-        private void EnableInteraction() => ChangeRaycasts(true);
 
         private void DisableInteraction() => ChangeRaycasts(false);
     }

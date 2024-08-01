@@ -80,6 +80,7 @@ namespace UI.Windows
             {
                 CardView cardView = Instantiate(_cardPrefab, _deckViewContent);
                 cardView.Initialize(cardData, TeamType.None, true);
+                cardView.EnableInteraction();
             }
         }
 
