@@ -1,12 +1,10 @@
 using Data.Cards;
-using Logic.Cards;
-using Logic.Enteties;
 using Logic.Types;
 using Newtonsoft.Json;
 using UI.View;
 using UnityEngine;
 
-namespace Logic.Entities
+namespace Logic.Enteties
 {
     public class SpecialCard : Card
     {

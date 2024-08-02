@@ -1,5 +1,6 @@
 using System.Collections;
 using Infrastructure.Services.BattleServices;
+using Infrastructure.Services.Leaderboard;
 using Infrastructure.StateMachines;
 using Logic.Types;
 using UI.Factory;
@@ -16,13 +17,16 @@ namespace Infrastructure.States.BattleStates
         private readonly UIFactory _uiFactory;
         private readonly AttackService _attackService;
         private readonly TableService _tableService;
-        private BattleResultService _battleResultService;
+        private readonly BattleResultService _battleResultService;
+        private readonly LeaderboardService _leaderboardService;
 
         [Inject]
         public BattleCalculationState(BattleStateMachine battleStateMachine, BattleService battleService,
             TurnService turnService, CoroutineCustomRunner coroutineCustomRunner, UIFactory uiFactory,
-            AttackService attackService,TableService tableService, BattleResultService battleResultService)
+            AttackService attackService, TableService tableService, BattleResultService battleResultService,
+            LeaderboardService leaderboardService)
         {
+            _leaderboardService = leaderboardService;
             _battleResultService = battleResultService;
             _tableService = tableService;
             _attackService = attackService;
@@ -75,12 +79,13 @@ namespace Infrastructure.States.BattleStates
                 {
                     _battleResultService.BattleResult = BattleResult.Lose;
                 }
-                
+
+                _leaderboardService.AddScore();
+
                 return true;
             }
 
             return false;
         }
-
     }
 }

@@ -94,5 +94,10 @@ namespace UI.Factory
             var config = _staticDataService.ForWindow(WindowId.BlackSmithWindow);
             Object.Instantiate(config.Prefab, _uiRoot);
         }
+        public void CreateLeaderboardWindow()
+        {
+            var config = _staticDataService.ForWindow(WindowId.LeaderboardWindow);
+            Object.Instantiate(config.Prefab, _uiRoot);
+        }
     }
 }

@@ -44,6 +44,9 @@ namespace UI.Service
                 case WindowId.BlackSmithWindow:
                     _uiFactory.CreateBlackSmithWindow();
                     break;
+                case WindowId.LeaderboardWindow:
+                    _uiFactory.CreateLeaderboardWindow();
+                    break;
             }
         }
     }

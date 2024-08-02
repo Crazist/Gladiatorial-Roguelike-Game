@@ -15,11 +15,13 @@ namespace Infrastructure.Services
         private const string StaticDataWindowsPath = "Data/Window/WindowStaticData";
         private const string StaticDataRewardPath = "Data/Rewards";
         private const string StaticDataPriceSettingsPath = "Data/PriceSettingsConfig";
+        private const string StaticDataScoreConfigPath = "Data/ScoreConfig";
 
         private Dictionary<WindowId, WindowConfig> _windowConfigs;
         private Dictionary<DeckType, DeckData> _decks;
         private Dictionary<DeckComplexity, RewardRange> _rewardRanges;
         private PriceSettingsConfig _priceSettingsConfig;
+        private ScoreConfig _scoreConfig;
 
         private AssetProvider _assetProvider;
 
@@ -37,6 +39,7 @@ namespace Infrastructure.Services
             LoadWindowConfig();
             LoadRewardRanges();
             LoadPriceSettings();
+            LoadScoreConfig();
         }
 
         public DeckData ForDeck(DeckType deckType) =>
@@ -50,6 +53,9 @@ namespace Infrastructure.Services
 
         public PriceSettingsConfig ForPriceSettings() =>
             _priceSettingsConfig;
+
+        public ScoreConfig ForScoreConfig() =>
+            _scoreConfig;
 
         private void LoadDecks() =>
             _decks = _assetProvider.LoadAllAssets<DeckData>(StaticDataDeckPath)
@@ -66,5 +72,8 @@ namespace Infrastructure.Services
 
         private void LoadPriceSettings() =>
             _priceSettingsConfig = _assetProvider.LoadAsset<PriceSettingsConfig>(StaticDataPriceSettingsPath);
+
+        private void LoadScoreConfig() =>
+            _scoreConfig = _assetProvider.LoadAsset<ScoreConfig>(StaticDataScoreConfigPath);
     }
 }

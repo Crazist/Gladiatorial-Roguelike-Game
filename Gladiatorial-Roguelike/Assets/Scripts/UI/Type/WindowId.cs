@@ -12,5 +12,6 @@ namespace UI.Type
         VictoryWindow,
         LoseWindow,
         BlackSmithWindow,
+        LeaderboardWindow,
     }
 }

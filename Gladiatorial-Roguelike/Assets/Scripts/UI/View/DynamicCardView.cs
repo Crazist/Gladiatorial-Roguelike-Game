@@ -1,5 +1,4 @@
 using Logic.Enteties;
-using Logic.Entities;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;

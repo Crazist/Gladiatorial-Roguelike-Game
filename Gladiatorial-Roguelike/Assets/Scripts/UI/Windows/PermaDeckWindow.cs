@@ -3,7 +3,6 @@ using Infrastructure.Services.PersistentProgress;
 using UI.Elements;
 using Infrastructure.Services.CardsServices;
 using Logic.Enteties;
-using Logic.Entities;
 using Logic.Types;
 using UI.Elements.CardDrops;
 using UI.Model;

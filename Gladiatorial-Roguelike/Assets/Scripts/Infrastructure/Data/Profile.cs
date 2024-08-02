@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Data;
 using UnityEngine;
 
 namespace Infrastructure.Data
@@ -9,6 +11,8 @@ namespace Infrastructure.Data
         [field: NonSerialized] public event Action OnExpChanged;
         [field: NonSerialized] public event Action OnLevelChanged;
 
+        [SerializeField] private List<LeaderboardEntry> _leaderboard = new List<LeaderboardEntry>();
+        
         [SerializeField] private int _level;
         [SerializeField] private int _exp;
         [SerializeField] private int _currency;
@@ -44,5 +48,7 @@ namespace Infrastructure.Data
             get => _currency;
             set => _currency = value;
         }
+
+        public List<LeaderboardEntry> Leaderboard => _leaderboard;
     }
 }

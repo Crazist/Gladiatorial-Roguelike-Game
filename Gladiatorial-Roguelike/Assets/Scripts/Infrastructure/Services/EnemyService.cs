@@ -5,7 +5,6 @@ using Infrastructure.Data;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
 using Logic.Enteties;
-using Logic.Entities;
 using Logic.Types;
 using Zenject;
 

@@ -5,7 +5,6 @@ using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.PersistentProgress;
 using Logic.Cards;
 using Logic.Enteties;
-using Logic.Entities;
 using Logic.Types;
 using UI.Model;
 using UI.View;

@@ -1,6 +1,5 @@
 using Data.Cards;
 using Logic.Enteties;
-using Logic.Entities;
 using TMPro;
 using UnityEngine;
 

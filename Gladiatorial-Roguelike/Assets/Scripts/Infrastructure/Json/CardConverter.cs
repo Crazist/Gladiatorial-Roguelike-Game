@@ -2,7 +2,6 @@ using System;
 using Data.Cards;
 using Logic.Cards;
 using Logic.Enteties;
-using Logic.Entities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using UnityEngine;

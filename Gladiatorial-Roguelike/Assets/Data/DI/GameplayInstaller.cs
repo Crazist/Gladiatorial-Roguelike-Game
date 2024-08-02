@@ -6,10 +6,10 @@ using Infrastructure.Services.BattleServices;
 using Infrastructure.Services.BuffsService;
 using Infrastructure.Services.CardsServices;
 using Infrastructure.Services.Currency;
+using Infrastructure.Services.Leaderboard;
 using Infrastructure.Services.PersistentProgress;
 using Infrastructure.StateMachines;
 using Services;
-using UI.Elements;
 using UI.Factory;
 using UI.Model;
 using UI.Popup;
@@ -78,6 +78,7 @@ namespace Data.DI
             Container.Bind<UpgradeService>().AsSingle().NonLazy();
             Container.Bind<CurrencyService>().AsSingle().NonLazy();
             Container.Bind<RewardService>().AsSingle().NonLazy();
+            Container.Bind<LeaderboardService>().AsSingle().NonLazy();
         }
 
         private void UIBinds()
