@@ -47,7 +47,7 @@ namespace Infrastructure.Services
 
         public void RefreshEnemy()
         {
-            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.RefreshEnemy();
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.RefreshEnemyDecks();
             _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType = DeckType.None;
             InitEnemyDecks();
             _saveLoadService.SaveProgress();
@@ -59,8 +59,17 @@ namespace Infrastructure.Services
 
             if (LoadEnemyConfigIfExist(configs)) return;
 
-            _fractionConfig = configs[UnityEngine.Random.Range(0, configs.Length)];
-            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType = _fractionConfig.DeckType;
+            EnemyProgress enemyProgress = _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress;
+           
+            if (enemyProgress.UsedDecks.Count == configs.Length)
+            {
+                enemyProgress.UsedDecks.Clear();
+            }
+
+            FractionDeckData[] availableConfigs = configs.Where(config => !enemyProgress.UsedDecks.Contains(config.DeckType)).ToArray();
+            _fractionConfig = availableConfigs[UnityEngine.Random.Range(0, availableConfigs.Length)];
+            enemyProgress.EnemyDeckType = _fractionConfig.DeckType;
+            enemyProgress.UsedDecks.Add(_fractionConfig.DeckType);
         }
 
         private bool LoadEnemyConfigIfExist(FractionDeckData[] configs)
