@@ -47,7 +47,7 @@ namespace Infrastructure.Services
 
         public void RefreshEnemy()
         {
-            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.RefreshEnemyDecks();
+            _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.RefreshEnemy();
             _persistentProgress.PlayerProgress.CurrentRun.EnemyProgress.EnemyDeckType = DeckType.None;
             InitEnemyDecks();
             _saveLoadService.SaveProgress();

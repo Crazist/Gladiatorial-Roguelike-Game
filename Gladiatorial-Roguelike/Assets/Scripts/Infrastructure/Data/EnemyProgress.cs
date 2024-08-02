@@ -16,17 +16,26 @@ namespace Infrastructure.Data
         public DeckComplexity ChoosenDeck;
         public List<DeckType> UsedDecks;
 
-        public EnemyProgress()
-        {
-            UsedDecks = new List<DeckType>();
-            RefreshEnemyDecks();
-        }
+        public EnemyProgress() => 
+            RefreshEnemy();
 
-        public void RefreshEnemyDecks()
+        public void RefreshEnemy()
         {
             EasyDeck = new EnemyDeck(DeckComplexity.Easy);
             IntermediateDeck = new EnemyDeck(DeckComplexity.Intermediate);
             HardDeck = new EnemyDeck(DeckComplexity.Hard);
+            UsedDecks = new List<DeckType>();
+        }
+
+        public EnemyDeck GetCurrentEnemyDeck()
+        {
+            return ChoosenDeck switch
+            {
+                DeckComplexity.Easy => EasyDeck,
+                DeckComplexity.Intermediate => IntermediateDeck,
+                DeckComplexity.Hard => HardDeck,
+                _ => null,
+            };
         }
     }
 }

@@ -18,6 +18,7 @@ namespace UI.Windows
         [SerializeField] private Button _viewDeckButton;
         [SerializeField] private TMP_Text _currencyRewardText;
         [SerializeField] private RectTransform _lostCardsContainer;
+        [SerializeField] private RectTransform _rewardedCardsContainer;
         [SerializeField] private CardView _cardViewPrefab;
 
         private DeckViewModel _deckViewModel;
@@ -33,10 +34,11 @@ namespace UI.Windows
             InitializeBtns();
             DisplayLostCards(battleResultService.PlayerLost);
             DisplayCurrencyText(battleResultService.CurrencyReward);
+            DisplayRewardedCard(battleResultService.RewardedCard);
         }
 
         private void DisplayCurrencyText(int count) =>
-            _currencyRewardText.text = count + "Gold";
+            _currencyRewardText.text = count + " Gold";
 
         private void InitializeBtns()
         {
@@ -49,8 +51,17 @@ namespace UI.Windows
             foreach (var card in lostCards)
             {
                 var cardView = Instantiate(_cardViewPrefab, _lostCardsContainer);
-
                 cardView.Initialize(card, TeamType.None, false);
+                cardView.ChangeRaycasts(false);
+            }
+        }
+
+        private void DisplayRewardedCard(Card rewardedCard)
+        {
+            if (rewardedCard != null)
+            {
+                var cardView = Instantiate(_cardViewPrefab, _rewardedCardsContainer);
+                cardView.Initialize(rewardedCard, TeamType.None, false);
                 cardView.ChangeRaycasts(false);
             }
         }

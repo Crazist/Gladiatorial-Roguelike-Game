@@ -32,8 +32,23 @@ namespace Infrastructure.Services.Currency
             int reward = _random.Next(rewardRange.Min, rewardRange.Max + 1);
 
             _battleResultService.CurrencyReward = reward;
-
             _persistentProgressService.PlayerProgress.Profile.Currency += reward;
+
+            AddRandomEnemyCardToPlayerDeck();
+        }
+
+        private void AddRandomEnemyCardToPlayerDeck()
+        {
+            var enemyDeck = _persistentProgressService.PlayerProgress.CurrentRun.EnemyProgress.GetCurrentEnemyDeck();
+
+            if (enemyDeck != null && enemyDeck.Cards.Count > 0)
+            {
+                var randomCard = enemyDeck.Cards[_random.Next(enemyDeck.Cards.Count)];
+
+                _persistentProgressService.PlayerProgress.CurrentRun.DeckProgress.PlayerDeck.Add(randomCard);
+
+                _battleResultService.RewardedCard = randomCard;
+            }
         }
     }
 }
